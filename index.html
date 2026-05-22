@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Hawks Stats">
+<meta name="theme-color" content="#3D1A06">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="manifest" href="manifest.json">
+<title>Hawks Stats 2026</title>
+<style>
+:root {
+  --brown: #3D1A06;
+  --brown-mid: #5A2D0C;
+  --brown-light: #7A4520;
+  --gold: #F2C14E;
+  --gold-mid: #D4A030;
+  --gold-light: #FDF3D8;
+  --gold-pale: #FFFBF0;
+  --bg: #F5F0E8;
+  --surface: #FFFFFF;
+  --border: #E2D8C8;
+  --text: #1A0E04;
+  --muted: #7A6248;
+  --up: #1B7A2E;
+  --dn: #B01010;
+  --up-bg: #E8F5E9;
+  --dn-bg: #FFEBEE;
+  --r: 12px;
+  --r-sm: 8px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0E0804;
+    --surface: #1A0E04;
+    --border: #3A2510;
+    --text: #F5EDD8;
+    --muted: #A08060;
+    --gold-light: #2A1808;
+    --gold-pale: #1E1208;
+    --up-bg: #0D2E12;
+    --dn-bg: #2E0D0D;
+  }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html { font-size: 16px; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* ── TOP BAR ── */
+.topbar {
+  background: var(--brown);
+  padding: 12px 16px 12px;
+  padding-top: calc(12px + env(safe-area-inset-top));
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.hawk-logo {
+  width: 42px; height: 42px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; font-weight: 900;
+  color: var(--brown);
+  font-family: Georgia, serif;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.topbar-text h1 { font-size: 1rem; font-weight: 700; color: var(--gold); letter-spacing: 0.01em; }
+.topbar-text p { font-size: 0.72rem; color: rgba(242,193,78,0.7); margin-top: 1px; }
+.record-pill {
+  margin-left: auto;
+  background: rgba(242,193,78,0.15);
+  border: 1px solid rgba(242,193,78,0.35);
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* ── SUMMARY CARDS ── */
+.cards-row {
+  display: flex;
+  gap: 10px;
+  padding: 14px 14px 6px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.cards-row::-webkit-scrollbar { display: none; }
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 11px 14px;
+  min-width: 110px;
+  flex-shrink: 0;
+}
+.stat-card .lbl { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 3px; }
+.stat-card .val { font-size: 1.5rem; font-weight: 800; color: var(--gold-mid); line-height: 1; }
+.stat-card .sub { font-size: 0.68rem; color: var(--muted); margin-top: 3px; }
+
+/* ── CONTROLS ── */
+.controls {
+  padding: 8px 14px 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.search-wrap {
+  flex: 1;
+  min-width: 140px;
+  position: relative;
+}
+.search-wrap::before {
+  content: '🔍';
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+}
+input[type=text] {
+  width: 100%;
+  padding: 10px 10px 10px 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.9rem;
+  outline: none;
+  -webkit-appearance: none;
+}
+input[type=text]:focus { border-color: var(--gold-mid); }
+
+.filter-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.tab {
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.15s;
+}
+.tab.active {
+  background: var(--brown);
+  border-color: var(--brown);
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ── VIEW TOGGLE ── */
+.view-toggle {
+  padding: 0 14px 10px;
+  display: flex;
+  gap: 6px;
+}
+.vtab {
+  padding: 7px 14px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+}
+.vtab.active { background: var(--gold-mid); border-color: var(--gold-mid); color: var(--brown); font-weight: 700; }
+
+/* ── PLAYER CARDS (mobile view) ── */
+.player-list { padding: 0 14px 20px; display: flex; flex-direction: column; gap: 10px; }
+.player-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+.player-card:active { transform: scale(0.985); }
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.card-num {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--muted);
+  min-width: 28px;
+}
+.card-name { font-size: 1rem; font-weight: 700; flex: 1; }
+.card-pos-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+.pos-MF { background: #DDEEFF; color: #1A5EA8; }
+.pos-FW { background: #FDEAE2; color: #A03010; }
+.pos-DF { background: #E2F2DC; color: #2A6018; }
+.pos-RU { background: #FFF0D8; color: #8A5008; }
+@media (prefers-color-scheme: dark) {
+  .pos-MF { background: #0C2840; color: #7AB8F5; }
+  .pos-FW { background: #3A1208; color: #F5A080; }
+  .pos-DF { background: #0E2808; color: #90D870; }
+  .pos-RU { background: #2A1800; color: #F5C060; }
+}
+.card-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 10px 14px;
+  gap: 4px;
+}
+.card-stat { text-align: center; }
+.card-stat .cs-val {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.card-stat .cs-hi { color: var(--gold-mid); }
+.card-stat .cs-lbl {
+  font-size: 0.6rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 1px;
+}
+.card-trend {
+  padding: 8px 14px;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-top: 1px solid var(--border);
+}
+.trend-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.trend-up { background: var(--up-bg); color: var(--up); }
+.trend-dn { background: var(--dn-bg); color: var(--dn); }
+.trend-nu { background: var(--border); color: var(--muted); }
+.trend-label {
+  font-size: 0.7rem;
+  color: var(--muted);
+  flex: 1;
+}
+.trend-delta {
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+.delta-up { color: var(--up); }
+.delta-dn { color: var(--dn); }
+
+/* ── TABLE VIEW ── */
+.table-wrap {
+  margin: 0 14px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+thead th {
+  background: var(--brown);
+  color: var(--gold);
+  padding: 9px 10px;
+  text-align: right;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+}
+thead th.lft { text-align: left; }
+thead th:hover { background: var(--brown-mid); }
+thead th.sorted { color: #FFE570; }
+td {
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: right;
+  white-space: nowrap;
+}
+td.lft { text-align: left; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--gold-pale); }
+.t-name { font-weight: 600; }
+.t-hi { font-weight: 700; color: var(--gold-mid); }
+.t-up { color: var(--up); font-weight: 600; }
+.t-dn { color: var(--dn); font-weight: 600; }
+.t-nu { color: var(--muted); }
+
+/* ── SORT BAR ── */
+.sort-bar {
+  padding: 0 14px 8px;
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.sort-bar::-webkit-scrollbar { display: none; }
+.sort-btn {
+  padding: 7px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.sort-btn.active {
+  background: var(--brown-mid);
+  border-color: var(--brown-mid);
+  color: var(--gold);
+}
+
+/* ── LAST UPDATED ── */
+.last-updated {
+  text-align: center;
+  font-size: 0.68rem;
+  color: var(--muted);
+  padding: 0 14px 24px;
+}
+.last-updated a { color: var(--muted); }
+
+/* ── EMPTY ── */
+.empty { text-align: center; color: var(--muted); padding: 40px 20px; font-size: 0.9rem; }
+
+/* ── DESKTOP overrides ── */
+@media (min-width: 700px) {
+  .topbar { padding-left: 24px; padding-right: 24px; }
+  .cards-row { padding: 16px 24px 8px; }
+  .controls { padding: 8px 24px 10px; }
+  .view-toggle { padding: 0 24px 10px; }
+  .sort-bar { padding: 0 24px 8px; }
+  .player-list { padding: 0 24px 24px; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+  .table-wrap { margin: 0 24px 24px; }
+  .last-updated { padding-bottom: 32px; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="hawk-logo">H</div>
+  <div class="topbar-text">
+    <h1>Hawks Stats 2026</h1>
+    <p id="subtitle">Loading…</p>
+  </div>
+  <div class="record-pill" id="record-pill">—</div>
+</div>
+
+<div class="cards-row" id="cards-row">
+  <div class="stat-card"><div class="lbl">Top goals</div><div class="val" id="c-goals">—</div><div class="sub" id="c-goals-name">—</div></div>
+  <div class="stat-card"><div class="lbl">Most disposals</div><div class="val" id="c-disp">—</div><div class="sub" id="c-disp-name">—</div></div>
+  <div class="stat-card"><div class="lbl">Top tackles</div><div class="val" id="c-tacks">—</div><div class="sub" id="c-tacks-name">—</div></div>
+  <div class="stat-card"><div class="lbl">Best DA</div><div class="val" id="c-da">—</div><div class="sub" id="c-da-name">—</div></div>
+  <div class="stat-card"><div class="lbl">Season record</div><div class="val" id="c-wins">—</div><div class="sub">Wins</div></div>
+</div>
+
+<div class="controls">
+  <div class="search-wrap">
+    <input type="text" id="search" placeholder="Search player…" oninput="renderAll()">
+  </div>
+  <div class="filter-tabs">
+    <div class="tab active" data-pos="" onclick="setPos(this)">All</div>
+    <div class="tab" data-pos="MF" onclick="setPos(this)">Mid</div>
+    <div class="tab" data-pos="FW" onclick="setPos(this)">Fwd</div>
+    <div class="tab" data-pos="DF" onclick="setPos(this)">Def</div>
+    <div class="tab" data-pos="RU" onclick="setPos(this)">Ruck</div>
+  </div>
+</div>
+
+<div class="view-toggle">
+  <div class="vtab active" onclick="setView('cards', this)">Cards</div>
+  <div class="vtab" onclick="setView('table', this)">Table</div>
+</div>
+
+<div class="sort-bar" id="sort-bar">
+  <div class="sort-btn active" data-key="gl" onclick="setSort(this)">Goals ↓</div>
+  <div class="sort-btn" data-key="di" onclick="setSort(this)">Disposals</div>
+  <div class="sort-btn" data-key="da26" onclick="setSort(this)">Avg DA</div>
+  <div class="sort-btn" data-key="tk" onclick="setSort(this)">Tackles</div>
+  <div class="sort-btn" data-key="trend" onclick="setSort(this)">Trend</div>
+  <div class="sort-btn" data-key="gp" onclick="setSort(this)">Games</div>
+  <div class="sort-btn" data-key="name" onclick="setSort(this)">Name</div>
+</div>
+
+<div id="cards-view">
+  <div class="player-list" id="player-list"></div>
+</div>
+
+<div id="table-view" style="display:none">
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th class="lft sorted" onclick="tSort('name')"># Player <span id="ta-name">↑</span></th>
+          <th onclick="tSort('pos')">Pos<span id="ta-pos"></span></th>
+          <th onclick="tSort('gp')">GP<span id="ta-gp"></span></th>
+          <th onclick="tSort('gl')">Gls<span id="ta-gl"></span></th>
+          <th onclick="tSort('tk')">Tcks<span id="ta-tk"></span></th>
+          <th onclick="tSort('di')">Disp<span id="ta-di"></span></th>
+          <th onclick="tSort('da26')">DA<span id="ta-da26"></span></th>
+          <th onclick="tSort('ki')">Kks<span id="ta-ki"></span></th>
+          <th onclick="tSort('gp25')">\'25 GP<span id="ta-gp25"></span></th>
+          <th onclick="tSort('da25')">\'25 DA<span id="ta-da25"></span></th>
+          <th onclick="tSort('glpg25')">\'25 G/g<span id="ta-glpg25"></span></th>
+          <th onclick="tSort('tkpg25')">\'25 T/g<span id="ta-tkpg25"></span></th>
+          <th onclick="tSort('dda')">Δ DA<span id="ta-dda"></span></th>
+          <th onclick="tSort('dgl')">Δ G/g<span id="ta-dgl"></span></th>
+          <th onclick="tSort('dtk')">Δ T/g<span id="ta-dtk"></span></th>
+          <th onclick="tSort('trend')">Trend<span id="ta-trend"></span></th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="last-updated" id="last-updated"></div>
+
+<script>
+// ── DATA ── loaded from data.json, falls back to embedded data
+const EMBEDDED = {
+  updated: "2026-05-22",
+  round: 11,
+  record: "7W–3L",
+  position: "3rd",
+  players: [
+    {jn:10,name:'Karl Amon',pos:'DF',age:30,ht:181,draftLbl:'68',gp:9,gl:0,tk:18,di:215,ki:151,gp25:25,di25:600,gl25:4,tk25:53},
+    {jn:37,name:'Tom Barrass',pos:'DF',age:30,ht:196,draftLbl:'43',gp:9,gl:1,tk:9,di:88,ki:57,gp25:25,di25:242,gl25:0,tk25:28},
+    {jn:24,name:'Josh Battle',pos:'DF',age:27,ht:193,draftLbl:'39',gp:10,gl:0,tk:12,di:216,ki:147,gp25:26,di25:480,gl25:0,tk25:49},
+    {jn:30,name:'Sam Butler',pos:'MF',age:23,ht:184,draftLbl:'23',gp:7,gl:4,tk:26,di:83,ki:56,gp25:6,di25:71,gl25:3,tk25:31},
+    {jn:18,name:'Mabior Chol',pos:'FW',age:29,ht:200,draftLbl:'30',gp:5,gl:7,tk:8,di:42,ki:34,gp25:24,di25:240,gl25:42,tk25:64},
+    {jn:16,name:"Massimo D'Ambrosio",pos:'MF',age:22,ht:178,draftLbl:'3',gp:10,gl:4,tk:25,di:187,ki:123,gp25:26,di25:472,gl25:5,tk25:48},
+    {jn:34,name:'Jack Dalton',pos:'MF',age:19,ht:177,draftLbl:'34',gp:2,gl:0,tk:7,di:20,ki:8,gp25:0,di25:0,gl25:0,tk25:0},
+    {jn:13,name:'Calsher Dear',pos:'FW',age:20,ht:195,draftLbl:'56',gp:4,gl:3,tk:12,di:36,ki:22,gp25:9,di25:66,gl25:10,tk25:16},
+    {jn:33,name:'Jack Ginnivan',pos:'FW',age:23,ht:183,draftLbl:'13',gp:10,gl:9,tk:19,di:198,ki:133,gp25:25,di25:466,gl25:29,tk25:52},
+    {jn:19,name:'Jack Gunston',pos:'FW',age:34,ht:193,draftLbl:'29',gp:9,gl:30,tk:7,di:91,ki:73,gp25:23,di25:289,gl25:73,tk25:31},
+    {jn:15,name:'Blake Hardwick',pos:'DF',age:29,ht:181,draftLbl:'44',gp:10,gl:0,tk:25,di:175,ki:116,gp25:26,di25:383,gl25:11,tk25:61},
+    {jn:44,name:'Henry Hustwaite',pos:'MF',age:21,ht:195,draftLbl:'37',gp:1,gl:0,tk:3,di:19,ki:7,gp25:4,di25:55,gl25:0,tk25:14},
+    {jn:4,name:'Jarman Impey',pos:'DF',age:30,ht:178,draftLbl:'21',gp:10,gl:1,tk:20,di:235,ki:158,gp25:24,di25:463,gl25:5,tk25:62},
+    {jn:2,name:'Mitch Lewis',pos:'FW',age:27,ht:198,draftLbl:'76',gp:10,gl:16,tk:15,di:135,ki:93,gp25:8,di25:63,gl25:8,tk25:16},
+    {jn:9,name:'Connor Macdonald',pos:'FW',age:23,ht:184,draftLbl:'26',gp:10,gl:8,tk:32,di:211,ki:133,gp25:24,di25:357,gl25:22,tk25:72},
+    {jn:28,name:'Cam Mackenzie',pos:'MF',age:22,ht:188,draftLbl:'7',gp:8,gl:1,tk:30,di:158,ki:82,gp25:12,di25:198,gl25:0,tk25:50},
+    {jn:20,name:'Finn Maginness',pos:'FW',age:25,ht:187,draftLbl:'29',gp:4,gl:2,tk:7,di:59,ki:17,gp25:13,di25:173,gl25:4,tk25:23},
+    {jn:17,name:'Lloyd Meek',pos:'RU',age:28,ht:203,draftLbl:'69',gp:10,gl:2,tk:30,di:107,ki:44,gp25:25,di25:338,gl25:10,tk25:104},
+    {jn:8,name:'Dylan Moore',pos:'FW',age:26,ht:176,draftLbl:'67',gp:9,gl:10,tk:22,di:177,ki:92,gp25:26,di25:505,gl25:23,tk25:96},
+    {jn:1,name:'Harry Morrison',pos:'MF',age:27,ht:180,draftLbl:'74',gp:3,gl:1,tk:9,di:51,ki:28,gp25:20,di25:348,gl25:5,tk25:61},
+    {jn:11,name:'Conor Nash',pos:'MF',age:27,ht:197,draftLbl:'Cat B',gp:9,gl:2,tk:50,di:176,ki:71,gp25:22,di25:404,gl25:5,tk25:124},
+    {jn:3,name:'Jai Newcombe',pos:'MF',age:24,ht:186,draftLbl:'2',gp:10,gl:4,tk:39,di:262,ki:124,gp25:26,di25:596,gl25:11,tk25:127},
+    {jn:7,name:'Ned Reeves',pos:'RU',age:27,ht:208,draftLbl:'SSP',gp:9,gl:4,tk:20,di:72,ki:37,gp25:1,di25:6,gl25:0,tk25:3},
+    {jn:14,name:'Jack Scrimshaw',pos:'DF',age:27,ht:193,draftLbl:'7',gp:6,gl:0,tk:9,di:104,ki:52,gp25:16,di25:219,gl25:0,tk25:38},
+    {jn:6,name:'James Sicily',pos:'DF',age:31,ht:186,draftLbl:'56',gp:9,gl:0,tk:16,di:200,ki:129,gp25:23,di25:449,gl25:6,tk25:36},
+    {jn:25,name:'Josh Ward',pos:'MF',age:22,ht:181,draftLbl:'7',gp:10,gl:0,tk:34,di:214,ki:107,gp25:25,di25:514,gl25:3,tk25:89},
+    {jn:5,name:'Nick Watson',pos:'FW',age:21,ht:170,draftLbl:'5',gp:10,gl:26,tk:23,di:139,ki:86,gp25:25,di25:272,gl25:36,tk25:51},
+    {jn:23,name:'Josh Weddle',pos:'DF',age:22,ht:191,draftLbl:'18',gp:10,gl:5,tk:22,di:156,ki:83,gp25:18,di25:290,gl25:9,tk25:36}
+  ]
+};
+
+let DATA = null;
+let curPos = '';
+let curSort = 'gl';
+let curSortDir = -1;
+let curView = 'cards';
+let tSortKey = 'name';
+let tSortDir = 1;
+
+function compute(raw) {
+  return raw.map(p => {
+    const da26 = p.di / p.gp;
+    const isDebut = p.gp25 === 0;
+    const isInj = !isDebut && p.gp25 < 3;
+    const da25 = p.gp25 > 0 ? p.di25 / p.gp25 : null;
+    const glpg25 = p.gp25 > 0 ? p.gl25 / p.gp25 : null;
+    const tkpg25 = p.gp25 > 0 ? p.tk25 / p.gp25 : null;
+    let dda=null,dgl=null,dtk=null,trend=null;
+    if (!isDebut && !isInj && da25 !== null) {
+      dda = da26 - da25;
+      dgl = (p.gl/p.gp) - glpg25;
+      dtk = (p.tk/p.gp) - tkpg25;
+      const cap = v => Math.max(-100, Math.min(100, v));
+      const daPct = cap((dda/Math.max(da25,1))*100);
+      const glPct = cap(glpg25 > 0.1 ? (dgl/glpg25)*100 : (p.gl/p.gp > 0.05 ? 50 : 0));
+      const tkPct = cap((dtk/Math.max(tkpg25,0.5))*100);
+      trend = (daPct + glPct + tkPct) / 3;
+    }
+    return {...p, da26, da25, glpg25, tkpg25, dda, dgl, dtk, trend, isDebut, isInj};
+  });
+}
+
+function load() {
+  fetch('data.json')
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(d => { DATA = { ...d, players: compute(d.players) }; init(); })
+    .catch(() => { DATA = { ...EMBEDDED, players: compute(EMBEDDED.players) }; init(); });
+}
+
+function init() {
+  const d = DATA;
+  document.getElementById('subtitle').textContent = `Round ${d.round} · ${d.updated}`;
+  document.getElementById('record-pill').textContent = `${d.record} · ${d.position}`;
+  const byGL = [...d.players].sort((a,b) => b.gl - a.gl);
+  const byDI = [...d.players].sort((a,b) => b.di - a.di);
+  const byTK = [...d.players].sort((a,b) => b.tk - a.tk);
+  const byDA = [...d.players].filter(p=>p.gp>=5).sort((a,b) => b.da26 - a.da26);
+  const wins = parseInt((d.record||'0W').split('W')[0]);
+  document.getElementById('c-goals').textContent = byGL[0]?.gl ?? '—';
+  document.getElementById('c-goals-name').textContent = byGL[0]?.name.split(' ').pop() ?? '';
+  document.getElementById('c-disp').textContent = byDI[0]?.di ?? '—';
+  document.getElementById('c-disp-name').textContent = byDI[0]?.name.split(' ').pop() ?? '';
+  document.getElementById('c-tacks').textContent = byTK[0]?.tk ?? '—';
+  document.getElementById('c-tacks-name').textContent = byTK[0]?.name.split(' ').pop() ?? '';
+  document.getElementById('c-da').textContent = byDA[0]?.da26.toFixed(1) ?? '—';
+  document.getElementById('c-da-name').textContent = byDA[0]?.name.split(' ').pop() ?? '';
+  document.getElementById('c-wins').textContent = wins;
+  document.getElementById('last-updated').innerHTML =
+    `Stats updated: ${d.updated} · Round ${d.round} · Source: <a href="https://afltables.com" target="_blank">AFL Tables</a>`;
+  renderAll();
+}
+
+function filtered() {
+  const q = document.getElementById('search').value.toLowerCase();
+  return DATA.players.filter(p =>
+    (!curPos || p.pos === curPos) &&
+    (!q || p.name.toLowerCase().includes(q))
+  );
+}
+
+function sorted(arr) {
+  return [...arr].sort((a, b) => {
+    const av = a[curSort], bv = b[curSort];
+    if (av === null && bv === null) return 0;
+    if (av === null) return 1; if (bv === null) return -1;
+    if (typeof av === 'string') return curSortDir * av.localeCompare(bv);
+    return curSortDir * (av - bv);
+  });
+}
+
+function renderAll() {
+  if (!DATA) return;
+  if (curView === 'cards') renderCards();
+  else renderTable();
+}
+
+function trendBadge(p) {
+  if (p.isDebut) return ['trend-nu','Debut',''];
+  if (p.isInj) return ['trend-nu','Inj \'25',''];
+  if (p.trend === null) return ['trend-nu','—',''];
+  if (p.trend > 8) return ['trend-up', `↑ ${p.trend.toFixed(0)}%`, 'Improving'];
+  if (p.trend < -8) return ['trend-dn', `↓ ${Math.abs(p.trend).toFixed(0)}%`, 'Down on \'25'];
+  return ['trend-nu', `↔ ${p.trend.toFixed(0)}%`, 'Similar to \'25'];
+}
+
+function dSign(v, dec) {
+  if (v === null) return '';
+  return (v > 0 ? '+' : '') + v.toFixed(dec);
+}
+
+function renderCards() {
+  const list = sorted(filtered());
+  const el = document.getElementById('player-list');
+  if (!list.length) { el.innerHTML = '<div class="empty">No players match</div>'; return; }
+  el.innerHTML = list.map(p => {
+    const [tCls, tLabel, tDesc] = trendBadge(p);
+    const daHi = p.da26 >= 20;
+    const glHi = p.gl >= 10;
+    const tkHi = p.tk >= 25;
+    const deltaDa = !p.isDebut && !p.isInj && p.dda !== null ?
+      `<span class="${p.dda >= 0 ? 'delta-up' : 'delta-dn'}">${dSign(p.dda,1)} DA/g</span>` : '';
+    const deltaGl = !p.isDebut && !p.isInj && p.dgl !== null && Math.abs(p.dgl) > 0.05 ?
+      `<span class="${p.dgl >= 0 ? 'delta-up' : 'delta-dn'}">${dSign(p.dgl,1)} Gls/g</span>` : '';
+    return `
+    <div class="player-card">
+      <div class="card-header">
+        <div class="card-num">${p.jn > 0 ? p.jn : '—'}</div>
+        <div class="card-name">${p.name}</div>
+        <div class="card-pos-badge pos-${p.pos}">${p.pos}</div>
+      </div>
+      <div class="card-stats">
+        <div class="card-stat"><div class="cs-val ${glHi?'cs-hi':''}">${p.gl}</div><div class="cs-lbl">Goals</div></div>
+        <div class="card-stat"><div class="cs-val ${daHi?'cs-hi':''}">${p.da26.toFixed(1)}</div><div class="cs-lbl">DA</div></div>
+        <div class="card-stat"><div class="cs-val ${tkHi?'cs-hi':''}">${p.tk}</div><div class="cs-lbl">Tackles</div></div>
+        <div class="card-stat"><div class="cs-val">${p.gp}</div><div class="cs-lbl">Games</div></div>
+      </div>
+      <div class="card-trend">
+        <span class="trend-badge ${tCls}">${tLabel}</span>
+        <span class="trend-label">${tDesc}</span>
+        <span class="trend-delta">${deltaDa}${deltaGl ? ' · ' + deltaGl : ''}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderTable() {
+  const arr = [...filtered()].sort((a,b) => {
+    const av = a[tSortKey], bv = b[tSortKey];
+    if (av === null && bv === null) return 0;
+    if (av === null) return 1; if (bv === null) return -1;
+    if (typeof av === 'string') return tSortDir * av.localeCompare(bv);
+    return tSortDir * (av - bv);
+  });
+  document.querySelectorAll('[id^="ta-"]').forEach(el => el.textContent = '');
+  const ar = document.getElementById('ta-' + tSortKey);
+  if (ar) ar.textContent = tSortDir > 0 ? ' ↑' : ' ↓';
+  const tbody = document.getElementById('table-body');
+  if (!arr.length) { tbody.innerHTML = '<tr><td colspan="16" class="empty">No players</td></tr>'; return; }
+  tbody.innerHTML = arr.map(p => {
+    const da25D = p.da25 !== null ? p.da25.toFixed(1) : '—';
+    const glpg25D = p.glpg25 !== null ? p.glpg25.toFixed(1) : '—';
+    const tkpg25D = p.tkpg25 !== null ? p.tkpg25.toFixed(1) : '—';
+    const ddaD = p.dda !== null ? `<span class="${p.dda>=0?'t-up':'t-dn'}">${dSign(p.dda,1)}</span>` : '<span class="t-nu">—</span>';
+    const dglD = p.dgl !== null ? `<span class="${p.dgl>=0?'t-up':'t-dn'}">${dSign(p.dgl,2)}</span>` : '<span class="t-nu">—</span>';
+    const dtkD = p.dtk !== null ? `<span class="${p.dtk>=0?'t-up':'t-dn'}">${dSign(p.dtk,1)}</span>` : '<span class="t-nu">—</span>';
+    let trD = '<span class="t-nu">—</span>';
+    if (!p.isDebut && !p.isInj && p.trend !== null) {
+      const cls = p.trend > 8 ? 't-up' : p.trend < -8 ? 't-dn' : 't-nu';
+      trD = `<span class="${cls}">${p.trend > 0 ? '↑' : p.trend < 0 ? '↓' : '↔'} ${p.trend.toFixed(0)}%</span>`;
+    } else if (p.isDebut) trD = '<span class="t-nu">Debut</span>';
+    else if (p.isInj) trD = `<span class="t-nu">Inj</span>`;
+    return `<tr>
+      <td class="lft t-name">${p.jn > 0 ? p.jn + ' ' : ''}${p.name}</td>
+      <td><span style="font-size:.65rem;font-weight:600;">${p.pos}</span></td>
+      <td>${p.gp}</td>
+      <td class="${p.gl>=15?'t-hi':''}">${p.gl}</td>
+      <td class="${p.tk>=30?'t-hi':''}">${p.tk}</td>
+      <td class="${p.di>=200?'t-hi':''}">${p.di}</td>
+      <td>${p.da26.toFixed(1)}</td>
+      <td>${p.ki}</td>
+      <td>${p.isDebut ? '—' : p.gp25}</td>
+      <td>${p.isDebut ? '—' : da25D}</td>
+      <td>${p.isDebut ? '—' : glpg25D}</td>
+      <td>${p.isDebut ? '—' : tkpg25D}</td>
+      <td>${p.isDebut||p.isInj?'<span class="t-nu">—</span>':ddaD}</td>
+      <td>${p.isDebut||p.isInj?'<span class="t-nu">—</span>':dglD}</td>
+      <td>${p.isDebut||p.isInj?'<span class="t-nu">—</span>':dtkD}</td>
+      <td>${trD}</td>
+    </tr>`;
+  }).join('');
+}
+
+function setPos(el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  curPos = el.dataset.pos;
+  renderAll();
+}
+
+function setView(v, el) {
+  document.querySelectorAll('.vtab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  curView = v;
+  document.getElementById('cards-view').style.display = v === 'cards' ? '' : 'none';
+  document.getElementById('table-view').style.display = v === 'table' ? '' : 'none';
+  document.getElementById('sort-bar').style.display = v === 'cards' ? '' : 'none';
+  renderAll();
+}
+
+function setSort(el) {
+  const key = el.dataset.key;
+  if (curSort === key) curSortDir *= -1; else { curSort = key; curSortDir = -1; }
+  document.querySelectorAll('.sort-btn').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  renderAll();
+}
+
+function tSort(key) {
+  if (tSortKey === key) tSortDir *= -1; else { tSortKey = key; tSortDir = -1; }
+  renderAll();
+}
+
+load();
+</script>
+</body>
+</html>
