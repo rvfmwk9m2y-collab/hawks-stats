@@ -295,7 +295,8 @@ tr:hover td { background: var(--gold-pale); }
   <div class="stat-card"><div class="lbl">Disposals</div><div class="val" id="c-disp">—</div><div class="sub" id="c-disp-name">—</div></div>
   <div class="stat-card"><div class="lbl">Tackles</div><div class="val" id="c-tacks">—</div><div class="sub" id="c-tacks-name">—</div></div>
   <div class="stat-card"><div class="lbl">Best DA</div><div class="val" id="c-da">—</div><div class="sub" id="c-da-name">—</div></div>
-  <div class="stat-card"><div class="lbl">Season wins</div><div class="val" id="c-wins">—</div><div class="sub">this season</div></div>
+  <div class="stat-card"><div class="lbl">Season wins</div><div class="val" id="c-wins">—</div><div class="sub" id="c-wins-sub">this season</div></div>
+  <div class="stat-card" style="border-left:3px solid var(--up);"><div class="lbl">Best trend ↑</div><div class="val" style="color:var(--up)" id="c-trend-val">—</div><div class="sub" id="c-trend-name">—</div></div>
 </div>
  
 <div class="controls">
@@ -362,7 +363,7 @@ tr:hover td { background: var(--gold-pale); }
  
 <script>
 const EMBEDDED = {
-  updated:"2026-05-22", round:11, record:"7W–3L", position:"3rd",
+  updated:"2026-05-22", round:12, record:"7W–3L–1D", position:"3rd",
   players:[
     {jn:10,name:'Karl Amon',pos:'DF',age:30,ht:181,draftLbl:'68',gp:9,gl:0,tk:18,di:215,ki:151,gp25:25,di25:600,gl25:4,tk25:53},
     {jn:37,name:'Tom Barrass',pos:'DF',age:30,ht:196,draftLbl:'43',gp:9,gl:1,tk:9,di:88,ki:57,gp25:25,di25:242,gl25:0,tk25:28},
@@ -450,6 +451,15 @@ function init() {
   document.getElementById('c-da').textContent = byDA[0]?.da26.toFixed(1)??'—';
   document.getElementById('c-da-name').textContent = byDA[0]?.name.split(' ').pop()??'';
   document.getElementById('c-wins').textContent = parseInt((d.record||'0W').split('W')[0]);
+  const recordParts = (d.record||'').match(/(\d+)W[–-](\d+)L(?:[–-](\d+)D)?/);
+  document.getElementById('c-wins-sub').textContent = recordParts
+    ? `${recordParts[1]}W · ${recordParts[2]}L${recordParts[3] ? ' · ' + recordParts[3] + 'D' : ''}`
+    : 'this season';
+  const byTrend = [...d.players].filter(p=>p.trend!==null).sort((a,b)=>b.trend-a.trend);
+  if (byTrend.length) {
+    document.getElementById('c-trend-val').textContent = '+' + byTrend[0].trend.toFixed(0) + '%';
+    document.getElementById('c-trend-name').textContent = byTrend[0].name.split(' ').pop();
+  }
   document.getElementById('last-updated').innerHTML =
     `Stats to Round ${d.round} · Updated ${d.updated} · Source: <a href="https://afltables.com" target="_blank">AFL Tables</a>`;
   renderAll();
