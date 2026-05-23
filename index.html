@@ -105,7 +105,7 @@ input[type=text]:focus { border-color: var(--gold-mid); }
 .trend-detail { font-size: 0.65rem; color: var(--muted); flex: 1; }
 .delta-up { color: var(--up); font-weight: 600; }
 .delta-dn { color: var(--dn); font-weight: 600; }
-.hawk-btn { display: flex; align-items: center; gap: 4px; background: var(--brown); color: var(--gold); font-size: 0.65rem; font-weight: 700; padding: 5px 9px; border-radius: 6px; text-decoration: none; flex-shrink: 0; white-space: nowrap; letter-spacing: .02em; }
+.hawk-btn { display: flex; align-items: center; gap: 4px; background: var(--brown); color: var(--gold); font-size: 0.65rem; font-weight: 700; padding: 5px 9px; border-radius: 6px; border: none; cursor: pointer; flex-shrink: 0; white-space: nowrap; letter-spacing: .02em; font-family: inherit; }
  
 /* TABLE VIEW */
 .table-wrap { margin: 0 14px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -131,6 +131,52 @@ tr:hover td { background: var(--gold-pale); }
 .last-updated { text-align: center; font-size: 0.68rem; color: var(--muted); padding: 0 14px 28px; }
 .last-updated a { color: var(--muted); }
 .empty { text-align: center; color: var(--muted); padding: 40px 20px; font-size: 0.9rem; }
+ 
+/* ── VIDEO MODAL ── */
+.vid-modal {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(10,5,2,0.97);
+  display: flex; flex-direction: column;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.vid-modal.hidden { display: none; }
+.vid-modal-bar {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 16px; flex-shrink: 0;
+}
+.vid-modal-logo { font-size: 1.2rem; }
+.vid-modal-title { flex: 1; font-size: 0.9rem; font-weight: 700; color: var(--gold); line-height: 1.3; }
+.vid-modal-sub { font-size: 0.65rem; color: rgba(242,193,78,0.6); margin-top: 2px; }
+.vid-close-btn {
+  background: rgba(242,193,78,0.12); border: 1px solid rgba(242,193,78,0.25);
+  color: var(--gold); font-size: 1.2rem; font-weight: 300;
+  width: 36px; height: 36px; border-radius: 50%;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; line-height: 1;
+}
+.vid-body {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  padding: 8px 16px 20px;
+}
+.vid-ratio {
+  width: 100%; position: relative; padding-bottom: 56.25%; /* 16:9 */
+  border-radius: var(--r); overflow: hidden;
+  background: #000;
+}
+.vid-ratio iframe {
+  position: absolute; inset: 0; width: 100%; height: 100%; border: none;
+}
+.vid-no-match {
+  text-align: center; color: rgba(242,193,78,0.55);
+  font-size: 0.88rem; line-height: 1.7; padding: 0 24px;
+}
+.vid-no-match strong { color: var(--gold); display: block; margin-bottom: 6px; font-size: 1rem; }
+ 
+@media (min-width: 700px) {
+  .vid-modal-bar { padding: 14px 24px; }
+  .vid-body { padding: 8px 24px 24px; max-width: 900px; margin: 0 auto; width: 100%; }
+}
  
 @media (min-width: 700px) {
   .topbar, .cards-row, .controls, .view-toggle, .sort-bar, .last-updated { padding-left: 24px; padding-right: 24px; }
@@ -237,37 +283,39 @@ tr:hover td { background: var(--gold-pale); }
 <div class="last-updated" id="last-updated"></div>
  
 <script>
+const BASE = 'https://www.hawthornfc.com.au/players/';
+const SQUAD_PAGE = 'https://www.hawthornfc.com.au/teams/afl';
 const EMBEDDED = {
   updated:"2026-05-22", round:12, record:"7W–3L–1D", position:"3rd",
   players:[
-    {jn:10,name:'Karl Amon',        hid:801,  pos:'DF',age:30,ht:181,draftLbl:'68',draft:68, gp:9, gl:0, tk:18,di:215,ki:151,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:600,gl25:4, tk25:53},
-    {jn:37,name:'Tom Barrass',      hid:790,  pos:'DF',age:30,ht:196,draftLbl:'43',draft:43, gp:9, gl:1, tk:9, di:88, ki:57, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:242,gl25:0, tk25:28},
-    {jn:24,name:'Josh Battle',      hid:1412, pos:'DF',age:27,ht:193,draftLbl:'39',draft:39, gp:10,gl:0, tk:12,di:216,ki:147,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:26,di25:480,gl25:0, tk25:49},
-    {jn:30,name:'Sam Butler',       hid:0,    pos:'MF',age:23,ht:184,draftLbl:'23',draft:23, gp:7, gl:4, tk:26,di:83, ki:56, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:6, di25:71, gl25:3, tk25:31},
-    {jn:18,name:'Mabior Chol',      hid:1125, pos:'FW',age:29,ht:200,draftLbl:'30',draft:30, gp:5, gl:7, tk:8, di:42, ki:34, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:24,di25:240,gl25:42,tk25:64},
-    {jn:16,name:"Massimo D'Ambrosio",hid:4349,pos:'MF',age:22,ht:178,draftLbl:'3', draft:3,  gp:10,gl:4, tk:25,di:187,ki:123,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:26,di25:472,gl25:5, tk25:48},
-    {jn:34,name:'Jack Dalton',      hid:12018,pos:'MF',age:19,ht:177,draftLbl:'34',draft:34, gp:2, gl:0, tk:7, di:20, ki:8,  ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:0, di25:0,  gl25:0, tk25:0},
-    {jn:13,name:'Calsher Dear',     hid:9423, pos:'FW',age:20,ht:195,draftLbl:'56',draft:56, gp:4, gl:3, tk:12,di:36, ki:22, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:9, di25:66, gl25:10,tk25:16},
-    {jn:33,name:'Jack Ginnivan',    hid:2237, pos:'FW',age:23,ht:183,draftLbl:'13',draft:13, gp:10,gl:9, tk:19,di:198,ki:133,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:466,gl25:29,tk25:52},
-    {jn:19,name:'Jack Gunston',     hid:500,  pos:'FW',age:34,ht:193,draftLbl:'29',draft:29, gp:9, gl:30,tk:7, di:91, ki:73, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:23,di25:289,gl25:73,tk25:31},
-    {jn:15,name:'Blake Hardwick',   hid:924,  pos:'DF',age:29,ht:181,draftLbl:'44',draft:44, gp:10,gl:0, tk:25,di:175,ki:116,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:26,di25:383,gl25:11,tk25:61},
-    {jn:44,name:'Henry Hustwaite',  hid:5410, pos:'MF',age:21,ht:195,draftLbl:'37',draft:37, gp:1, gl:0, tk:3, di:19, ki:7,  ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:4, di25:55, gl25:0, tk25:14},
-    {jn:4, name:'Jarman Impey',     hid:702,  pos:'DF',age:30,ht:178,draftLbl:'21',draft:21, gp:10,gl:1, tk:20,di:235,ki:158,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:24,di25:463,gl25:5, tk25:62},
-    {jn:2, name:'Mitch Lewis',      hid:1333, pos:'FW',age:27,ht:198,draftLbl:'76',draft:76, gp:10,gl:16,tk:15,di:135,ki:93, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:8, di25:63, gl25:8, tk25:16},
-    {jn:9, name:'Connor Macdonald', hid:2723, pos:'FW',age:23,ht:184,draftLbl:'26',draft:26, gp:10,gl:8, tk:32,di:211,ki:133,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:24,di25:357,gl25:22,tk25:72},
-    {jn:28,name:'Cam Mackenzie',    hid:5630, pos:'MF',age:22,ht:188,draftLbl:'7', draft:7,  gp:8, gl:1, tk:30,di:158,ki:82, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:12,di25:198,gl25:0, tk25:50},
-    {jn:20,name:'Finn Maginness',   hid:2812, pos:'FW',age:25,ht:187,draftLbl:'29',draft:29, gp:4, gl:2, tk:7, di:59, ki:17, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:13,di25:173,gl25:4, tk25:23},
-    {jn:17,name:'Lloyd Meek',       hid:1560, pos:'RU',age:28,ht:203,draftLbl:'69',draft:69, gp:10,gl:2, tk:30,di:107,ki:44, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:338,gl25:10,tk25:104},
-    {jn:8, name:'Dylan Moore',      hid:1595, pos:'FW',age:26,ht:176,draftLbl:'67',draft:67, gp:9, gl:10,tk:22,di:177,ki:92, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:26,di25:505,gl25:23,tk25:96},
-    {jn:1, name:'Harry Morrison',   hid:1341, pos:'MF',age:27,ht:180,draftLbl:'74',draft:74, gp:3, gl:1, tk:9, di:51, ki:28, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:20,di25:348,gl25:5, tk25:61},
-    {jn:11,name:'Conor Nash',       hid:1302, pos:'MF',age:27,ht:197,draftLbl:'Cat B',draft:9999,gp:9,gl:2,tk:50,di:176,ki:71,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:22,di25:404,gl25:5, tk25:124},
-    {jn:3, name:'Jai Newcombe',     hid:4711, pos:'MF',age:24,ht:186,draftLbl:'2', draft:2,  gp:10,gl:4, tk:39,di:262,ki:124,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:26,di25:596,gl25:11,tk25:127},
-    {jn:7, name:'Ned Reeves',       hid:1822, pos:'RU',age:27,ht:208,draftLbl:'SSP',draft:9998,gp:9,gl:4,tk:20,di:72, ki:37, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:1, di25:6,  gl25:0, tk25:3},
-    {jn:14,name:'Jack Scrimshaw',   hid:1336, pos:'DF',age:27,ht:193,draftLbl:'7', draft:7,  gp:6, gl:0, tk:9, di:104,ki:52, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:16,di25:219,gl25:0, tk25:38},
-    {jn:6, name:'James Sicily',     hid:514,  pos:'DF',age:31,ht:186,draftLbl:'56',draft:56, gp:9, gl:0, tk:16,di:200,ki:129,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:23,di25:449,gl25:6, tk25:36},
-    {jn:25,name:'Josh Ward',        hid:5252, pos:'MF',age:22,ht:181,draftLbl:'7', draft:7,  gp:10,gl:0, tk:34,di:214,ki:107,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:514,gl25:3, tk25:89},
-    {jn:5, name:'Nick Watson',      hid:5592, pos:'FW',age:21,ht:170,draftLbl:'5', draft:5,  gp:10,gl:26,tk:23,di:139,ki:86, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:272,gl25:36,tk25:51},
-    {jn:23,name:'Josh Weddle',      hid:6669, pos:'DF',age:22,ht:191,draftLbl:'18',draft:18, gp:10,gl:5, tk:22,di:156,ki:83, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:18,di25:290,gl25:9, tk25:36}
+    {jn:10,name:'Karl Amon',         pu:BASE+'801/karl-amon',            pos:'DF',age:30,ht:181,draftLbl:'68',draft:68,  gp:9, gl:0, tk:18,di:215,ki:151,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:600,gl25:4, tk25:53},
+    {jn:37,name:'Tom Barrass',        pu:BASE+'790/tom-barrass',          pos:'DF',age:30,ht:196,draftLbl:'43',draft:43,  gp:9, gl:1, tk:9, di:88, ki:57, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:242,gl25:0, tk25:28},
+    {jn:24,name:'Josh Battle',        pu:BASE+'1412/josh-battle',         pos:'DF',age:27,ht:193,draftLbl:'39',draft:39,  gp:10,gl:0, tk:12,di:216,ki:147,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:26,di25:480,gl25:0, tk25:49},
+    {jn:30,name:'Sam Butler',         pu:SQUAD_PAGE,                      pos:'MF',age:23,ht:184,draftLbl:'23',draft:23,  gp:7, gl:4, tk:26,di:83, ki:56, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:6, di25:71, gl25:3, tk25:31},
+    {jn:18,name:'Mabior Chol',        pu:BASE+'1125/mabior-chol',         pos:'FW',age:29,ht:200,draftLbl:'30',draft:30,  gp:5, gl:7, tk:8, di:42, ki:34, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:24,di25:240,gl25:42,tk25:64},
+    {jn:16,name:"Massimo D'Ambrosio", pu:BASE+'4349/massimo-d-ambrosio',  pos:'MF',age:22,ht:178,draftLbl:'3', draft:3,   gp:10,gl:4, tk:25,di:187,ki:123,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:26,di25:472,gl25:5, tk25:48},
+    {jn:34,name:'Jack Dalton',        pu:BASE+'12018/jack-dalton',        pos:'MF',age:19,ht:177,draftLbl:'34',draft:34,  gp:2, gl:0, tk:7, di:20, ki:8,  ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:0, di25:0,  gl25:0, tk25:0},
+    {jn:13,name:'Calsher Dear',       pu:BASE+'9423/calsher-dear',        pos:'FW',age:20,ht:195,draftLbl:'56',draft:56,  gp:4, gl:3, tk:12,di:36, ki:22, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:9, di25:66, gl25:10,tk25:16},
+    {jn:33,name:'Jack Ginnivan',      pu:BASE+'2237/jack-ginnivan',       pos:'FW',age:23,ht:183,draftLbl:'13',draft:13,  gp:10,gl:9, tk:19,di:198,ki:133,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:466,gl25:29,tk25:52},
+    {jn:19,name:'Jack Gunston',       pu:BASE+'500/jack-gunston',         pos:'FW',age:34,ht:193,draftLbl:'29',draft:29,  gp:9, gl:30,tk:7, di:91, ki:73, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:23,di25:289,gl25:73,tk25:31},
+    {jn:15,name:'Blake Hardwick',     pu:BASE+'924/blake-hardwick',       pos:'DF',age:29,ht:181,draftLbl:'44',draft:44,  gp:10,gl:0, tk:25,di:175,ki:116,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:26,di25:383,gl25:11,tk25:61},
+    {jn:44,name:'Henry Hustwaite',    pu:BASE+'5410/henry-hustwaite',     pos:'MF',age:21,ht:195,draftLbl:'37',draft:37,  gp:1, gl:0, tk:3, di:19, ki:7,  ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:4, di25:55, gl25:0, tk25:14},
+    {jn:4, name:'Jarman Impey',       pu:BASE+'702/jarman-impey',         pos:'DF',age:30,ht:178,draftLbl:'21',draft:21,  gp:10,gl:1, tk:20,di:235,ki:158,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:24,di25:463,gl25:5, tk25:62},
+    {jn:2, name:'Mitch Lewis',        pu:BASE+'1333/mitch-lewis',         pos:'FW',age:27,ht:198,draftLbl:'76',draft:76,  gp:10,gl:16,tk:15,di:135,ki:93, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:8, di25:63, gl25:8, tk25:16},
+    {jn:9, name:'Connor Macdonald',   pu:BASE+'2723/connor-macdonald',    pos:'FW',age:23,ht:184,draftLbl:'26',draft:26,  gp:10,gl:8, tk:32,di:211,ki:133,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:24,di25:357,gl25:22,tk25:72},
+    {jn:28,name:'Cam Mackenzie',      pu:BASE+'5630/cam-mackenzie',       pos:'MF',age:22,ht:188,draftLbl:'7', draft:7,   gp:8, gl:1, tk:30,di:158,ki:82, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:12,di25:198,gl25:0, tk25:50},
+    {jn:20,name:'Finn Maginness',     pu:BASE+'2812/finn-maginness',      pos:'FW',age:25,ht:187,draftLbl:'29',draft:29,  gp:4, gl:2, tk:7, di:59, ki:17, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:13,di25:173,gl25:4, tk25:23},
+    {jn:17,name:'Lloyd Meek',         pu:BASE+'1560/lloyd-meek',          pos:'RU',age:28,ht:203,draftLbl:'69',draft:69,  gp:10,gl:2, tk:30,di:107,ki:44, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:338,gl25:10,tk25:104},
+    {jn:8, name:'Dylan Moore',        pu:BASE+'1595/dylan-moore',         pos:'FW',age:26,ht:176,draftLbl:'67',draft:67,  gp:9, gl:10,tk:22,di:177,ki:92, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:26,di25:505,gl25:23,tk25:96},
+    {jn:1, name:'Harry Morrison',     pu:BASE+'1341/harry-morrison',      pos:'MF',age:27,ht:180,draftLbl:'74',draft:74,  gp:3, gl:1, tk:9, di:51, ki:28, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:20,di25:348,gl25:5, tk25:61},
+    {jn:11,name:'Conor Nash',         pu:BASE+'1302/conor-nash',          pos:'MF',age:27,ht:197,draftLbl:'Cat B',draft:9999,gp:9,gl:2,tk:50,di:176,ki:71,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:22,di25:404,gl25:5, tk25:124},
+    {jn:3, name:'Jai Newcombe',       pu:BASE+'4711/jai-newcombe',        pos:'MF',age:24,ht:186,draftLbl:'2', draft:2,   gp:10,gl:4, tk:39,di:262,ki:124,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:26,di25:596,gl25:11,tk25:127},
+    {jn:7, name:'Ned Reeves',         pu:BASE+'1822/ned-reeves',          pos:'RU',age:27,ht:208,draftLbl:'SSP',draft:9998,gp:9,gl:4,tk:20,di:72, ki:37, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:1, di25:6,  gl25:0, tk25:3},
+    {jn:14,name:'Jack Scrimshaw',     pu:BASE+'1336/jack-scrimshaw',      pos:'DF',age:27,ht:193,draftLbl:'7', draft:7,   gp:6, gl:0, tk:9, di:104,ki:52, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:16,di25:219,gl25:0, tk25:38},
+    {jn:6, name:'James Sicily',       pu:BASE+'514/james-sicily',         pos:'DF',age:31,ht:186,draftLbl:'56',draft:56,  gp:9, gl:0, tk:16,di:200,ki:129,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:23,di25:449,gl25:6, tk25:36},
+    {jn:25,name:'Josh Ward',          pu:BASE+'5252/josh-ward',           pos:'MF',age:22,ht:181,draftLbl:'7', draft:7,   gp:10,gl:0, tk:34,di:214,ki:107,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:514,gl25:3, tk25:89},
+    {jn:5, name:'Nick Watson',        pu:BASE+'5592/nick-watson',         pos:'FW',age:21,ht:170,draftLbl:'5', draft:5,   gp:10,gl:26,tk:23,di:139,ki:86, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:272,gl25:36,tk25:51},
+    {jn:23,name:'Josh Weddle',        pu:BASE+'6669/josh-weddle',         pos:'DF',age:22,ht:191,draftLbl:'18',draft:18,  gp:10,gl:5, tk:22,di:156,ki:83, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:18,di25:290,gl25:9, tk25:36}
   ]
 };
  
@@ -394,10 +442,6 @@ function renderCards(){
       if(Math.abs(p.dgl||0)>0.08)parts.push(`<span class="${(p.dgl||0)>=0?'delta-up':'delta-dn'}">${dSign(p.dgl,1)} Gls/g</span>`);
       detailHtml=parts.slice(0,2).join(' · ');
     }
-    const slug = p.name.toLowerCase().replace(/['\s]+/g,'-').replace(/[^a-z0-9-]/g,'');
-    const hawkUrl = p.hid > 0
-      ? `https://www.hawthornfc.com.au/players/${p.hid}/${slug}`
-      : 'https://www.hawthornfc.com.au/teams/afl';
     // Show secondary stats row if we have extra data
     const extraRow=hasExtra(p)?`
       <div class="stats-row-sm">
@@ -427,7 +471,7 @@ function renderCards(){
       <div class="card-bottom">
         <span class="trend-badge ${tCls}">${tLabel}</span>
         <span class="trend-detail">${detailHtml}</span>
-        <a class="hawk-btn" href="${hawkUrl}" target="_blank">🦅 Profile</a>
+        <button class="hawk-btn" data-vid="${p.vid||''}" data-name="${p.name}" onclick="openHighlights(this.dataset.vid,this.dataset.name)">🦅 Highlights</button>
       </div>
     </div>`;
   }).join('');
@@ -486,7 +530,54 @@ function setView(v,el){document.querySelectorAll('.vtab').forEach(t=>t.classList
 function setSort(el){const k=el.dataset.key;if(curSort===k)curSortDir*=-1;else{curSort=k;curSortDir=-1;}document.querySelectorAll('.sort-btn').forEach(t=>t.classList.remove('active'));el.classList.add('active');renderAll();}
 function tSort(k){if(tSortKey===k)tSortDir*=-1;else{tSortKey=k;tSortDir=-1;}renderAll();}
  
+function openHighlights(vid, name) {
+  const videoId = vid || (DATA && DATA.fallbackVid) || null;
+  document.getElementById('vid-modal-title').textContent = name;
+  const player = document.getElementById('vid-player-wrap');
+  const noMatch = document.getElementById('vid-no-match');
+  if (videoId) {
+    document.getElementById('vid-iframe').src =
+      `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+    player.style.display = ''; noMatch.style.display = 'none';
+  } else {
+    document.getElementById('vid-iframe').src = '';
+    player.style.display = 'none'; noMatch.style.display = '';
+  }
+  document.getElementById('vid-modal').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+ 
+function closeHighlights() {
+  document.getElementById('vid-iframe').src = '';
+  document.getElementById('vid-modal').classList.add('hidden');
+  document.body.style.overflow = '';
+}
+ 
 load();
 </script>
+ 
+<!-- ── IN-APP VIDEO MODAL ── -->
+<div class="vid-modal hidden" id="vid-modal">
+  <div class="vid-modal-bar">
+    <div class="vid-modal-logo">🦅</div>
+    <div style="flex:1">
+      <div class="vid-modal-title" id="vid-modal-title">Highlights</div>
+      <div class="vid-modal-sub">Hawthorn FC · Official channel only</div>
+    </div>
+    <button class="vid-close-btn" onclick="closeHighlights()" aria-label="Close video">✕</button>
+  </div>
+  <div class="vid-body">
+    <div id="vid-player-wrap" class="vid-ratio">
+      <iframe id="vid-iframe"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen src=""></iframe>
+    </div>
+    <div id="vid-no-match" class="vid-no-match" style="display:none">
+      <strong>No recent highlights found</strong>
+      The scraper matches videos from the official Hawks YouTube channel each week. Check back after the next game!
+    </div>
+  </div>
+</div>
+ 
 </body>
 </html>
