@@ -12,253 +12,113 @@
 <title>Hawks Stats 2026</title>
 <style>
 :root {
-  --brown: #3D1A06;
-  --brown-mid: #5A2D0C;
-  --gold: #F2C14E;
-  --gold-mid: #D4A030;
-  --gold-light: #FDF3D8;
-  --gold-pale: #FFFBF0;
-  --bg: #F5F0E8;
-  --surface: #FFFFFF;
-  --border: #E2D8C8;
-  --text: #1A0E04;
-  --muted: #7A6248;
-  --up: #1B7A2E;
-  --dn: #B01010;
-  --up-bg: #E8F5E9;
-  --dn-bg: #FFEBEE;
-  --r: 14px;
-  --r-sm: 8px;
+  --brown: #3D1A06; --brown-mid: #5A2D0C; --brown-lt: #7A4520;
+  --gold: #F2C14E; --gold-mid: #D4A030; --gold-pale: #FFFBF0; --gold-light: #FDF3D8;
+  --bg: #F5F0E8; --surface: #FFFFFF; --border: #E2D8C8;
+  --text: #1A0E04; --muted: #7A6248;
+  --up: #1B7A2E; --dn: #B01010; --up-bg: #E8F5E9; --dn-bg: #FFEBEE;
+  --r: 14px; --r-sm: 8px;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0E0804;
-    --surface: #1A0E04;
-    --border: #3A2510;
-    --text: #F5EDD8;
-    --muted: #A08060;
-    --gold-light: #2A1808;
-    --gold-pale: #1E1208;
-    --up-bg: #0D2E12;
-    --dn-bg: #2E0D0D;
+    --bg: #0E0804; --surface: #1A0E04; --border: #3A2510;
+    --text: #F5EDD8; --muted: #A08060;
+    --gold-light: #2A1808; --gold-pale: #1E1208;
+    --up-bg: #0D2E12; --dn-bg: #2E0D0D;
   }
 }
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  padding-bottom: env(safe-area-inset-bottom);
-}
+body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding-bottom: env(safe-area-inset-bottom); }
  
-/* ── TOP BAR ── */
-.topbar {
-  background: var(--brown);
-  padding: 12px 16px;
-  padding-top: calc(12px + env(safe-area-inset-top));
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
-}
-.hawk-logo {
-  width: 42px; height: 42px;
-  background: var(--gold);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 22px; font-weight: 900;
-  color: var(--brown);
-  font-family: Georgia, serif;
-  flex-shrink: 0;
-}
+/* TOPBAR */
+.topbar { background: var(--brown); padding: 12px 16px; padding-top: calc(12px + env(safe-area-inset-top)); display: flex; align-items: center; gap: 12px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+.hawk-logo { width: 42px; height: 42px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900; color: var(--brown); font-family: Georgia,serif; flex-shrink: 0; }
 .topbar-text h1 { font-size: 1rem; font-weight: 700; color: var(--gold); }
 .topbar-text p { font-size: 0.72rem; color: rgba(242,193,78,0.65); margin-top: 1px; }
-.record-pill {
-  margin-left: auto;
-  background: rgba(242,193,78,0.15);
-  border: 1px solid rgba(242,193,78,0.3);
-  color: var(--gold);
-  font-size: 0.72rem; font-weight: 600;
-  padding: 5px 10px; border-radius: 20px; white-space: nowrap;
-}
+.record-pill { margin-left: auto; background: rgba(242,193,78,0.15); border: 1px solid rgba(242,193,78,0.3); color: var(--gold); font-size: 0.72rem; font-weight: 600; padding: 5px 10px; border-radius: 20px; white-space: nowrap; }
  
-/* ── SUMMARY CARDS ── */
-.cards-row {
-  display: flex; gap: 10px;
-  padding: 14px 14px 6px;
-  overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
-}
+/* SUMMARY CARDS */
+.cards-row { display: flex; gap: 10px; padding: 14px 14px 6px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
 .cards-row::-webkit-scrollbar { display: none; }
-.stat-card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r); padding: 11px 14px; min-width: 110px; flex-shrink: 0;
-}
+.stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 11px 14px; min-width: 110px; flex-shrink: 0; }
 .stat-card .lbl { font-size: 0.63rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 3px; }
 .stat-card .val { font-size: 1.5rem; font-weight: 800; color: var(--gold-mid); line-height: 1; }
 .stat-card .sub { font-size: 0.68rem; color: var(--muted); margin-top: 3px; }
  
-/* ── CONTROLS ── */
+/* CONTROLS */
 .controls { padding: 8px 14px 8px; display: flex; gap: 8px; flex-wrap: wrap; }
 .search-wrap { flex: 1; min-width: 140px; position: relative; }
 .search-wrap::before { content: '🔍'; position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 0.8rem; }
-input[type=text] {
-  width: 100%; padding: 10px 10px 10px 32px;
-  border: 1px solid var(--border); border-radius: var(--r-sm);
-  background: var(--surface); color: var(--text); font-size: 0.9rem;
-  outline: none; -webkit-appearance: none;
-}
+input[type=text] { width: 100%; padding: 10px 10px 10px 32px; border: 1px solid var(--border); border-radius: var(--r-sm); background: var(--surface); color: var(--text); font-size: 0.9rem; outline: none; -webkit-appearance: none; }
 input[type=text]:focus { border-color: var(--gold-mid); }
 .filter-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
-.tab {
-  padding: 8px 14px; border-radius: 20px;
-  border: 1px solid var(--border); background: var(--surface);
-  color: var(--muted); font-size: 0.78rem; font-weight: 500; cursor: pointer;
-}
+.tab { padding: 8px 14px; border-radius: 20px; border: 1px solid var(--border); background: var(--surface); color: var(--muted); font-size: 0.78rem; font-weight: 500; cursor: pointer; }
 .tab.active { background: var(--brown); border-color: var(--brown); color: var(--gold); font-weight: 600; }
  
-/* ── VIEW TOGGLE ── */
+/* VIEW TOGGLE */
 .view-toggle { padding: 0 14px 8px; display: flex; gap: 6px; }
-.vtab {
-  padding: 7px 14px; border-radius: var(--r-sm);
-  border: 1px solid var(--border); background: var(--surface);
-  color: var(--muted); font-size: 0.78rem; font-weight: 500;
-  cursor: pointer; flex: 1; text-align: center;
-}
+.vtab { padding: 7px 14px; border-radius: var(--r-sm); border: 1px solid var(--border); background: var(--surface); color: var(--muted); font-size: 0.78rem; font-weight: 500; cursor: pointer; flex: 1; text-align: center; }
 .vtab.active { background: var(--gold-mid); border-color: var(--gold-mid); color: var(--brown); font-weight: 700; }
  
-/* ── SORT BAR ── */
-.sort-bar {
-  padding: 0 14px 10px; display: flex; gap: 6px;
-  overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
-}
+/* SORT BAR */
+.sort-bar { padding: 0 14px 10px; display: flex; gap: 6px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
 .sort-bar::-webkit-scrollbar { display: none; }
-.sort-btn {
-  padding: 7px 12px; border-radius: 20px;
-  border: 1px solid var(--border); background: var(--surface);
-  color: var(--muted); font-size: 0.72rem; font-weight: 500;
-  cursor: pointer; white-space: nowrap; flex-shrink: 0;
-}
+.sort-btn { padding: 7px 12px; border-radius: 20px; border: 1px solid var(--border); background: var(--surface); color: var(--muted); font-size: 0.72rem; font-weight: 500; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
 .sort-btn.active { background: var(--brown-mid); border-color: var(--brown-mid); color: var(--gold); }
  
-/* ── PLAYER CARDS ── */
+/* PLAYER CARDS */
 .player-list { padding: 0 14px 20px; display: flex; flex-direction: column; gap: 12px; }
- 
-.player-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(61,26,6,0.06);
-}
- 
+.player-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; box-shadow: 0 2px 8px rgba(61,26,6,0.06); }
 .card-inner { display: flex; align-items: stretch; }
  
-/* Avatar column */
-.card-avatar-col {
-  background: var(--brown);
-  padding: 16px 14px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  min-width: 90px;
-  flex-shrink: 0;
-}
-.avatar-circle {
-  width: 58px; height: 58px;
-  border-radius: 50%;
-  background: var(--gold);
-  border: 2.5px solid rgba(242,193,78,0.35);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 0;
-}
-.av-num {
-  font-size: 10px; font-weight: 700;
-  color: var(--brown); opacity: 0.65; line-height: 1;
-}
-.av-initials {
-  font-size: 20px; font-weight: 900;
-  color: var(--brown); line-height: 1;
-  font-family: Georgia, serif;
-}
-.card-name-col {
-  display: flex; flex-direction: column;
-  align-items: flex-start; justify-content: center; gap: 3px;
-}
-.card-name {
-  font-size: 0.85rem; font-weight: 700;
-  color: var(--gold); line-height: 1.2;
-}
-.card-pos-badge {
-  font-size: 0.62rem; font-weight: 700;
-  padding: 2px 7px; border-radius: 20px;
-}
+/* JUMPER COLUMN */
+.card-jumper-col { background: #1A0C02; padding: 12px 10px 12px 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; min-width: 86px; flex-shrink: 0; }
+.jumper-svg-wrap { width: 60px; height: 68px; }
+.jumper-svg-wrap svg { width: 100%; height: 100%; }
+.card-name { font-size: 0.82rem; font-weight: 700; color: var(--gold); text-align: center; line-height: 1.2; max-width: 76px; }
+.card-pos-badge { font-size: 0.6rem; font-weight: 700; padding: 2px 7px; border-radius: 20px; }
 .pos-MF { background: rgba(200,225,255,0.15); color: #90CAFF; }
 .pos-FW { background: rgba(255,210,185,0.15); color: #FFB088; }
 .pos-DF { background: rgba(195,240,185,0.15); color: #88E078; }
 .pos-RU { background: rgba(255,232,178,0.15); color: #FFD078; }
  
-/* Stats column */
-.card-stats-col {
-  flex: 1;
-  padding: 12px 14px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 8px;
-}
+/* STATS COLUMN */
+.card-stats-col { flex: 1; padding: 12px 12px 10px; display: flex; flex-direction: column; justify-content: space-between; gap: 8px; }
 .stats-row { display: flex; gap: 4px; }
 .stat-box { flex: 1; text-align: center; }
-.stat-box .sv {
-  font-size: 1.2rem; font-weight: 800;
-  color: var(--text); line-height: 1;
-}
+.stat-box .sv { font-size: 1.2rem; font-weight: 800; color: var(--text); line-height: 1; }
 .stat-box .sv.hi { color: var(--gold-mid); }
-.stat-box .sl {
-  font-size: 0.58rem; color: var(--muted);
-  text-transform: uppercase; letter-spacing: .04em; margin-top: 2px;
-}
-.card-trend-row {
-  background: var(--bg);
-  border-radius: var(--r-sm);
-  padding: 5px 8px;
-  display: flex; align-items: center; gap: 6px;
-}
-.trend-badge {
-  font-size: 0.68rem; font-weight: 700;
-  padding: 2px 8px; border-radius: 20px; flex-shrink: 0;
-}
+.stat-box .sl { font-size: 0.58rem; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin-top: 2px; }
+ 
+/* SECONDARY STATS ROW */
+.stats-row-sm { display: flex; gap: 4px; padding-top: 6px; border-top: 1px solid var(--border); }
+.stat-box-sm { flex: 1; text-align: center; }
+.stat-box-sm .sv2 { font-size: 0.9rem; font-weight: 700; color: var(--text); line-height: 1; }
+.stat-box-sm .sl2 { font-size: 0.55rem; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; margin-top: 1px; }
+ 
+/* TREND + YOUTUBE ROW */
+.card-bottom { display: flex; align-items: center; gap: 8px; background: var(--bg); border-top: 1px solid var(--border); padding: 7px 12px; }
+.trend-badge { font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; flex-shrink: 0; }
 .tr-up { background: var(--up-bg); color: var(--up); }
 .tr-dn { background: var(--dn-bg); color: var(--dn); }
 .tr-nu { background: var(--border); color: var(--muted); }
-.trend-detail { font-size: 0.65rem; color: var(--muted); }
+.trend-detail { font-size: 0.65rem; color: var(--muted); flex: 1; }
 .delta-up { color: var(--up); font-weight: 600; }
 .delta-dn { color: var(--dn); font-weight: 600; }
+.yt-btn { display: flex; align-items: center; gap: 4px; background: #FF0000; color: #fff; font-size: 0.65rem; font-weight: 600; padding: 4px 8px; border-radius: 6px; text-decoration: none; flex-shrink: 0; white-space: nowrap; }
+.yt-btn::before { content: '▶'; font-size: 0.6rem; }
  
-/* ── TABLE VIEW ── */
-.table-wrap {
-  margin: 0 14px 20px;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r); overflow-x: auto; -webkit-overflow-scrolling: touch;
-}
-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
-thead th {
-  background: var(--brown); color: var(--gold);
-  padding: 9px 10px; text-align: right;
-  font-size: 0.65rem; font-weight: 600; letter-spacing: .04em;
-  white-space: nowrap; cursor: pointer; user-select: none;
-}
+/* TABLE VIEW */
+.table-wrap { margin: 0 14px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); overflow-x: auto; -webkit-overflow-scrolling: touch; }
+table { width: 100%; border-collapse: collapse; font-size: 0.75rem; }
+thead th { background: var(--brown); color: var(--gold); padding: 8px 8px; text-align: right; font-size: 0.62rem; font-weight: 600; letter-spacing: .04em; white-space: nowrap; cursor: pointer; user-select: none; }
 thead th.lft { text-align: left; }
 thead th:hover { background: var(--brown-mid); }
 thead th.sorted { color: #FFE570; }
-td { padding: 9px 10px; border-bottom: 1px solid var(--border); text-align: right; white-space: nowrap; }
+thead th.grp { border-left: 2px solid rgba(242,193,78,0.25); }
+td { padding: 8px 8px; border-bottom: 1px solid var(--border); text-align: right; white-space: nowrap; }
 td.lft { text-align: left; }
+td.grp { border-left: 2px solid var(--border); }
 tr:last-child td { border-bottom: none; }
 tr:hover td { background: var(--gold-pale); }
 .t-hi { font-weight: 700; color: var(--gold-mid); }
@@ -266,15 +126,16 @@ tr:hover td { background: var(--gold-pale); }
 .t-dn { color: var(--dn); font-weight: 600; }
 .t-nu { color: var(--muted); }
 .t-name { font-weight: 600; }
+.pending { color: var(--muted); font-style: italic; font-size: 0.65rem; }
  
-/* ── MISC ── */
+/* MISC */
 .last-updated { text-align: center; font-size: 0.68rem; color: var(--muted); padding: 0 14px 28px; }
 .last-updated a { color: var(--muted); }
 .empty { text-align: center; color: var(--muted); padding: 40px 20px; font-size: 0.9rem; }
  
 @media (min-width: 700px) {
-  .topbar,.cards-row,.controls,.view-toggle,.sort-bar,.last-updated { padding-left: 24px; padding-right: 24px; }
-  .player-list { padding: 0 24px 24px; display: grid; grid-template-columns: repeat(auto-fill, minmax(340px,1fr)); }
+  .topbar, .cards-row, .controls, .view-toggle, .sort-bar, .last-updated { padding-left: 24px; padding-right: 24px; }
+  .player-list { padding: 0 24px 24px; display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); }
   .table-wrap { margin: 0 24px 24px; }
 }
 </style>
@@ -296,13 +157,11 @@ tr:hover td { background: var(--gold-pale); }
   <div class="stat-card"><div class="lbl">Tackles</div><div class="val" id="c-tacks">—</div><div class="sub" id="c-tacks-name">—</div></div>
   <div class="stat-card"><div class="lbl">Best DA</div><div class="val" id="c-da">—</div><div class="sub" id="c-da-name">—</div></div>
   <div class="stat-card"><div class="lbl">Season wins</div><div class="val" id="c-wins">—</div><div class="sub" id="c-wins-sub">this season</div></div>
-  <div class="stat-card" style="border-left:3px solid var(--up);"><div class="lbl">Best trend ↑</div><div class="val" style="color:var(--up)" id="c-trend-val">—</div><div class="sub" id="c-trend-name">—</div></div>
+  <div class="stat-card" style="border-left:3px solid var(--up)"><div class="lbl">Best trend ↑</div><div class="val" style="color:var(--up)" id="c-trend-val">—</div><div class="sub" id="c-trend-name">—</div></div>
 </div>
  
 <div class="controls">
-  <div class="search-wrap">
-    <input type="text" id="search" placeholder="Search player…" oninput="renderAll()">
-  </div>
+  <div class="search-wrap"><input type="text" id="search" placeholder="Search player…" oninput="renderAll()"></div>
   <div class="filter-tabs">
     <div class="tab active" data-pos="" onclick="setPos(this)">All</div>
     <div class="tab" data-pos="MF" onclick="setPos(this)">Mid</div>
@@ -322,8 +181,9 @@ tr:hover td { background: var(--gold-pale); }
   <div class="sort-btn" data-key="di" onclick="setSort(this)">Disposals</div>
   <div class="sort-btn" data-key="da26" onclick="setSort(this)">Avg DA</div>
   <div class="sort-btn" data-key="tk" onclick="setSort(this)">Tackles</div>
+  <div class="sort-btn" data-key="cl" onclick="setSort(this)">Clearances</div>
+  <div class="sort-btn" data-key="ho" onclick="setSort(this)">Hit Outs</div>
   <div class="sort-btn" data-key="trend" onclick="setSort(this)">Trend</div>
-  <div class="sort-btn" data-key="gp" onclick="setSort(this)">Games</div>
   <div class="sort-btn" data-key="name" onclick="setSort(this)">A–Z</div>
 </div>
  
@@ -336,22 +196,38 @@ tr:hover td { background: var(--gold-pale); }
     <table>
       <thead>
         <tr>
-          <th class="lft" onclick="tSort('name')"># Player<span id="ta-name"></span></th>
-          <th onclick="tSort('pos')">Pos<span id="ta-pos"></span></th>
-          <th onclick="tSort('gp')">GP<span id="ta-gp"></span></th>
-          <th onclick="tSort('gl')">Gls<span id="ta-gl"></span></th>
-          <th onclick="tSort('tk')">Tcks<span id="ta-tk"></span></th>
-          <th onclick="tSort('di')">Disp<span id="ta-di"></span></th>
-          <th onclick="tSort('da26')">DA<span id="ta-da26"></span></th>
-          <th onclick="tSort('ki')">Kks<span id="ta-ki"></span></th>
-          <th onclick="tSort('gp25')">'25 GP<span id="ta-gp25"></span></th>
-          <th onclick="tSort('da25')">'25 DA<span id="ta-da25"></span></th>
-          <th onclick="tSort('glpg25')">'25 G/g<span id="ta-glpg25"></span></th>
-          <th onclick="tSort('tkpg25')">'25 T/g<span id="ta-tkpg25"></span></th>
-          <th onclick="tSort('dda')">Δ DA<span id="ta-dda"></span></th>
-          <th onclick="tSort('dgl')">Δ G/g<span id="ta-dgl"></span></th>
-          <th onclick="tSort('dtk')">Δ T/g<span id="ta-dtk"></span></th>
-          <th onclick="tSort('trend')">Trend<span id="ta-trend"></span></th>
+          <th class="lft" colspan="6">Player info</th>
+          <th class="grp" colspan="7" style="text-align:center">2026 Season (R1–R11)</th>
+          <th class="grp" colspan="7" style="text-align:center">AFL Tables extra stats</th>
+          <th class="grp" colspan="4" style="text-align:center">vs 2025</th>
+          <th class="grp" style="text-align:center">Trend</th>
+        </tr>
+        <tr>
+          <th class="lft" onclick="tSort('jn')"># <span id="ta-jn"></span></th>
+          <th class="lft" onclick="tSort('name')">Player <span id="ta-name"></span></th>
+          <th onclick="tSort('pos')">Pos <span id="ta-pos"></span></th>
+          <th onclick="tSort('age')">Age <span id="ta-age"></span></th>
+          <th onclick="tSort('ht')">Ht <span id="ta-ht"></span></th>
+          <th onclick="tSort('draft')">Draft <span id="ta-draft"></span></th>
+          <th class="grp" onclick="tSort('gp')">GP <span id="ta-gp"></span></th>
+          <th onclick="tSort('gl')">Gls <span id="ta-gl"></span></th>
+          <th onclick="tSort('tk')">Tcks <span id="ta-tk"></span></th>
+          <th onclick="tSort('di')">Disp <span id="ta-di"></span></th>
+          <th onclick="tSort('da26')">DA <span id="ta-da26"></span></th>
+          <th onclick="tSort('ki')">Kks <span id="ta-ki"></span></th>
+          <th onclick="tSort('hb')">HBs <span id="ta-hb"></span></th>
+          <th class="grp" onclick="tSort('ho')">HO <span id="ta-ho"></span></th>
+          <th onclick="tSort('cl')">CL <span id="ta-cl"></span></th>
+          <th onclick="tSort('ga')">GA <span id="ta-ga"></span></th>
+          <th onclick="tSort('ff')">FF <span id="ta-ff"></span></th>
+          <th onclick="tSort('fa')">FA <span id="ta-fa"></span></th>
+          <th onclick="tSort('cm')">CM <span id="ta-cm"></span></th>
+          <th onclick="tSort('op')">1% <span id="ta-op"></span></th>
+          <th class="grp" onclick="tSort('gp25')">'25 GP <span id="ta-gp25"></span></th>
+          <th onclick="tSort('da25')">'25 DA <span id="ta-da25"></span></th>
+          <th onclick="tSort('dda')">Δ DA <span id="ta-dda"></span></th>
+          <th onclick="tSort('dtk')">Δ Tcks/g <span id="ta-dtk"></span></th>
+          <th class="grp" onclick="tSort('trend')">Trend <span id="ta-trend"></span></th>
         </tr>
       </thead>
       <tbody id="table-body"></tbody>
@@ -365,45 +241,63 @@ tr:hover td { background: var(--gold-pale); }
 const EMBEDDED = {
   updated:"2026-05-22", round:12, record:"7W–3L–1D", position:"3rd",
   players:[
-    {jn:10,name:'Karl Amon',pos:'DF',age:30,ht:181,draftLbl:'68',gp:9,gl:0,tk:18,di:215,ki:151,gp25:25,di25:600,gl25:4,tk25:53},
-    {jn:37,name:'Tom Barrass',pos:'DF',age:30,ht:196,draftLbl:'43',gp:9,gl:1,tk:9,di:88,ki:57,gp25:25,di25:242,gl25:0,tk25:28},
-    {jn:24,name:'Josh Battle',pos:'DF',age:27,ht:193,draftLbl:'39',gp:10,gl:0,tk:12,di:216,ki:147,gp25:26,di25:480,gl25:0,tk25:49},
-    {jn:30,name:'Sam Butler',pos:'MF',age:23,ht:184,draftLbl:'23',gp:7,gl:4,tk:26,di:83,ki:56,gp25:6,di25:71,gl25:3,tk25:31},
-    {jn:18,name:'Mabior Chol',pos:'FW',age:29,ht:200,draftLbl:'30',gp:5,gl:7,tk:8,di:42,ki:34,gp25:24,di25:240,gl25:42,tk25:64},
-    {jn:16,name:"Massimo D'Ambrosio",pos:'MF',age:22,ht:178,draftLbl:'3',gp:10,gl:4,tk:25,di:187,ki:123,gp25:26,di25:472,gl25:5,tk25:48},
-    {jn:34,name:'Jack Dalton',pos:'MF',age:19,ht:177,draftLbl:'34',gp:2,gl:0,tk:7,di:20,ki:8,gp25:0,di25:0,gl25:0,tk25:0},
-    {jn:13,name:'Calsher Dear',pos:'FW',age:20,ht:195,draftLbl:'56',gp:4,gl:3,tk:12,di:36,ki:22,gp25:9,di25:66,gl25:10,tk25:16},
-    {jn:33,name:'Jack Ginnivan',pos:'FW',age:23,ht:183,draftLbl:'13',gp:10,gl:9,tk:19,di:198,ki:133,gp25:25,di25:466,gl25:29,tk25:52},
-    {jn:19,name:'Jack Gunston',pos:'FW',age:34,ht:193,draftLbl:'29',gp:9,gl:30,tk:7,di:91,ki:73,gp25:23,di25:289,gl25:73,tk25:31},
-    {jn:15,name:'Blake Hardwick',pos:'DF',age:29,ht:181,draftLbl:'44',gp:10,gl:0,tk:25,di:175,ki:116,gp25:26,di25:383,gl25:11,tk25:61},
-    {jn:44,name:'Henry Hustwaite',pos:'MF',age:21,ht:195,draftLbl:'37',gp:1,gl:0,tk:3,di:19,ki:7,gp25:4,di25:55,gl25:0,tk25:14},
-    {jn:4,name:'Jarman Impey',pos:'DF',age:30,ht:178,draftLbl:'21',gp:10,gl:1,tk:20,di:235,ki:158,gp25:24,di25:463,gl25:5,tk25:62},
-    {jn:2,name:'Mitch Lewis',pos:'FW',age:27,ht:198,draftLbl:'76',gp:10,gl:16,tk:15,di:135,ki:93,gp25:8,di25:63,gl25:8,tk25:16},
-    {jn:9,name:'Connor Macdonald',pos:'FW',age:23,ht:184,draftLbl:'26',gp:10,gl:8,tk:32,di:211,ki:133,gp25:24,di25:357,gl25:22,tk25:72},
-    {jn:28,name:'Cam Mackenzie',pos:'MF',age:22,ht:188,draftLbl:'7',gp:8,gl:1,tk:30,di:158,ki:82,gp25:12,di25:198,gl25:0,tk25:50},
-    {jn:20,name:'Finn Maginness',pos:'FW',age:25,ht:187,draftLbl:'29',gp:4,gl:2,tk:7,di:59,ki:17,gp25:13,di25:173,gl25:4,tk25:23},
-    {jn:17,name:'Lloyd Meek',pos:'RU',age:28,ht:203,draftLbl:'69',gp:10,gl:2,tk:30,di:107,ki:44,gp25:25,di25:338,gl25:10,tk25:104},
-    {jn:8,name:'Dylan Moore',pos:'FW',age:26,ht:176,draftLbl:'67',gp:9,gl:10,tk:22,di:177,ki:92,gp25:26,di25:505,gl25:23,tk25:96},
-    {jn:1,name:'Harry Morrison',pos:'MF',age:27,ht:180,draftLbl:'74',gp:3,gl:1,tk:9,di:51,ki:28,gp25:20,di25:348,gl25:5,tk25:61},
-    {jn:11,name:'Conor Nash',pos:'MF',age:27,ht:197,draftLbl:'Cat B',gp:9,gl:2,tk:50,di:176,ki:71,gp25:22,di25:404,gl25:5,tk25:124},
-    {jn:3,name:'Jai Newcombe',pos:'MF',age:24,ht:186,draftLbl:'2',gp:10,gl:4,tk:39,di:262,ki:124,gp25:26,di25:596,gl25:11,tk25:127},
-    {jn:7,name:'Ned Reeves',pos:'RU',age:27,ht:208,draftLbl:'SSP',gp:9,gl:4,tk:20,di:72,ki:37,gp25:1,di25:6,gl25:0,tk25:3},
-    {jn:14,name:'Jack Scrimshaw',pos:'DF',age:27,ht:193,draftLbl:'7',gp:6,gl:0,tk:9,di:104,ki:52,gp25:16,di25:219,gl25:0,tk25:38},
-    {jn:6,name:'James Sicily',pos:'DF',age:31,ht:186,draftLbl:'56',gp:9,gl:0,tk:16,di:200,ki:129,gp25:23,di25:449,gl25:6,tk25:36},
-    {jn:25,name:'Josh Ward',pos:'MF',age:22,ht:181,draftLbl:'7',gp:10,gl:0,tk:34,di:214,ki:107,gp25:25,di25:514,gl25:3,tk25:89},
-    {jn:5,name:'Nick Watson',pos:'FW',age:21,ht:170,draftLbl:'5',gp:10,gl:26,tk:23,di:139,ki:86,gp25:25,di25:272,gl25:36,tk25:51},
-    {jn:23,name:'Josh Weddle',pos:'DF',age:22,ht:191,draftLbl:'18',gp:10,gl:5,tk:22,di:156,ki:83,gp25:18,di25:290,gl25:9,tk25:36}
+    {jn:10,name:'Karl Amon',pos:'DF',age:30,ht:181,draftLbl:'68',draft:68,gp:9,gl:0,tk:18,di:215,ki:151,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:600,gl25:4,tk25:53},
+    {jn:37,name:'Tom Barrass',pos:'DF',age:30,ht:196,draftLbl:'43',draft:43,gp:9,gl:1,tk:9,di:88,ki:57,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:242,gl25:0,tk25:28},
+    {jn:24,name:'Josh Battle',pos:'DF',age:27,ht:193,draftLbl:'39',draft:39,gp:10,gl:0,tk:12,di:216,ki:147,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:26,di25:480,gl25:0,tk25:49},
+    {jn:30,name:'Sam Butler',pos:'MF',age:23,ht:184,draftLbl:'23',draft:23,gp:7,gl:4,tk:26,di:83,ki:56,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:6,di25:71,gl25:3,tk25:31},
+    {jn:18,name:'Mabior Chol',pos:'FW',age:29,ht:200,draftLbl:'30',draft:30,gp:5,gl:7,tk:8,di:42,ki:34,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:24,di25:240,gl25:42,tk25:64},
+    {jn:16,name:"Massimo D'Ambrosio",pos:'MF',age:22,ht:178,draftLbl:'3',draft:3,gp:10,gl:4,tk:25,di:187,ki:123,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:26,di25:472,gl25:5,tk25:48},
+    {jn:34,name:'Jack Dalton',pos:'MF',age:19,ht:177,draftLbl:'34',draft:34,gp:2,gl:0,tk:7,di:20,ki:8,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:0,di25:0,gl25:0,tk25:0},
+    {jn:13,name:'Calsher Dear',pos:'FW',age:20,ht:195,draftLbl:'56',draft:56,gp:4,gl:3,tk:12,di:36,ki:22,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:9,di25:66,gl25:10,tk25:16},
+    {jn:33,name:'Jack Ginnivan',pos:'FW',age:23,ht:183,draftLbl:'13',draft:13,gp:10,gl:9,tk:19,di:198,ki:133,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:466,gl25:29,tk25:52},
+    {jn:19,name:'Jack Gunston',pos:'FW',age:34,ht:193,draftLbl:'29',draft:29,gp:9,gl:30,tk:7,di:91,ki:73,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:23,di25:289,gl25:73,tk25:31},
+    {jn:15,name:'Blake Hardwick',pos:'DF',age:29,ht:181,draftLbl:'44',draft:44,gp:10,gl:0,tk:25,di:175,ki:116,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:26,di25:383,gl25:11,tk25:61},
+    {jn:44,name:'Henry Hustwaite',pos:'MF',age:21,ht:195,draftLbl:'37',draft:37,gp:1,gl:0,tk:3,di:19,ki:7,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:4,di25:55,gl25:0,tk25:14},
+    {jn:4,name:'Jarman Impey',pos:'DF',age:30,ht:178,draftLbl:'21',draft:21,gp:10,gl:1,tk:20,di:235,ki:158,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:24,di25:463,gl25:5,tk25:62},
+    {jn:2,name:'Mitch Lewis',pos:'FW',age:27,ht:198,draftLbl:'76',draft:76,gp:10,gl:16,tk:15,di:135,ki:93,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:8,di25:63,gl25:8,tk25:16},
+    {jn:9,name:'Connor Macdonald',pos:'FW',age:23,ht:184,draftLbl:'26',draft:26,gp:10,gl:8,tk:32,di:211,ki:133,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:24,di25:357,gl25:22,tk25:72},
+    {jn:28,name:'Cam Mackenzie',pos:'MF',age:22,ht:188,draftLbl:'7',draft:7,gp:8,gl:1,tk:30,di:158,ki:82,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:12,di25:198,gl25:0,tk25:50},
+    {jn:20,name:'Finn Maginness',pos:'FW',age:25,ht:187,draftLbl:'29',draft:29,gp:4,gl:2,tk:7,di:59,ki:17,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:13,di25:173,gl25:4,tk25:23},
+    {jn:17,name:'Lloyd Meek',pos:'RU',age:28,ht:203,draftLbl:'69',draft:69,gp:10,gl:2,tk:30,di:107,ki:44,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:338,gl25:10,tk25:104},
+    {jn:8,name:'Dylan Moore',pos:'FW',age:26,ht:176,draftLbl:'67',draft:67,gp:9,gl:10,tk:22,di:177,ki:92,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:26,di25:505,gl25:23,tk25:96},
+    {jn:1,name:'Harry Morrison',pos:'MF',age:27,ht:180,draftLbl:'74',draft:74,gp:3,gl:1,tk:9,di:51,ki:28,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:20,di25:348,gl25:5,tk25:61},
+    {jn:11,name:'Conor Nash',pos:'MF',age:27,ht:197,draftLbl:'Cat B',draft:9999,gp:9,gl:2,tk:50,di:176,ki:71,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:22,di25:404,gl25:5,tk25:124},
+    {jn:3,name:'Jai Newcombe',pos:'MF',age:24,ht:186,draftLbl:'2',draft:2,gp:10,gl:4,tk:39,di:262,ki:124,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:26,di25:596,gl25:11,tk25:127},
+    {jn:7,name:'Ned Reeves',pos:'RU',age:27,ht:208,draftLbl:'SSP',draft:9998,gp:9,gl:4,tk:20,di:72,ki:37,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:1,di25:6,gl25:0,tk25:3},
+    {jn:14,name:'Jack Scrimshaw',pos:'DF',age:27,ht:193,draftLbl:'7',draft:7,gp:6,gl:0,tk:9,di:104,ki:52,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:16,di25:219,gl25:0,tk25:38},
+    {jn:6,name:'James Sicily',pos:'DF',age:31,ht:186,draftLbl:'56',draft:56,gp:9,gl:0,tk:16,di:200,ki:129,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:23,di25:449,gl25:6,tk25:36},
+    {jn:25,name:'Josh Ward',pos:'MF',age:22,ht:181,draftLbl:'7',draft:7,gp:10,gl:0,tk:34,di:214,ki:107,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:514,gl25:3,tk25:89},
+    {jn:5,name:'Nick Watson',pos:'FW',age:21,ht:170,draftLbl:'5',draft:5,gp:10,gl:26,tk:23,di:139,ki:86,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:272,gl25:36,tk25:51},
+    {jn:23,name:'Josh Weddle',pos:'DF',age:22,ht:191,draftLbl:'18',draft:18,gp:10,gl:5,tk:22,di:156,ki:83,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:18,di25:290,gl25:9,tk25:36}
   ]
 };
  
-let DATA=null, curPos='', curSort='gl', curSortDir=-1, curView='cards', tSortKey='name', tSortDir=1;
+let DATA=null, curPos='', curSort='gl', curSortDir=-1, curView='cards', tSortKey='jn', tSortDir=1;
  
-function initials(name) {
-  const parts = name.split(' ');
-  if (parts.length >= 2) return (parts[0][0] + parts[parts.length-1][0]).toUpperCase();
-  return name.slice(0,2).toUpperCase();
+/* ── SVG JUMPER ── */
+function jumperSVG(jn) {
+  const n = jn > 0 ? String(jn) : '?';
+  const uid = 'jc' + (jn > 0 ? jn : 'x' + Math.floor(Math.random()*9999));
+  const fs = n.length >= 3 ? 17 : n.length === 2 ? 22 : 29;
+  // Sleeveless AFL guernsey — back view, pronounced armhole curves, no sleeves
+  const P = "M33,6 L22,6 L13,24 Q7,35 13,46 L13,93 Q13,98 20,98 L70,98 Q77,98 77,93 L77,46 Q83,35 77,24 L68,6 L57,6 Q45,1 33,6Z";
+  const GOLD = "#F0A818";
+  const BROWN = "#2A1008";
+  // Stripes lower half only (y=52+), clipped to jumper shape
+  const stripes = [9,28,47,66].map(x =>
+    `<rect x="${x}" y="52" width="12" height="58" fill="${BROWN}" clip-path="url(#${uid})"/>`
+  ).join('');
+  return `<svg viewBox="0 0 90 101" xmlns="http://www.w3.org/2000/svg" aria-label="Jumper number ${n}">
+    <defs><clipPath id="${uid}"><path d="${P}"/></clipPath></defs>
+    <path d="${P}" fill="${GOLD}"/>
+    ${stripes}
+    <text x="45" y="18" text-anchor="middle" font-size="6.5" font-weight="700" fill="${BROWN}" font-family="-apple-system,sans-serif" letter-spacing="1.8" opacity="0.8">1902</text>
+    <text x="45" y="36" text-anchor="middle" dominant-baseline="middle" font-size="${fs}" font-weight="900" fill="${BROWN}" font-family="Georgia,serif">${n}</text>
+    <path d="${P}" fill="none" stroke="rgba(150,90,0,0.25)" stroke-width="0.75"/>
+  </svg>`;
 }
  
+/* ── COMPUTE ── */
 function compute(raw) {
   return raw.map(p => {
     const da26 = p.di / p.gp;
@@ -413,123 +307,110 @@ function compute(raw) {
     const glpg25 = p.gp25 > 0 ? p.gl25/p.gp25 : null;
     const tkpg25 = p.gp25 > 0 ? p.tk25/p.gp25 : null;
     let dda=null,dgl=null,dtk=null,trend=null;
-    if (!isDebut && !isInj && da25 !== null) {
-      dda = da26 - da25;
-      dgl = (p.gl/p.gp) - glpg25;
-      dtk = (p.tk/p.gp) - tkpg25;
-      const cap = v => Math.max(-100,Math.min(100,v));
-      const daPct = cap((dda/Math.max(da25,1))*100);
-      const glPct = cap(glpg25>0.1 ? (dgl/glpg25)*100 : (p.gl/p.gp>0.05?50:0));
-      const tkPct = cap((dtk/Math.max(tkpg25,0.5))*100);
-      trend = (daPct+glPct+tkPct)/3;
+    if (!isDebut && !isInj && da25!==null) {
+      dda=da26-da25; dgl=(p.gl/p.gp)-glpg25; dtk=(p.tk/p.gp)-tkpg25;
+      const cap=v=>Math.max(-100,Math.min(100,v));
+      const daPct=cap((dda/Math.max(da25,1))*100);
+      const glPct=cap(glpg25>0.1?(dgl/glpg25)*100:(p.gl/p.gp>0.05?50:0));
+      const tkPct=cap((dtk/Math.max(tkpg25,0.5))*100);
+      trend=(daPct+glPct+tkPct)/3;
     }
-    return {...p,da26,da25,glpg25,tkpg25,dda,dgl,dtk,trend,isDebut,isInj};
+    return {...p,da26,da25,glpg25,tkpg25,dda,dgl,dtk,trend,isDebut,isInj,hb:p.di-p.ki};
   });
 }
  
 function load() {
   fetch('data.json')
-    .then(r => r.ok ? r.json() : Promise.reject())
-    .then(d => { DATA={...d,players:compute(d.players)}; init(); })
-    .catch(() => { DATA={...EMBEDDED,players:compute(EMBEDDED.players)}; init(); });
+    .then(r=>r.ok?r.json():Promise.reject())
+    .then(d=>{DATA={...d,players:compute(d.players)};init();})
+    .catch(()=>{DATA={...EMBEDDED,players:compute(EMBEDDED.players)};init();});
 }
  
 function init() {
-  const d = DATA;
-  document.getElementById('subtitle').textContent = `Round ${d.round} · Updated ${d.updated}`;
-  document.getElementById('record-pill').textContent = `${d.record} · ${d.position}`;
+  const d=DATA;
+  document.getElementById('subtitle').textContent=`Round ${d.round} · Updated ${d.updated}`;
+  document.getElementById('record-pill').textContent=`${d.record} · ${d.position}`;
   const byGL=[...d.players].sort((a,b)=>b.gl-a.gl);
   const byDI=[...d.players].sort((a,b)=>b.di-a.di);
   const byTK=[...d.players].sort((a,b)=>b.tk-a.tk);
   const byDA=[...d.players].filter(p=>p.gp>=5).sort((a,b)=>b.da26-a.da26);
-  document.getElementById('c-goals').textContent = byGL[0]?.gl??'—';
-  document.getElementById('c-goals-name').textContent = byGL[0]?.name.split(' ').pop()??'';
-  document.getElementById('c-disp').textContent = byDI[0]?.di??'—';
-  document.getElementById('c-disp-name').textContent = byDI[0]?.name.split(' ').pop()??'';
-  document.getElementById('c-tacks').textContent = byTK[0]?.tk??'—';
-  document.getElementById('c-tacks-name').textContent = byTK[0]?.name.split(' ').pop()??'';
-  document.getElementById('c-da').textContent = byDA[0]?.da26.toFixed(1)??'—';
-  document.getElementById('c-da-name').textContent = byDA[0]?.name.split(' ').pop()??'';
-  document.getElementById('c-wins').textContent = parseInt((d.record||'0W').split('W')[0]);
-  const recordParts = (d.record||'').match(/(\d+)W[–-](\d+)L(?:[–-](\d+)D)?/);
-  document.getElementById('c-wins-sub').textContent = recordParts
-    ? `${recordParts[1]}W · ${recordParts[2]}L${recordParts[3] ? ' · ' + recordParts[3] + 'D' : ''}`
-    : 'this season';
-  const byTrend = [...d.players].filter(p=>p.trend!==null).sort((a,b)=>b.trend-a.trend);
-  if (byTrend.length) {
-    document.getElementById('c-trend-val').textContent = '+' + byTrend[0].trend.toFixed(0) + '%';
-    document.getElementById('c-trend-name').textContent = byTrend[0].name.split(' ').pop();
+  const byTR=[...d.players].filter(p=>p.trend!==null).sort((a,b)=>b.trend-a.trend);
+  document.getElementById('c-goals').textContent=byGL[0]?.gl??'—';
+  document.getElementById('c-goals-name').textContent=byGL[0]?.name.split(' ').pop()??'';
+  document.getElementById('c-disp').textContent=byDI[0]?.di??'—';
+  document.getElementById('c-disp-name').textContent=byDI[0]?.name.split(' ').pop()??'';
+  document.getElementById('c-tacks').textContent=byTK[0]?.tk??'—';
+  document.getElementById('c-tacks-name').textContent=byTK[0]?.name.split(' ').pop()??'';
+  document.getElementById('c-da').textContent=byDA[0]?.da26.toFixed(1)??'—';
+  document.getElementById('c-da-name').textContent=byDA[0]?.name.split(' ').pop()??'';
+  document.getElementById('c-wins').textContent=parseInt((d.record||'0W').split('W')[0]);
+  const rp=(d.record||'').match(/(\d+)W[–-](\d+)L(?:[–-](\d+)D)?/);
+  document.getElementById('c-wins-sub').textContent=rp?`${rp[1]}W · ${rp[2]}L${rp[3]?' · '+rp[3]+'D':''}`:'this season';
+  if(byTR.length){
+    document.getElementById('c-trend-val').textContent='+'+byTR[0].trend.toFixed(0)+'%';
+    document.getElementById('c-trend-name').textContent=byTR[0].name.split(' ').pop();
   }
-  document.getElementById('last-updated').innerHTML =
-    `Stats to Round ${d.round} · Updated ${d.updated} · Source: <a href="https://afltables.com" target="_blank">AFL Tables</a>`;
+  document.getElementById('last-updated').innerHTML=`Stats to Round ${d.round} · Updated ${d.updated} · Source: <a href="https://afltables.com" target="_blank">AFL Tables</a>`;
   renderAll();
 }
  
 function filtered() {
-  const q = document.getElementById('search').value.toLowerCase();
-  return DATA.players.filter(p =>
-    (!curPos||p.pos===curPos) && (!q||p.name.toLowerCase().includes(q))
-  );
+  const q=document.getElementById('search').value.toLowerCase();
+  return DATA.players.filter(p=>(!curPos||p.pos===curPos)&&(!q||p.name.toLowerCase().includes(q)));
 }
- 
-function sortedBy(arr, key, dir) {
-  return [...arr].sort((a,b) => {
-    const av=a[key], bv=b[key];
-    if(av===null&&bv===null) return 0;
-    if(av===null) return 1; if(bv===null) return -1;
-    if(typeof av==='string') return dir*av.localeCompare(bv);
+function sortedBy(arr,key,dir) {
+  return [...arr].sort((a,b)=>{
+    const av=a[key],bv=b[key];
+    if(av===null&&bv===null)return 0;
+    if(av===null)return 1;if(bv===null)return -1;
+    if(typeof av==='string')return dir*av.localeCompare(bv);
     return dir*(av-bv);
   });
 }
+function renderAll(){if(!DATA)return;curView==='cards'?renderCards():renderTable();}
  
-function renderAll() {
-  if (!DATA) return;
-  curView==='cards' ? renderCards() : renderTable();
+function trendInfo(p){
+  if(p.isDebut)return['tr-nu','Debut',''];
+  if(p.isInj)return['tr-nu',"Inj '25",''];
+  if(p.trend===null)return['tr-nu','—',''];
+  const cls=p.trend>8?'tr-up':p.trend<-8?'tr-dn':'tr-nu';
+  const arrow=p.trend>8?'↑ ':p.trend<-8?'↓ ':'↔ ';
+  return[cls,arrow+Math.abs(p.trend).toFixed(0)+'%',p.trend>8?'Improving on 2025':p.trend<-8?'Down on 2025':'Similar to 2025'];
 }
+function dSign(v,d){return v===null?'':((v>=0?'+':'')+v.toFixed(d));}
+function hasExtra(p){return p.ho>0||p.cl>0||p.ga>0;}
+function pendingSpan(){return '<span class="pending">Run scraper</span>';}
  
-function trendInfo(p) {
-  if (p.isDebut) return ['tr-nu','Debut',''];
-  if (p.isInj) return ['tr-nu',"Inj '25",''];
-  if (p.trend===null) return ['tr-nu','—',''];
-  const cls = p.trend>8?'tr-up':p.trend<-8?'tr-dn':'tr-nu';
-  const arrow = p.trend>8?'↑ ':p.trend<-8?'↓ ':'↔ ';
-  return [cls, arrow+Math.abs(p.trend).toFixed(0)+'%',
-    p.trend>8?'Improving on 2025':p.trend<-8?'Down on 2025':'Similar to 2025'];
-}
- 
-function dSign(v,d) { return v===null?'':((v>=0?'+':'')+v.toFixed(d)); }
- 
-function renderCards() {
-  const list = sortedBy(filtered(), curSort, curSortDir);
-  const el = document.getElementById('player-list');
-  if (!list.length) { el.innerHTML='<div class="empty">No players match</div>'; return; }
-  el.innerHTML = list.map(p => {
-    const [tCls,tLabel,tDesc] = trendInfo(p);
-    const glHi = p.gl>=10, daHi = p.da26>=20, tkHi = p.tk>=25;
-    const ini = initials(p.name);
-    const jnDisp = p.jn>0 ? p.jn : '';
- 
-    let detailHtml = '';
-    if (!p.isDebut && !p.isInj && p.dda!==null) {
-      const parts = [];
-      if (Math.abs(p.dda)>0.3) parts.push(`<span class="${p.dda>=0?'delta-up':'delta-dn'}">${dSign(p.dda,1)} DA</span>`);
-      if (Math.abs(p.dgl)>0.08) parts.push(`<span class="${p.dgl>=0?'delta-up':'delta-dn'}">${dSign(p.dgl,1)} Gls/g</span>`);
-      if (Math.abs(p.dtk)>0.3) parts.push(`<span class="${p.dtk>=0?'delta-up':'delta-dn'}">${dSign(p.dtk,1)} Tcks/g</span>`);
-      detailHtml = parts.slice(0,2).join(' · ');
+function renderCards(){
+  const list=sortedBy(filtered(),curSort,curSortDir);
+  const el=document.getElementById('player-list');
+  if(!list.length){el.innerHTML='<div class="empty">No players match</div>';return;}
+  el.innerHTML=list.map(p=>{
+    const [tCls,tLabel]=trendInfo(p);
+    const glHi=p.gl>=10,daHi=p.da26>=20,tkHi=p.tk>=25;
+    let detailHtml='';
+    if(!p.isDebut&&!p.isInj&&p.dda!==null){
+      const parts=[];
+      if(Math.abs(p.dda)>0.3)parts.push(`<span class="${p.dda>=0?'delta-up':'delta-dn'}">${dSign(p.dda,1)} DA</span>`);
+      if(Math.abs(p.dgl||0)>0.08)parts.push(`<span class="${(p.dgl||0)>=0?'delta-up':'delta-dn'}">${dSign(p.dgl,1)} Gls/g</span>`);
+      detailHtml=parts.slice(0,2).join(' · ');
     }
-    if (!detailHtml) detailHtml = `<span style="color:var(--muted)">${tDesc}</span>`;
- 
+    const ytUrl=`https://www.youtube.com/results?search_query=${encodeURIComponent(p.name+' Hawthorn highlights 2026')}`;
+    // Show secondary stats row if we have extra data
+    const extraRow=hasExtra(p)?`
+      <div class="stats-row-sm">
+        <div class="stat-box-sm"><div class="sv2">${p.ho}</div><div class="sl2">Hit Outs</div></div>
+        <div class="stat-box-sm"><div class="sv2">${p.cl}</div><div class="sl2">Clear</div></div>
+        <div class="stat-box-sm"><div class="sv2">${p.ga}</div><div class="sl2">Gls Asst</div></div>
+        <div class="stat-box-sm"><div class="sv2">${p.ff}</div><div class="sl2">FF</div></div>
+        <div class="stat-box-sm"><div class="sv2">${p.fa}</div><div class="sl2">FA</div></div>
+      </div>`:'';
     return `<div class="player-card">
       <div class="card-inner">
-        <div class="card-avatar-col">
-          <div class="avatar-circle">
-            <div class="av-num">${jnDisp}</div>
-            <div class="av-initials">${ini}</div>
-          </div>
-          <div class="card-name-col">
-            <div class="card-name">${p.name}</div>
-            <div class="card-pos-badge pos-${p.pos}">${p.pos}</div>
-          </div>
+        <div class="card-jumper-col">
+          <div class="jumper-svg-wrap">${jumperSVG(p.jn)}</div>
+          <div class="card-name">${p.name}</div>
+          <div class="card-pos-badge pos-${p.pos}">${p.pos}</div>
         </div>
         <div class="card-stats-col">
           <div class="stats-row">
@@ -538,49 +419,62 @@ function renderCards() {
             <div class="stat-box"><div class="sv ${tkHi?'hi':''}">${p.tk}</div><div class="sl">Tcks</div></div>
             <div class="stat-box"><div class="sv">${p.gp}</div><div class="sl">Games</div></div>
           </div>
-          <div class="card-trend-row">
-            <span class="trend-badge ${tCls}">${tLabel}</span>
-            <span class="trend-detail">${detailHtml}</span>
-          </div>
+          ${extraRow}
         </div>
+      </div>
+      <div class="card-bottom">
+        <span class="trend-badge ${tCls}">${tLabel}</span>
+        <span class="trend-detail">${detailHtml}</span>
+        <a class="yt-btn" href="${ytUrl}" target="_blank">Highlights</a>
       </div>
     </div>`;
   }).join('');
 }
  
-function renderTable() {
-  const arr = sortedBy(filtered(), tSortKey, tSortDir);
+function renderTable(){
+  const arr=sortedBy(filtered(),tSortKey,tSortDir);
   document.querySelectorAll('[id^="ta-"]').forEach(el=>el.textContent='');
   const ar=document.getElementById('ta-'+tSortKey);
-  if(ar) ar.textContent=tSortDir>0?' ↑':' ↓';
+  if(ar)ar.textContent=tSortDir>0?' ↑':' ↓';
   const tbody=document.getElementById('table-body');
-  if(!arr.length){tbody.innerHTML='<tr><td colspan="16" class="empty">No players</td></tr>';return;}
-  const fmtD=(v,d,key)=>v===null?'<span class="t-nu">—</span>':`<span class="${v>=0?'t-up':'t-dn'}">${dSign(v,d)}</span>`;
+  if(!arr.length){tbody.innerHTML='<tr><td colspan="25" class="empty">No players</td></tr>';return;}
+  const noExtra=arr.every(p=>!hasExtra(p));
+  const fmtD=(v,d)=>v===null?'<span class="t-nu">—</span>':`<span class="${v>=0?'t-up':'t-dn'}">${dSign(v,d)}</span>`;
   tbody.innerHTML=arr.map(p=>{
     const da25D=p.da25!==null?p.da25.toFixed(1):'—';
-    const glpg25D=p.glpg25!==null?p.glpg25.toFixed(1):'—';
-    const tkpg25D=p.tkpg25!==null?p.tkpg25.toFixed(1):'—';
     let trD='<span class="t-nu">—</span>';
     if(!p.isDebut&&!p.isInj&&p.trend!==null){
       const c=p.trend>8?'t-up':p.trend<-8?'t-dn':'t-nu';
       trD=`<span class="${c}">${p.trend>0?'↑':p.trend<0?'↓':'↔'} ${Math.abs(p.trend).toFixed(0)}%</span>`;
-    } else if(p.isDebut) trD='<span class="t-nu">Debut</span>';
-    else if(p.isInj) trD='<span class="t-nu">Inj</span>';
+    } else if(p.isDebut)trD='<span class="t-nu">Debut</span>';
+    else if(p.isInj)trD='<span class="t-nu">Inj</span>';
+    const ep=noExtra?pendingSpan():'';
     return `<tr>
-      <td class="lft t-name">${p.jn>0?p.jn+' ':''} ${p.name}</td>
-      <td>${p.pos}</td><td>${p.gp}</td>
+      <td class="lft t-name">${p.jn>0?p.jn:'—'}</td>
+      <td class="lft t-name">${p.name}</td>
+      <td>${p.pos}</td>
+      <td>${p.age}</td>
+      <td>${p.ht}</td>
+      <td>${p.draftLbl}</td>
+      <td class="grp">${p.gp}</td>
       <td class="${p.gl>=15?'t-hi':''}">${p.gl}</td>
       <td class="${p.tk>=30?'t-hi':''}">${p.tk}</td>
       <td class="${p.di>=200?'t-hi':''}">${p.di}</td>
-      <td>${p.da26.toFixed(1)}</td><td>${p.ki}</td>
-      <td>${p.isDebut?'—':p.gp25}</td>
+      <td>${p.da26.toFixed(1)}</td>
+      <td>${p.ki}</td>
+      <td>${p.hb}</td>
+      <td class="grp">${p.ho>0?p.ho:ep}</td>
+      <td>${p.cl>0?p.cl:ep}</td>
+      <td>${p.ga>0?p.ga:ep}</td>
+      <td>${p.ff>0?p.ff:ep}</td>
+      <td>${p.fa>0?p.fa:ep}</td>
+      <td>${p.cm>0?p.cm:ep}</td>
+      <td>${p.op>0?p.op:ep}</td>
+      <td class="grp">${p.isDebut?'—':p.gp25}</td>
       <td>${p.isDebut?'—':da25D}</td>
-      <td>${p.isDebut?'—':glpg25D}</td>
-      <td>${p.isDebut?'—':tkpg25D}</td>
       <td>${p.isDebut||p.isInj?'<span class="t-nu">—</span>':fmtD(p.dda,1)}</td>
-      <td>${p.isDebut||p.isInj?'<span class="t-nu">—</span>':fmtD(p.dgl,2)}</td>
       <td>${p.isDebut||p.isInj?'<span class="t-nu">—</span>':fmtD(p.dtk,1)}</td>
-      <td>${trD}</td>
+      <td class="grp">${trD}</td>
     </tr>`;
   }).join('');
 }
