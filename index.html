@@ -151,12 +151,12 @@ tr:hover td { background: var(--gold-pale); }
 </div>
  
 <div class="cards-row">
-  <div class="stat-card"><div class="lbl">Top goals</div><div class="val" id="c-goals">—</div><div class="sub" id="c-goals-name">—</div></div>
-  <div class="stat-card"><div class="lbl">Disposals</div><div class="val" id="c-disp">—</div><div class="sub" id="c-disp-name">—</div></div>
-  <div class="stat-card"><div class="lbl">Tackles</div><div class="val" id="c-tacks">—</div><div class="sub" id="c-tacks-name">—</div></div>
-  <div class="stat-card"><div class="lbl">Best DA</div><div class="val" id="c-da">—</div><div class="sub" id="c-da-name">—</div></div>
-  <div class="stat-card"><div class="lbl">Season wins</div><div class="val" id="c-wins">—</div><div class="sub" id="c-wins-sub">this season</div></div>
-  <div class="stat-card" style="border-left:3px solid var(--up)"><div class="lbl">Best trend ↑</div><div class="val" style="color:var(--up)" id="c-trend-val">—</div><div class="sub" id="c-trend-name">—</div></div>
+  <div class="stat-card"><div class="lbl">Top goals</div><div class="val" id="c-goals">—</div><div class="sub" id="c-goals-name" style="font-size:0.62rem">—</div></div>
+  <div class="stat-card"><div class="lbl">Disposals</div><div class="val" id="c-disp">—</div><div class="sub" id="c-disp-name" style="font-size:0.62rem">—</div></div>
+  <div class="stat-card"><div class="lbl">Tackles</div><div class="val" id="c-tacks">—</div><div class="sub" id="c-tacks-name" style="font-size:0.62rem">—</div></div>
+  <div class="stat-card"><div class="lbl">Best DA</div><div class="val" id="c-da">—</div><div class="sub" id="c-da-name" style="font-size:0.62rem">—</div></div>
+  <div class="stat-card"><div class="lbl">Hawthorn FC</div><div class="val" id="c-wins">—</div><div class="sub" id="c-wins-sub" style="font-size:0.62rem">season wins</div></div>
+  <div class="stat-card" style="border-left:3px solid var(--up)"><div class="lbl">Best trend ↑</div><div class="val" style="color:var(--up)" id="c-trend-val">—</div><div class="sub" id="c-trend-name" style="font-size:0.62rem">—</div></div>
 </div>
  
 <div class="controls">
@@ -337,20 +337,25 @@ function init() {
   const byTK=[...d.players].sort((a,b)=>b.tk-a.tk);
   const byDA=[...d.players].filter(p=>p.gp>=5).sort((a,b)=>b.da26-a.da26);
   const byTR=[...d.players].filter(p=>p.trend!==null).sort((a,b)=>b.trend-a.trend);
+ 
+  // Full name, abbreviating first name only for very long names
+  const pName=n=>{const p=n.split(' ');return n.length<=15?n:p[0][0]+'. '+p.slice(1).join(' ');};
+ 
   document.getElementById('c-goals').textContent=byGL[0]?.gl??'—';
-  document.getElementById('c-goals-name').textContent=byGL[0]?.name.split(' ').pop()??'';
+  document.getElementById('c-goals-name').textContent=byGL[0]?pName(byGL[0].name):'';
   document.getElementById('c-disp').textContent=byDI[0]?.di??'—';
-  document.getElementById('c-disp-name').textContent=byDI[0]?.name.split(' ').pop()??'';
+  document.getElementById('c-disp-name').textContent=byDI[0]?pName(byDI[0].name):'';
   document.getElementById('c-tacks').textContent=byTK[0]?.tk??'—';
-  document.getElementById('c-tacks-name').textContent=byTK[0]?.name.split(' ').pop()??'';
+  document.getElementById('c-tacks-name').textContent=byTK[0]?pName(byTK[0].name):'';
   document.getElementById('c-da').textContent=byDA[0]?.da26.toFixed(1)??'—';
-  document.getElementById('c-da-name').textContent=byDA[0]?.name.split(' ').pop()??'';
+  document.getElementById('c-da-name').textContent=byDA[0]?pName(byDA[0].name):'';
   document.getElementById('c-wins').textContent=parseInt((d.record||'0W').split('W')[0]);
   const rp=(d.record||'').match(/(\d+)W[–-](\d+)L(?:[–-](\d+)D)?/);
-  document.getElementById('c-wins-sub').textContent=rp?`${rp[1]}W · ${rp[2]}L${rp[3]?' · '+rp[3]+'D':''}`:'this season';
+  const pos=d.position&&d.position!=='TBC'?` · ${d.position}`:'';
+  document.getElementById('c-wins-sub').textContent=rp?`${rp[1]}W–${rp[2]}L${rp[3]?'–'+rp[3]+'D':''}${pos}`:'Hawthorn FC';
   if(byTR.length){
     document.getElementById('c-trend-val').textContent='+'+byTR[0].trend.toFixed(0)+'%';
-    document.getElementById('c-trend-name').textContent=byTR[0].name.split(' ').pop();
+    document.getElementById('c-trend-name').textContent=pName(byTR[0].name);
   }
   document.getElementById('last-updated').innerHTML=`Stats to Round ${d.round} · Updated ${d.updated} · Source: <a href="https://afltables.com" target="_blank">AFL Tables</a>`;
   renderAll();
