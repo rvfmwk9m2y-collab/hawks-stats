@@ -14,6 +14,10 @@ from html.parser import HTMLParser
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Hawks Stats App; contact via GitHub)"}
 
+# ── Hawthorn FC official YouTube channel ──
+HAWKS_CHANNEL_ID   = "UCweshjuhmLYGxHuH2xIPXpg"
+HAWKS_YT_RSS       = f"https://www.youtube.com/feeds/videos.xml?channel_id={HAWKS_CHANNEL_ID}"
+
 # ── Hawthorn 2026 match pages (update round number and URL each week) ──
 # AFL Tables URL format: /afl/stats/games/2026/HOMETEAMAWAY_DATE.html
 MATCH_PAGES = [
@@ -158,16 +162,27 @@ def parse_match_stats(html, team="Hawthorn"):
             except (ValueError, IndexError):
                 return 0
 
-        # Columns: KI MK HB DI GL BH HO TK ...
+        # AFL Tables match page columns (0-indexed after jumper# and name):
+        # 0=KI 1=MK 2=HB 3=DI 4=GL 5=BH 6=HO 7=TK 8=RB 9=IF 10=CL 11=CG
+        # 12=FF 13=FA 14=BR 15=CP 16=UP 17=CM 18=MI 19=1% 20=BO 21=GA 22=%P
         try:
             ki = safe_int(cells[2])
             di = safe_int(cells[5])
             gl = safe_int(cells[6])
+            ho = safe_int(cells[8])
             tk = safe_int(cells[9])
+            cl = safe_int(cells[12])
+            ff = safe_int(cells[14])
+            fa = safe_int(cells[15])
+            cm = safe_int(cells[19])
+            op = safe_int(cells[21])   # one percenters
+            ga = safe_int(cells[23])   # goal assists
         except IndexError:
             continue
 
-        results[name] = {"gl": gl, "tk": tk, "di": di, "ki": ki, "gp": 1}
+        results[name] = {"gl": gl, "tk": tk, "di": di, "ki": ki,
+                         "ho": ho, "cl": cl, "ff": ff, "fa": fa,
+                         "cm": cm, "op": op, "ga": ga, "gp": 1}
 
     return results
 
@@ -270,11 +285,20 @@ def scrape_match_pages():
 
         for name, s in stats.items():
             if name not in totals:
-                totals[name] = {"gl": 0, "tk": 0, "di": 0, "ki": 0, "gp": 0}
+                totals[name] = {"gl":0,"tk":0,"di":0,"ki":0,
+                                "ho":0,"cl":0,"ff":0,"fa":0,
+                                "cm":0,"op":0,"ga":0,"gp":0}
             totals[name]["gl"] += s["gl"]
             totals[name]["tk"] += s["tk"]
             totals[name]["di"] += s["di"]
             totals[name]["ki"] += s["ki"]
+            totals[name]["ho"] += s["ho"]
+            totals[name]["cl"] += s["cl"]
+            totals[name]["ff"] += s["ff"]
+            totals[name]["fa"] += s["fa"]
+            totals[name]["cm"] += s["cm"]
+            totals[name]["op"] += s["op"]
+            totals[name]["ga"] += s["ga"]
             totals[name]["gp"] += 1
 
         time.sleep(1)  # be polite to AFL Tables
@@ -307,7 +331,63 @@ def scrape_2025_profiles():
     return profiles
 
 
-def build_data(match_totals, profiles, round_num):
+def fetch_youtube_videos():
+    """
+    Fetch the Hawthorn FC YouTube RSS feed (no API key needed).
+    Returns: (videos, fallback_id)
+      videos    = [{'id': str, 'title': str}]  — up to 15 most recent
+      fallback_id = most recent video id (used when no player-specific match)
+    """
+    import xml.etree.ElementTree as ET
+
+    print("  Fetching Hawthorn FC YouTube RSS feed…")
+    xml_text = fetch(HAWKS_YT_RSS)
+    if not xml_text:
+        print("  ⚠ Could not reach YouTube RSS — skipping video matching")
+        return [], None
+
+    try:
+        root = ET.fromstring(xml_text)
+        ns = {
+            'atom': 'http://www.w3.org/2005/Atom',
+            'yt':   'http://www.youtube.com/xml/schemas/2015',
+        }
+        videos = []
+        for entry in root.findall('atom:entry', ns):
+            vid_el   = entry.find('yt:videoId',  ns)
+            title_el = entry.find('atom:title',  ns)
+            if vid_el is not None and title_el is not None:
+                videos.append({'id': vid_el.text, 'title': title_el.text or ''})
+
+        fallback = videos[0]['id'] if videos else None
+        print(f"  ✓ Found {len(videos)} recent Hawks videos")
+        return videos, fallback
+
+    except ET.ParseError as e:
+        print(f"  ⚠ XML parse error: {e}")
+        return [], None
+
+
+def match_videos_to_players(videos, player_names):
+    """
+    Scan video titles for player names and return best-match video ID per player.
+    Scoring: full name in title = 2 pts, last name only = 1 pt.
+    Returns: {player_name: video_id | None}
+    """
+    results = {}
+    for name in player_names:
+        last  = name.split()[-1].lower()
+        best_vid, best_score = None, 0
+        for v in videos:
+            t = v['title'].lower()
+            score = 2 if name.lower() in t else (1 if last in t else 0)
+            if score > best_score:
+                best_score, best_vid = score, v['id']
+        results[name] = best_vid
+    return results
+
+
+def build_data(match_totals, profiles, round_num, video_map=None, fallback_vid=None):
     """Combine all scraped data into the final JSON structure."""
     players = []
 
@@ -336,6 +416,14 @@ def build_data(match_totals, profiles, round_num):
             "tk": mt["tk"],
             "di": mt["di"],
             "ki": mt["ki"],
+            "ho": mt.get("ho", 0),
+            "cl": mt.get("cl", 0),
+            "ga": mt.get("ga", 0),
+            "ff": mt.get("ff", 0),
+            "fa": mt.get("fa", 0),
+            "cm": mt.get("cm", 0),
+            "op": mt.get("op", 0),
+            "vid": (video_map or {}).get(name),   # YouTube video ID for highlights
             **prof,
         })
 
@@ -345,8 +433,9 @@ def build_data(match_totals, profiles, round_num):
     return {
         "updated": str(date.today()),
         "round": round_num,
-        "record": "See ladder",  # update manually or parse from AFL Tables
+        "record": "See ladder",
         "position": "TBC",
+        "fallbackVid": fallback_vid,
         "players": players,
     }
 
@@ -361,14 +450,22 @@ def main():
     print(f"\n👤 Scraping {len(PLAYER_PROFILES)} player profiles for 2025 data…")
     profiles = scrape_2025_profiles()
 
+    print(f"\n🎬 Fetching Hawthorn FC YouTube highlights…")
+    videos, fallback_vid = fetch_youtube_videos()
+    video_map = match_videos_to_players(videos, list(PLAYER_INFO.keys()))
+    matched = sum(1 for v in video_map.values() if v)
+    print(f"  Matched {matched}/{len(video_map)} players to recent videos")
+
     print("\n🔨 Building data.json…")
-    data = build_data(match_totals, profiles, latest_round)
+    data = build_data(match_totals, profiles, latest_round, video_map, fallback_vid)
 
     with open("data.json", "w") as f:
         json.dump(data, f, indent=2)
 
     print(f"\n✅ Done! data.json updated for Round {latest_round}")
     print(f"   {len(data['players'])} players · Updated {data['updated']}")
+    if fallback_vid:
+        print(f"   Fallback video: https://youtu.be/{fallback_vid}")
 
 
 if __name__ == "__main__":
