@@ -303,7 +303,7 @@ function jumperSVG(jn) {
 function compute(raw) {
   const maxGP = Math.max(...raw.map(p => p.gp));
   return raw.map(p => {
-    const da26    = p.di / p.gp;
+    const da26    = p.gp > 0 ? p.di / p.gp : 0;
     const isDebut = p.gp25 === 0;
     const isInj   = !isDebut && p.gp25 < 3;
     const da25    = p.gp25 > 0 ? p.di25 / p.gp25 : null;
@@ -424,7 +424,7 @@ function renderCards(){
   el.innerHTML=list.map(p=>{
     const [tCls,tLabel]=trendInfo(p);
     const ext = p.op>0||p.ho>0||p.cl>0||p.ga>0;
-    const ev  = v => ext ? v : '—';
+    const ev  = v => ext ? (v ?? 0) : '—';
     const da  = p.da26.toFixed(1);
     const khb = p.hb>0 ? (p.ki/p.hb).toFixed(1) : '—';
     const hi  = (v,t) => (typeof v==='number'&&v>=t) ? 'hi' : '';
