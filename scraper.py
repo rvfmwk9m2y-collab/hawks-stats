@@ -71,6 +71,11 @@ PLAYER_PROFILES = {
     "Josh Ward":           "https://afltables.com/afl/stats/players/J/Josh_Ward.html",
     "Nick Watson":         "https://afltables.com/afl/stats/players/N/Nick_Watson.html",
     "Josh Weddle":         "https://afltables.com/afl/stats/players/J/Josh_Weddle.html",
+    "Will Day":            "https://afltables.com/afl/stats/players/W/Will_Day.html",
+    "Flynn Perez":         "https://afltables.com/afl/stats/players/F/Flynn_Perez.html",
+    "Bodie Ryan":          "https://afltables.com/afl/stats/players/B/Bodie_Ryan.html",
+    "Will McCabe":         "https://afltables.com/afl/stats/players/W/Will_McCabe.html",
+    "Cameron Nairn":       "https://afltables.com/afl/stats/players/C/Cameron_Nairn.html",
 }
 
 # Static player info — update if players change
@@ -103,6 +108,11 @@ PLAYER_INFO = {
     "Josh Ward":           {"jn":25,"pos":"MF","age":22,"ht":181,"draftLbl":"7",    "draft":7,    "pu":"https://www.hawthornfc.com.au/players/5252/josh-ward"},
     "Nick Watson":         {"jn":5, "pos":"FW","age":21,"ht":170,"draftLbl":"5",    "draft":5,    "pu":"https://www.hawthornfc.com.au/players/5592/nick-watson"},
     "Josh Weddle":         {"jn":23,"pos":"DF","age":22,"ht":191,"draftLbl":"18",   "draft":18,   "pu":"https://www.hawthornfc.com.au/players/6669/josh-weddle"},
+    "Will Day":            {"jn":12,"pos":"MF","age":24,"ht":191,"draftLbl":"13",   "draft":13,   "pu":"https://www.hawthornfc.com.au/players/3726/will-day"},
+    "Flynn Perez":         {"jn":39,"pos":"DF","age":24,"ht":187,"draftLbl":"SSP",  "draft":9997, "pu":"https://www.hawthornfc.com.au/players/2209/flynn-perez"},
+    "Bodie Ryan":          {"jn":26,"pos":"DF","age":21,"ht":187,"draftLbl":"46",   "draft":46,   "pu":"https://www.hawthornfc.com.au/players/9721/bodie-ryan"},
+    "Will McCabe":         {"jn":27,"pos":"DF","age":20,"ht":197,"draftLbl":"19",   "draft":19,   "pu":"https://www.hawthornfc.com.au/players/9672/will-mccabe"},
+    "Cameron Nairn":       {"jn":22,"pos":"MF","age":18,"ht":185,"draftLbl":"20",   "draft":20,   "pu":"https://www.hawthornfc.com.au/players/10897/cameron-nairn"},
 }
 
 
