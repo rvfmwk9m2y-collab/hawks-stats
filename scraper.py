@@ -14,6 +14,12 @@ from html.parser import HTMLParser
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Hawks Stats App; contact via GitHub)"}
 
+# ── UPDATE THESE MANUALLY EACH WEEK ──────────────────────────────────────
+CURRENT_AFL_ROUND  = 12          # Official AFL round number
+SEASON_RECORD      = "7W–3L–1D"  # W–L–D record
+LADDER_POSITION    = "3rd"        # Current ladder position
+# ─────────────────────────────────────────────────────────────────────────
+
 # ── Hawthorn FC official YouTube channel ──
 HAWKS_CHANNEL_ID   = "UCweshjuhmLYGxHuH2xIPXpg"
 HAWKS_YT_RSS       = f"https://www.youtube.com/feeds/videos.xml?channel_id={HAWKS_CHANNEL_ID}"
@@ -387,26 +393,43 @@ def match_videos_to_players(videos, player_names):
     return results
 
 
-def build_data(match_totals, profiles, round_num, video_map=None, fallback_vid=None):
+def build_data(match_totals, profiles, video_map=None, fallback_vid=None):
     """Combine all scraped data into the final JSON structure."""
+
+    # Load existing data.json as fallback for 2025 stats and other preserved fields
+    existing_players = {}
+    try:
+        with open("data.json") as f:
+            existing = json.load(f)
+        existing_players = {p["name"]: p for p in existing.get("players", [])}
+        print(f"  Loaded existing data.json ({len(existing_players)} players) as fallback")
+    except Exception:
+        print("  No existing data.json found — starting fresh")
+
     players = []
 
-    # Determine record from match pages count
-    # (In practice you'd parse the ladder page; here we use a placeholder)
-    total_games = max((v["gp"] for v in match_totals.values()), default=0)
-
     for name, info in PLAYER_INFO.items():
-        # Match totals (may not exist if player didn't play)
-        mt = match_totals.get(name, {"gl": 0, "tk": 0, "di": 0, "ki": 0, "gp": 0})
-        # Try alternate name formats
+        # Match totals for this season
+        mt = match_totals.get(name, {"gl":0,"tk":0,"di":0,"ki":0,
+                                     "ho":0,"cl":0,"ff":0,"fa":0,
+                                     "cm":0,"op":0,"ga":0,"gp":0})
+        # Try alternate name formats if no match
         if mt["gp"] == 0:
             for k in match_totals:
                 if name.split()[-1] in k and name.split()[0][0] == k.split()[0][0]:
                     mt = match_totals[k]
                     break
 
-        # 2025 profile
-        prof = profiles.get(name, {"gp25": 0, "di25": 0, "gl25": 0, "tk25": 0})
+        # 2025 profile — use scraped data, fall back to existing data.json
+        prof = profiles.get(name, {})
+        existing_p = existing_players.get(name, {})
+        if not prof or prof.get("gp25", 0) == 0:
+            prof = {
+                "gp25": existing_p.get("gp25", 0),
+                "di25": existing_p.get("di25", 0),
+                "gl25": existing_p.get("gl25", 0),
+                "tk25": existing_p.get("tk25", 0),
+            }
 
         players.append({
             **info,
@@ -423,28 +446,26 @@ def build_data(match_totals, profiles, round_num, video_map=None, fallback_vid=N
             "fa": mt.get("fa", 0),
             "cm": mt.get("cm", 0),
             "op": mt.get("op", 0),
-            "vid": (video_map or {}).get(name),   # YouTube video ID for highlights
+            "vid": (video_map or {}).get(name),
             **prof,
         })
 
-    # Sort by goals descending for default display
     players.sort(key=lambda p: p["gl"], reverse=True)
 
     return {
-        "updated": str(date.today()),
-        "round": round_num,
-        "record": "See ladder",
-        "position": "TBC",
+        "updated":     str(date.today()),
+        "round":       CURRENT_AFL_ROUND,
+        "record":      SEASON_RECORD,
+        "position":    LADDER_POSITION,
         "fallbackVid": fallback_vid,
-        "players": players,
+        "players":     players,
     }
 
 
 def main():
     print("🦅 Hawks Stats Scraper starting…\n")
 
-    latest_round = len(MATCH_PAGES)
-    print(f"📋 Scraping {latest_round} match pages for goals & tackles…")
+    print(f"📋 Scraping {len(MATCH_PAGES)} match pages…")
     match_totals = scrape_match_pages()
 
     print(f"\n👤 Scraping {len(PLAYER_PROFILES)} player profiles for 2025 data…")
@@ -457,12 +478,12 @@ def main():
     print(f"  Matched {matched}/{len(video_map)} players to recent videos")
 
     print("\n🔨 Building data.json…")
-    data = build_data(match_totals, profiles, latest_round, video_map, fallback_vid)
+    data = build_data(match_totals, profiles, video_map, fallback_vid)
 
     with open("data.json", "w") as f:
         json.dump(data, f, indent=2)
 
-    print(f"\n✅ Done! data.json updated for Round {latest_round}")
+    print(f"\n✅ Done! data.json updated — Round {CURRENT_AFL_ROUND} · {SEASON_RECORD} · {LADDER_POSITION}")
     print(f"   {len(data['players'])} players · Updated {data['updated']}")
     if fallback_vid:
         print(f"   Fallback video: https://youtu.be/{fallback_vid}")
