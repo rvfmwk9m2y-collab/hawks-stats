@@ -316,7 +316,7 @@ function compute(raw) {
     const tkpg25  = p.gp25 > 0 ? p.tk25 / p.gp25 : null;
     let dda=null, dgl=null, dtk=null, trend=null;
 
-    if (!isDebut && !isInj && da25 !== null) {
+    if (!isDebut && !isInj && da25 !== null && p.gp > 0) {
       dda = da26 - da25;
       dgl = (p.gl / p.gp) - glpg25;
       dtk = (p.tk / p.gp) - tkpg25;
@@ -434,7 +434,26 @@ function renderCards(){
     const khb = p.hb>0 ? (p.ki/p.hb).toFixed(1) : '—';
     const hi  = (v,t) => (typeof v==='number'&&v>=t) ? 'hi' : '';
 
-    // Position-specific YoY delta shown in trend row
+    // Players who haven't played yet — show minimal card
+    if (p.gp === 0) {
+      return `<div class="player-card">
+        <div class="card-inner">
+          <div class="card-jumper-col">
+            <div class="jumper-svg-wrap">${jumperSVG(p.jn)}</div>
+            <div class="card-name">${p.name}</div>
+            <div class="card-pos-badge pos-${p.pos}">${p.pos}</div>
+          </div>
+          <div class="card-stats-col" style="justify-content:center;align-items:center;display:flex">
+            <div style="text-align:center;color:var(--muted);font-size:0.8rem;padding:12px">No games played yet</div>
+          </div>
+        </div>
+        <div class="card-bottom">
+          <span class="trend-badge tr-nu">—</span>
+          <span class="trend-detail"></span>
+          <a class="hawk-btn" href="${p.pu}#latest" target="_blank">🦅 Highlights</a>
+        </div>
+      </div>`;
+    }
     let detailHtml='';
     if(!p.isDebut&&!p.isInj&&p.dda!==null){
       const parts=[];
