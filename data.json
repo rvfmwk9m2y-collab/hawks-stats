@@ -3,7 +3,7 @@
   "round": 11,
   "record": "7W\u20133L\u20131D",
   "position": "4th",
-  "fallbackVid": "2MoqELgRku8",
+  "fallbackVid": null,
   "nextGame": {
     "round": 12,
     "opponent": "St Kilda",
@@ -834,7 +834,7 @@
       "fa": 4,
       "cm": 9,
       "op": 9,
-      "vid": "V3AIBAsIPr0",
+      "vid": null,
       "rounds": [
         {
           "r": "R1",
@@ -3265,7 +3265,7 @@
       "fa": 0,
       "cm": 0,
       "op": 0,
-      "vid": "QbyyHBZtSTM",
+      "vid": null,
       "rounds": [],
       "gp25": 6,
       "di25": 126,
