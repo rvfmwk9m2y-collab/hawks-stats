@@ -187,6 +187,29 @@ tr:hover td { background: var(--gold-pale); }
 .form-cold { background: rgba(216,90,48,0.15);  color: #D85A30; }
 .form-ok   { background: rgba(136,135,128,0.15); color: #888780; }
 
+/* ── CLUB HISTORY VIEW ── */
+.club-section { padding: 12px 14px 32px; }
+.club-header { margin-bottom: 8px; }
+.club-title { font-size: 1rem; font-weight: 700; color: var(--gold); }
+.club-sub { font-size: 0.68rem; color: var(--muted); margin-top: 1px; }
+.prem-scroll { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.prem-scroll::-webkit-scrollbar { display: none; }
+.prem-card { flex-shrink: 0; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 12px 14px; min-width: 120px; text-align: center; border-top: 3px solid var(--brown); }
+.prem-big { border-top-color: var(--gold) !important; }
+.prem-close { border-top-color: #D85A30 !important; }
+.prem-year { font-size: 1.3rem; font-weight: 800; color: var(--gold); font-family: Georgia, serif; }
+.prem-opp { font-size: 0.62rem; color: var(--muted); margin: 2px 0; }
+.prem-score { font-size: 0.85rem; font-weight: 700; color: var(--text); }
+.prem-margin { font-size: 0.68rem; color: #1D9E75; font-weight: 600; margin-top: 3px; }
+.club-list { display: flex; flex-direction: column; gap: 2px; margin-bottom: 4px; }
+.club-row { display: flex; align-items: center; gap: 8px; padding: 7px 10px; background: var(--surface); border-radius: 8px; border: 1px solid var(--border); }
+.club-rank { font-size: 0.65rem; font-weight: 700; color: var(--muted); min-width: 22px; }
+.club-name { font-size: 0.8rem; font-weight: 500; color: var(--text); flex: 1; }
+.club-stat { font-size: 0.8rem; font-weight: 700; color: var(--gold); }
+.club-years { font-size: 0.62rem; color: var(--muted); margin-left: 4px; }
+.club-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
+@media (max-width: 500px) { .club-cols { grid-template-columns: 1fr; } }
+
 /* MISC */
 .last-updated { text-align: center; font-size: 0.68rem; color: var(--muted); padding: 0 14px 28px; }
 .last-updated a { color: var(--muted); }
@@ -241,6 +264,7 @@ tr:hover td { background: var(--gold-pale); }
 <div class="view-toggle">
   <div class="vtab active" onclick="setView('cards',this)">Cards</div>
   <div class="vtab" onclick="setView('table',this)">Table</div>
+  <div class="vtab" onclick="setView('club',this)">🦅 Club</div>
 </div>
 
 <div class="sort-bar" id="sort-bar">
@@ -300,6 +324,125 @@ tr:hover td { background: var(--gold-pale); }
       <tbody id="table-body"></tbody>
     </table>
   </div>
+</div>
+
+<!-- ── CLUB HISTORY VIEW ── -->
+<div id="club-view" style="display:none">
+<div class="club-section">
+
+  <div class="club-header">
+    <div class="club-title">🏆 13 Premierships</div>
+    <div class="club-sub">VFL/AFL 1961–2015</div>
+  </div>
+  <div class="prem-scroll">
+    <div class="prem-card"><div class="prem-year">1961</div><div class="prem-opp">vs Footscray</div><div class="prem-score">94–51</div><div class="prem-margin">+43</div></div>
+    <div class="prem-card"><div class="prem-year">1971</div><div class="prem-opp">vs St Kilda</div><div class="prem-score">82–77</div><div class="prem-margin">+5</div></div>
+    <div class="prem-card"><div class="prem-year">1976</div><div class="prem-opp">vs Nth Melbourne</div><div class="prem-score">100–70</div><div class="prem-margin">+30</div></div>
+    <div class="prem-card"><div class="prem-year">1978</div><div class="prem-opp">vs Nth Melbourne</div><div class="prem-score">121–103</div><div class="prem-margin">+18</div></div>
+    <div class="prem-card prem-big"><div class="prem-year">1983</div><div class="prem-opp">vs Essendon</div><div class="prem-score">140–57</div><div class="prem-margin">+83</div></div>
+    <div class="prem-card"><div class="prem-year">1986</div><div class="prem-opp">vs Carlton</div><div class="prem-score">110–68</div><div class="prem-margin">+42</div></div>
+    <div class="prem-card prem-big"><div class="prem-year">1988</div><div class="prem-opp">vs Melbourne</div><div class="prem-score">152–56</div><div class="prem-margin">+96</div></div>
+    <div class="prem-card prem-close"><div class="prem-year">1989</div><div class="prem-opp">vs Geelong</div><div class="prem-score">144–138</div><div class="prem-margin">+6 🐐</div></div>
+    <div class="prem-card"><div class="prem-year">1991</div><div class="prem-opp">vs West Coast</div><div class="prem-score">139–86</div><div class="prem-margin">+53</div></div>
+    <div class="prem-card"><div class="prem-year">2008</div><div class="prem-opp">vs Geelong</div><div class="prem-score">115–89</div><div class="prem-margin">+26</div></div>
+    <div class="prem-card prem-close"><div class="prem-year">2013</div><div class="prem-opp">vs Fremantle</div><div class="prem-score">77–62</div><div class="prem-margin">+15</div></div>
+    <div class="prem-card prem-big"><div class="prem-year">2014</div><div class="prem-opp">vs Sydney</div><div class="prem-score">137–74</div><div class="prem-margin">+63</div></div>
+    <div class="prem-card"><div class="prem-year">2015</div><div class="prem-opp">vs West Coast</div><div class="prem-score">107–61</div><div class="prem-margin">+46</div></div>
+  </div>
+
+  <div class="club-header" style="margin-top:20px">
+    <div class="club-title">🎖️ Peter Crimmins Medal</div>
+    <div class="club-sub">Best & Fairest — most wins all time</div>
+  </div>
+  <div class="club-list">
+    <div class="club-row"><span class="club-rank">1</span><span class="club-name">Leigh Matthews</span><span class="club-stat">8 wins</span><span class="club-years">1971–1982</span></div>
+    <div class="club-row"><span class="club-rank">2</span><span class="club-name">Sam Mitchell</span><span class="club-stat">5 wins</span><span class="club-years">2006–2016</span></div>
+    <div class="club-row"><span class="club-rank">3=</span><span class="club-name">John Kennedy Snr</span><span class="club-stat">4 wins</span><span class="club-years">1950–1954</span></div>
+    <div class="club-row"><span class="club-rank">3=</span><span class="club-name">Jason Dunstall</span><span class="club-stat">4 wins</span><span class="club-years">1988–1993</span></div>
+    <div class="club-row"><span class="club-rank">3=</span><span class="club-name">Shane Crawford</span><span class="club-stat">4 wins</span><span class="club-years">1998–2003</span></div>
+    <div class="club-row"><span class="club-rank">6=</span><span class="club-name">Tom Mitchell</span><span class="club-stat">3 wins</span><span class="club-years">2017–2021</span></div>
+    <div class="club-row"><span class="club-rank">7=</span><span class="club-name">Jack Gunston</span><span class="club-stat">2 wins</span><span class="club-years">2020 &amp; 2025</span></div>
+    <div class="club-row"><span class="club-rank">7=</span><span class="club-name">Luke Hodge</span><span class="club-stat">2 wins</span><span class="club-years">2005 &amp; 2010</span></div>
+    <div class="club-row"><span class="club-rank">7=</span><span class="club-name">James Sicily</span><span class="club-stat">1 win</span><span class="club-years">2022</span></div>
+    <div class="club-row"><span class="club-rank">7=</span><span class="club-name">Will Day</span><span class="club-stat">1 win</span><span class="club-years">2023</span></div>
+    <div class="club-row"><span class="club-rank">7=</span><span class="club-name">Jai Newcombe</span><span class="club-stat">1 win</span><span class="club-years">2024</span></div>
+  </div>
+
+  <div class="club-cols">
+    <div>
+      <div class="club-header" style="margin-top:20px">
+        <div class="club-title">🏅 Norm Smith Medal</div>
+        <div class="club-sub">Best on ground in Grand Final</div>
+      </div>
+      <div class="club-list">
+        <div class="club-row"><span class="club-rank">1983</span><span class="club-name">Colin Robinson</span><span class="club-stat">vs Essendon</span></div>
+        <div class="club-row"><span class="club-rank">1986</span><span class="club-name">Gary Ayres</span><span class="club-stat">vs Carlton</span></div>
+        <div class="club-row"><span class="club-rank">1988</span><span class="club-name">Gary Ayres ★★</span><span class="club-stat">vs Melbourne</span></div>
+        <div class="club-row"><span class="club-rank">1991</span><span class="club-name">Paul Dear</span><span class="club-stat">vs West Coast</span></div>
+        <div class="club-row"><span class="club-rank">2008</span><span class="club-name">Luke Hodge</span><span class="club-stat">vs Geelong</span></div>
+        <div class="club-row"><span class="club-rank">2013</span><span class="club-name">Brian Lake</span><span class="club-stat">vs Fremantle</span></div>
+        <div class="club-row"><span class="club-rank">2014</span><span class="club-name">Luke Hodge ★★</span><span class="club-stat">vs Sydney</span></div>
+        <div class="club-row"><span class="club-rank">2015</span><span class="club-name">Cyril Rioli</span><span class="club-stat">vs West Coast</span></div>
+      </div>
+      <div style="font-size:0.6rem;color:var(--muted);padding:4px 0 0">★★ Won it twice</div>
+    </div>
+    <div>
+      <div class="club-header" style="margin-top:20px">
+        <div class="club-title">🥇 Brownlow Medal</div>
+        <div class="club-sub">AFL fairest &amp; best — 6 Hawks</div>
+      </div>
+      <div class="club-list">
+        <div class="club-row"><span class="club-rank">1949</span><span class="club-name">Colin Austen</span><span class="club-stat">23 votes</span></div>
+        <div class="club-row"><span class="club-rank">1986</span><span class="club-name">R. DiPierdomenico</span><span class="club-stat"></span></div>
+        <div class="club-row"><span class="club-rank">1987</span><span class="club-name">John Platten</span><span class="club-stat"></span></div>
+        <div class="club-row"><span class="club-rank">1999</span><span class="club-name">Shane Crawford</span><span class="club-stat">as captain</span></div>
+        <div class="club-row"><span class="club-rank">2012</span><span class="club-name">Sam Mitchell</span><span class="club-stat">28 votes</span></div>
+        <div class="club-row"><span class="club-rank">2018</span><span class="club-name">Tom Mitchell</span><span class="club-stat">28 votes</span></div>
+      </div>
+      <div style="font-size:0.6rem;color:var(--muted);padding:4px 0 0">Mitchell 2012 awarded after Watson stripped</div>
+    </div>
+  </div>
+
+  <div class="club-cols">
+    <div>
+      <div class="club-header" style="margin-top:20px">
+        <div class="club-title">📋 Most Games</div>
+        <div class="club-sub">All time — club record</div>
+      </div>
+      <div class="club-list">
+        <div class="club-row"><span class="club-rank">1</span><span class="club-name">Michael Tuck</span><span class="club-stat">426</span></div>
+        <div class="club-row"><span class="club-rank">2</span><span class="club-name">Leigh Matthews</span><span class="club-stat">332</span></div>
+        <div class="club-row"><span class="club-rank">3</span><span class="club-name">Luke Breust</span><span class="club-stat">308</span></div>
+        <div class="club-row"><span class="club-rank">4</span><span class="club-name">Sam Mitchell</span><span class="club-stat">307</span></div>
+        <div class="club-row"><span class="club-rank">5=</span><span class="club-name">Shane Crawford</span><span class="club-stat">305</span></div>
+        <div class="club-row"><span class="club-rank">5=</span><span class="club-name">Luke Hodge</span><span class="club-stat">305</span></div>
+        <div class="club-row"><span class="club-rank">7</span><span class="club-name">Chris Langford</span><span class="club-stat">303</span></div>
+        <div class="club-row"><span class="club-rank">8</span><span class="club-name">Don Scott</span><span class="club-stat">302</span></div>
+        <div class="club-row"><span class="club-rank">9</span><span class="club-name">Kelvin Moore</span><span class="club-stat">300</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="club-header" style="margin-top:20px">
+        <div class="club-title">⚽ Top Goal Kickers</div>
+        <div class="club-sub">All time career goals</div>
+      </div>
+      <div class="club-list">
+        <div class="club-row"><span class="club-rank">1</span><span class="club-name">Jason Dunstall</span><span class="club-stat">1,254</span></div>
+        <div class="club-row"><span class="club-rank">2</span><span class="club-name">Leigh Matthews</span><span class="club-stat">915</span></div>
+        <div class="club-row"><span class="club-rank">3</span><span class="club-name">Peter Hudson</span><span class="club-stat">727</span></div>
+        <div class="club-row"><span class="club-rank">4</span><span class="club-name">Jarryd Roughead</span><span class="club-stat">574</span></div>
+        <div class="club-row"><span class="club-rank">5</span><span class="club-name">Jack Gunston ★</span><span class="club-stat">580+</span></div>
+        <div class="club-row"><span class="club-rank">6</span><span class="club-name">Lance Franklin</span><span class="club-stat">517</span></div>
+        <div class="club-row"><span class="club-rank">7</span><span class="club-name">Luke Breust</span><span class="club-stat">509</span></div>
+        <div class="club-row"><span class="club-rank">8</span><span class="club-name">Dermott Brereton</span><span class="club-stat">427</span></div>
+        <div class="club-row"><span class="club-rank">9</span><span class="club-name">Gary Buckenara</span><span class="club-stat">387</span></div>
+        <div class="club-row"><span class="club-rank">10</span><span class="club-name">John Platten</span><span class="club-stat">360</span></div>
+      </div>
+      <div style="font-size:0.6rem;color:var(--muted);padding:4px 0 0">★ Active — includes 2026 season</div>
+    </div>
+  </div>
+
+</div>
 </div>
 
 <div class="last-updated" id="last-updated"></div>
@@ -649,7 +792,17 @@ function renderTable(){
 }
 
 function setPos(el){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');curPos=el.dataset.pos;renderAll();}
-function setView(v,el){document.querySelectorAll('.vtab').forEach(t=>t.classList.remove('active'));el.classList.add('active');curView=v;document.getElementById('cards-view').style.display=v==='cards'?'':'none';document.getElementById('table-view').style.display=v==='table'?'':'none';document.getElementById('sort-bar').style.display=v==='cards'?'':'none';renderAll();}
+function setView(v,el){
+  document.querySelectorAll('.vtab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  curView=v;
+  document.getElementById('cards-view').style.display=v==='cards'?'':'none';
+  document.getElementById('table-view').style.display=v==='table'?'':'none';
+  document.getElementById('club-view').style.display=v==='club'?'':'none';
+  document.getElementById('sort-bar').style.display=v==='cards'?'':'none';
+  document.getElementById('controls').style.display=v==='club'?'none':'';
+  renderAll();
+}
 function setSort(el){const k=el.dataset.key;if(curSort===k)curSortDir*=-1;else{curSort=k;curSortDir=-1;}document.querySelectorAll('.sort-btn').forEach(t=>t.classList.remove('active'));el.classList.add('active');renderAll();}
 function tSort(k){if(tSortKey===k)tSortDir*=-1;else{tSortKey=k;tSortDir=-1;}renderAll();}
 
