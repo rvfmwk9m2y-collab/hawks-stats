@@ -127,6 +127,50 @@ tr:hover td { background: var(--gold-pale); }
 .t-name { font-weight: 600; }
 .pending { color: var(--muted); font-style: italic; font-size: 0.65rem; }
 
+/* ── NEXT GAME WIDGET ── */
+.ng-section { padding: 12px 14px 0; }
+.ng-card {
+  background: linear-gradient(135deg, #2A1008 0%, #150602 100%);
+  border: 1px solid rgba(242,193,78,0.18);
+  border-radius: var(--r); padding: 14px; position: relative; overflow: hidden;
+}
+.ng-eagle {
+  position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  font-size: 3.5rem; opacity: 0.07; pointer-events: none; user-select: none;
+}
+.ng-badge { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: rgba(242,193,78,0.5); margin-bottom: 5px; }
+.ng-matchup { font-size: 1rem; font-weight: 700; color: var(--gold); }
+.ng-meta { font-size: 0.7rem; color: rgba(242,193,78,0.5); margin-top: 3px; }
+.ng-countdown { display: flex; gap: 8px; margin-top: 12px; }
+.cd-unit { flex: 1; background: rgba(0,0,0,0.35); border-radius: 6px; padding: 8px 4px; text-align: center; }
+.cd-num { font-size: 1.5rem; font-weight: 800; color: var(--gold); line-height: 1; font-variant-numeric: tabular-nums; }
+.cd-lbl { font-size: 0.5rem; color: rgba(242,193,78,0.4); text-transform: uppercase; letter-spacing: .06em; margin-top: 2px; }
+.ng-score { font-size: 2rem; font-weight: 800; color: var(--gold); text-align: center; letter-spacing: .02em; }
+.ng-score-sep { color: rgba(242,193,78,0.3); font-size: 1.4rem; }
+.ng-score-teams { display: flex; justify-content: space-between; font-size: 0.72rem; color: rgba(242,193,78,0.55); margin-top: 4px; }
+.ng-timestr { text-align: center; font-size: 0.7rem; color: rgba(242,193,78,0.45); margin-top: 4px; }
+.ng-live-pill { display: inline-flex; align-items: center; gap: 5px; background: #C0392B; color: #fff; font-size: 0.6rem; font-weight: 700; padding: 3px 8px; border-radius: 10px; letter-spacing: .06em; }
+.ng-live-dot { width: 6px; height: 6px; border-radius: 50%; background: #fff; animation: ngpulse 1s infinite; }
+@keyframes ngpulse { 0%,100%{opacity:1} 50%{opacity:0.2} }
+.ng-result-pill { display: inline-flex; align-items: center; font-size: 0.6rem; font-weight: 700; padding: 3px 8px; border-radius: 10px; letter-spacing: .06em; }
+.ng-win  { background: rgba(29,158,117,0.2); color: #1D9E75; }
+.ng-loss { background: rgba(216,90,48,0.2);  color: #D85A30; }
+.ng-draw { background: rgba(136,135,128,0.2); color: #888780; }
+
+/* ── PLAYER PHOTOS ── */
+.player-photo-wrap { position: relative; width: 60px; height: 70px; }
+.player-photo { width: 60px; height: 70px; object-fit: cover; object-position: top center; border-radius: 6px; display: block; }
+.player-jn-overlay {
+  position: absolute; bottom: 2px; right: 2px;
+  background: rgba(42,16,8,0.85); color: var(--gold);
+  font-size: 0.65rem; font-weight: 800; line-height: 1;
+  padding: 2px 4px; border-radius: 3px; font-family: Georgia,serif;
+}
+
+@media (min-width: 700px) {
+  .ng-section { padding: 12px 24px 0; }
+}
+
 /* MISC */
 .last-updated { text-align: center; font-size: 0.68rem; color: var(--muted); padding: 0 14px 28px; }
 .last-updated a { color: var(--muted); }
@@ -148,6 +192,14 @@ tr:hover td { background: var(--gold-pale); }
     <p id="subtitle">Loading…</p>
   </div>
   <div class="record-pill" id="record-pill">—</div>
+</div>
+
+<!-- ── NEXT GAME / LIVE SCORE WIDGET ── -->
+<div class="ng-section">
+  <div class="ng-card" id="ng-card">
+    <div class="ng-eagle">🦅</div>
+    <div style="color:rgba(242,193,78,0.35);font-size:0.8rem;text-align:center;padding:4px">Loading fixture…</div>
+  </div>
 </div>
 
 <div class="cards-row">
@@ -242,6 +294,7 @@ const SQUAD_PAGE = 'https://www.hawthornfc.com.au/teams/afl';
 const EMBEDDED = {
   updated:"2026-05-22", round:12, record:"7W–3L–1D", position:"3rd",
   fallbackVid:"NL4HH-U2QZ8",
+  nextGame:{round:12,opponent:"St Kilda",venue:"Marvel Stadium",home:true,kickoff:"2026-05-28T09:30:00Z"},
   players:[
     {jn:10,name:'Karl Amon',         pu:BASE+'801/karl-amon',            pos:'DF',age:30,ht:181,draftLbl:'68',draft:68,  gp:9, gl:0, tk:18,di:215,ki:151,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:600,gl25:4, tk25:53},
     {jn:37,name:'Tom Barrass',        pu:BASE+'790/tom-barrass',          pos:'DF',age:30,ht:196,draftLbl:'43',draft:43,  gp:9, gl:1, tk:9, di:88, ki:57, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:242,gl25:0, tk25:28},
@@ -358,8 +411,8 @@ function compute(raw) {
 function load() {
   fetch('data.json')
     .then(r=>r.ok?r.json():Promise.reject())
-    .then(d=>{DATA={...d,players:compute(d.players)};init();})
-    .catch(()=>{DATA={...EMBEDDED,players:compute(EMBEDDED.players)};init();});
+    .then(d=>{DATA={...d,players:compute(d.players)};init();initNextGame();loadPlayerPhotos();})
+    .catch(()=>{DATA={...EMBEDDED,players:compute(EMBEDDED.players)};init();initNextGame();loadPlayerPhotos();});
 }
 
 function init() {
@@ -439,7 +492,7 @@ function renderCards(){
       return `<div class="player-card">
         <div class="card-inner">
           <div class="card-jumper-col">
-            <div class="jumper-svg-wrap">${jumperSVG(p.jn)}</div>
+            ${playerPhotoHTML(p)}
             <div class="card-name">${p.name}</div>
             <div class="card-pos-badge pos-${p.pos}">${p.pos}</div>
           </div>
@@ -503,7 +556,7 @@ function renderCards(){
     return `<div class="player-card">
       <div class="card-inner">
         <div class="card-jumper-col">
-          <div class="jumper-svg-wrap">${jumperSVG(p.jn)}</div>
+          ${playerPhotoHTML(p)}
           <div class="card-name">${p.name}</div>
           <div class="card-pos-badge pos-${p.pos}">${p.pos}</div>
         </div>
@@ -573,6 +626,141 @@ function setPos(el){document.querySelectorAll('.tab').forEach(t=>t.classList.rem
 function setView(v,el){document.querySelectorAll('.vtab').forEach(t=>t.classList.remove('active'));el.classList.add('active');curView=v;document.getElementById('cards-view').style.display=v==='cards'?'':'none';document.getElementById('table-view').style.display=v==='table'?'':'none';document.getElementById('sort-bar').style.display=v==='cards'?'':'none';renderAll();}
 function setSort(el){const k=el.dataset.key;if(curSort===k)curSortDir*=-1;else{curSort=k;curSortDir=-1;}document.querySelectorAll('.sort-btn').forEach(t=>t.classList.remove('active'));el.classList.add('active');renderAll();}
 function tSort(k){if(tSortKey===k)tSortDir*=-1;else{tSortKey=k;tSortDir=-1;}renderAll();}
+
+/* ── NEXT GAME / LIVE SCORE ── */
+let ngTimer = null;
+
+async function fetchSquiggleGames() {
+  try {
+    const r = await fetch('https://api.squiggle.com.au/?q=games;year=2026;team=Hawthorn');
+    if (!r.ok) return null;
+    const d = await r.json();
+    return d.games || [];
+  } catch(e) { return null; }
+}
+
+function renderNgCard(g) {
+  const card = document.getElementById('ng-card');
+  if (!card) return;
+  if (!g) {
+    card.innerHTML = `<div class="ng-eagle">🦅</div><div class="ng-badge" style="margin-bottom:4px">Next game</div><div class="ng-matchup">${DATA?.nextGame ? 'Round '+DATA.nextGame.round+' · vs '+DATA.nextGame.opponent : 'Fixture TBC'}</div>`;
+    return;
+  }
+  const home = g.hteam && g.hteam.includes('Hawthorn');
+  const opp  = home ? g.ateam : g.hteam;
+  const hsc  = home ? g.hscore : g.ascore;
+  const osc  = home ? g.ascore : g.hscore;
+
+  if (g.complete > 0 && g.complete < 100) {
+    // LIVE
+    card.innerHTML = `<div class="ng-eagle">🦅</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <span class="ng-badge">Round ${g.round} · ${g.venue||''}</span>
+        <span class="ng-live-pill"><span class="ng-live-dot"></span>LIVE</span>
+      </div>
+      <div class="ng-score">${hsc??'—'} <span class="ng-score-sep">v</span> ${osc??'—'}</div>
+      <div class="ng-score-teams"><span>🦅 Hawthorn</span><span>${opp}</span></div>
+      <div class="ng-timestr">${g.timestr||''}</div>`;
+    clearTimeout(ngTimer);
+    ngTimer = setTimeout(initNextGame, 60000);
+
+  } else if (g.complete === 100) {
+    // RESULT
+    const won = (home && g.hscore > g.ascore) || (!home && g.ascore > g.hscore);
+    const drew = g.hscore === g.ascore;
+    const pc = drew ? 'ng-draw' : won ? 'ng-win' : 'ng-loss';
+    const pl = drew ? 'Draw' : won ? '✓ Win' : 'Loss';
+    card.innerHTML = `<div class="ng-eagle">🦅</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <span class="ng-badge">Round ${g.round} · Final</span>
+        <span class="ng-result-pill ${pc}">${pl}</span>
+      </div>
+      <div class="ng-score">${hsc} <span class="ng-score-sep">v</span> ${osc}</div>
+      <div class="ng-score-teams"><span>🦅 Hawthorn</span><span>${opp}</span></div>
+      <div class="ng-timestr">${g.venue||''}</div>`;
+
+  } else {
+    // UPCOMING — countdown
+    const ng = DATA?.nextGame;
+    const kickoff = ng ? new Date(ng.kickoff) : (g.localtime ? new Date(g.localtime.replace(' ','T')+'+10:00') : null);
+    const dateStr = kickoff ? kickoff.toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short',timeZone:'Australia/Melbourne'}) : '';
+    const timeStr = kickoff ? kickoff.toLocaleTimeString('en-AU',{hour:'2-digit',minute:'2-digit',timeZone:'Australia/Melbourne'}) + ' AEST' : '';
+    card.innerHTML = `<div class="ng-eagle">🦅</div>
+      <div class="ng-badge">Round ${g.round} · Next game</div>
+      <div class="ng-matchup">🦅 Hawthorn <span style="color:rgba(242,193,78,0.3)">vs</span> ${opp}</div>
+      <div class="ng-meta">${g.venue||ng?.venue||''} · ${dateStr} · ${timeStr}</div>
+      <div class="ng-countdown" id="ng-countdown"></div>`;
+    if (kickoff) startNgCountdown(kickoff);
+  }
+}
+
+function startNgCountdown(kickoff) {
+  function tick() {
+    const wrap = document.getElementById('ng-countdown');
+    if (!wrap) return;
+    const diff = kickoff.getTime() - Date.now();
+    if (diff <= 0) {
+      wrap.innerHTML = `<div style="flex:1;text-align:center;color:var(--gold);font-weight:700;padding:10px;font-size:1rem">🏉 Kickoff!</div>`;
+      setTimeout(initNextGame, 15000);
+      return;
+    }
+    const d = Math.floor(diff/86400000);
+    const h = Math.floor((diff%86400000)/3600000);
+    const m = Math.floor((diff%3600000)/60000);
+    const s = Math.floor((diff%60000)/1000);
+    const u = (n,l) => `<div class="cd-unit"><div class="cd-num">${String(n).padStart(2,'0')}</div><div class="cd-lbl">${l}</div></div>`;
+    wrap.innerHTML = u(d,'days')+u(h,'hrs')+u(m,'min')+u(s,'sec');
+    setTimeout(tick, 1000);
+  }
+  tick();
+}
+
+async function initNextGame() {
+  const games = await fetchSquiggleGames();
+  if (!games) {
+    // Fallback to data.json nextGame
+    const ng = DATA?.nextGame;
+    if (ng) renderNgCard({round:ng.round,hteam:ng.home?'Hawthorn':'Opponent',ateam:ng.home?ng.opponent:'Hawthorn',venue:ng.venue,complete:0,hscore:null,ascore:null});
+    return;
+  }
+  // Find live → upcoming → most recent
+  const live = games.find(g => g.complete > 0 && g.complete < 100);
+  const upcoming = games.filter(g => !g.complete || g.complete === 0)[0];
+  const recent = [...games].filter(g => g.complete === 100).pop();
+  renderNgCard(live || upcoming || recent);
+}
+
+/* ── PLAYER PHOTOS ── */
+let photoMap = {};
+
+async function loadPlayerPhotos() {
+  try {
+    const r = await fetch('https://fantasy.afl.com.au/data/afl/players.json');
+    if (!r.ok) return;
+    const d = await r.json();
+    const players = d.players || d;
+    players.forEach(p => {
+      if (p.club && (p.club.toLowerCase().includes('hawthorn') || p.club === 'HAW')) {
+        const name = `${p.first_name} ${p.last_name}`.trim();
+        const id = p.player_id || p.id;
+        if (id) photoMap[name] = `https://s.afl.com.au/staticfile/AFL%20Tenant/AFL/Players/ChampIDImages/AFL/2026/${id}.png`;
+      }
+    });
+    renderAll(); // Re-render cards with photos
+  } catch(e) { /* photos unavailable, fallback to SVG */ }
+}
+
+function playerPhotoHTML(p) {
+  const url = photoMap[p.name];
+  if (url) {
+    return `<div class="player-photo-wrap">
+      <img class="player-photo" src="${url}" alt="${p.name}" loading="lazy"
+        onerror="this.closest('.player-photo-wrap').innerHTML='${jumperSVG(p.jn).replace(/'/g,"\\'").replace(/\n/g,'')}'; ">
+      <div class="player-jn-overlay">${p.jn}</div>
+    </div>`;
+  }
+  return `<div class="jumper-svg-wrap">${jumperSVG(p.jn)}</div>`;
+}
 
 load();
 </script>
