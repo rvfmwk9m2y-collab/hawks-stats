@@ -746,7 +746,7 @@ async function initNextGame() {
   if (!games) {
     // Fallback to data.json nextGame
     const ng = DATA?.nextGame;
-    if (ng) renderNgCard({round:ng.round,hteam:ng.home?'Hawthorn':'Opponent',ateam:ng.home?ng.opponent:'Hawthorn',venue:ng.venue,complete:0,hscore:null,ascore:null});
+    if (ng) renderNgCard({round:ng.round,hteam:ng.home?'Hawthorn':ng.opponent,ateam:ng.home?ng.opponent:'Hawthorn',venue:ng.venue,complete:0,hscore:null,ascore:null});
     return;
   }
   // Find live → upcoming → most recent
