@@ -7,23 +7,27 @@ Run automatically via GitHub Actions every Monday, or manually anytime.
 import json
 import re
 import time
-from datetime import date
+from datetime import date, datetime, timezone, timedelta
 from urllib.request import urlopen, Request
 from urllib.error import URLError
 from html.parser import HTMLParser
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Hawks Stats App; contact via GitHub)"}
+SQUIGGLE_HEADERS = {"User-Agent": "HawksStatsApp/1.0 (family fan app; contact via GitHub)"}
+SQUIGGLE_URL = "https://api.squiggle.com.au/"
 
-# ── UPDATE THESE MANUALLY EACH WEEK ──────────────────────────────────────
-CURRENT_AFL_ROUND  = 12          # Official AFL round number
-SEASON_RECORD      = "7W–3L–1D"  # W–L–D record
-LADDER_POSITION    = "3rd"        # Current ladder position
-# Next game details — update after each round
-NEXT_GAME_ROUND    = 12
-NEXT_GAME_OPPONENT = "St Kilda"
-NEXT_GAME_VENUE    = "Marvel Stadium"
-NEXT_GAME_HOME     = True         # Is Hawthorn the home team?
-NEXT_GAME_KICKOFF  = "2026-05-28T09:30:00Z"  # UTC kickoff time
+# ── ONLY UPDATE THESE TWO THINGS EACH WEEK ───────────────────────────────
+CURRENT_AFL_ROUND  = 12   # Official AFL round number (for display)
+# ─────────────────────────────────────────────────────────────────────────
+# Record, ladder position and next game are fetched automatically from the
+# Squiggle API. These fallback values are only used if the API is down.
+FALLBACK_RECORD    = "7W–3L–1D"
+FALLBACK_POSITION  = "3rd"
+FALLBACK_NEXT_GAME = {
+    "round": 13, "opponent": "Western Bulldogs",
+    "venue": "MCG", "home": True,
+    "kickoff": "2026-06-05T09:40:00Z"
+}
 # ─────────────────────────────────────────────────────────────────────────
 
 # ── Hawthorn FC official YouTube channel ──
@@ -292,8 +296,9 @@ def parse_profile_2025(html):
 
 
 def scrape_match_pages():
-    """Scrape all match pages and accumulate season totals."""
-    totals = {}  # name -> {gl, tk, di, ki, gp}
+    """Scrape all match pages, returning season totals AND per-round breakdowns."""
+    totals = {}   # name -> {gl, tk, di, ki, ho, cl, ff, fa, cm, op, ga, gp}
+    rounds = {}   # name -> [{r, di, gl, tk, ki, ho, cl, cm, op, ga}, ...]
 
     for round_label, url in MATCH_PAGES:
         print(f"  Fetching {round_label}: {url}")
@@ -310,6 +315,7 @@ def scrape_match_pages():
                 totals[name] = {"gl":0,"tk":0,"di":0,"ki":0,
                                 "ho":0,"cl":0,"ff":0,"fa":0,
                                 "cm":0,"op":0,"ga":0,"gp":0}
+                rounds[name] = []
             totals[name]["gl"] += s["gl"]
             totals[name]["tk"] += s["tk"]
             totals[name]["di"] += s["di"]
@@ -322,10 +328,17 @@ def scrape_match_pages():
             totals[name]["op"] += s["op"]
             totals[name]["ga"] += s["ga"]
             totals[name]["gp"] += 1
+            # Store per-round snapshot (key stats only, keeps data.json compact)
+            rounds[name].append({
+                "r":  round_label,
+                "di": s["di"], "gl": s["gl"], "tk": s["tk"],
+                "ho": s["ho"], "cl": s["cl"], "cm": s["cm"],
+                "op": s["op"], "ga": s["ga"],
+            })
 
         time.sleep(1)  # be polite to AFL Tables
 
-    return totals
+    return totals, rounds
 
 
 def scrape_2025_profiles():
@@ -409,7 +422,84 @@ def match_videos_to_players(videos, player_names):
     return results
 
 
-def build_data(match_totals, profiles, video_map=None, fallback_vid=None):
+def fetch_squiggle_standings():
+    """
+    Fetch current AFL ladder from Squiggle API.
+    Returns: (record_str, position_str) or (None, None) on failure.
+    """
+    try:
+        req = Request(
+            f"{SQUIGGLE_URL}?q=standings;year=2026",
+            headers=SQUIGGLE_HEADERS
+        )
+        with urlopen(req, timeout=10) as r:
+            data = json.loads(r.read())
+        for team in data.get('standings', []):
+            if 'hawthorn' in (team.get('name') or '').lower():
+                rank  = int(team.get('rank', 0))
+                wins  = int(team.get('wins', 0))
+                losses = int(team.get('losses', 0))
+                draws = int(team.get('draws', 0))
+                record = f"{wins}W\u2013{losses}L" + (f"\u2013{draws}D" if draws else "")
+                # Ordinal suffix
+                suf = 'th'
+                if rank % 100 not in (11, 12, 13):
+                    suf = {1:'st', 2:'nd', 3:'rd'}.get(rank % 10, 'th')
+                position = f"{rank}{suf}"
+                print(f"  ✓ Standings: {record} · {position}")
+                return record, position
+        print("  ⚠ Hawthorn not found in standings response")
+    except Exception as e:
+        print(f"  ⚠ Squiggle standings failed: {e}")
+    return None, None
+
+
+def fetch_squiggle_next_game():
+    """
+    Fetch next upcoming (or live) Hawthorn game from Squiggle API.
+    Returns: nextGame dict or None on failure.
+    """
+    try:
+        req = Request(
+            f"{SQUIGGLE_URL}?q=games;year=2026;team=10;complete=!100",
+            headers=SQUIGGLE_HEADERS
+        )
+        with urlopen(req, timeout=10) as r:
+            data = json.loads(r.read())
+        games = data.get('games', [])
+        if not games:
+            print("  ⚠ No upcoming Hawthorn games found in Squiggle")
+            return None
+        # Sort by localtime, take first
+        games.sort(key=lambda g: g.get('localtime') or '')
+        g = games[0]
+        is_home  = 'hawthorn' in (g.get('hteam') or '').lower()
+        opponent = g.get('ateam') if is_home else g.get('hteam')
+        venue    = g.get('venue', '')
+        rnd      = int(g.get('round', 0))
+        localtime = g.get('localtime', '')
+        tz_str   = g.get('tz', 'Australia/Melbourne')
+        # Convert localtime → UTC
+        kickoff_utc = None
+        if localtime:
+            try:
+                from zoneinfo import ZoneInfo
+                dt = datetime.strptime(localtime, '%Y-%m-%d %H:%M:%S')
+                dt = dt.replace(tzinfo=ZoneInfo(tz_str))
+                kickoff_utc = dt.astimezone(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+            except Exception:
+                # Fallback: assume AEST (UTC+10) — correct for May–August
+                dt = datetime.strptime(localtime, '%Y-%m-%d %H:%M:%S')
+                kickoff_utc = (dt - timedelta(hours=10)).strftime('%Y-%m-%dT%H:%M:%SZ')
+        print(f"  ✓ Next game: Round {rnd} vs {opponent} at {venue} ({localtime})")
+        return {'round': rnd, 'opponent': opponent, 'venue': venue,
+                'home': is_home, 'kickoff': kickoff_utc}
+    except Exception as e:
+        print(f"  ⚠ Squiggle next game failed: {e}")
+    return None
+
+
+def build_data(match_totals, round_data, profiles, record, position, next_game, video_map=None, fallback_vid=None):
     """Combine all scraped data into the final JSON structure."""
 
     # Load existing data.json as fallback for 2025 stats and other preserved fields
@@ -463,6 +553,7 @@ def build_data(match_totals, profiles, video_map=None, fallback_vid=None):
             "cm": mt.get("cm", 0),
             "op": mt.get("op", 0),
             "vid": (video_map or {}).get(name),
+            "rounds": round_data.get(name, []),   # per-round breakdown
             **prof,
         })
 
@@ -471,16 +562,10 @@ def build_data(match_totals, profiles, video_map=None, fallback_vid=None):
     return {
         "updated":     str(date.today()),
         "round":       CURRENT_AFL_ROUND,
-        "record":      SEASON_RECORD,
-        "position":    LADDER_POSITION,
+        "record":      record,
+        "position":    position,
         "fallbackVid": fallback_vid,
-        "nextGame": {
-            "round":    NEXT_GAME_ROUND,
-            "opponent": NEXT_GAME_OPPONENT,
-            "venue":    NEXT_GAME_VENUE,
-            "home":     NEXT_GAME_HOME,
-            "kickoff":  NEXT_GAME_KICKOFF,
-        },
+        "nextGame":    next_game,
         "players":     players,
     }
 
@@ -489,7 +574,7 @@ def main():
     print("🦅 Hawks Stats Scraper starting…\n")
 
     print(f"📋 Scraping {len(MATCH_PAGES)} match pages…")
-    match_totals = scrape_match_pages()
+    match_totals, round_data = scrape_match_pages()
 
     print(f"\n👤 Scraping {len(PLAYER_PROFILES)} player profiles for 2025 data…")
     profiles = scrape_2025_profiles()
@@ -500,16 +585,25 @@ def main():
     matched = sum(1 for v in video_map.values() if v)
     print(f"  Matched {matched}/{len(video_map)} players to recent videos")
 
+    print(f"\n📊 Fetching live standings & fixture from Squiggle…")
+    record, position = fetch_squiggle_standings()
+    next_game = fetch_squiggle_next_game()
+    if not record:
+        record, position = FALLBACK_RECORD, FALLBACK_POSITION
+        print(f"  Using fallback: {record} · {position}")
+    if not next_game:
+        next_game = FALLBACK_NEXT_GAME
+        print(f"  Using fallback: Round {next_game['round']} vs {next_game['opponent']}")
+
     print("\n🔨 Building data.json…")
-    data = build_data(match_totals, profiles, video_map, fallback_vid)
+    data = build_data(match_totals, round_data, profiles, record, position, next_game, video_map, fallback_vid)
 
     with open("data.json", "w") as f:
         json.dump(data, f, indent=2)
 
-    print(f"\n✅ Done! data.json updated — Round {CURRENT_AFL_ROUND} · {SEASON_RECORD} · {LADDER_POSITION}")
+    print(f"\n✅ Done! Round {CURRENT_AFL_ROUND} · {record} · {position}")
+    print(f"   Next: Round {next_game['round']} vs {next_game['opponent']} · {next_game['venue']}")
     print(f"   {len(data['players'])} players · Updated {data['updated']}")
-    if fallback_vid:
-        print(f"   Fallback video: https://youtu.be/{fallback_vid}")
 
 
 if __name__ == "__main__":
