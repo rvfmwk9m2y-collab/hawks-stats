@@ -664,6 +664,19 @@ def main():
     with open("data.json", "w") as f:
         json.dump(data, f, indent=2)
 
+    # Bump service worker cache version → forces iOS PWA to reload fresh
+    version = f"hawks-{date.today().strftime('%Y%m%d')}"
+    try:
+        with open("sw.js", "r") as f:
+            sw = f.read()
+        sw = re.sub(r"const CACHE_VERSION = '[^']*'",
+                    f"const CACHE_VERSION = '{version}'", sw)
+        with open("sw.js", "w") as f:
+            f.write(sw)
+        print(f"  ✓ Service worker version bumped to {version}")
+    except Exception as e:
+        print(f"  ⚠ Could not update sw.js: {e}")
+
     print(f"\n✅ Done! Round {data['round']} · {record} · {position}")
     print(f"   Next: Round {next_game['round']} vs {next_game['opponent']} · {next_game['venue']}")
     print(f"   {len(data['players'])} players · Updated {data['updated']}")
