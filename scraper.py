@@ -18,6 +18,12 @@ HEADERS = {"User-Agent": "Mozilla/5.0 (Hawks Stats App; contact via GitHub)"}
 CURRENT_AFL_ROUND  = 12          # Official AFL round number
 SEASON_RECORD      = "7W–3L–1D"  # W–L–D record
 LADDER_POSITION    = "3rd"        # Current ladder position
+# Next game details — update after each round
+NEXT_GAME_ROUND    = 12
+NEXT_GAME_OPPONENT = "St Kilda"
+NEXT_GAME_VENUE    = "Marvel Stadium"
+NEXT_GAME_HOME     = True         # Is Hawthorn the home team?
+NEXT_GAME_KICKOFF  = "2026-05-28T09:30:00Z"  # UTC kickoff time
 # ─────────────────────────────────────────────────────────────────────────
 
 # ── Hawthorn FC official YouTube channel ──
@@ -468,6 +474,13 @@ def build_data(match_totals, profiles, video_map=None, fallback_vid=None):
         "record":      SEASON_RECORD,
         "position":    LADDER_POSITION,
         "fallbackVid": fallback_vid,
+        "nextGame": {
+            "round":    NEXT_GAME_ROUND,
+            "opponent": NEXT_GAME_OPPONENT,
+            "venue":    NEXT_GAME_VENUE,
+            "home":     NEXT_GAME_HOME,
+            "kickoff":  NEXT_GAME_KICKOFF,
+        },
         "players":     players,
     }
 
