@@ -818,6 +818,19 @@ async function fetchSquiggleGames() {
   } catch(e) { return null; }
 }
 
+async function fetchSquiggleLive() {
+  try {
+    const r = await fetch('https://api.squiggle.com.au/?q=games;live=1&source=HawksStatsApp');
+    if (!r.ok) return null;
+    const d = await r.json();
+    const games = d.games || [];
+    return games.find(g =>
+      (g.hteam||'').toLowerCase().includes('hawthorn') ||
+      (g.ateam||'').toLowerCase().includes('hawthorn')
+    ) || null;
+  } catch(e) { return null; }
+}
+
 function renderNgCard(g) {
   const card = document.getElementById('ng-card');
   if (!card) return;
@@ -915,6 +928,12 @@ function startNgCountdown(kickoff) {
 }
 
 async function initNextGame() {
+  // Always check live endpoint first — most reliable for in-progress games
+  const liveGame = await fetchSquiggleLive();
+  if (liveGame) {
+    renderNgCard(liveGame);
+    return;
+  }
   const games = await fetchSquiggleGames();
   if (!games) {
     // API failed — retry in 2 minutes, show fallback in meantime
