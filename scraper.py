@@ -587,6 +587,16 @@ def build_data(match_totals, round_data, profiles, record, position, next_game, 
                 "tk25": existing_p.get("tk25", 0),
             }
 
+        # Current season stats — if AFL Tables was unreachable (gp=0 but
+        # we have existing data), preserve the existing values
+        if mt["gp"] == 0 and existing_p.get("gp", 0) > 0:
+            print(f"    ↩ Using existing stats for {name} (AFL Tables unreachable)")
+            mt = {k: existing_p.get(k, 0)
+                  for k in ["gl","tk","di","ki","ho","cl","ff","fa","cm","op","ga","gp"]}
+
+        # Per-round breakdown — prefer freshly scraped, fall back to existing
+        rounds_for_player = round_data.get(name) or existing_p.get("rounds", [])
+
         players.append({
             **info,
             "name": name,
@@ -603,7 +613,7 @@ def build_data(match_totals, round_data, profiles, record, position, next_game, 
             "cm": mt.get("cm", 0),
             "op": mt.get("op", 0),
             "vid": (video_map or {}).get(name),
-            "rounds": round_data.get(name, []),   # per-round breakdown
+            "rounds": rounds_for_player,
             **prof,
         })
 
