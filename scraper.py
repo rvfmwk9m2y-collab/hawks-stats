@@ -16,11 +16,7 @@ HEADERS = {"User-Agent": "Mozilla/5.0 (Hawks Stats App; contact via GitHub)"}
 SQUIGGLE_HEADERS = {"User-Agent": "HawksStatsApp/1.0 (family fan app; contact via GitHub)"}
 SQUIGGLE_URL = "https://api.squiggle.com.au/"
 
-# ── ONLY UPDATE THESE TWO THINGS EACH WEEK ───────────────────────────────
-CURRENT_AFL_ROUND  = 12   # Official AFL round number (for display)
-# ─────────────────────────────────────────────────────────────────────────
-# Record, ladder position and next game are fetched automatically from the
-# Squiggle API. These fallback values are only used if the API is down.
+# ── ONLY FALLBACK VALUES — everything is fetched automatically ────────────
 FALLBACK_RECORD    = "7W–3L–1D"
 FALLBACK_POSITION  = "3rd"
 FALLBACK_NEXT_GAME = {
@@ -34,22 +30,72 @@ FALLBACK_NEXT_GAME = {
 HAWKS_CHANNEL_ID   = "UCweshjuhmLYGxHuH2xIPXpg"
 HAWKS_YT_RSS       = f"https://www.youtube.com/feeds/videos.xml?channel_id={HAWKS_CHANNEL_ID}"
 
-# ── Hawthorn 2026 match pages (update round number and URL each week) ──
-# AFL Tables URL format: /afl/stats/games/2026/HOMETEAMAWAY_DATE.html
-MATCH_PAGES = [
-    ("R1",  "https://afltables.com/afl/stats/games/2026/102120260307.html"),  # GWS
-    ("R2",  "https://afltables.com/afl/stats/games/2026/051020260313.html"),  # Essendon
-    ("R3",  "https://afltables.com/afl/stats/games/2026/101620260319.html"),  # Sydney
-    ("R5",  "https://afltables.com/afl/stats/games/2026/091020260406.html"),  # Geelong
-    ("R6",  "https://afltables.com/afl/stats/games/2026/071020260411.html"),  # W.Bulldogs
-    ("R7",  "https://afltables.com/afl/stats/games/2026/101320260418.html"),  # Port Adelaide
-    ("R8",  "https://afltables.com/afl/stats/games/2026/102020260425.html"),  # Gold Coast
-    ("R9",  "https://afltables.com/afl/stats/games/2026/041020260430.html"),  # Collingwood
-    ("R10", "https://afltables.com/afl/stats/games/2026/081020260507.html"),  # Fremantle
-    ("R11", "https://afltables.com/afl/stats/games/2026/101120260516.html"),  # Melbourne
-    # ── ADD NEW ROUNDS HERE EACH WEEK ──
-    # ("R12", "https://afltables.com/afl/stats/games/2026/XXXXX.html"),
+# ── Fallback match pages (used only if AFL Tables auto-discovery fails) ──
+# No need to update this manually — discover_match_pages() handles it automatically.
+FALLBACK_MATCH_PAGES = [
+    ("OR", "https://afltables.com/afl/stats/games/2026/102120260307.html"),
+    ("R1", "https://afltables.com/afl/stats/games/2026/051020260313.html"),
+    ("R2", "https://afltables.com/afl/stats/games/2026/101620260319.html"),
+    ("R4", "https://afltables.com/afl/stats/games/2026/091020260406.html"),
+    ("R5", "https://afltables.com/afl/stats/games/2026/071020260411.html"),
+    ("R6", "https://afltables.com/afl/stats/games/2026/101320260418.html"),
+    ("R7", "https://afltables.com/afl/stats/games/2026/102020260425.html"),
+    ("R8", "https://afltables.com/afl/stats/games/2026/041020260430.html"),
+    ("R9", "https://afltables.com/afl/stats/games/2026/081020260507.html"),
+    ("R10","https://afltables.com/afl/stats/games/2026/101120260516.html"),
 ]
+
+def discover_match_pages():
+    """
+    Auto-discover Hawthorn's 2026 match pages from AFL Tables all-games page.
+    Returns list of (round_label, url) tuples, or empty list on failure.
+    """
+    url = "https://afltables.com/afl/teams/hawthorn/allgames.html"
+    print(f"  Fetching Hawthorn all-games page…")
+    html = fetch(url)
+    if not html:
+        print("  ⚠ Could not reach AFL Tables all-games page — using fallback")
+        return []
+
+    # Find the 2026 section (year anchor) and stop before 2025
+    idx = html.find('>2026<')
+    if idx == -1:
+        idx = html.find('name="2026"')
+    if idx == -1:
+        print("  ⚠ 2026 section not found — using fallback")
+        return []
+
+    section = html[idx:]
+    end = section.find('>2025<')
+    if end > 0:
+        section = section[:end]
+
+    # Extract rows containing 2026 game links
+    results = []
+    rows = re.findall(r'<tr[^>]*>(.*?)</tr>', section, re.DOTALL)
+    for row in rows:
+        link_m = re.search(r'href="(/afl/stats/games/2026/[^"]+\.html)"', row)
+        if not link_m:
+            continue
+        # Round label from first <td>
+        cells = re.findall(r'<td[^>]*>(.*?)</td>', row, re.DOTALL)
+        if cells:
+            raw = re.sub(r'<[^>]+>', '', cells[0]).strip()
+            if raw.upper() in ('OR', '0'):
+                label = 'OR'
+            elif raw.isdigit():
+                label = f'R{raw}'
+            else:
+                label = raw or f'R{len(results)+1}'
+        else:
+            label = f'R{len(results)+1}'
+        results.append((label, f"https://afltables.com{link_m.group(1)}"))
+
+    if results:
+        print(f"  ✓ Discovered {len(results)} Hawthorn 2026 match pages")
+    else:
+        print("  ⚠ No match pages found — using fallback")
+    return results
 
 # Player profile pages for 2025 comparison data
 PLAYER_PROFILES = {
@@ -296,11 +342,15 @@ def parse_profile_2025(html):
 
 
 def scrape_match_pages():
-    """Scrape all match pages, returning season totals AND per-round breakdowns."""
-    totals = {}   # name -> {gl, tk, di, ki, ho, cl, ff, fa, cm, op, ga, gp}
-    rounds = {}   # name -> [{r, di, gl, tk, ki, ho, cl, cm, op, ga}, ...]
+    """
+    Auto-discover and scrape all Hawthorn 2026 match pages.
+    Returns (totals, rounds) — season totals and per-round breakdowns.
+    """
+    match_pages = discover_match_pages() or FALLBACK_MATCH_PAGES
+    totals = {}
+    rounds = {}
 
-    for round_label, url in MATCH_PAGES:
+    for round_label, url in match_pages:
         print(f"  Fetching {round_label}: {url}")
         html = fetch(url)
         if not html:
@@ -559,9 +609,12 @@ def build_data(match_totals, round_data, profiles, record, position, next_game, 
 
     players.sort(key=lambda p: p["gl"], reverse=True)
 
+    # Derive current round from next game (next round - 1)
+    current_round = max(1, next_game.get('round', 1) - 1)
+
     return {
         "updated":     str(date.today()),
-        "round":       CURRENT_AFL_ROUND,
+        "round":       current_round,
         "record":      record,
         "position":    position,
         "fallbackVid": fallback_vid,
@@ -573,7 +626,7 @@ def build_data(match_totals, round_data, profiles, record, position, next_game, 
 def main():
     print("🦅 Hawks Stats Scraper starting…\n")
 
-    print(f"📋 Scraping {len(MATCH_PAGES)} match pages…")
+    print(f"📋 Auto-discovering and scraping Hawthorn match pages…")
     match_totals, round_data = scrape_match_pages()
 
     print(f"\n👤 Scraping {len(PLAYER_PROFILES)} player profiles for 2025 data…")
@@ -601,7 +654,7 @@ def main():
     with open("data.json", "w") as f:
         json.dump(data, f, indent=2)
 
-    print(f"\n✅ Done! Round {CURRENT_AFL_ROUND} · {record} · {position}")
+    print(f"\n✅ Done! Round {data['round']} · {record} · {position}")
     print(f"   Next: Round {next_game['round']} vs {next_game['opponent']} · {next_game['venue']}")
     print(f"   {len(data['players'])} players · Updated {data['updated']}")
 
