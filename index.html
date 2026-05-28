@@ -171,6 +171,15 @@ tr:hover td { background: var(--gold-pale); }
   .ng-section { padding: 12px 24px 0; }
 }
 
+/* ── SPARKLINE & LAST 3 FORM ── */
+.spark-strip { padding: 6px 12px 4px; display: flex; align-items: center; gap: 8px; border-top: 1px solid var(--border); }
+.spark-label { font-size: 0.55rem; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); flex-shrink: 0; }
+.spark-svg { flex-shrink: 0; }
+.form-badge { font-size: 0.65rem; font-weight: 700; padding: 2px 7px; border-radius: 10px; flex-shrink: 0; margin-left: auto; }
+.form-hot  { background: rgba(29,158,117,0.15); color: #1D9E75; }
+.form-cold { background: rgba(216,90,48,0.15);  color: #D85A30; }
+.form-ok   { background: rgba(136,135,128,0.15); color: #888780; }
+
 /* MISC */
 .last-updated { text-align: center; font-size: 0.68rem; color: var(--muted); padding: 0 14px 28px; }
 .last-updated a { color: var(--muted); }
@@ -553,6 +562,15 @@ function renderCards(){
             <div class="stat-box-sm"><div class="sv2 ${hi(p.cm,8)}">${ev(p.cm)}</div><div class="sl2">C.Marks</div></div>`;
     }
 
+    const spark = sparklineHTML(p.rounds, p.pos === 'FW' ? 'gl' : p.pos === 'RU' && p.ho > 0 ? 'ho' : 'di');
+    const form  = last3Form(p);
+    const sparkStrip = spark ? `
+      <div class="spark-strip">
+        <span class="spark-label">Last ${p.rounds.length}</span>
+        ${spark}
+        ${form ? `<span class="form-badge ${form.cls}">${form.icon} ${form.label}</span>` : ''}
+      </div>` : '';
+
     return `<div class="player-card">
       <div class="card-inner">
         <div class="card-jumper-col">
@@ -563,6 +581,7 @@ function renderCards(){
         <div class="card-stats-col">
           <div class="stats-row">${row1}</div>
           <div class="stats-row-sm">${row2}</div>
+          ${sparkStrip}
         </div>
       </div>
       <div class="card-bottom">
@@ -760,6 +779,51 @@ function playerPhotoHTML(p) {
     </div>`;
   }
   return `<div class="jumper-svg-wrap">${jumperSVG(p.jn)}</div>`;
+}
+
+/* ── SPARKLINE ── */
+function sparklineHTML(rounds, stat) {
+  if (!rounds || rounds.length < 2) return '';
+  const vals = rounds.map(r => r[stat] ?? 0);
+  const min = Math.min(...vals), max = Math.max(...vals);
+  const range = max - min || 1;
+  const W = 48, H = 18;
+  const pts = vals.map((v, i) => {
+    const x = (i / (vals.length - 1)) * W;
+    const y = H - ((v - min) / range) * (H - 2) - 1;
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join(' ');
+  const last = vals[vals.length - 1], prev = vals[vals.length - 2];
+  const col = last > prev ? '#1D9E75' : last < prev ? '#D85A30' : '#888780';
+  const lx = W, ly = (H - ((last - min) / range) * (H - 2) - 1).toFixed(1);
+  return `<svg class="spark-svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
+    <polyline points="${pts}" fill="none" stroke="${col}" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" opacity="0.85"/>
+    <circle cx="${lx}" cy="${ly}" r="2.2" fill="${col}"/>
+  </svg>`;
+}
+
+/* ── LAST 3 FORM ── */
+function last3Form(p) {
+  const rds = p.rounds;
+  if (!rds || rds.length < 3) return null;
+  // Key stat per position
+  const stat = p.pos === 'FW' ? 'gl' : p.pos === 'RU' ? (p.ho > 0 ? 'ho' : 'di') : 'di';
+  const last3 = rds.slice(-3);
+  const l3avg = last3.reduce((s, r) => s + (r[stat] ?? 0), 0) / 3;
+  const seasonAvg = stat === 'gl' ? p.gl / p.gp
+                  : stat === 'ho' ? p.ho / p.gp
+                  : p.da26;
+  if (!seasonAvg) return null;
+  const pct = ((l3avg - seasonAvg) / seasonAvg) * 100;
+  const hot = pct > 12, cold = pct < -12;
+  const label = stat === 'gl'
+    ? `${l3avg.toFixed(1)} gl/g`
+    : stat === 'ho'
+    ? `${l3avg.toFixed(0)} ho/g`
+    : `${l3avg.toFixed(1)} DA`;
+  return { pct, hot, cold, label,
+    cls: hot ? 'form-hot' : cold ? 'form-cold' : 'form-ok',
+    icon: hot ? '🔥' : cold ? '❄️' : '→' };
 }
 
 load();
