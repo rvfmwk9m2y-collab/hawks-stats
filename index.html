@@ -859,17 +859,35 @@ function renderNgCard(g) {
       <div class="ng-timestr">${g.venue||''}</div>`;
 
   } else {
-    // UPCOMING — countdown
+    // UPCOMING — check if kickoff has already passed
     const ng = DATA?.nextGame;
     const kickoff = ng ? new Date(ng.kickoff) : (g.localtime ? new Date(g.localtime.replace(' ','T')+'+10:00') : null);
-    const dateStr = kickoff ? kickoff.toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short',timeZone:'Australia/Melbourne'}) : '';
-    const timeStr = kickoff ? kickoff.toLocaleTimeString('en-AU',{hour:'2-digit',minute:'2-digit',timeZone:'Australia/Melbourne'}) + ' AEST' : '';
-    card.innerHTML = `<div class="ng-eagle">🦅</div>
-      <div class="ng-badge">Round ${g.round} · Next game</div>
-      <div class="ng-matchup">🦅 Hawthorn <span style="color:rgba(242,193,78,0.3)">vs</span> ${opp}</div>
-      <div class="ng-meta">${g.venue||ng?.venue||''} · ${dateStr} · ${timeStr}</div>
-      <div class="ng-countdown" id="ng-countdown"></div>`;
-    if (kickoff) startNgCountdown(kickoff);
+    const kicked = kickoff && Date.now() > kickoff.getTime();
+
+    if (kicked) {
+      // Kickoff passed but Squiggle not live yet — show loading state
+      card.innerHTML = `<div class="ng-eagle">🦅</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <span class="ng-badge">Round ${g.round} · ${g.venue||ng?.venue||''}</span>
+          <span class="ng-live-pill"><span class="ng-live-dot"></span>LIVE</span>
+        </div>
+        <div style="text-align:center;color:rgba(242,193,78,0.6);font-size:0.85rem;padding:10px 0">
+          Loading live score…
+        </div>
+        <div class="ng-score-teams" style="margin-top:4px"><span>🦅 Hawthorn</span><span>${g.hteam?.includes('Hawthorn') ? g.ateam : g.hteam}</span></div>`;
+      // Poll every 30 seconds waiting for Squiggle to update
+      clearTimeout(ngTimer);
+      ngTimer = setTimeout(initNextGame, 30000);
+    } else {
+      const dateStr = kickoff ? kickoff.toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short',timeZone:'Australia/Melbourne'}) : '';
+      const timeStr = kickoff ? kickoff.toLocaleTimeString('en-AU',{hour:'2-digit',minute:'2-digit',timeZone:'Australia/Melbourne'}) + ' AEST' : '';
+      card.innerHTML = `<div class="ng-eagle">🦅</div>
+        <div class="ng-badge">Round ${g.round} · Next game</div>
+        <div class="ng-matchup">🦅 Hawthorn <span style="color:rgba(242,193,78,0.3)">vs</span> ${g.hteam?.includes('Hawthorn') ? g.ateam : g.hteam}</div>
+        <div class="ng-meta">${g.venue||ng?.venue||''} · ${dateStr} · ${timeStr}</div>
+        <div class="ng-countdown" id="ng-countdown"></div>`;
+      if (kickoff) startNgCountdown(kickoff);
+    }
   }
 }
 
