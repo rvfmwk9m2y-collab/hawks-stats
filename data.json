@@ -28,7 +28,97 @@
       "cm": 6,
       "op": 6,
       "vid": "NL4HH-U2QZ8",
-      "pu": "https://www.hawthornfc.com.au/players/500/jack-gunston"
+      "pu": "https://www.hawthornfc.com.au/players/500/jack-gunston",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 11,
+          "gl": 4,
+          "tk": 0,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R2",
+          "di": 10,
+          "gl": 5,
+          "tk": 0,
+          "ho": 0,
+          "cl": 0,
+          "cm": 2,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R3",
+          "di": 13,
+          "gl": 4,
+          "tk": 0,
+          "ho": 0,
+          "cl": 0,
+          "cm": 1,
+          "op": 2,
+          "ga": 0
+        },
+        {
+          "r": "R5",
+          "di": 14,
+          "gl": 4,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 1,
+          "op": 2,
+          "ga": 1
+        },
+        {
+          "r": "R6",
+          "di": 8,
+          "gl": 2,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 1,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R8",
+          "di": 15,
+          "gl": 4,
+          "tk": 1,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R9",
+          "di": 13,
+          "gl": 1,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R10",
+          "di": 11,
+          "gl": 6,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 1,
+          "op": 0,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 5,
@@ -54,7 +144,119 @@
       "cm": 2,
       "op": 10,
       "vid": "EQk76uBziUs",
-      "pu": "https://www.hawthornfc.com.au/players/5592/nick-watson"
+      "pu": "https://www.hawthornfc.com.au/players/5592/nick-watson",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 13,
+          "gl": 3,
+          "tk": 3,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 1,
+          "ga": 1
+        },
+        {
+          "r": "R2",
+          "di": 17,
+          "gl": 4,
+          "tk": 5,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R3",
+          "di": 16,
+          "gl": 2,
+          "tk": 2,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 3,
+          "ga": 1
+        },
+        {
+          "r": "R5",
+          "di": 15,
+          "gl": 2,
+          "tk": 3,
+          "ho": 0,
+          "cl": 2,
+          "cm": 0,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R6",
+          "di": 17,
+          "gl": 4,
+          "tk": 3,
+          "ho": 0,
+          "cl": 2,
+          "cm": 1,
+          "op": 2,
+          "ga": 2
+        },
+        {
+          "r": "R7",
+          "di": 7,
+          "gl": 1,
+          "tk": 4,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R8",
+          "di": 12,
+          "gl": 2,
+          "tk": 2,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 1,
+          "ga": 1
+        },
+        {
+          "r": "R9",
+          "di": 14,
+          "gl": 3,
+          "tk": 2,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 1,
+          "ga": 1
+        },
+        {
+          "r": "R10",
+          "di": 10,
+          "gl": 2,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 2,
+          "ga": 0
+        },
+        {
+          "r": "R11",
+          "di": 18,
+          "gl": 3,
+          "tk": 2,
+          "ho": 0,
+          "cl": 4,
+          "cm": 1,
+          "op": 0,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 2,
@@ -80,7 +282,119 @@
       "cm": 18,
       "op": 18,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/1333/mitch-lewis"
+      "pu": "https://www.hawthornfc.com.au/players/1333/mitch-lewis",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 16,
+          "gl": 2,
+          "tk": 2,
+          "ho": 0,
+          "cl": 2,
+          "cm": 2,
+          "op": 3,
+          "ga": 0
+        },
+        {
+          "r": "R2",
+          "di": 11,
+          "gl": 1,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 3,
+          "ga": 1
+        },
+        {
+          "r": "R3",
+          "di": 14,
+          "gl": 1,
+          "tk": 2,
+          "ho": 0,
+          "cl": 1,
+          "cm": 2,
+          "op": 3,
+          "ga": 0
+        },
+        {
+          "r": "R5",
+          "di": 11,
+          "gl": 1,
+          "tk": 2,
+          "ho": 0,
+          "cl": 0,
+          "cm": 2,
+          "op": 1,
+          "ga": 1
+        },
+        {
+          "r": "R6",
+          "di": 12,
+          "gl": 2,
+          "tk": 2,
+          "ho": 0,
+          "cl": 0,
+          "cm": 4,
+          "op": 2,
+          "ga": 1
+        },
+        {
+          "r": "R7",
+          "di": 12,
+          "gl": 1,
+          "tk": 1,
+          "ho": 0,
+          "cl": 1,
+          "cm": 3,
+          "op": 2,
+          "ga": 0
+        },
+        {
+          "r": "R8",
+          "di": 14,
+          "gl": 2,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 1,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R9",
+          "di": 16,
+          "gl": 2,
+          "tk": 2,
+          "ho": 0,
+          "cl": 0,
+          "cm": 2,
+          "op": 2,
+          "ga": 0
+        },
+        {
+          "r": "R10",
+          "di": 12,
+          "gl": 2,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 2,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R11",
+          "di": 17,
+          "gl": 2,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 1
+        }
+      ]
     },
     {
       "jn": 8,
@@ -106,7 +420,108 @@
       "cm": 0,
       "op": 4,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/1595/dylan-moore"
+      "pu": "https://www.hawthornfc.com.au/players/1595/dylan-moore",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 19,
+          "gl": 1,
+          "tk": 2,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R2",
+          "di": 24,
+          "gl": 2,
+          "tk": 2,
+          "ho": 0,
+          "cl": 2,
+          "cm": 0,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R3",
+          "di": 22,
+          "gl": 1,
+          "tk": 3,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R5",
+          "di": 16,
+          "gl": 1,
+          "tk": 3,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R6",
+          "di": 21,
+          "gl": 2,
+          "tk": 3,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 1,
+          "ga": 2
+        },
+        {
+          "r": "R7",
+          "di": 15,
+          "gl": 1,
+          "tk": 1,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 1,
+          "ga": 1
+        },
+        {
+          "r": "R9",
+          "di": 18,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R10",
+          "di": 15,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R11",
+          "di": 27,
+          "gl": 3,
+          "tk": 4,
+          "ho": 0,
+          "cl": 2,
+          "cm": 0,
+          "op": 0,
+          "ga": 3
+        }
+      ]
     },
     {
       "jn": 33,
@@ -132,7 +547,119 @@
       "cm": 1,
       "op": 10,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/2237/jack-ginnivan"
+      "pu": "https://www.hawthornfc.com.au/players/2237/jack-ginnivan",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 15,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 2,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R2",
+          "di": 20,
+          "gl": 1,
+          "tk": 2,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 1,
+          "ga": 1
+        },
+        {
+          "r": "R3",
+          "di": 18,
+          "gl": 1,
+          "tk": 2,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 3,
+          "ga": 1
+        },
+        {
+          "r": "R5",
+          "di": 22,
+          "gl": 1,
+          "tk": 1,
+          "ho": 0,
+          "cl": 2,
+          "cm": 0,
+          "op": 1,
+          "ga": 1
+        },
+        {
+          "r": "R6",
+          "di": 23,
+          "gl": 5,
+          "tk": 2,
+          "ho": 0,
+          "cl": 4,
+          "cm": 1,
+          "op": 2,
+          "ga": 5
+        },
+        {
+          "r": "R7",
+          "di": 15,
+          "gl": 1,
+          "tk": 1,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R8",
+          "di": 19,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 1,
+          "ga": 3
+        },
+        {
+          "r": "R9",
+          "di": 20,
+          "gl": 0,
+          "tk": 3,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R10",
+          "di": 15,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 2
+        },
+        {
+          "r": "R11",
+          "di": 11,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 9,
@@ -158,7 +685,119 @@
       "cm": 2,
       "op": 3,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/2723/connor-macdonald"
+      "pu": "https://www.hawthornfc.com.au/players/2723/connor-macdonald",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 26,
+          "gl": 1,
+          "tk": 4,
+          "ho": 0,
+          "cl": 4,
+          "cm": 0,
+          "op": 2,
+          "ga": 3
+        },
+        {
+          "r": "R2",
+          "di": 24,
+          "gl": 2,
+          "tk": 0,
+          "ho": 0,
+          "cl": 1,
+          "cm": 1,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R3",
+          "di": 24,
+          "gl": 0,
+          "tk": 3,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R5",
+          "di": 22,
+          "gl": 1,
+          "tk": 3,
+          "ho": 0,
+          "cl": 2,
+          "cm": 0,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R6",
+          "di": 25,
+          "gl": 1,
+          "tk": 6,
+          "ho": 0,
+          "cl": 6,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R7",
+          "di": 22,
+          "gl": 0,
+          "tk": 0,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R8",
+          "di": 20,
+          "gl": 2,
+          "tk": 2,
+          "ho": 0,
+          "cl": 2,
+          "cm": 1,
+          "op": 0,
+          "ga": 2
+        },
+        {
+          "r": "R9",
+          "di": 26,
+          "gl": 0,
+          "tk": 4,
+          "ho": 0,
+          "cl": 4,
+          "cm": 0,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R10",
+          "di": 21,
+          "gl": 1,
+          "tk": 3,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R11",
+          "di": 21,
+          "gl": 0,
+          "tk": 7,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 1,
+          "ga": 1
+        }
+      ]
     },
     {
       "jn": 18,
@@ -184,7 +823,64 @@
       "cm": 9,
       "op": 9,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/1125/mabior-chol"
+      "pu": "https://www.hawthornfc.com.au/players/1125/mabior-chol",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 9,
+          "gl": 3,
+          "tk": 0,
+          "ho": 6,
+          "cl": 5,
+          "cm": 3,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R2",
+          "di": 14,
+          "gl": 1,
+          "tk": 1,
+          "ho": 0,
+          "cl": 1,
+          "cm": 2,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R3",
+          "di": 11,
+          "gl": 0,
+          "tk": 3,
+          "ho": 0,
+          "cl": 0,
+          "cm": 2,
+          "op": 3,
+          "ga": 0
+        },
+        {
+          "r": "R5",
+          "di": 6,
+          "gl": 1,
+          "tk": 0,
+          "ho": 0,
+          "cl": 0,
+          "cm": 2,
+          "op": 3,
+          "ga": 0
+        },
+        {
+          "r": "R6",
+          "di": 2,
+          "gl": 2,
+          "tk": 0,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 23,
@@ -210,7 +906,119 @@
       "cm": 5,
       "op": 21,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/6669/josh-weddle"
+      "pu": "https://www.hawthornfc.com.au/players/6669/josh-weddle",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 16,
+          "gl": 1,
+          "tk": 3,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 1,
+          "ga": 1
+        },
+        {
+          "r": "R2",
+          "di": 16,
+          "gl": 2,
+          "tk": 4,
+          "ho": 0,
+          "cl": 2,
+          "cm": 0,
+          "op": 2,
+          "ga": 1
+        },
+        {
+          "r": "R3",
+          "di": 15,
+          "gl": 1,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 3,
+          "ga": 0
+        },
+        {
+          "r": "R5",
+          "di": 12,
+          "gl": 1,
+          "tk": 0,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 1,
+          "ga": 1
+        },
+        {
+          "r": "R6",
+          "di": 16,
+          "gl": 0,
+          "tk": 4,
+          "ho": 0,
+          "cl": 1,
+          "cm": 2,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R7",
+          "di": 14,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 1,
+          "cm": 1,
+          "op": 2,
+          "ga": 0
+        },
+        {
+          "r": "R8",
+          "di": 18,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 2,
+          "cm": 0,
+          "op": 1,
+          "ga": 1
+        },
+        {
+          "r": "R9",
+          "di": 18,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 2,
+          "op": 2,
+          "ga": 0
+        },
+        {
+          "r": "R10",
+          "di": 17,
+          "gl": 1,
+          "tk": 4,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 3,
+          "ga": 1
+        },
+        {
+          "r": "R11",
+          "di": 14,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 6,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 3,
@@ -236,7 +1044,119 @@
       "cm": 0,
       "op": 8,
       "vid": "x03goh3w7y8",
-      "pu": "https://www.hawthornfc.com.au/players/4711/jai-newcombe"
+      "pu": "https://www.hawthornfc.com.au/players/4711/jai-newcombe",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 27,
+          "gl": 1,
+          "tk": 3,
+          "ho": 0,
+          "cl": 4,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R2",
+          "di": 22,
+          "gl": 1,
+          "tk": 4,
+          "ho": 0,
+          "cl": 6,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R3",
+          "di": 25,
+          "gl": 1,
+          "tk": 5,
+          "ho": 0,
+          "cl": 9,
+          "cm": 0,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R5",
+          "di": 26,
+          "gl": 0,
+          "tk": 4,
+          "ho": 0,
+          "cl": 6,
+          "cm": 0,
+          "op": 1,
+          "ga": 1
+        },
+        {
+          "r": "R6",
+          "di": 31,
+          "gl": 0,
+          "tk": 4,
+          "ho": 0,
+          "cl": 14,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R7",
+          "di": 23,
+          "gl": 1,
+          "tk": 2,
+          "ho": 0,
+          "cl": 4,
+          "cm": 0,
+          "op": 3,
+          "ga": 1
+        },
+        {
+          "r": "R8",
+          "di": 30,
+          "gl": 0,
+          "tk": 5,
+          "ho": 0,
+          "cl": 12,
+          "cm": 0,
+          "op": 0,
+          "ga": 2
+        },
+        {
+          "r": "R9",
+          "di": 25,
+          "gl": 0,
+          "tk": 5,
+          "ho": 0,
+          "cl": 8,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R10",
+          "di": 20,
+          "gl": 0,
+          "tk": 4,
+          "ho": 0,
+          "cl": 8,
+          "cm": 0,
+          "op": 1,
+          "ga": 1
+        },
+        {
+          "r": "R11",
+          "di": 33,
+          "gl": 0,
+          "tk": 3,
+          "ho": 0,
+          "cl": 3,
+          "cm": 0,
+          "op": 3,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 7,
@@ -262,7 +1182,108 @@
       "cm": 2,
       "op": 18,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/1822/ned-reeves"
+      "pu": "https://www.hawthornfc.com.au/players/1822/ned-reeves",
+      "rounds": [
+        {
+          "r": "R2",
+          "di": 12,
+          "gl": 2,
+          "tk": 1,
+          "ho": 17,
+          "cl": 4,
+          "cm": 0,
+          "op": 2,
+          "ga": 2
+        },
+        {
+          "r": "R3",
+          "di": 14,
+          "gl": 1,
+          "tk": 3,
+          "ho": 21,
+          "cl": 1,
+          "cm": 0,
+          "op": 2,
+          "ga": 1
+        },
+        {
+          "r": "R5",
+          "di": 11,
+          "gl": 1,
+          "tk": 1,
+          "ho": 28,
+          "cl": 3,
+          "cm": 0,
+          "op": 1,
+          "ga": 1
+        },
+        {
+          "r": "R6",
+          "di": 9,
+          "gl": 0,
+          "tk": 1,
+          "ho": 40,
+          "cl": 1,
+          "cm": 0,
+          "op": 1,
+          "ga": 1
+        },
+        {
+          "r": "R7",
+          "di": 8,
+          "gl": 0,
+          "tk": 5,
+          "ho": 24,
+          "cl": 5,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R8",
+          "di": 9,
+          "gl": 0,
+          "tk": 2,
+          "ho": 24,
+          "cl": 2,
+          "cm": 0,
+          "op": 4,
+          "ga": 0
+        },
+        {
+          "r": "R9",
+          "di": 10,
+          "gl": 0,
+          "tk": 5,
+          "ho": 24,
+          "cl": 5,
+          "cm": 2,
+          "op": 2,
+          "ga": 0
+        },
+        {
+          "r": "R10",
+          "di": 11,
+          "gl": 0,
+          "tk": 2,
+          "ho": 19,
+          "cl": 2,
+          "cm": 0,
+          "op": 4,
+          "ga": 0
+        },
+        {
+          "r": "R11",
+          "di": 13,
+          "gl": 1,
+          "tk": 3,
+          "ho": 28,
+          "cl": 2,
+          "cm": 0,
+          "op": 2,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 30,
@@ -288,7 +1309,75 @@
       "cm": 1,
       "op": 3,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/teams/afl"
+      "pu": "https://www.hawthornfc.com.au/teams/afl",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 7,
+          "gl": 0,
+          "tk": 4,
+          "ho": 0,
+          "cl": 3,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R2",
+          "di": 9,
+          "gl": 0,
+          "tk": 0,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R3",
+          "di": 14,
+          "gl": 1,
+          "tk": 2,
+          "ho": 0,
+          "cl": 1,
+          "cm": 1,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R5",
+          "di": 18,
+          "gl": 1,
+          "tk": 4,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R6",
+          "di": 12,
+          "gl": 0,
+          "tk": 6,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R7",
+          "di": 9,
+          "gl": 2,
+          "tk": 5,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 16,
@@ -314,7 +1403,119 @@
       "cm": 5,
       "op": 6,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/4349/massimo-d-ambrosio"
+      "pu": "https://www.hawthornfc.com.au/players/4349/massimo-d-ambrosio",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 14,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 2,
+          "cm": 0,
+          "op": 2,
+          "ga": 0
+        },
+        {
+          "r": "R2",
+          "di": 12,
+          "gl": 1,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R3",
+          "di": 20,
+          "gl": 1,
+          "tk": 3,
+          "ho": 0,
+          "cl": 3,
+          "cm": 0,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R5",
+          "di": 20,
+          "gl": 0,
+          "tk": 6,
+          "ho": 0,
+          "cl": 2,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R6",
+          "di": 18,
+          "gl": 0,
+          "tk": 3,
+          "ho": 0,
+          "cl": 2,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R7",
+          "di": 14,
+          "gl": 1,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 3,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R8",
+          "di": 16,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R9",
+          "di": 20,
+          "gl": 1,
+          "tk": 3,
+          "ho": 0,
+          "cl": 2,
+          "cm": 0,
+          "op": 2,
+          "ga": 0
+        },
+        {
+          "r": "R10",
+          "di": 15,
+          "gl": 1,
+          "tk": 1,
+          "ho": 0,
+          "cl": 1,
+          "cm": 1,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R11",
+          "di": 18,
+          "gl": 0,
+          "tk": 4,
+          "ho": 0,
+          "cl": 2,
+          "cm": 1,
+          "op": 0,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 13,
@@ -340,7 +1541,53 @@
       "cm": 1,
       "op": 6,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/9423/calsher-dear"
+      "pu": "https://www.hawthornfc.com.au/players/9423/calsher-dear",
+      "rounds": [
+        {
+          "r": "R7",
+          "di": 10,
+          "gl": 1,
+          "tk": 2,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 1,
+          "ga": 1
+        },
+        {
+          "r": "R8",
+          "di": 9,
+          "gl": 1,
+          "tk": 4,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 3,
+          "ga": 0
+        },
+        {
+          "r": "R9",
+          "di": 10,
+          "gl": 1,
+          "tk": 2,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R11",
+          "di": 7,
+          "gl": 0,
+          "tk": 4,
+          "ho": 0,
+          "cl": 0,
+          "cm": 1,
+          "op": 1,
+          "ga": 1
+        }
+      ]
     },
     {
       "jn": 11,
@@ -366,7 +1613,108 @@
       "cm": 0,
       "op": 13,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/1302/conor-nash"
+      "pu": "https://www.hawthornfc.com.au/players/1302/conor-nash",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 23,
+          "gl": 1,
+          "tk": 6,
+          "ho": 0,
+          "cl": 6,
+          "cm": 0,
+          "op": 2,
+          "ga": 0
+        },
+        {
+          "r": "R2",
+          "di": 23,
+          "gl": 1,
+          "tk": 4,
+          "ho": 0,
+          "cl": 7,
+          "cm": 0,
+          "op": 3,
+          "ga": 1
+        },
+        {
+          "r": "R3",
+          "di": 26,
+          "gl": 1,
+          "tk": 6,
+          "ho": 0,
+          "cl": 6,
+          "cm": 0,
+          "op": 1,
+          "ga": 1
+        },
+        {
+          "r": "R5",
+          "di": 21,
+          "gl": 0,
+          "tk": 8,
+          "ho": 0,
+          "cl": 3,
+          "cm": 0,
+          "op": 2,
+          "ga": 0
+        },
+        {
+          "r": "R6",
+          "di": 17,
+          "gl": 0,
+          "tk": 5,
+          "ho": 0,
+          "cl": 5,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R7",
+          "di": 21,
+          "gl": 2,
+          "tk": 6,
+          "ho": 0,
+          "cl": 6,
+          "cm": 0,
+          "op": 3,
+          "ga": 2
+        },
+        {
+          "r": "R8",
+          "di": 19,
+          "gl": 0,
+          "tk": 4,
+          "ho": 0,
+          "cl": 4,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R9",
+          "di": 18,
+          "gl": 0,
+          "tk": 7,
+          "ho": 0,
+          "cl": 6,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R10",
+          "di": 17,
+          "gl": 0,
+          "tk": 6,
+          "ho": 0,
+          "cl": 6,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 17,
@@ -392,7 +1740,119 @@
       "cm": 6,
       "op": 17,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/1560/lloyd-meek"
+      "pu": "https://www.hawthornfc.com.au/players/1560/lloyd-meek",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 11,
+          "gl": 0,
+          "tk": 3,
+          "ho": 33,
+          "cl": 2,
+          "cm": 2,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R2",
+          "di": 13,
+          "gl": 0,
+          "tk": 2,
+          "ho": 26,
+          "cl": 5,
+          "cm": 0,
+          "op": 3,
+          "ga": 0
+        },
+        {
+          "r": "R3",
+          "di": 14,
+          "gl": 0,
+          "tk": 4,
+          "ho": 25,
+          "cl": 2,
+          "cm": 1,
+          "op": 2,
+          "ga": 0
+        },
+        {
+          "r": "R5",
+          "di": 10,
+          "gl": 0,
+          "tk": 4,
+          "ho": 16,
+          "cl": 1,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R6",
+          "di": 12,
+          "gl": 0,
+          "tk": 4,
+          "ho": 24,
+          "cl": 4,
+          "cm": 2,
+          "op": 3,
+          "ga": 0
+        },
+        {
+          "r": "R7",
+          "di": 9,
+          "gl": 0,
+          "tk": 3,
+          "ho": 25,
+          "cl": 3,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R8",
+          "di": 11,
+          "gl": 0,
+          "tk": 6,
+          "ho": 18,
+          "cl": 6,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R9",
+          "di": 10,
+          "gl": 0,
+          "tk": 4,
+          "ho": 17,
+          "cl": 4,
+          "cm": 0,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R10",
+          "di": 9,
+          "gl": 0,
+          "tk": 3,
+          "ho": 22,
+          "cl": 3,
+          "cm": 0,
+          "op": 6,
+          "ga": 0
+        },
+        {
+          "r": "R11",
+          "di": 8,
+          "gl": 2,
+          "tk": 2,
+          "ho": 14,
+          "cl": 0,
+          "cm": 1,
+          "op": 1,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 20,
@@ -418,7 +1878,53 @@
       "cm": 1,
       "op": 3,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/2812/finn-maginness"
+      "pu": "https://www.hawthornfc.com.au/players/2812/finn-maginness",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 10,
+          "gl": 1,
+          "tk": 0,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R8",
+          "di": 18,
+          "gl": 1,
+          "tk": 1,
+          "ho": 0,
+          "cl": 1,
+          "cm": 1,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R9",
+          "di": 13,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R11",
+          "di": 18,
+          "gl": 0,
+          "tk": 4,
+          "ho": 0,
+          "cl": 2,
+          "cm": 0,
+          "op": 2,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 37,
@@ -444,7 +1950,108 @@
       "cm": 11,
       "op": 56,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/790/tom-barrass"
+      "pu": "https://www.hawthornfc.com.au/players/790/tom-barrass",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 11,
+          "gl": 0,
+          "tk": 0,
+          "ho": 0,
+          "cl": 0,
+          "cm": 2,
+          "op": 8,
+          "ga": 0
+        },
+        {
+          "r": "R2",
+          "di": 8,
+          "gl": 0,
+          "tk": 0,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 3,
+          "ga": 0
+        },
+        {
+          "r": "R3",
+          "di": 18,
+          "gl": 0,
+          "tk": 0,
+          "ho": 0,
+          "cl": 0,
+          "cm": 1,
+          "op": 12,
+          "ga": 0
+        },
+        {
+          "r": "R5",
+          "di": 19,
+          "gl": 1,
+          "tk": 3,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 5,
+          "ga": 0
+        },
+        {
+          "r": "R6",
+          "di": 25,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 3,
+          "op": 6,
+          "ga": 0
+        },
+        {
+          "r": "R7",
+          "di": 14,
+          "gl": 0,
+          "tk": 0,
+          "ho": 0,
+          "cl": 0,
+          "cm": 1,
+          "op": 3,
+          "ga": 0
+        },
+        {
+          "r": "R8",
+          "di": 15,
+          "gl": 0,
+          "tk": 0,
+          "ho": 0,
+          "cl": 0,
+          "cm": 1,
+          "op": 9,
+          "ga": 0
+        },
+        {
+          "r": "R9",
+          "di": 10,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 3,
+          "op": 8,
+          "ga": 0
+        },
+        {
+          "r": "R10",
+          "di": 5,
+          "gl": 0,
+          "tk": 0,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 2,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 4,
@@ -470,7 +2077,119 @@
       "cm": 3,
       "op": 12,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/702/jarman-impey"
+      "pu": "https://www.hawthornfc.com.au/players/702/jarman-impey",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 22,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R2",
+          "di": 23,
+          "gl": 1,
+          "tk": 4,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 1,
+          "ga": 1
+        },
+        {
+          "r": "R3",
+          "di": 23,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 2,
+          "cm": 1,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R5",
+          "di": 28,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 2,
+          "cm": 1,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R6",
+          "di": 25,
+          "gl": 0,
+          "tk": 0,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R7",
+          "di": 22,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R8",
+          "di": 25,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 2,
+          "ga": 1
+        },
+        {
+          "r": "R9",
+          "di": 22,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 2,
+          "ga": 0
+        },
+        {
+          "r": "R10",
+          "di": 22,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R11",
+          "di": 23,
+          "gl": 0,
+          "tk": 8,
+          "ho": 0,
+          "cl": 0,
+          "cm": 1,
+          "op": 3,
+          "ga": 1
+        }
+      ]
     },
     {
       "jn": 28,
@@ -496,7 +2215,97 @@
       "cm": 0,
       "op": 5,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/5630/cam-mackenzie"
+      "pu": "https://www.hawthornfc.com.au/players/5630/cam-mackenzie",
+      "rounds": [
+        {
+          "r": "R2",
+          "di": 21,
+          "gl": 0,
+          "tk": 5,
+          "ho": 0,
+          "cl": 5,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R3",
+          "di": 24,
+          "gl": 1,
+          "tk": 4,
+          "ho": 0,
+          "cl": 5,
+          "cm": 0,
+          "op": 1,
+          "ga": 1
+        },
+        {
+          "r": "R6",
+          "di": 22,
+          "gl": 1,
+          "tk": 3,
+          "ho": 0,
+          "cl": 3,
+          "cm": 0,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R7",
+          "di": 17,
+          "gl": 1,
+          "tk": 2,
+          "ho": 0,
+          "cl": 2,
+          "cm": 0,
+          "op": 1,
+          "ga": 1
+        },
+        {
+          "r": "R8",
+          "di": 21,
+          "gl": 0,
+          "tk": 3,
+          "ho": 0,
+          "cl": 3,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R9",
+          "di": 19,
+          "gl": 0,
+          "tk": 3,
+          "ho": 0,
+          "cl": 3,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R10",
+          "di": 18,
+          "gl": 0,
+          "tk": 4,
+          "ho": 0,
+          "cl": 2,
+          "cm": 0,
+          "op": 2,
+          "ga": 1
+        },
+        {
+          "r": "R11",
+          "di": 16,
+          "gl": 0,
+          "tk": 6,
+          "ho": 0,
+          "cl": 4,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 1,
@@ -522,7 +2331,42 @@
       "cm": 0,
       "op": 1,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/1341/harry-morrison"
+      "pu": "https://www.hawthornfc.com.au/players/1341/harry-morrison",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 18,
+          "gl": 1,
+          "tk": 3,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R8",
+          "di": 18,
+          "gl": 0,
+          "tk": 3,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R11",
+          "di": 15,
+          "gl": 0,
+          "tk": 3,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 10,
@@ -548,7 +2392,108 @@
       "cm": 0,
       "op": 8,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/801/karl-amon"
+      "pu": "https://www.hawthornfc.com.au/players/801/karl-amon",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 23,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 1,
+          "ga": 2
+        },
+        {
+          "r": "R2",
+          "di": 23,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 2,
+          "ga": 2
+        },
+        {
+          "r": "R3",
+          "di": 24,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 2,
+          "ga": 1
+        },
+        {
+          "r": "R6",
+          "di": 24,
+          "gl": 0,
+          "tk": 0,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R7",
+          "di": 17,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R8",
+          "di": 31,
+          "gl": 0,
+          "tk": 3,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 2,
+          "ga": 0
+        },
+        {
+          "r": "R9",
+          "di": 30,
+          "gl": 0,
+          "tk": 3,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R10",
+          "di": 20,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R11",
+          "di": 24,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 2,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 24,
@@ -574,7 +2519,119 @@
       "cm": 13,
       "op": 46,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/1412/josh-battle"
+      "pu": "https://www.hawthornfc.com.au/players/1412/josh-battle",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 16,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 0,
+          "cm": 1,
+          "op": 3,
+          "ga": 0
+        },
+        {
+          "r": "R2",
+          "di": 18,
+          "gl": 0,
+          "tk": 3,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 2,
+          "ga": 0
+        },
+        {
+          "r": "R3",
+          "di": 22,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 4,
+          "ga": 0
+        },
+        {
+          "r": "R5",
+          "di": 24,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 0,
+          "cm": 1,
+          "op": 4,
+          "ga": 0
+        },
+        {
+          "r": "R6",
+          "di": 24,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 4,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R7",
+          "di": 19,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 2,
+          "op": 6,
+          "ga": 0
+        },
+        {
+          "r": "R8",
+          "di": 22,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 2,
+          "op": 5,
+          "ga": 0
+        },
+        {
+          "r": "R9",
+          "di": 22,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 1,
+          "cm": 1,
+          "op": 5,
+          "ga": 0
+        },
+        {
+          "r": "R10",
+          "di": 20,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 1,
+          "op": 11,
+          "ga": 0
+        },
+        {
+          "r": "R11",
+          "di": 26,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 2,
+          "cm": 1,
+          "op": 5,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 34,
@@ -600,7 +2657,31 @@
       "cm": 0,
       "op": 1,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/12018/jack-dalton"
+      "pu": "https://www.hawthornfc.com.au/players/12018/jack-dalton",
+      "rounds": [
+        {
+          "r": "R5",
+          "di": 7,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R8",
+          "di": 13,
+          "gl": 0,
+          "tk": 6,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 15,
@@ -626,7 +2707,119 @@
       "cm": 4,
       "op": 31,
       "vid": "NL4HH-U2QZ8",
-      "pu": "https://www.hawthornfc.com.au/players/924/blake-hardwick"
+      "pu": "https://www.hawthornfc.com.au/players/924/blake-hardwick",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 18,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 1,
+          "cm": 1,
+          "op": 2,
+          "ga": 0
+        },
+        {
+          "r": "R2",
+          "di": 21,
+          "gl": 0,
+          "tk": 0,
+          "ho": 0,
+          "cl": 1,
+          "cm": 1,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R3",
+          "di": 19,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 2,
+          "ga": 0
+        },
+        {
+          "r": "R5",
+          "di": 19,
+          "gl": 0,
+          "tk": 4,
+          "ho": 0,
+          "cl": 2,
+          "cm": 0,
+          "op": 2,
+          "ga": 0
+        },
+        {
+          "r": "R6",
+          "di": 22,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 6,
+          "ga": 0
+        },
+        {
+          "r": "R7",
+          "di": 14,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 0,
+          "cm": 1,
+          "op": 3,
+          "ga": 0
+        },
+        {
+          "r": "R8",
+          "di": 17,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 6,
+          "ga": 0
+        },
+        {
+          "r": "R9",
+          "di": 16,
+          "gl": 0,
+          "tk": 4,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 4,
+          "ga": 0
+        },
+        {
+          "r": "R10",
+          "di": 14,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 4,
+          "ga": 0
+        },
+        {
+          "r": "R11",
+          "di": 15,
+          "gl": 4,
+          "tk": 8,
+          "ho": 0,
+          "cl": 0,
+          "cm": 1,
+          "op": 1,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 44,
@@ -652,7 +2845,20 @@
       "cm": 0,
       "op": 0,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/5410/henry-hustwaite"
+      "pu": "https://www.hawthornfc.com.au/players/5410/henry-hustwaite",
+      "rounds": [
+        {
+          "r": "R11",
+          "di": 14,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 6,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 14,
@@ -678,7 +2884,75 @@
       "cm": 1,
       "op": 14,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/1336/jack-scrimshaw"
+      "pu": "https://www.hawthornfc.com.au/players/1336/jack-scrimshaw",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 17,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R2",
+          "di": 16,
+          "gl": 0,
+          "tk": 3,
+          "ho": 0,
+          "cl": 0,
+          "cm": 1,
+          "op": 1,
+          "ga": 1
+        },
+        {
+          "r": "R3",
+          "di": 21,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 3,
+          "ga": 0
+        },
+        {
+          "r": "R5",
+          "di": 17,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 4,
+          "ga": 0
+        },
+        {
+          "r": "R8",
+          "di": 17,
+          "gl": 0,
+          "tk": 0,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 3,
+          "ga": 0
+        },
+        {
+          "r": "R9",
+          "di": 16,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 2,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 6,
@@ -704,7 +2978,97 @@
       "cm": 10,
       "op": 24,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/514/james-sicily"
+      "pu": "https://www.hawthornfc.com.au/players/514/james-sicily",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 22,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 1,
+          "cm": 1,
+          "op": 7,
+          "ga": 1
+        },
+        {
+          "r": "R2",
+          "di": 26,
+          "gl": 0,
+          "tk": 4,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 1,
+          "ga": 1
+        },
+        {
+          "r": "R3",
+          "di": 28,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 1,
+          "cm": 2,
+          "op": 5,
+          "ga": 0
+        },
+        {
+          "r": "R5",
+          "di": 26,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 0,
+          "cm": 2,
+          "op": 5,
+          "ga": 0
+        },
+        {
+          "r": "R7",
+          "di": 24,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R9",
+          "di": 18,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 2,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R10",
+          "di": 20,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 0,
+          "cm": 2,
+          "op": 3,
+          "ga": 0
+        },
+        {
+          "r": "R11",
+          "di": 16,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 1,
+          "cm": 1,
+          "op": 2,
+          "ga": 1
+        }
+      ]
     },
     {
       "jn": 25,
@@ -730,7 +3094,119 @@
       "cm": 1,
       "op": 7,
       "vid": null,
-      "pu": "https://www.hawthornfc.com.au/players/5252/josh-ward"
+      "pu": "https://www.hawthornfc.com.au/players/5252/josh-ward",
+      "rounds": [
+        {
+          "r": "R1",
+          "di": 21,
+          "gl": 0,
+          "tk": 4,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 1,
+          "ga": 0
+        },
+        {
+          "r": "R2",
+          "di": 26,
+          "gl": 0,
+          "tk": 5,
+          "ho": 0,
+          "cl": 5,
+          "cm": 0,
+          "op": 0,
+          "ga": 2
+        },
+        {
+          "r": "R3",
+          "di": 23,
+          "gl": 0,
+          "tk": 3,
+          "ho": 0,
+          "cl": 2,
+          "cm": 0,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R5",
+          "di": 22,
+          "gl": 0,
+          "tk": 6,
+          "ho": 0,
+          "cl": 3,
+          "cm": 0,
+          "op": 2,
+          "ga": 0
+        },
+        {
+          "r": "R6",
+          "di": 18,
+          "gl": 0,
+          "tk": 1,
+          "ho": 0,
+          "cl": 1,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R7",
+          "di": 20,
+          "gl": 0,
+          "tk": 4,
+          "ho": 0,
+          "cl": 4,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R8",
+          "di": 22,
+          "gl": 0,
+          "tk": 3,
+          "ho": 0,
+          "cl": 3,
+          "cm": 0,
+          "op": 2,
+          "ga": 2
+        },
+        {
+          "r": "R9",
+          "di": 23,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 2,
+          "cm": 0,
+          "op": 0,
+          "ga": 2
+        },
+        {
+          "r": "R10",
+          "di": 21,
+          "gl": 0,
+          "tk": 4,
+          "ho": 0,
+          "cl": 3,
+          "cm": 0,
+          "op": 1,
+          "ga": 2
+        },
+        {
+          "r": "R11",
+          "di": 18,
+          "gl": 0,
+          "tk": 2,
+          "ho": 0,
+          "cl": 1,
+          "cm": 1,
+          "op": 1,
+          "ga": 1
+        }
+      ]
     },
     {
       "jn": 12,
@@ -757,7 +3233,8 @@
       "gp25": 6,
       "di25": 126,
       "gl25": 6,
-      "tk25": 31
+      "tk25": 31,
+      "rounds": []
     },
     {
       "jn": 39,
@@ -784,7 +3261,42 @@
       "gp25": 0,
       "di25": 0,
       "gl25": 0,
-      "tk25": 0
+      "tk25": 0,
+      "rounds": [
+        {
+          "r": "R5",
+          "di": 13,
+          "gl": 0,
+          "tk": 5,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R6",
+          "di": 13,
+          "gl": 0,
+          "tk": 5,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        },
+        {
+          "r": "R7",
+          "di": 9,
+          "gl": 0,
+          "tk": 3,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 26,
@@ -811,7 +3323,31 @@
       "gp25": 0,
       "di25": 0,
       "gl25": 0,
-      "tk25": 0
+      "tk25": 0,
+      "rounds": [
+        {
+          "r": "R10",
+          "di": 7,
+          "gl": 0,
+          "tk": 0,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 1
+        },
+        {
+          "r": "R11",
+          "di": 15,
+          "gl": 0,
+          "tk": 3,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 2,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 27,
@@ -838,7 +3374,20 @@
       "gp25": 0,
       "di25": 0,
       "gl25": 0,
-      "tk25": 0
+      "tk25": 0,
+      "rounds": [
+        {
+          "r": "R7",
+          "di": 6,
+          "gl": 0,
+          "tk": 0,
+          "ho": 0,
+          "cl": 0,
+          "cm": 0,
+          "op": 0,
+          "ga": 0
+        }
+      ]
     },
     {
       "jn": 22,
@@ -865,7 +3414,8 @@
       "gp25": 0,
       "di25": 0,
       "gl25": 0,
-      "tk25": 0
+      "tk25": 0,
+      "rounds": []
     }
   ],
   "fallbackVid": "NL4HH-U2QZ8",
