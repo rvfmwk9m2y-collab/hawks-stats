@@ -868,5 +868,12 @@
       "tk25": 0
     }
   ],
-  "fallbackVid": "NL4HH-U2QZ8"
+  "fallbackVid": "NL4HH-U2QZ8",
+  "nextGame": {
+    "round": 12,
+    "opponent": "St Kilda",
+    "venue": "Marvel Stadium",
+    "home": true,
+    "kickoff": "2026-05-28T09:30:00Z"
+  }
 }
