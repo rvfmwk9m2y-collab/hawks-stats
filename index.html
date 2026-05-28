@@ -9,6 +9,13 @@
 <meta name="theme-color" content="#3D1A06">
 <link rel="apple-touch-icon" href="icon.png">
 <link rel="manifest" href="manifest.json">
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/hawks-stats/sw.js')
+      .then(r => console.log('SW registered:', r.scope))
+      .catch(e => console.log('SW registration failed:', e));
+  }
+</script>
 <title>Hawks Stats 2026</title>
 <style>
 :root {
