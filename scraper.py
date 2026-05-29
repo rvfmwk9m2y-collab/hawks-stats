@@ -659,6 +659,28 @@ def main():
         print(f"  Using fallback: Round {next_game['round']} vs {next_game['opponent']}")
 
     print("\n🔨 Building data.json…")
+
+    # ── DATA INTEGRITY CHECK ─────────────────────────────────────────────────
+    # If AFL Tables returned suspiciously little data vs what we already have,
+    # discard the scraped results and keep existing data intact.
+    try:
+        with open("data.json") as f:
+            _existing = json.load(f)
+        existing_total_gp = sum(p.get("gp", 0) for p in _existing.get("players", []))
+    except Exception:
+        existing_total_gp = 0
+
+    scraped_total_gp = sum(v.get("gp", 0) for v in match_totals.values())
+
+    if existing_total_gp > 0 and scraped_total_gp < existing_total_gp * 0.5:
+        print(f"  ⚠ AFL Tables returned only {scraped_total_gp} game-apps vs {existing_total_gp} existing")
+        print("  ↩ Discarding scraped stats — keeping existing data to protect integrity")
+        match_totals = {}
+        round_data   = {}
+    else:
+        print(f"  ✓ Scraped {scraped_total_gp} game-apps (existing: {existing_total_gp})")
+    # ─────────────────────────────────────────────────────────────────────────
+
     data = build_data(match_totals, round_data, profiles, record, position, next_game, video_map, fallback_vid)
 
     with open("data.json", "w") as f:
