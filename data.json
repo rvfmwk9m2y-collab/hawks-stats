@@ -1,15 +1,15 @@
 {
-  "updated": "2026-05-28",
-  "round": 11,
-  "record": "7W\u20133L\u20131D",
-  "position": "4th",
-  "fallbackVid": null,
+  "updated": "2026-05-29",
+  "round": 12,
+  "record": "8W\u20133L\u20131D",
+  "position": "3rd",
+  "fallbackVid": "tg_I5SofD20",
   "nextGame": {
-    "round": 12,
-    "opponent": "St Kilda",
-    "venue": "Docklands",
-    "home": false,
-    "kickoff": "2026-05-28T09:30:00Z"
+    "round": 13,
+    "opponent": "Western Bulldogs",
+    "venue": "M.C.G.",
+    "home": true,
+    "kickoff": "2026-06-05T09:40:00Z"
   },
   "players": [
     {
@@ -834,7 +834,7 @@
       "fa": 4,
       "cm": 9,
       "op": 9,
-      "vid": null,
+      "vid": "V3AIBAsIPr0",
       "rounds": [
         {
           "r": "R1",
@@ -3265,7 +3265,7 @@
       "fa": 0,
       "cm": 0,
       "op": 0,
-      "vid": null,
+      "vid": "QbyyHBZtSTM",
       "rounds": [],
       "gp25": 6,
       "di25": 126,
