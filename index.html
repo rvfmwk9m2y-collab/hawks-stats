@@ -639,7 +639,11 @@ function sortedBy(arr,key,dir) {
     return dir*(av-bv);
   });
 }
-function renderAll(){if(!DATA)return;curView==='cards'?renderCards():renderTable();}
+function renderAll(){
+  if(!DATA)return;
+  if(curView==='cards')renderCards();
+  else if(curView==='table')renderTable();
+}
 
 function trendInfo(p){
   if(p.isDebut)return['tr-nu','Debut',''];
@@ -763,51 +767,57 @@ function renderCards(){
 }
 
 function renderTable(){
-  const arr=sortedBy(filtered(),tSortKey,tSortDir);
-  document.querySelectorAll('[id^="ta-"]').forEach(el=>el.textContent='');
-  const ar=document.getElementById('ta-'+tSortKey);
-  if(ar)ar.textContent=tSortDir>0?' ↑':' ↓';
   const tbody=document.getElementById('table-body');
-  if(!arr.length){tbody.innerHTML='<tr><td colspan="25" class="empty">No players</td></tr>';return;}
-  const noExtra=arr.every(p=>!hasExtra(p));
-  const fmtD=(v,d)=>v===null?'<span class="t-nu">—</span>':`<span class="${v>=0?'t-up':'t-dn'}">${dSign(v,d)}</span>`;
-  tbody.innerHTML=arr.map(p=>{
-    const da25D=p.da25!==null?p.da25.toFixed(1):'—';
-    let trD='<span class="t-nu">—</span>';
-    if(!p.isDebut&&!p.isInj&&p.trend!==null){
-      const c=p.trend>8?'t-up':p.trend<-8?'t-dn':'t-nu';
-      trD=`<span class="${c}">${p.trend>0?'↑':p.trend<0?'↓':'↔'} ${Math.abs(p.trend).toFixed(0)}%</span>`;
-    } else if(p.isDebut)trD='<span class="t-nu">Debut</span>';
-    else if(p.isInj)trD='<span class="t-nu">Inj</span>';
+  if(!tbody)return;
+  try{
+    const arr=sortedBy(filtered(),tSortKey,tSortDir);
+    document.querySelectorAll('[id^="ta-"]').forEach(el=>el.textContent='');
+    const ar=document.getElementById('ta-'+tSortKey);
+    if(ar)ar.textContent=tSortDir>0?' ↑':' ↓';
+    if(!arr||!arr.length){tbody.innerHTML='<tr><td colspan="25" class="empty">No players</td></tr>';return;}
+    const noExtra=arr.every(p=>!hasExtra(p));
     const ep=noExtra?pendingSpan():'';
-    return `<tr>
-      <td class="lft t-name">${p.jn>0?p.jn:'—'}</td>
-      <td class="lft t-name">${p.name}</td>
-      <td>${p.pos}</td>
-      <td>${p.age}</td>
-      <td>${p.ht}</td>
-      <td>${p.draftLbl}</td>
-      <td class="grp">${p.gp}</td>
-      <td class="${p.gl>=15?'t-hi':''}">${p.gl}</td>
-      <td class="${p.tk>=30?'t-hi':''}">${p.tk}</td>
-      <td class="${p.di>=200?'t-hi':''}">${p.di}</td>
-      <td>${p.da26.toFixed(1)}</td>
-      <td>${p.ki}</td>
-      <td>${p.hb}</td>
-      <td class="grp">${p.ho>0?p.ho:ep}</td>
-      <td>${p.cl>0?p.cl:ep}</td>
-      <td>${p.ga>0?p.ga:ep}</td>
-      <td>${p.ff>0?p.ff:ep}</td>
-      <td>${p.fa>0?p.fa:ep}</td>
-      <td>${p.cm>0?p.cm:ep}</td>
-      <td>${p.op>0?p.op:ep}</td>
-      <td class="grp">${p.isDebut?'—':p.gp25}</td>
-      <td>${p.isDebut?'—':da25D}</td>
-      <td>${p.isDebut||p.isInj?'<span class="t-nu">—</span>':fmtD(p.dda,1)}</td>
-      <td>${p.isDebut||p.isInj?'<span class="t-nu">—</span>':fmtD(p.dtk,1)}</td>
-      <td class="grp">${trD}</td>
-    </tr>`;
-  }).join('');
+    const fmtD=(v,d)=>v==null||isNaN(v)?'<span class="t-nu">—</span>':`<span class="${v>=0?'t-up':'t-dn'}">${dSign(v,d)}</span>`;
+    tbody.innerHTML=arr.map(p=>{
+      const da26str=isNaN(p.da26)?'0.0':(p.da26||0).toFixed(1);
+      const da25D=p.da25!=null&&!isNaN(p.da25)?p.da25.toFixed(1):'—';
+      let trD='<span class="t-nu">—</span>';
+      if(!p.isDebut&&!p.isInj&&p.trend!=null&&!isNaN(p.trend)){
+        const c=p.trend>8?'t-up':p.trend<-8?'t-dn':'t-nu';
+        trD=`<span class="${c}">${p.trend>0?'↑':p.trend<0?'↓':'↔'} ${Math.abs(p.trend).toFixed(0)}%</span>`;
+      } else if(p.isDebut)trD='<span class="t-nu">Debut</span>';
+      else if(p.isInj)trD='<span class="t-nu">Inj</span>';
+      return `<tr>
+        <td class="lft t-name">${p.jn||'—'}</td>
+        <td class="lft t-name">${p.name}</td>
+        <td>${p.pos}</td>
+        <td>${p.age||'—'}</td>
+        <td>${p.ht||'—'}</td>
+        <td>${p.draftLbl||'—'}</td>
+        <td class="grp">${p.gp}</td>
+        <td class="${p.gl>=15?'t-hi':''}">${p.gl}</td>
+        <td class="${p.tk>=30?'t-hi':''}">${p.tk}</td>
+        <td class="${p.di>=200?'t-hi':''}">${p.di}</td>
+        <td>${da26str}</td>
+        <td>${p.ki||0}</td>
+        <td>${p.hb||0}</td>
+        <td class="grp">${p.ho>0?p.ho:ep}</td>
+        <td>${p.cl>0?p.cl:ep}</td>
+        <td>${p.ga>0?p.ga:ep}</td>
+        <td>${p.ff>0?p.ff:ep}</td>
+        <td>${p.fa>0?p.fa:ep}</td>
+        <td>${p.cm>0?p.cm:ep}</td>
+        <td>${p.op>0?p.op:ep}</td>
+        <td class="grp">${p.isDebut?'—':p.gp25||0}</td>
+        <td>${p.isDebut?'—':da25D}</td>
+        <td>${p.isDebut||p.isInj?'<span class="t-nu">—</span>':fmtD(p.dda,1)}</td>
+        <td>${p.isDebut||p.isInj?'<span class="t-nu">—</span>':fmtD(p.dtk,1)}</td>
+        <td class="grp">${trD}</td>
+      </tr>`;
+    }).join('');
+  }catch(e){
+    tbody.innerHTML=`<tr><td colspan="25" class="empty">Table error: ${e.message}</td></tr>`;
+  }
 }
 
 function setPos(el){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');curPos=el.dataset.pos;renderAll();}
@@ -850,6 +860,39 @@ async function fetchSquiggleLive() {
   } catch(e) { return null; }
 }
 
+// SSE live score stream
+let sseSource = null;
+
+function startSSELiveScore() {
+  if (sseSource) return; // already connected
+  try {
+    sseSource = new EventSource('https://sse.squiggle.com.au/?q=games;live=1;source=HawksStatsApp');
+    sseSource.onmessage = e => {
+      try {
+        const data = JSON.parse(e.data);
+        const games = data.games || (Array.isArray(data) ? data : []);
+        const g = games.find(g =>
+          (g.hteam||'').toLowerCase().includes('hawthorn') ||
+          (g.ateam||'').toLowerCase().includes('hawthorn')
+        );
+        if (g) renderNgCard(g);
+      } catch(err) {}
+    };
+    sseSource.onerror = () => {
+      stopSSELiveScore();
+      // Fall back to polling
+      clearTimeout(ngTimer);
+      ngTimer = setTimeout(initNextGame, 60000);
+    };
+  } catch(e) {
+    sseSource = null;
+  }
+}
+
+function stopSSELiveScore() {
+  if (sseSource) { sseSource.close(); sseSource = null; }
+}
+
 function renderNgCard(g) {
   const card = document.getElementById('ng-card');
   if (!card) return;
@@ -863,7 +906,9 @@ function renderNgCard(g) {
   const osc  = home ? g.ascore : g.hscore;
 
   if (g.complete > 0 && g.complete < 100) {
-    // LIVE
+    // LIVE — start SSE stream for real-time updates
+    startSSELiveScore();
+    clearTimeout(ngTimer);
     card.innerHTML = `<div class="ng-eagle">🦅</div>
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
         <span class="ng-badge">Round ${g.round} · ${g.venue||''}</span>
@@ -872,10 +917,10 @@ function renderNgCard(g) {
       <div class="ng-score">${hsc??'—'} <span class="ng-score-sep">v</span> ${osc??'—'}</div>
       <div class="ng-score-teams"><span>🦅 Hawthorn</span><span>${opp}</span></div>
       <div class="ng-timestr">${g.timestr||''}</div>`;
-    clearTimeout(ngTimer);
-    ngTimer = setTimeout(initNextGame, 60000);
 
   } else if (g.complete === 100) {
+    // FINAL — stop SSE stream
+    stopSSELiveScore();
     // RESULT
     const won = (home && g.hscore > g.ascore) || (!home && g.ascore > g.hscore);
     const drew = g.hscore === g.ascore;
