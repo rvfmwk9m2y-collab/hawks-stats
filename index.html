@@ -194,7 +194,8 @@ tr:hover td { background: var(--gold-pale); }
 .club-sub { font-size: 0.68rem; color: var(--muted); margin-top: 1px; }
 .prem-scroll { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 .prem-scroll::-webkit-scrollbar { display: none; }
-.prem-card { flex-shrink: 0; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 12px 14px; min-width: 120px; text-align: center; border-top: 3px solid var(--brown); }
+.prem-card { flex-shrink: 0; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 12px 14px; min-width: 120px; text-align: center; border-top: 3px solid var(--brown); text-decoration: none; display: block; cursor: pointer; }
+.prem-watch { font-size: 0.65rem; color: rgba(242,193,78,0.55); margin-top: 7px; padding-top: 6px; border-top: 1px solid rgba(242,193,78,0.12); }
 .prem-big { border-top-color: var(--gold) !important; }
 .prem-close { border-top-color: #D85A30 !important; }
 .prem-year { font-size: 1.3rem; font-weight: 800; color: var(--gold); font-family: Georgia, serif; }
@@ -210,6 +211,14 @@ tr:hover td { background: var(--gold-pale); }
 .club-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
 @media (max-width: 500px) { .club-cols { grid-template-columns: 1fr; } }
 
+.gf-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); margin-top: 10px; overflow: hidden; }
+.gf-panel-header { display:flex; justify-content:space-between; align-items:center; padding:8px 12px; background: #2A1008; }
+.gf-panel-title { font-size:0.82rem; font-weight:700; color:var(--gold); }
+.gf-close-btn { background:none; border:none; color:var(--gold); font-size:1rem; cursor:pointer; opacity:0.6; padding:0 4px; }
+.gf-panel-body { padding:12px; }
+.gf-thumb { width:110px; height:80px; object-fit:cover; border-radius:6px; float:right; margin:0 0 8px 10px; display:block; }
+.gf-extract { font-size:0.78rem; color:rgba(242,193,78,0.8); line-height:1.55; }
+.gf-hl-btn { display:block; margin-top:12px; text-align:center; background:#3D1A06; color:var(--gold); font-size:0.75rem; font-weight:600; padding:8px; border-radius:6px; text-decoration:none; border:1px solid rgba(242,193,78,0.2); }
 /* MISC */
 .last-updated { text-align: center; font-size: 0.68rem; color: var(--muted); padding: 0 14px 28px; }
 .last-updated a { color: var(--muted); }
@@ -332,22 +341,32 @@ tr:hover td { background: var(--gold-pale); }
 
   <div class="club-header">
     <div class="club-title">🏆 13 Premierships</div>
-    <div class="club-sub">VFL/AFL 1961–2015</div>
+    <div class="club-sub">▶ Highlights on AFL.com.au · ↗ History on Wikipedia</div>
   </div>
   <div class="prem-scroll">
-    <div class="prem-card"><div class="prem-year">1961</div><div class="prem-opp">vs Footscray</div><div class="prem-score">94–51</div><div class="prem-margin">+43</div></div>
-    <div class="prem-card"><div class="prem-year">1971</div><div class="prem-opp">vs St Kilda</div><div class="prem-score">82–77</div><div class="prem-margin">+5</div></div>
-    <div class="prem-card"><div class="prem-year">1976</div><div class="prem-opp">vs Nth Melbourne</div><div class="prem-score">100–70</div><div class="prem-margin">+30</div></div>
-    <div class="prem-card"><div class="prem-year">1978</div><div class="prem-opp">vs Nth Melbourne</div><div class="prem-score">121–103</div><div class="prem-margin">+18</div></div>
-    <div class="prem-card prem-big"><div class="prem-year">1983</div><div class="prem-opp">vs Essendon</div><div class="prem-score">140–57</div><div class="prem-margin">+83</div></div>
-    <div class="prem-card"><div class="prem-year">1986</div><div class="prem-opp">vs Carlton</div><div class="prem-score">110–68</div><div class="prem-margin">+42</div></div>
-    <div class="prem-card prem-big"><div class="prem-year">1988</div><div class="prem-opp">vs Melbourne</div><div class="prem-score">152–56</div><div class="prem-margin">+96</div></div>
-    <div class="prem-card prem-close"><div class="prem-year">1989</div><div class="prem-opp">vs Geelong</div><div class="prem-score">144–138</div><div class="prem-margin">+6 🐐</div></div>
-    <div class="prem-card"><div class="prem-year">1991</div><div class="prem-opp">vs West Coast</div><div class="prem-score">139–86</div><div class="prem-margin">+53</div></div>
-    <div class="prem-card"><div class="prem-year">2008</div><div class="prem-opp">vs Geelong</div><div class="prem-score">115–89</div><div class="prem-margin">+26</div></div>
-    <div class="prem-card prem-close"><div class="prem-year">2013</div><div class="prem-opp">vs Fremantle</div><div class="prem-score">77–62</div><div class="prem-margin">+15</div></div>
-    <div class="prem-card prem-big"><div class="prem-year">2014</div><div class="prem-opp">vs Sydney</div><div class="prem-score">137–74</div><div class="prem-margin">+63</div></div>
-    <div class="prem-card"><div class="prem-year">2015</div><div class="prem-opp">vs West Coast</div><div class="prem-score">107–61</div><div class="prem-margin">+46</div></div>
+    <div class="prem-card" data-wiki="1961_VFL_Grand_Final" onclick="showGFPanel(this)"><div class="prem-year">1961</div><div class="prem-opp">vs Footscray</div><div class="prem-score">94–51</div><div class="prem-margin">+43</div><div class="prem-watch">↗ History</div></div>
+    <div class="prem-card" data-wiki="1971_VFL_Grand_Final" onclick="showGFPanel(this)"><div class="prem-year">1971</div><div class="prem-opp">vs St Kilda</div><div class="prem-score">82–77</div><div class="prem-margin">+5</div><div class="prem-watch">↗ History</div></div>
+    <div class="prem-card" data-wiki="1976_VFL_Grand_Final" onclick="showGFPanel(this)"><div class="prem-year">1976</div><div class="prem-opp">vs Nth Melbourne</div><div class="prem-score">100–70</div><div class="prem-margin">+30</div><div class="prem-watch">↗ History</div></div>
+    <div class="prem-card" data-wiki="1978_VFL_Grand_Final" onclick="showGFPanel(this)"><div class="prem-year">1978</div><div class="prem-opp">vs Nth Melbourne</div><div class="prem-score">121–103</div><div class="prem-margin">+18</div><div class="prem-watch">↗ History</div></div>
+    <div class="prem-card prem-big" data-wiki="1983_VFL_Grand_Final" onclick="showGFPanel(this)"><div class="prem-year">1983</div><div class="prem-opp">vs Essendon</div><div class="prem-score">140–57</div><div class="prem-margin">+83</div><div class="prem-watch">↗ History</div></div>
+    <div class="prem-card" data-wiki="1986_VFL_Grand_Final" onclick="showGFPanel(this)"><div class="prem-year">1986</div><div class="prem-opp">vs Carlton</div><div class="prem-score">110–68</div><div class="prem-margin">+42</div><div class="prem-watch">↗ History</div></div>
+    <div class="prem-card prem-big" data-wiki="1988_VFL_Grand_Final" onclick="showGFPanel(this)"><div class="prem-year">1988</div><div class="prem-opp">vs Melbourne</div><div class="prem-score">152–56</div><div class="prem-margin">+96</div><div class="prem-watch">↗ History</div></div>
+    <div class="prem-card prem-close" data-wiki="1989_VFL_Grand_Final" data-hl="https://www.afl.com.au/video/517798/classic-grand-finals-hawthorn-v-geelong-1989" onclick="showGFPanel(this)"><div class="prem-year">1989</div><div class="prem-opp">vs Geelong</div><div class="prem-score">144–138</div><div class="prem-margin">+6 🐐</div><div class="prem-watch">▶ Highlights</div></div>
+    <div class="prem-card" data-wiki="1991_AFL_Grand_Final" onclick="showGFPanel(this)"><div class="prem-year">1991</div><div class="prem-opp">vs West Coast</div><div class="prem-score">139–86</div><div class="prem-margin">+53</div><div class="prem-watch">↗ History</div></div>
+    <div class="prem-card" data-wiki="2008_AFL_Grand_Final" data-hl="https://www.afl.com.au/video/612462/finals-highlights-2008-grand-final-geelong-v-hawthorn" onclick="showGFPanel(this)"><div class="prem-year">2008</div><div class="prem-opp">vs Geelong</div><div class="prem-score">115–89</div><div class="prem-margin">+26</div><div class="prem-watch">▶ Highlights</div></div>
+    <div class="prem-card prem-close" data-wiki="2013_AFL_Grand_Final" data-hl="https://www.afl.com.au/video/651400/finals-highlights-2013-grand-final-hawthorn-v-fremantle" onclick="showGFPanel(this)"><div class="prem-year">2013</div><div class="prem-opp">vs Fremantle</div><div class="prem-score">77–62</div><div class="prem-margin">+15</div><div class="prem-watch">▶ Highlights</div></div>
+    <div class="prem-card prem-big" data-wiki="2014_AFL_Grand_Final" data-hl="https://www.afl.com.au/video/666956/finals-highlights-2014-grand-final-sydney-v-hawthorn" onclick="showGFPanel(this)"><div class="prem-year">2014</div><div class="prem-opp">vs Sydney</div><div class="prem-score">137–74</div><div class="prem-margin">+63</div><div class="prem-watch">▶ Highlights</div></div>
+    <div class="prem-card" data-wiki="2015_AFL_Grand_Final" data-hl="https://www.afl.com.au/video/667135/finals-highlights-2015-grand-final-west-coast-v-hawthorn" onclick="showGFPanel(this)"><div class="prem-year">2015</div><div class="prem-opp">vs West Coast</div><div class="prem-score">107–61</div><div class="prem-margin">+46</div><div class="prem-watch">▶ Highlights</div></div>
+  </div>
+
+  <div id="gf-panel" style="display:none">
+    <div class="gf-panel-header">
+      <span id="gf-panel-title"></span>
+      <button class="gf-close-btn" onclick="closeGFPanel()">✕</button>
+    </div>
+    <div id="gf-panel-body" class="gf-panel-body">
+      <div style="color:rgba(242,193,78,0.4);text-align:center;padding:16px;font-size:0.8rem">Loading…</div>
+    </div>
   </div>
 
   <div class="club-header" style="margin-top:20px">
@@ -1025,6 +1044,34 @@ function last3Form(p) {
   return { pct, hot, cold, label,
     cls: hot ? 'form-hot' : cold ? 'form-cold' : 'form-ok',
     icon: hot ? '🔥' : cold ? '❄️' : '→' };
+}
+
+/* ── GRAND FINAL PANEL (Wikipedia API) ── */
+async function showGFPanel(card) {
+  const wiki = card.dataset.wiki;
+  const hl   = card.dataset.hl;
+  const year = card.querySelector('.prem-year').textContent;
+  const opp  = card.querySelector('.prem-opp').textContent;
+  const panel = document.getElementById('gf-panel');
+  const body  = document.getElementById('gf-panel-body');
+  document.getElementById('gf-panel-title').textContent = year + ' Grand Final ' + opp;
+  panel.className = 'gf-panel';
+  panel.style.display = '';
+  body.innerHTML = '<div style="color:rgba(242,193,78,0.4);text-align:center;padding:16px;font-size:0.8rem">Loading…</div>';
+  setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'start'}), 50);
+  try {
+    const r = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${wiki}`);
+    const d = await r.json();
+    const thumb = d.thumbnail ? `<img class="gf-thumb" src="${d.thumbnail.source}" alt="${year} Grand Final">` : '';
+    const extract = d.extract ? d.extract.slice(0, 600) + (d.extract.length > 600 ? '…' : '') : 'No summary available.';
+    const hlBtn = hl ? `<a class="gf-hl-btn" href="${hl}" target="_blank" rel="noopener">▶ Watch Highlights on AFL.com.au</a>` : '';
+    body.innerHTML = `<div class="gf-extract">${extract}</div>${thumb}${hlBtn}`;
+  } catch(e) {
+    body.innerHTML = '<div class="gf-extract">Could not load match details. Please check your connection.</div>';
+  }
+}
+function closeGFPanel() {
+  document.getElementById('gf-panel').style.display = 'none';
 }
 
 load();
