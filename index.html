@@ -134,8 +134,33 @@ tr:hover td { background: var(--gold-pale); }
 .t-name { font-weight: 600; }
 .pending { color: var(--muted); font-style: italic; font-size: 0.65rem; }
 
-/* ── NEXT GAME WIDGET ── */
-.ng-section { padding: 12px 14px 0; }
+/* ── HERO LAYOUT (next game + fixture side by side) ── */
+.hero-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 12px 14px 0;
+}
+.fix-panel { overflow-y: auto; max-height: 220px; scrollbar-width: none; }
+.fix-panel::-webkit-scrollbar { display: none; }
+.fix-row-h { display:flex; align-items:center; gap:6px; padding:5px 0; border-bottom:1px solid var(--border); font-size:0.72rem; }
+.fix-row-h:last-child { border-bottom:none; }
+.fix-rnd-h { font-size:0.6rem; font-weight:700; color:var(--muted); min-width:20px; }
+.fix-opp-h { flex:1; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.fix-badge-h { font-size:0.55rem; font-weight:800; padding:1px 5px; border-radius:3px; flex-shrink:0; }
+.fix-badge-h.bw { background:rgba(29,158,117,0.2); color:#1D9E75; }
+.fix-badge-h.bl { background:rgba(216,90,48,0.2); color:#D85A30; }
+.fix-badge-h.bd { background:rgba(136,135,128,0.2); color:#888780; }
+.fix-score-h { font-size:0.65rem; color:var(--text); flex-shrink:0; white-space:nowrap; }
+.fix-date-h { font-size:0.6rem; color:var(--muted); flex-shrink:0; }
+.fix-bye-h { color:var(--muted); font-style:italic; opacity:0.5; }
+@media (max-width: 500px) {
+  .hero-section { grid-template-columns: 1fr; }
+  .fix-panel { max-height: 180px; }
+}
+@media (min-width: 700px) {
+  .hero-section { padding: 12px 24px 0; }
+}
 .ng-card {
   background: linear-gradient(135deg, #2A1008 0%, #150602 100%);
   border: 1px solid rgba(242,193,78,0.18);
@@ -175,7 +200,7 @@ tr:hover td { background: var(--gold-pale); }
 }
 
 @media (min-width: 700px) {
-  .ng-section { padding: 12px 24px 0; }
+
 }
 
 /* ── SPARKLINE & LAST 3 FORM ── */
@@ -262,9 +287,13 @@ tr:hover td { background: var(--gold-pale); }
   <div class="record-pill" id="record-pill">—</div>
 </div>
 
-<!-- ── NEXT GAME / LIVE SCORE WIDGET ── -->
-<div class="ng-section">
+<!-- ── HERO: NEXT GAME (left) + FIXTURE (right) ── -->
+<div class="hero-section">
   <div class="ng-card" id="ng-card">
+    <div class="ng-eagle">🦅</div>
+    <div style="color:rgba(242,193,78,0.35);font-size:0.8rem;text-align:center;padding:4px">Loading…</div>
+  </div>
+  <div class="ng-card fix-panel" id="fix-panel">
     <div class="ng-eagle">🦅</div>
     <div style="color:rgba(242,193,78,0.35);font-size:0.8rem;text-align:center;padding:4px">Loading fixture…</div>
   </div>
@@ -359,7 +388,6 @@ tr:hover td { background: var(--gold-pale); }
 <!-- ── CLUB HISTORY VIEW ── -->
 <div id="club-view" style="display:none">
 <div class="club-section">
-
   <div class="club-header">
     <div class="club-title">🏆 13 Premierships</div>
     <div class="club-sub">▶ Highlights on AFL.com.au · ↗ History on Wikipedia</div>
@@ -671,6 +699,7 @@ function renderAll(){
   if(!DATA)return;
   if(curView==='cards')renderCards();
   else if(curView==='table')renderTable();
+  else if(curView==='news')renderNews();
 }
 
 function trendInfo(p){
@@ -859,10 +888,43 @@ function setView(v,el){
   document.getElementById('news-view').style.display=v==='news'?'':'none';
   document.getElementById('sort-bar').style.display=v==='cards'?'':'none';
   document.getElementById('controls').style.display=(v==='club'||v==='news')?'none':'';
-  renderAll();
+  if(v==='news')renderNews();
+  else renderAll();
 }
 function setSort(el){const k=el.dataset.key;if(curSort===k)curSortDir*=-1;else{curSort=k;curSortDir=-1;}document.querySelectorAll('.sort-btn').forEach(t=>t.classList.remove('active'));el.classList.add('active');renderAll();}
 function tSort(k){if(tSortKey===k)tSortDir*=-1;else{tSortKey=k;tSortDir=-1;}renderAll();}
+
+/* ── FIXTURE PANEL (hero right side) ── */
+function renderFixturePanel(games) {
+  const panel = document.getElementById('fix-panel');
+  if (!panel || !games) return;
+  const sorted = [...games].sort((a,b) => (a.localtime||'').localeCompare(b.localtime||''));
+  const rows = [];
+  let byeAdded = false;
+  sorted.forEach(g => {
+    if (!byeAdded && g.round >= 4) {
+      rows.push(`<div class="fix-row-h fix-bye-h"><span class="fix-rnd-h">R3</span><span class="fix-opp-h">Bye</span></div>`);
+      byeAdded = true;
+    }
+    const rnd  = g.round === 0 ? 'OR' : `R${g.round}`;
+    const home = (g.hteam||'').includes('Hawthorn');
+    const opp  = (home ? g.ateam : g.hteam) || '—';
+    const hs   = home ? g.hscore : g.ascore;
+    const os   = home ? g.ascore : g.hscore;
+    const done = g.complete === 100;
+    const won  = done && hs > os, lost = done && hs < os, drew = done && hs === os;
+    const badge = done ? `<span class="fix-badge-h ${won?'bw':lost?'bl':'bd'}">${won?'W':lost?'L':'D'}</span>` : '';
+    const right = done
+      ? `${badge}<span class="fix-score-h">${hs}–${os}</span>`
+      : (() => {
+          const dt = g.localtime ? new Date(g.localtime.replace(' ','T')+'+10:00') : null;
+          return `<span class="fix-date-h">${dt ? dt.toLocaleDateString('en-AU',{day:'numeric',month:'short',timeZone:'Australia/Melbourne'}) : ''}</span>`;
+        })();
+    const shortOpp = opp.replace('Western Bulldogs','W.Bulldogs').replace('Greater Western Sydney','GWS').replace('North Melbourne','Nth Melb').replace('Gold Coast','Gold Coast').replace('Port Adelaide','Port Adel');
+    rows.push(`<div class="fix-row-h"><span class="fix-rnd-h">${rnd}</span><span class="fix-opp-h">${shortOpp}</span>${right}</div>`);
+  });
+  panel.innerHTML = `<div class="ng-badge" style="margin-bottom:6px">2026 Fixture</div><div>${rows.join('')}</div>`;
+}
 
 /* ── NEXT GAME / LIVE SCORE ── */
 let ngTimer = null;
@@ -1028,6 +1090,7 @@ async function initNextGame() {
     return;
   }
   const games = await fetchSquiggleGames();
+  if (games) renderFixturePanel(games);
   if (!games) {
     // API failed — retry in 2 minutes, show fallback in meantime
     clearTimeout(ngTimer);
