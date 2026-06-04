@@ -983,6 +983,218 @@ function closeGFPanel() {
   document.getElementById('gf-panel').style.display = 'none';
 }
 
+/* ── CORE APP STATE & FUNCTIONS ── */
+let DATA=null, curPos='', curSort='gl', curSortDir=-1, curView='cards', tSortKey='jn', tSortDir=1;
+
+function compute(raw) {
+  const maxGP = Math.max(...raw.map(p => p.gp));
+  return raw.map(p => {
+    const da26   = p.gp > 0 ? p.di / p.gp : 0;
+    const isDebut= p.gp25 === 0;
+    const isInj  = !isDebut && p.gp25 < 3;
+    const da25   = p.gp25 > 0 ? p.di25 / p.gp25 : null;
+    const glpg25 = p.gp25 > 0 ? p.gl25 / p.gp25 : null;
+    const tkpg25 = p.gp25 > 0 ? p.tk25 / p.gp25 : null;
+    let dda=null,dgl=null,dtk=null,trend=null;
+    if (!isDebut && !isInj && da25!==null && p.gp>0) {
+      dda = da26 - da25;
+      dgl = (p.gl/p.gp) - glpg25;
+      dtk = (p.tk/p.gp) - tkpg25;
+      const cap=v=>Math.max(-100,Math.min(100,v));
+      const ext=p.op>0||p.ho>0||p.cl>0||p.ga>0;
+      const daPct=cap((dda/Math.max(da25,1))*100);
+      const glPct=cap(glpg25>0.1?(dgl/glpg25)*100:(p.gl/p.gp>0.05?50:0));
+      const tkPct=cap((dtk/Math.max(tkpg25,0.5))*100);
+      const gpPct=cap((p.gp/maxGP - Math.min(p.gp25/22,1.0))*100);
+      const clPct =ext?cap((p.cl/p.gp-3.5)*25):0;
+      const cmPct =ext?cap((p.cm/p.gp-0.5)*100):0;
+      const hoPct =ext?cap((p.ho/p.gp-18)*4):0;
+      const gaPct =ext?cap((p.ga/p.gp-0.5)*100):0;
+      const opPct =ext?cap((p.op/p.gp-3)*25):0;
+      const hb2=p.di-p.ki;
+      const khbPct=hb2>0?cap((p.ki/hb2-1.5)*50):0;
+      const pos=p.pos;
+      if(pos==='FW')      trend=daPct*0.20+glPct*0.25+gaPct*0.15+cmPct*0.10+tkPct*0.10+clPct*0.10+gpPct*0.10;
+      else if(pos==='MF') trend=daPct*0.25+clPct*0.20+tkPct*0.20+glPct*0.10+khbPct*0.10+gpPct*0.15;
+      else if(pos==='DF') trend=daPct*0.25+tkPct*0.20+opPct*0.20+cmPct*0.10+clPct*0.10+gpPct*0.15;
+      else if(pos==='RU') trend=daPct*0.15+hoPct*0.25+clPct*0.15+glPct*0.15+cmPct*0.10+tkPct*0.10+gpPct*0.10;
+      else trend=(daPct+glPct+tkPct+gpPct)/4;
+    }
+    return {...p,da26,da25,glpg25,tkpg25,dda,dgl,dtk,trend,isDebut,isInj,hb:p.di-p.ki};
+  });
+}
+
+function filtered(){
+  const q=document.getElementById('search')?.value?.toLowerCase()||'';
+  return DATA.players.filter(p=>(!curPos||p.pos===curPos)&&(!q||p.name.toLowerCase().includes(q)));
+}
+function sortedBy(arr,key,dir){
+  return [...arr].sort((a,b)=>{
+    const av=a[key],bv=b[key];
+    if(av===null&&bv===null)return 0;
+    if(av===null)return 1;if(bv===null)return -1;
+    if(typeof av==='string')return dir*av.localeCompare(bv);
+    return dir*(av-bv);
+  });
+}
+function dSign(v,d){return v===null?'':((v>=0?'+':'')+v.toFixed(d));}
+function hasExtra(p){return p.ho>0||p.cl>0||p.ga>0;}
+function pendingSpan(){return '<span class="pending">Run scraper</span>';}
+
+function trendInfo(p){
+  if(p.isDebut)return['tr-nu','Debut',''];
+  if(p.isInj)return['tr-nu',"Inj '25",''];
+  if(p.trend===null)return['tr-nu','—',''];
+  const cls=p.trend>8?'tr-up':p.trend<-8?'tr-dn':'tr-nu';
+  const arrow=p.trend>8?'↑ ':p.trend<-8?'↓ ':'↔ ';
+  return[cls,arrow+Math.abs(p.trend).toFixed(0)+'%',p.trend>8?'Improving on 2025':p.trend<-8?'Down on 2025':'Similar to 2025'];
+}
+
+function renderAll(){
+  if(!DATA)return;
+  if(curView==='cards')renderCards();
+  else if(curView==='table')renderTable();
+  else if(curView==='news')renderNews();
+}
+
+function renderCards(){
+  const arr=sortedBy(filtered(),curSort,curSortDir);
+  const list=document.getElementById('player-list');
+  if(!list)return;
+  if(!arr.length){list.innerHTML='<div class="empty">No players match</div>';return;}
+  list.innerHTML=arr.map(p=>{
+    const da26s=p.gp>0?p.da26.toFixed(1):'—';
+    const [trCls,trLbl,trTip]=trendInfo(p);
+    const spark=sparklineHTML(p);
+    const f3=last3Form(p);
+    let stats='';
+    if(p.pos==='FW')      stats=`<div class="stat-g"><span>Gls</span><b>${p.gl}</b></div><div class="stat-g"><span>Gls/g</span><b>${p.gp?( p.gl/p.gp).toFixed(1):'—'}</b></div><div class="stat-g"><span>DA/g</span><b>${da26s}</b></div><div class="stat-g"><span>Tcks</span><b>${p.tk}</b></div>`;
+    else if(p.pos==='MF') stats=`<div class="stat-g"><span>Disp</span><b>${p.di}</b></div><div class="stat-g"><span>DA/g</span><b>${da26s}</b></div><div class="stat-g"><span>Tcks</span><b>${p.tk}</b></div><div class="stat-g"><span>Gls</span><b>${p.gl}</b></div>`;
+    else if(p.pos==='DF') stats=`<div class="stat-g"><span>Disp</span><b>${p.di}</b></div><div class="stat-g"><span>DA/g</span><b>${da26s}</b></div><div class="stat-g"><span>Tcks</span><b>${p.tk}</b></div><div class="stat-g"><span>1%s</span><b>${p.op||0}</b></div>`;
+    else if(p.pos==='RU') stats=`<div class="stat-g"><span>HO</span><b>${p.ho}</b></div><div class="stat-g"><span>Disp</span><b>${p.di}</b></div><div class="stat-g"><span>DA/g</span><b>${da26s}</b></div><div class="stat-g"><span>Tcks</span><b>${p.tk}</b></div>`;
+    else stats=`<div class="stat-g"><span>Disp</span><b>${p.di}</b></div><div class="stat-g"><span>Gls</span><b>${p.gl}</b></div><div class="stat-g"><span>Tcks</span><b>${p.tk}</b></div><div class="stat-g"><span>GP</span><b>${p.gp}</b></div>`;
+    const photo=playerPhotoHTML(p);
+    return `<div class="player-card">
+      <div class="card-header">
+        ${photo}
+        <div class="card-title">
+          <div class="player-name">${p.name}</div>
+          <div class="player-meta">#${p.jn||'—'} · ${p.pos} · ${p.age}y · ${p.ht}cm</div>
+        </div>
+        <div class="gp-badge">${p.gp} GP</div>
+      </div>
+      <div class="stat-row">${stats}</div>
+      <div class="spark-strip">${spark}<span class="spark-label">Last 3</span>${f3}</div>
+      <div class="trend-strip ${trCls}" title="${trTip}">${trLbl}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderTable(){
+  const tbody=document.getElementById('table-body');
+  if(!tbody)return;
+  try{
+    const arr=sortedBy(filtered(),tSortKey,tSortDir);
+    document.querySelectorAll('[id^="ta-"]').forEach(el=>el.textContent='');
+    const ar=document.getElementById('ta-'+tSortKey);
+    if(ar)ar.textContent=tSortDir>0?' ↑':' ↓';
+    if(!arr||!arr.length){tbody.innerHTML='<tr><td colspan="25" class="empty">No players</td></tr>';return;}
+    const noExtra=arr.every(p=>!hasExtra(p));
+    const ep=noExtra?pendingSpan():'';
+    const fmtD=(v,d)=>v==null||isNaN(v)?'<span class="t-nu">—</span>':`<span class="${v>=0?'t-up':'t-dn'}">${dSign(v,d)}</span>`;
+    tbody.innerHTML=arr.map(p=>{
+      const da26str=isNaN(p.da26)?'0.0':(p.da26||0).toFixed(1);
+      const da25D=p.da25!=null&&!isNaN(p.da25)?p.da25.toFixed(1):'—';
+      let trD='<span class="t-nu">—</span>';
+      if(!p.isDebut&&!p.isInj&&p.trend!=null&&!isNaN(p.trend)){
+        const c=p.trend>8?'t-up':p.trend<-8?'t-dn':'t-nu';
+        trD=`<span class="${c}">${p.trend>0?'↑':p.trend<0?'↓':'↔'} ${Math.abs(p.trend).toFixed(0)}%</span>`;
+      } else if(p.isDebut)trD='<span class="t-nu">Debut</span>';
+      else if(p.isInj)trD='<span class="t-nu">Inj</span>';
+      return `<tr>
+        <td class="lft t-name">${p.jn||'—'}</td>
+        <td class="lft t-name">${p.name}</td>
+        <td>${p.pos}</td>
+        <td>${p.age||'—'}</td>
+        <td>${p.ht||'—'}</td>
+        <td>${p.draftLbl||'—'}</td>
+        <td class="grp">${p.gp}</td>
+        <td class="${p.gl>=15?'t-hi':''}">${p.gl}</td>
+        <td class="${p.tk>=30?'t-hi':''}">${p.tk}</td>
+        <td class="${p.di>=200?'t-hi':''}">${p.di}</td>
+        <td>${da26str}</td>
+        <td>${p.ki||0}</td>
+        <td>${p.hb||0}</td>
+        <td class="grp">${p.ho>0?p.ho:ep}</td>
+        <td>${p.cl>0?p.cl:ep}</td>
+        <td>${p.ga>0?p.ga:ep}</td>
+        <td>${p.ff>0?p.ff:ep}</td>
+        <td>${p.fa>0?p.fa:ep}</td>
+        <td>${p.cm>0?p.cm:ep}</td>
+        <td>${p.op>0?p.op:ep}</td>
+        <td class="grp">${p.isDebut?'—':p.gp25||0}</td>
+        <td>${p.isDebut?'—':da25D}</td>
+        <td>${p.isDebut||p.isInj?'<span class="t-nu">—</span>':fmtD(p.dda,1)}</td>
+        <td>${p.isDebut||p.isInj?'<span class="t-nu">—</span>':fmtD(p.dtk,1)}</td>
+        <td class="grp">${trD}</td>
+      </tr>`;
+    }).join('');
+  }catch(e){
+    tbody.innerHTML=`<tr><td colspan="25" class="empty">Error: ${e.message}</td></tr>`;
+  }
+}
+
+function init(){
+  const d=DATA;
+  document.getElementById('subtitle').textContent=`Round ${d.round} · Updated ${d.updated}`;
+  document.getElementById('record-pill').textContent=`${d.record} · ${d.position}`;
+  const byGL=[...d.players].sort((a,b)=>b.gl-a.gl);
+  const byDI=[...d.players].sort((a,b)=>b.di-a.di);
+  const byTK=[...d.players].sort((a,b)=>b.tk-a.tk);
+  const byDA=[...d.players].filter(p=>p.gp>=5).sort((a,b)=>b.da26-a.da26);
+  const byTR=[...d.players].filter(p=>p.trend!==null&&!isNaN(p.trend)).sort((a,b)=>b.trend-a.trend);
+  const pName=n=>{const p=n.split(' ');return n.length<=15?n:p[0][0]+'. '+p.slice(1).join(' ');};
+  document.getElementById('c-goals').textContent=byGL[0]?.gl??'—';
+  document.getElementById('c-goals-name').textContent=byGL[0]?pName(byGL[0].name):'';
+  document.getElementById('c-disp').textContent=byDI[0]?.di??'—';
+  document.getElementById('c-disp-name').textContent=byDI[0]?pName(byDI[0].name):'';
+  document.getElementById('c-tacks').textContent=byTK[0]?.tk??'—';
+  document.getElementById('c-tacks-name').textContent=byTK[0]?pName(byTK[0].name):'';
+  document.getElementById('c-da').textContent=byDA[0]?byDA[0].da26.toFixed(1):'—';
+  document.getElementById('c-da-name').textContent=byDA[0]?pName(byDA[0].name):'';
+  document.getElementById('c-wins').textContent=d.record?.split('W')[0]??'—';
+  document.getElementById('c-wins-sub').textContent=`${d.record} · ${d.position}`;
+  if(byTR[0]){
+    document.getElementById('c-trend-val').textContent=(byTR[0].trend>0?'+':'')+byTR[0].trend.toFixed(0)+'%';
+    document.getElementById('c-trend-name').textContent=pName(byTR[0].name);
+  }
+  document.getElementById('last-updated').innerHTML=`Stats to Round ${d.round} · Updated ${d.updated} · Source: <a href="https://afltables.com" target="_blank">AFL Tables</a>`;
+  renderAll();
+}
+
+function setPos(el){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');curPos=el.dataset.pos;renderAll();}
+function setView(v,el){
+  document.querySelectorAll('.vtab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active'); curView=v;
+  document.getElementById('cards-view').style.display=v==='cards'?'':'none';
+  document.getElementById('table-view').style.display=v==='table'?'':'none';
+  document.getElementById('club-view').style.display=v==='club'?'':'none';
+  document.getElementById('news-view').style.display=v==='news'?'':'none';
+  document.getElementById('sort-bar').style.display=v==='cards'?'':'none';
+  document.getElementById('controls').style.display=(v==='club'||v==='news')?'none':'';
+  if(v==='news')renderNews(); else renderAll();
+}
+function setSort(el){const k=el.dataset.key;if(curSort===k)curSortDir*=-1;else{curSort=k;curSortDir=-1;}document.querySelectorAll('.sort-btn').forEach(t=>t.classList.remove('active'));el.classList.add('active');renderAll();}
+function tSort(k){if(tSortKey===k)tSortDir*=-1;else{tSortKey=k;tSortDir=-1;}renderAll();}
+
+function load(){
+  fetch('data.json')
+    .then(r=>r.ok?r.json():Promise.reject())
+    .then(d=>{DATA={...d,players:compute(d.players)};init();loadFixturePanel();initNextGame();loadPlayerPhotos();})
+    .catch(()=>{DATA={...EMBEDDED,players:compute(EMBEDDED.players)};init();loadFixturePanel();initNextGame();loadPlayerPhotos();});
+  loadNews();
+}
+
 load();
 </script>
 </body>
