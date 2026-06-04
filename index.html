@@ -533,24 +533,6 @@ async function loadNews() {
   const cutoff = Date.now() - 14 * 24 * 60 * 60 * 1000;
 
   const add = (item) => {
-    const key = item.url;
-    if (!key || seen.has(key)) return;
-    seen.add(key);
-    items.push(item);
-  };
-
-async function loadNews() {
-  if (newsLoaded) return;
-  const feed = document.getElementById('news-feed');
-  const upd  = document.getElementById('news-updated');
-  if (!feed) return;
-  feed.innerHTML = '<div style="text-align:center;padding:30px;color:var(--gold);opacity:0.5;font-size:0.85rem">Loading news…</div>';
-
-  const items = [];
-  const seen  = new Set();
-  const cutoff = Date.now() - 14 * 24 * 60 * 60 * 1000;
-
-  const add = (item) => {
     const key = item.url || item.audio;
     if (!key || seen.has(key)) return;
     seen.add(key);
