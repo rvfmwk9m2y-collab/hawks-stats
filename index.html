@@ -647,6 +647,7 @@ function load() {
     .then(d=>{DATA={...d,players:compute(d.players)};init();initNextGame();loadPlayerPhotos();})
     .catch(()=>{DATA={...EMBEDDED,players:compute(EMBEDDED.players)};init();initNextGame();loadPlayerPhotos();});
   loadNews();
+  loadFixturePanel();
 }
 
 function init() {
@@ -897,7 +898,7 @@ function tSort(k){if(tSortKey===k)tSortDir*=-1;else{tSortKey=k;tSortDir=-1;}rend
 /* ── FIXTURE PANEL (hero right side) ── */
 function renderFixturePanel(games) {
   const panel = document.getElementById('fix-panel');
-  if (!panel || !games) return;
+  if (!panel || !games || !games.length) return;
   const sorted = [...games].sort((a,b) => (a.localtime||'').localeCompare(b.localtime||''));
   const rows = [];
   let byeAdded = false;
@@ -920,10 +921,25 @@ function renderFixturePanel(games) {
           const dt = g.localtime ? new Date(g.localtime.replace(' ','T')+'+10:00') : null;
           return `<span class="fix-date-h">${dt ? dt.toLocaleDateString('en-AU',{day:'numeric',month:'short',timeZone:'Australia/Melbourne'}) : ''}</span>`;
         })();
-    const shortOpp = opp.replace('Western Bulldogs','W.Bulldogs').replace('Greater Western Sydney','GWS').replace('North Melbourne','Nth Melb').replace('Gold Coast','Gold Coast').replace('Port Adelaide','Port Adel');
+    const shortOpp = opp.replace('Western Bulldogs','W.Bulldogs').replace('Greater Western Sydney','GWS').replace('North Melbourne','Nth Melb').replace('Port Adelaide','Port Adel');
     rows.push(`<div class="fix-row-h"><span class="fix-rnd-h">${rnd}</span><span class="fix-opp-h">${shortOpp}</span>${right}</div>`);
   });
   panel.innerHTML = `<div class="ng-badge" style="margin-bottom:6px">2026 Fixture</div><div>${rows.join('')}</div>`;
+}
+
+let fixtureRetries = 0;
+async function loadFixturePanel() {
+  try {
+    const r = await fetch('https://api.squiggle.com.au/?q=games;year=2026;team=10&source=HawksStatsApp');
+    if (!r.ok) throw new Error('bad response');
+    const d = await r.json();
+    const games = d.games || [];
+    if (games.length) { renderFixturePanel(games); fixtureRetries = 0; return; }
+  } catch(e) {}
+  if (fixtureRetries < 3) {
+    fixtureRetries++;
+    setTimeout(loadFixturePanel, fixtureRetries * 15000);
+  }
 }
 
 /* ── NEXT GAME / LIVE SCORE ── */
@@ -1232,7 +1248,10 @@ function renderNews() {
   }
 
   if (!NEWS_DATA || !NEWS_DATA.items || !NEWS_DATA.items.length) {
-    feed.innerHTML = `<div class="news-empty">📰 No news yet.<br>Run the <strong>Daily News Update</strong> workflow on GitHub to populate this tab.<br><br>It will run automatically every morning at 7am AEST.</div>`;
+    feed.innerHTML = `<div style="text-align:center;padding:40px 20px;font-size:0.85rem;color:var(--gold);opacity:0.6;line-height:1.7">
+      📰 No news yet<br>
+      <span style="font-size:0.75rem">Run the <strong>Daily News Update</strong> workflow<br>on GitHub to populate this tab</span>
+    </div>`;
     return;
   }
 
