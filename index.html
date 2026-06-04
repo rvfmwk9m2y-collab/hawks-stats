@@ -219,6 +219,26 @@ tr:hover td { background: var(--gold-pale); }
 .gf-thumb { width:110px; height:80px; object-fit:cover; border-radius:6px; float:right; margin:0 0 8px 10px; display:block; }
 .gf-extract { font-size:0.78rem; color:rgba(242,193,78,0.8); line-height:1.55; }
 .gf-hl-btn { display:block; margin-top:12px; text-align:center; background:#3D1A06; color:var(--gold); font-size:0.75rem; font-weight:600; padding:8px; border-radius:6px; text-decoration:none; border:1px solid rgba(242,193,78,0.2); }
+/* ── NEWS TAB ── */
+#news-view { padding: 10px 14px 32px; }
+.news-updated { font-size: 0.62rem; color: var(--muted); text-align: right; padding-bottom: 6px; }
+.news-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 12px; margin-bottom: 10px; }
+.news-article { border-left: 3px solid rgba(242,193,78,0.3); }
+.news-podcast  { border-left: 3px solid #7B68EE; }
+.news-video    { border-left: 3px solid var(--gold); }
+.news-card-header { display:flex; align-items:center; gap:6px; margin-bottom:7px; flex-wrap:wrap; }
+.news-type-pill { font-size:0.58rem; font-weight:700; padding:2px 7px; border-radius:10px; background:rgba(242,193,78,0.12); color:var(--gold); flex-shrink:0; }
+.news-podcast .news-type-pill { background:rgba(123,104,238,0.15); color:#9B8EFF; }
+.news-source { font-size:0.65rem; color:var(--muted); }
+.news-date { font-size:0.62rem; color:var(--muted); margin-left:auto; }
+.news-img { width:100%; max-height:150px; object-fit:cover; border-radius:6px; margin-bottom:8px; display:block; }
+.news-title { font-size:0.88rem; font-weight:600; color:var(--gold); margin-bottom:5px; line-height:1.4; }
+.news-title a { color:inherit; text-decoration:none; }
+.news-desc { font-size:0.75rem; color:rgba(242,193,78,0.65); line-height:1.55; margin-bottom:6px; }
+.news-audio { width:100%; height:36px; margin-top:6px; accent-color:var(--gold); }
+.news-empty { text-align:center; color:var(--muted); padding:40px 20px; font-size:0.85rem; line-height:1.6; }
+@media (min-width:700px){ #news-view { padding-left:24px; padding-right:24px; } }
+
 /* MISC */
 .last-updated { text-align: center; font-size: 0.68rem; color: var(--muted); padding: 0 14px 28px; }
 .last-updated a { color: var(--muted); }
@@ -274,6 +294,7 @@ tr:hover td { background: var(--gold-pale); }
   <div class="vtab active" onclick="setView('cards',this)">Cards</div>
   <div class="vtab" onclick="setView('table',this)">Table</div>
   <div class="vtab" onclick="setView('club',this)">🦅 Club</div>
+  <div class="vtab" onclick="setView('news',this)">📰 News</div>
 </div>
 
 <div class="sort-bar" id="sort-bar">
@@ -466,6 +487,12 @@ tr:hover td { background: var(--gold-pale); }
 
 <div class="last-updated" id="last-updated"></div>
 
+<!-- ── NEWS VIEW ── -->
+<div id="news-view" style="display:none">
+  <div class="news-updated" id="news-updated"></div>
+  <div id="news-feed"></div>
+</div>
+
 <script>
 const BASE = 'https://www.hawthornfc.com.au/players/';
 const SQUAD_PAGE = 'https://www.hawthornfc.com.au/teams/afl';
@@ -591,6 +618,7 @@ function load() {
     .then(r=>r.ok?r.json():Promise.reject())
     .then(d=>{DATA={...d,players:compute(d.players)};init();initNextGame();loadPlayerPhotos();})
     .catch(()=>{DATA={...EMBEDDED,players:compute(EMBEDDED.players)};init();initNextGame();loadPlayerPhotos();});
+  loadNews();
 }
 
 function init() {
@@ -828,8 +856,9 @@ function setView(v,el){
   document.getElementById('cards-view').style.display=v==='cards'?'':'none';
   document.getElementById('table-view').style.display=v==='table'?'':'none';
   document.getElementById('club-view').style.display=v==='club'?'':'none';
+  document.getElementById('news-view').style.display=v==='news'?'':'none';
   document.getElementById('sort-bar').style.display=v==='cards'?'':'none';
-  document.getElementById('controls').style.display=v==='club'?'none':'';
+  document.getElementById('controls').style.display=(v==='club'||v==='news')?'none':'';
   renderAll();
 }
 function setSort(el){const k=el.dataset.key;if(curSort===k)curSortDir*=-1;else{curSort=k;curSortDir=-1;}document.querySelectorAll('.sort-btn').forEach(t=>t.classList.remove('active'));el.classList.add('active');renderAll();}
@@ -1117,6 +1146,50 @@ async function showGFPanel(card) {
 }
 function closeGFPanel() {
   document.getElementById('gf-panel').style.display = 'none';
+}
+
+/* ── NEWS TAB ── */
+let NEWS_DATA = null;
+
+function loadNews() {
+  fetch('news.json?v=' + Date.now())
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(d => { NEWS_DATA = d; if(curView==='news') renderNews(); })
+    .catch(() => { NEWS_DATA = null; if(curView==='news') renderNews(); });
+}
+
+function renderNews() {
+  const feed = document.getElementById('news-feed');
+  const upd  = document.getElementById('news-updated');
+  if (!feed) return;
+
+  if (NEWS_DATA && NEWS_DATA.updated) {
+    const d = new Date(NEWS_DATA.updated);
+    upd.textContent = 'Updated ' + d.toLocaleDateString('en-AU', {day:'numeric',month:'short',hour:'2-digit',minute:'2-digit',timeZone:'Australia/Melbourne'}) + ' AEST';
+  }
+
+  if (!NEWS_DATA || !NEWS_DATA.items || !NEWS_DATA.items.length) {
+    feed.innerHTML = `<div class="news-empty">📰 No news yet.<br>Run the <strong>Daily News Update</strong> workflow on GitHub to populate this tab.<br><br>It will run automatically every morning at 7am AEST.</div>`;
+    return;
+  }
+
+  feed.innerHTML = NEWS_DATA.items.map(item => {
+    const typePill = item.type==='podcast' ? '🎙 Podcast' : item.type==='video' ? '▶ Video' : '📰 Article';
+    const typeCls  = item.type==='podcast' ? 'news-podcast' : item.type==='video' ? 'news-video' : 'news-article';
+    const img   = item.image ? `<img class="news-img" src="${item.image}" loading="lazy" onerror="this.style.display='none'" alt="">` : '';
+    const audio = item.audio ? `<audio class="news-audio" controls preload="none"><source src="${item.audio}" type="audio/mpeg"></audio>` : '';
+    const desc  = item.description ? `<div class="news-desc">${item.description}</div>` : '';
+    return `<div class="news-card ${typeCls}">
+      <div class="news-card-header">
+        <span class="news-type-pill">${typePill}</span>
+        <span class="news-source">${item.source}</span>
+        <span class="news-date">${item.dateDisplay||''}</span>
+      </div>
+      ${img}
+      <div class="news-title"><a href="${item.url}" target="_blank" rel="noopener">${item.title}</a></div>
+      ${desc}${audio}
+    </div>`;
+  }).join('');
 }
 
 load();
