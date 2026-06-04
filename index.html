@@ -245,45 +245,18 @@ tr:hover td { background: var(--gold-pale); }
 .gf-thumb { width:110px; height:80px; object-fit:cover; border-radius:6px; float:right; margin:0 0 8px 10px; display:block; }
 .gf-extract { font-size:0.78rem; color:rgba(242,193,78,0.8); line-height:1.55; }
 .gf-hl-btn { display:block; margin-top:12px; text-align:center; background:#3D1A06; color:var(--gold); font-size:0.75rem; font-weight:600; padding:8px; border-radius:6px; text-decoration:none; border:1px solid rgba(242,193,78,0.2); }
-/* ── NEWS TAB ── */
-#news-view { padding: 10px 14px 32px; }
-.news-updated { font-size: 0.62rem; color: var(--muted); text-align: right; padding-bottom: 6px; }
-.news-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 12px; margin-bottom: 10px; }
-.news-article { border-left: 3px solid rgba(242,193,78,0.3); }
-.news-podcast  { border-left: 3px solid #7B68EE; }
-.news-video    { border-left: 3px solid var(--gold); }
-.news-card-header { display:flex; align-items:center; gap:6px; margin-bottom:7px; flex-wrap:wrap; }
-.news-type-pill { font-size:0.58rem; font-weight:700; padding:2px 7px; border-radius:10px; background:rgba(242,193,78,0.12); color:var(--gold); flex-shrink:0; }
-.news-podcast .news-type-pill { background:rgba(123,104,238,0.15); color:#9B8EFF; }
-.news-source { font-size:0.65rem; color:var(--muted); }
-.news-date { font-size:0.62rem; color:var(--muted); margin-left:auto; }
-.news-img { width:100%; max-height:150px; object-fit:cover; border-radius:6px; margin-bottom:8px; display:block; }
-.news-title { font-size:0.88rem; font-weight:600; color:var(--gold); margin-bottom:5px; line-height:1.4; }
-.news-title a { color:inherit; text-decoration:none; }
-.news-desc { font-size:0.75rem; color:rgba(242,193,78,0.65); line-height:1.55; margin-bottom:6px; }
-.news-audio { width:100%; height:36px; margin-top:6px; accent-color:var(--gold); }
-.news-empty { text-align:center; color:var(--muted); padding:40px 20px; font-size:0.85rem; line-height:1.6; }
-@media (min-width:700px){ #news-view { padding-left:24px; padding-right:24px; } }
-
-/* MISC */
-.last-updated { text-align: center; font-size: 0.68rem; color: var(--muted); padding: 0 14px 28px; }
-.last-updated a { color: var(--muted); }
-.empty { text-align: center; color: var(--muted); padding: 40px 20px; font-size: 0.9rem; }
-
-@media (min-width: 700px) {
-  .topbar, .cards-row, .controls, .view-toggle, .sort-bar, .last-updated { padding-left: 24px; padding-right: 24px; }
-  .player-list { padding: 0 24px 24px; display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); }
-  .table-wrap { margin: 0 24px 24px; }
-}
 </style>
 </head>
 <body>
 
+<!-- ── APP HEADER ── -->
 <div class="topbar">
-  <div class="hawk-logo">H</div>
-  <div class="topbar-text">
-    <h1>Hawks Stats 2026</h1>
-    <p id="subtitle">Loading…</p>
+  <div style="display:flex;align-items:center;gap:10px">
+    <div class="club-logo">H</div>
+    <div>
+      <div class="app-title">Hawks Stats 2026</div>
+      <div class="app-sub" id="subtitle">Loading…</div>
+    </div>
   </div>
   <div class="record-pill" id="record-pill">—</div>
 </div>
@@ -300,6 +273,7 @@ tr:hover td { background: var(--gold-pale); }
   </div>
 </div>
 
+<!-- ── SUMMARY STAT CARDS ── -->
 <div class="cards-row">
   <div class="stat-card"><div class="lbl">Top goals</div><div class="val" id="c-goals">—</div><div class="sub" id="c-goals-name" style="font-size:0.62rem">—</div></div>
   <div class="stat-card"><div class="lbl">Disposals</div><div class="val" id="c-disp">—</div><div class="sub" id="c-disp-name" style="font-size:0.62rem">—</div></div>
@@ -309,7 +283,8 @@ tr:hover td { background: var(--gold-pale); }
   <div class="stat-card" style="border-left:3px solid var(--up)"><div class="lbl">Best trend ↑</div><div class="val" style="color:var(--up)" id="c-trend-val">—</div><div class="sub" id="c-trend-name" style="font-size:0.62rem">—</div></div>
 </div>
 
-<div class="controls">
+<!-- ── CONTROLS ── -->
+<div class="controls" id="controls">
   <div class="search-wrap"><input type="text" id="search" placeholder="Search player…" oninput="renderAll()"></div>
   <div class="filter-tabs">
     <div class="tab active" data-pos="" onclick="setPos(this)">All</div>
@@ -320,6 +295,7 @@ tr:hover td { background: var(--gold-pale); }
   </div>
 </div>
 
+<!-- ── VIEW TOGGLE ── -->
 <div class="view-toggle">
   <div class="vtab active" onclick="setView('cards',this)">Cards</div>
   <div class="vtab" onclick="setView('table',this)">Table</div>
@@ -327,6 +303,7 @@ tr:hover td { background: var(--gold-pale); }
   <div class="vtab" onclick="setView('news',this)">📰 News</div>
 </div>
 
+<!-- ── SORT BAR ── -->
 <div class="sort-bar" id="sort-bar">
   <div class="sort-btn active" data-key="gl" onclick="setSort(this)">Goals ↓</div>
   <div class="sort-btn" data-key="di" onclick="setSort(this)">Disposals</div>
@@ -338,17 +315,19 @@ tr:hover td { background: var(--gold-pale); }
   <div class="sort-btn" data-key="name" onclick="setSort(this)">A–Z</div>
 </div>
 
+<!-- ── CARDS VIEW ── -->
 <div id="cards-view">
   <div class="player-list" id="player-list"></div>
 </div>
 
+<!-- ── TABLE VIEW ── -->
 <div id="table-view" style="display:none">
   <div class="table-wrap">
     <table>
       <thead>
         <tr>
           <th class="lft" colspan="6">Player info</th>
-          <th class="grp" colspan="7" style="text-align:center">2026 Season (R1–R11)</th>
+          <th class="grp" colspan="7" style="text-align:center">2026 Season (R1–R12)</th>
           <th class="grp" colspan="7" style="text-align:center">AFL Tables extra stats</th>
           <th class="grp" colspan="4" style="text-align:center">vs 2025</th>
           <th class="grp" style="text-align:center">Trend</th>
@@ -389,6 +368,7 @@ tr:hover td { background: var(--gold-pale); }
 <!-- ── CLUB HISTORY VIEW ── -->
 <div id="club-view" style="display:none">
 <div class="club-section">
+
   <div class="club-header">
     <div class="club-title">🏆 13 Premierships</div>
     <div class="club-sub">▶ Highlights on AFL.com.au · ↗ History on Wikipedia</div>
@@ -421,7 +401,7 @@ tr:hover td { background: var(--gold-pale); }
 
   <div class="club-header" style="margin-top:20px">
     <div class="club-title">🎖️ Peter Crimmins Medal</div>
-    <div class="club-sub">Best & Fairest — most wins all time</div>
+    <div class="club-sub">Best &amp; Fairest — most wins all time</div>
   </div>
   <div class="club-list">
     <div class="club-row"><span class="club-rank">1</span><span class="club-name">Leigh Matthews</span><span class="club-stat">8 wins</span><span class="club-years">1971–1982</span></div>
@@ -462,8 +442,8 @@ tr:hover td { background: var(--gold-pale); }
       </div>
       <div class="club-list">
         <div class="club-row"><span class="club-rank">1949</span><span class="club-name">Colin Austen</span><span class="club-stat">23 votes</span></div>
-        <div class="club-row"><span class="club-rank">1986</span><span class="club-name">R. DiPierdomenico</span><span class="club-stat"></span></div>
-        <div class="club-row"><span class="club-rank">1987</span><span class="club-name">John Platten</span><span class="club-stat"></span></div>
+        <div class="club-row"><span class="club-rank">1986</span><span class="club-name">R. DiPierdomenico</span></div>
+        <div class="club-row"><span class="club-rank">1987</span><span class="club-name">John Platten</span></div>
         <div class="club-row"><span class="club-rank">1999</span><span class="club-name">Shane Crawford</span><span class="club-stat">as captain</span></div>
         <div class="club-row"><span class="club-rank">2012</span><span class="club-name">Sam Mitchell</span><span class="club-stat">28 votes</span></div>
         <div class="club-row"><span class="club-rank">2018</span><span class="club-name">Tom Mitchell</span><span class="club-stat">28 votes</span></div>
@@ -514,386 +494,172 @@ tr:hover td { background: var(--gold-pale); }
 </div>
 </div>
 
-<div class="last-updated" id="last-updated"></div>
-
 <!-- ── NEWS VIEW ── -->
 <div id="news-view" style="display:none">
   <div class="news-updated" id="news-updated"></div>
   <div id="news-feed"></div>
 </div>
 
+<div class="last-updated" id="last-updated"></div>
+
 <script>
 const BASE = 'https://www.hawthornfc.com.au/players/';
 const SQUAD_PAGE = 'https://www.hawthornfc.com.au/teams/afl';
-const EMBEDDED = {
-  updated:"2026-05-22", round:12, record:"7W–3L–1D", position:"3rd",
-  fallbackVid:"NL4HH-U2QZ8",
-  nextGame:{round:12,opponent:"St Kilda",venue:"Marvel Stadium",home:true,kickoff:"2026-05-28T09:30:00Z"},
-  players:[
-    {jn:10,name:'Karl Amon',         pu:BASE+'801/karl-amon',            pos:'DF',age:30,ht:181,draftLbl:'68',draft:68,  gp:9, gl:0, tk:18,di:215,ki:151,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:600,gl25:4, tk25:53},
-    {jn:37,name:'Tom Barrass',        pu:BASE+'790/tom-barrass',          pos:'DF',age:30,ht:196,draftLbl:'43',draft:43,  gp:9, gl:1, tk:9, di:88, ki:57, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:242,gl25:0, tk25:28},
-    {jn:24,name:'Josh Battle',        pu:BASE+'1412/josh-battle',         pos:'DF',age:27,ht:193,draftLbl:'39',draft:39,  gp:10,gl:0, tk:12,di:216,ki:147,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:26,di25:480,gl25:0, tk25:49},
-    {jn:30,name:'Sam Butler',         pu:SQUAD_PAGE,                      pos:'MF',age:23,ht:184,draftLbl:'23',draft:23,  gp:7, gl:4, tk:26,di:83, ki:56, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:6, di25:71, gl25:3, tk25:31},
-    {jn:18,name:'Mabior Chol',        pu:BASE+'1125/mabior-chol',         pos:'FW',age:29,ht:200,draftLbl:'30',draft:30,  gp:5, gl:7, tk:8, di:42, ki:34, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:24,di25:240,gl25:42,tk25:64},
-    {jn:16,name:"Massimo D'Ambrosio", pu:BASE+'4349/massimo-d-ambrosio',  pos:'MF',age:22,ht:178,draftLbl:'3', draft:3,   gp:10,gl:4, tk:25,di:187,ki:123,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:26,di25:472,gl25:5, tk25:48},
-    {jn:34,name:'Jack Dalton',        pu:BASE+'12018/jack-dalton',        pos:'MF',age:19,ht:177,draftLbl:'34',draft:34,  gp:2, gl:0, tk:7, di:20, ki:8,  ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:0, di25:0,  gl25:0, tk25:0},
-    {jn:13,name:'Calsher Dear',       pu:BASE+'9423/calsher-dear',        pos:'FW',age:20,ht:195,draftLbl:'56',draft:56,  gp:4, gl:3, tk:12,di:36, ki:22, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:9, di25:66, gl25:10,tk25:16},
-    {jn:33,name:'Jack Ginnivan',      pu:BASE+'2237/jack-ginnivan',       pos:'FW',age:23,ht:183,draftLbl:'13',draft:13,  gp:10,gl:9, tk:19,di:198,ki:133,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:466,gl25:29,tk25:52},
-    {jn:19,name:'Jack Gunston',       pu:BASE+'500/jack-gunston',         pos:'FW',age:34,ht:193,draftLbl:'29',draft:29,  vid:'NL4HH-U2QZ8', gp:9, gl:30,tk:7, di:91, ki:73, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:23,di25:289,gl25:73,tk25:31},
-    {jn:15,name:'Blake Hardwick',     pu:BASE+'924/blake-hardwick',       pos:'DF',age:29,ht:181,draftLbl:'44',draft:44,  vid:'NL4HH-U2QZ8', gp:10,gl:0, tk:25,di:175,ki:116,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:26,di25:383,gl25:11,tk25:61},
-    {jn:44,name:'Henry Hustwaite',    pu:BASE+'5410/henry-hustwaite',     pos:'MF',age:21,ht:195,draftLbl:'37',draft:37,  gp:1, gl:0, tk:3, di:19, ki:7,  ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:4, di25:55, gl25:0, tk25:14},
-    {jn:4, name:'Jarman Impey',       pu:BASE+'702/jarman-impey',         pos:'DF',age:30,ht:178,draftLbl:'21',draft:21,  gp:10,gl:1, tk:20,di:235,ki:158,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:24,di25:463,gl25:5, tk25:62},
-    {jn:2, name:'Mitch Lewis',        pu:BASE+'1333/mitch-lewis',         pos:'FW',age:27,ht:198,draftLbl:'76',draft:76,  gp:10,gl:16,tk:15,di:135,ki:93, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:8, di25:63, gl25:8, tk25:16},
-    {jn:9, name:'Connor Macdonald',   pu:BASE+'2723/connor-macdonald',    pos:'FW',age:23,ht:184,draftLbl:'26',draft:26,  gp:10,gl:8, tk:32,di:211,ki:133,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:24,di25:357,gl25:22,tk25:72},
-    {jn:28,name:'Cam Mackenzie',      pu:BASE+'5630/cam-mackenzie',       pos:'MF',age:22,ht:188,draftLbl:'7', draft:7,   gp:8, gl:1, tk:30,di:158,ki:82, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:12,di25:198,gl25:0, tk25:50},
-    {jn:20,name:'Finn Maginness',     pu:BASE+'2812/finn-maginness',      pos:'FW',age:25,ht:187,draftLbl:'29',draft:29,  gp:4, gl:2, tk:7, di:59, ki:17, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:13,di25:173,gl25:4, tk25:23},
-    {jn:17,name:'Lloyd Meek',         pu:BASE+'1560/lloyd-meek',          pos:'RU',age:28,ht:203,draftLbl:'69',draft:69,  gp:10,gl:2, tk:30,di:107,ki:44, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:338,gl25:10,tk25:104},
-    {jn:8, name:'Dylan Moore',        pu:BASE+'1595/dylan-moore',         pos:'FW',age:26,ht:176,draftLbl:'67',draft:67,  gp:9, gl:10,tk:22,di:177,ki:92, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:26,di25:505,gl25:23,tk25:96},
-    {jn:1, name:'Harry Morrison',     pu:BASE+'1341/harry-morrison',      pos:'MF',age:27,ht:180,draftLbl:'74',draft:74,  gp:3, gl:1, tk:9, di:51, ki:28, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:20,di25:348,gl25:5, tk25:61},
-    {jn:11,name:'Conor Nash',         pu:BASE+'1302/conor-nash',          pos:'MF',age:27,ht:197,draftLbl:'Cat B',draft:9999,gp:9,gl:2,tk:50,di:176,ki:71,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:22,di25:404,gl25:5, tk25:124},
-    {jn:3, name:'Jai Newcombe',       pu:BASE+'4711/jai-newcombe',        pos:'MF',age:24,ht:186,draftLbl:'2', draft:2,   vid:'x03goh3w7y8', gp:10,gl:4, tk:39,di:262,ki:124,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:26,di25:596,gl25:11,tk25:127},
-    {jn:7, name:'Ned Reeves',         pu:BASE+'1822/ned-reeves',          pos:'RU',age:27,ht:208,draftLbl:'SSP',draft:9998,gp:9,gl:4,tk:20,di:72, ki:37, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:1, di25:6,  gl25:0, tk25:3},
-    {jn:14,name:'Jack Scrimshaw',     pu:BASE+'1336/jack-scrimshaw',      pos:'DF',age:27,ht:193,draftLbl:'7', draft:7,   gp:6, gl:0, tk:9, di:104,ki:52, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:16,di25:219,gl25:0, tk25:38},
-    {jn:6, name:'James Sicily',       pu:BASE+'514/james-sicily',         pos:'DF',age:31,ht:186,draftLbl:'56',draft:56,  gp:9, gl:0, tk:16,di:200,ki:129,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:23,di25:449,gl25:6, tk25:36},
-    {jn:25,name:'Josh Ward',          pu:BASE+'5252/josh-ward',           pos:'MF',age:22,ht:181,draftLbl:'7', draft:7,   gp:10,gl:0, tk:34,di:214,ki:107,ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:514,gl25:3, tk25:89},
-    {jn:5, name:'Nick Watson',        pu:BASE+'5592/nick-watson',         pos:'FW',age:21,ht:170,draftLbl:'5', draft:5,   vid:'EQk76uBziUs', gp:10,gl:26,tk:23,di:139,ki:86, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:25,di25:272,gl25:36,tk25:51},
-    {jn:23,name:'Josh Weddle',        pu:BASE+'6669/josh-weddle',         pos:'DF',age:22,ht:191,draftLbl:'18',draft:18,  gp:10,gl:5, tk:22,di:156,ki:83, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:18,di25:290,gl25:9, tk25:36},
-    {jn:12,name:'Will Day',           pu:BASE+'3726/will-day',            pos:'MF',age:24,ht:191,draftLbl:'13',draft:13,  gp:0, gl:0, tk:0, di:0,  ki:0,  ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:6, di25:126,gl25:6, tk25:31},
-    {jn:39,name:'Flynn Perez',        pu:BASE+'2209/flynn-perez',         pos:'DF',age:24,ht:187,draftLbl:'SSP',draft:9997,gp:3, gl:0, tk:13,di:35, ki:17, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:0, di25:0,  gl25:0, tk25:0},
-    {jn:26,name:'Bodie Ryan',         pu:BASE+'9721/bodie-ryan',          pos:'DF',age:21,ht:187,draftLbl:'46',draft:46,  gp:2, gl:0, tk:3, di:22, ki:16, ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:0, di25:0,  gl25:0, tk25:0},
-    {jn:27,name:'Will McCabe',        pu:BASE+'9672/will-mccabe',         pos:'DF',age:20,ht:197,draftLbl:'19',draft:19,  gp:1, gl:0, tk:0, di:6,  ki:4,  ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:0, di25:0,  gl25:0, tk25:0},
-    {jn:22,name:'Cameron Nairn',      pu:BASE+'10897/cameron-nairn',      pos:'MF',age:18,ht:185,draftLbl:'20',draft:20,  gp:0, gl:0, tk:0, di:0,  ki:0,  ho:0,cl:0,ga:0,ff:0,fa:0,cm:0,op:0,gp25:0, di25:0,  gl25:0, tk25:0},
-  ]
-};
+const EMBEDDED = {"updated": "2026-05-29", "round": 12, "record": "8W–3L–1D", "position": "1st", "nextGame": {"round": 13, "opponent": "Western Bulldogs", "venue": "MCG", "home": true, "kickoff": "2026-06-05T09:40:00Z"}, "fixture": [{"round": "OR", "opponent": "GWS Giants", "venue": "ENGIE Stadium", "home": false, "localtime": "2026-03-07 16:15:00", "complete": 100, "hawksSc": 95, "oppSc": 122}, {"round": 1, "opponent": "Essendon", "venue": "MCG", "home": true, "localtime": "2026-03-13 19:40:00", "complete": 100, "hawksSc": 145, "oppSc": 83}, {"round": 2, "opponent": "Sydney", "venue": "MCG", "home": true, "localtime": "2026-03-19 19:30:00", "complete": 100, "hawksSc": 99, "oppSc": 82}, {"round": 4, "opponent": "Geelong", "venue": "MCG", "home": true, "localtime": "2026-04-06 15:20:00", "complete": 100, "hawksSc": 84, "oppSc": 83}, {"round": 5, "opponent": "Western Bulldogs", "venue": "Adelaide Oval", "home": false, "localtime": "2026-04-11 19:05:00", "complete": 100, "hawksSc": 104, "oppSc": 64}, {"round": 6, "opponent": "Port Adelaide", "venue": "Adelaide Oval", "home": false, "localtime": "2026-04-18 19:40:00", "complete": 100, "hawksSc": 89, "oppSc": 86}, {"round": 7, "opponent": "Gold Coast", "venue": "UTAS Stadium", "home": true, "localtime": "2026-04-25 19:10:00", "complete": 100, "hawksSc": 99, "oppSc": 50}, {"round": 8, "opponent": "Collingwood", "venue": "MCG", "home": false, "localtime": "2026-04-30 19:50:00", "complete": 100, "hawksSc": 69, "oppSc": 69}, {"round": 9, "opponent": "Fremantle", "venue": "Optus Stadium", "home": false, "localtime": "2026-05-07 20:10:00", "complete": 100, "hawksSc": 71, "oppSc": 89}, {"round": 10, "opponent": "Melbourne", "venue": "MCG", "home": false, "localtime": "2026-05-16 19:40:00", "complete": 100, "hawksSc": 62, "oppSc": 82}, {"round": 11, "opponent": "Adelaide", "venue": "UTAS Stadium", "home": true, "localtime": "2026-05-21 19:30:00", "complete": 100, "hawksSc": 75, "oppSc": 66}, {"round": 12, "opponent": "St Kilda", "venue": "Marvel Stadium", "home": false, "localtime": "2026-05-28 19:30:00", "complete": 100, "hawksSc": 119, "oppSc": 67}, {"round": 13, "opponent": "Western Bulldogs", "venue": "MCG", "home": true, "localtime": "2026-06-05 19:40:00", "complete": 0, "hawksSc": null, "oppSc": null}], "players": [{"jn": 19, "name": "Jack Gunston", "pos": "FW", "age": 34, "ht": 193, "draft": 0, "draftLbl": "29", "gp": 10, "gl": 35, "tk": 8, "di": 101, "ki": 83, "ho": 0, "cl": 1, "ga": 2, "ff": 4, "fa": 5, "cm": 6, "op": 6, "gp25": 23, "di25": 289, "gl25": 73, "tk25": 31, "rounds": [{"r": "R1", "di": 11, "gl": 4, "tk": 0, "ho": 0, "cl": 0, "cm": 0, "op": 1, "ga": 0}, {"r": "R2", "di": 10, "gl": 5, "tk": 0, "ho": 0, "cl": 0, "cm": 2, "op": 0, "ga": 1}, {"r": "R3", "di": 13, "gl": 4, "tk": 0, "ho": 0, "cl": 0, "cm": 1, "op": 2, "ga": 0}, {"r": "R5", "di": 14, "gl": 4, "tk": 1, "ho": 0, "cl": 0, "cm": 1, "op": 2, "ga": 1}, {"r": "R6", "di": 8, "gl": 2, "tk": 1, "ho": 0, "cl": 0, "cm": 1, "op": 0, "ga": 0}, {"r": "R8", "di": 15, "gl": 4, "tk": 1, "ho": 0, "cl": 1, "cm": 0, "op": 0, "ga": 0}, {"r": "R9", "di": 13, "gl": 1, "tk": 1, "ho": 0, "cl": 0, "cm": 0, "op": 1, "ga": 0}, {"r": "R10", "di": 11, "gl": 6, "tk": 1, "ho": 0, "cl": 0, "cm": 1, "op": 0, "ga": 0}, {"r": "R12", "di": 10, "gl": 5, "tk": 1, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 5, "name": "Nick Watson", "pos": "FW", "age": 21, "ht": 170, "draft": 0, "draftLbl": "5", "gp": 11, "gl": 28, "tk": 27, "di": 160, "ki": 94, "ho": 0, "cl": 11, "ga": 8, "ff": 8, "fa": 9, "cm": 2, "op": 10, "gp25": 25, "di25": 272, "gl25": 36, "tk25": 51, "rounds": [{"r": "R1", "di": 13, "gl": 3, "tk": 3, "ho": 0, "cl": 1, "cm": 0, "op": 1, "ga": 1}, {"r": "R2", "di": 17, "gl": 4, "tk": 5, "ho": 0, "cl": 1, "cm": 0, "op": 0, "ga": 1}, {"r": "R3", "di": 16, "gl": 2, "tk": 2, "ho": 0, "cl": 0, "cm": 0, "op": 3, "ga": 1}, {"r": "R5", "di": 15, "gl": 2, "tk": 3, "ho": 0, "cl": 2, "cm": 0, "op": 0, "ga": 1}, {"r": "R6", "di": 17, "gl": 4, "tk": 3, "ho": 0, "cl": 2, "cm": 1, "op": 2, "ga": 2}, {"r": "R7", "di": 7, "gl": 1, "tk": 4, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}, {"r": "R8", "di": 12, "gl": 2, "tk": 2, "ho": 0, "cl": 1, "cm": 0, "op": 1, "ga": 1}, {"r": "R9", "di": 14, "gl": 3, "tk": 2, "ho": 0, "cl": 0, "cm": 0, "op": 1, "ga": 1}, {"r": "R10", "di": 10, "gl": 2, "tk": 1, "ho": 0, "cl": 0, "cm": 0, "op": 2, "ga": 0}, {"r": "R11", "di": 18, "gl": 3, "tk": 2, "ho": 0, "cl": 4, "cm": 1, "op": 0, "ga": 0}, {"r": "R12", "di": 21, "gl": 2, "tk": 4, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 2, "name": "Mitch Lewis", "pos": "FW", "age": 27, "ht": 198, "draft": 0, "draftLbl": "76", "gp": 11, "gl": 19, "tk": 16, "di": 148, "ki": 99, "ho": 0, "cl": 4, "ga": 4, "ff": 11, "fa": 6, "cm": 18, "op": 18, "gp25": 8, "di25": 63, "gl25": 8, "tk25": 16, "rounds": [{"r": "R1", "di": 16, "gl": 2, "tk": 2, "ho": 0, "cl": 2, "cm": 2, "op": 3, "ga": 0}, {"r": "R2", "di": 11, "gl": 1, "tk": 1, "ho": 0, "cl": 0, "cm": 0, "op": 3, "ga": 1}, {"r": "R3", "di": 14, "gl": 1, "tk": 2, "ho": 0, "cl": 1, "cm": 2, "op": 3, "ga": 0}, {"r": "R5", "di": 11, "gl": 1, "tk": 2, "ho": 0, "cl": 0, "cm": 2, "op": 1, "ga": 1}, {"r": "R6", "di": 12, "gl": 2, "tk": 2, "ho": 0, "cl": 0, "cm": 4, "op": 2, "ga": 1}, {"r": "R7", "di": 12, "gl": 1, "tk": 1, "ho": 0, "cl": 1, "cm": 3, "op": 2, "ga": 0}, {"r": "R8", "di": 14, "gl": 2, "tk": 1, "ho": 0, "cl": 0, "cm": 1, "op": 1, "ga": 0}, {"r": "R9", "di": 16, "gl": 2, "tk": 2, "ho": 0, "cl": 0, "cm": 2, "op": 2, "ga": 0}, {"r": "R10", "di": 12, "gl": 2, "tk": 1, "ho": 0, "cl": 0, "cm": 2, "op": 1, "ga": 0}, {"r": "R11", "di": 17, "gl": 2, "tk": 1, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 1}, {"r": "R12", "di": 13, "gl": 3, "tk": 1, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 8, "name": "Dylan Moore", "pos": "FW", "age": 26, "ht": 176, "draft": 0, "draftLbl": "67", "gp": 10, "gl": 10, "tk": 24, "di": 197, "ki": 98, "ho": 0, "cl": 8, "ga": 8, "ff": 5, "fa": 6, "cm": 0, "op": 4, "gp25": 26, "di25": 505, "gl25": 23, "tk25": 96, "rounds": [{"r": "R1", "di": 19, "gl": 1, "tk": 2, "ho": 0, "cl": 1, "cm": 0, "op": 1, "ga": 0}, {"r": "R2", "di": 24, "gl": 2, "tk": 2, "ho": 0, "cl": 2, "cm": 0, "op": 0, "ga": 1}, {"r": "R3", "di": 22, "gl": 1, "tk": 3, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 1}, {"r": "R5", "di": 16, "gl": 1, "tk": 3, "ho": 0, "cl": 1, "cm": 0, "op": 1, "ga": 0}, {"r": "R6", "di": 21, "gl": 2, "tk": 3, "ho": 0, "cl": 0, "cm": 0, "op": 1, "ga": 2}, {"r": "R7", "di": 15, "gl": 1, "tk": 1, "ho": 0, "cl": 1, "cm": 0, "op": 1, "ga": 1}, {"r": "R9", "di": 18, "gl": 0, "tk": 2, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}, {"r": "R10", "di": 15, "gl": 0, "tk": 2, "ho": 0, "cl": 1, "cm": 0, "op": 0, "ga": 0}, {"r": "R11", "di": 27, "gl": 3, "tk": 4, "ho": 0, "cl": 2, "cm": 0, "op": 0, "ga": 3}, {"r": "R12", "di": 20, "gl": 0, "tk": 2, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 33, "name": "Jack Ginnivan", "pos": "FW", "age": 23, "ht": 183, "draft": 0, "draftLbl": "13", "gp": 11, "gl": 10, "tk": 20, "di": 219, "ki": 146, "ho": 0, "cl": 13, "ga": 15, "ff": 7, "fa": 4, "cm": 1, "op": 10, "gp25": 25, "di25": 466, "gl25": 29, "tk25": 52, "rounds": [{"r": "R1", "di": 15, "gl": 0, "tk": 2, "ho": 0, "cl": 2, "cm": 0, "op": 1, "ga": 0}, {"r": "R2", "di": 20, "gl": 1, "tk": 2, "ho": 0, "cl": 1, "cm": 0, "op": 1, "ga": 1}, {"r": "R3", "di": 18, "gl": 1, "tk": 2, "ho": 0, "cl": 1, "cm": 0, "op": 3, "ga": 1}, {"r": "R5", "di": 22, "gl": 1, "tk": 1, "ho": 0, "cl": 2, "cm": 0, "op": 1, "ga": 1}, {"r": "R6", "di": 23, "gl": 5, "tk": 2, "ho": 0, "cl": 4, "cm": 1, "op": 2, "ga": 5}, {"r": "R7", "di": 15, "gl": 1, "tk": 1, "ho": 0, "cl": 1, "cm": 0, "op": 0, "ga": 1}, {"r": "R8", "di": 19, "gl": 0, "tk": 2, "ho": 0, "cl": 0, "cm": 0, "op": 1, "ga": 3}, {"r": "R9", "di": 20, "gl": 0, "tk": 3, "ho": 0, "cl": 1, "cm": 0, "op": 0, "ga": 1}, {"r": "R10", "di": 15, "gl": 0, "tk": 2, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 2}, {"r": "R11", "di": 11, "gl": 0, "tk": 2, "ho": 0, "cl": 1, "cm": 0, "op": 1, "ga": 0}, {"r": "R12", "di": 21, "gl": 1, "tk": 1, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 18, "name": "Mabior Chol", "pos": "FW", "age": 29, "ht": 200, "draft": 0, "draftLbl": "30", "gp": 7, "gl": 10, "tk": 16, "di": 60, "ki": 47, "ho": 9, "cl": 9, "ga": 1, "ff": 4, "fa": 4, "cm": 9, "op": 10, "gp25": 24, "di25": 240, "gl25": 42, "tk25": 64, "rounds": [{"r": "R1", "di": 9, "gl": 3, "tk": 0, "ho": 6, "cl": 5, "cm": 3, "op": 1, "ga": 0}, {"r": "R2", "di": 14, "gl": 1, "tk": 1, "ho": 0, "cl": 1, "cm": 2, "op": 1, "ga": 0}, {"r": "R3", "di": 11, "gl": 0, "tk": 3, "ho": 0, "cl": 0, "cm": 2, "op": 3, "ga": 0}, {"r": "R5", "di": 6, "gl": 1, "tk": 0, "ho": 0, "cl": 0, "cm": 2, "op": 3, "ga": 0}, {"r": "R6", "di": 2, "gl": 2, "tk": 0, "ho": 0, "cl": 0, "cm": 0, "op": 1, "ga": 0}, {"r": "R11", "di": 8, "gl": 1, "tk": 6, "ho": 2, "cl": 3, "cm": 0, "op": 1, "ga": 1}, {"r": "R12", "di": 10, "gl": 2, "tk": 2, "ho": 1, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 9, "name": "Connor Macdonald", "pos": "FW", "age": 23, "ht": 184, "draft": 0, "draftLbl": "26", "gp": 11, "gl": 9, "tk": 36, "di": 237, "ki": 146, "ho": 0, "cl": 21, "ga": 9, "ff": 5, "fa": 5, "cm": 2, "op": 3, "gp25": 24, "di25": 357, "gl25": 22, "tk25": 72, "rounds": [{"r": "R1", "di": 26, "gl": 1, "tk": 4, "ho": 0, "cl": 4, "cm": 0, "op": 2, "ga": 3}, {"r": "R2", "di": 24, "gl": 2, "tk": 0, "ho": 0, "cl": 1, "cm": 1, "op": 0, "ga": 1}, {"r": "R3", "di": 24, "gl": 0, "tk": 3, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}, {"r": "R5", "di": 22, "gl": 1, "tk": 3, "ho": 0, "cl": 2, "cm": 0, "op": 0, "ga": 1}, {"r": "R6", "di": 25, "gl": 1, "tk": 6, "ho": 0, "cl": 6, "cm": 0, "op": 0, "ga": 0}, {"r": "R7", "di": 22, "gl": 0, "tk": 0, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}, {"r": "R8", "di": 20, "gl": 2, "tk": 2, "ho": 0, "cl": 2, "cm": 1, "op": 0, "ga": 2}, {"r": "R9", "di": 26, "gl": 0, "tk": 4, "ho": 0, "cl": 4, "cm": 0, "op": 0, "ga": 1}, {"r": "R10", "di": 21, "gl": 1, "tk": 3, "ho": 0, "cl": 1, "cm": 0, "op": 0, "ga": 0}, {"r": "R11", "di": 21, "gl": 0, "tk": 7, "ho": 0, "cl": 1, "cm": 0, "op": 1, "ga": 1}, {"r": "R12", "di": 26, "gl": 1, "tk": 4, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 23, "name": "Josh Weddle", "pos": "DF", "age": 22, "ht": 191, "draft": 0, "draftLbl": "18", "gp": 11, "gl": 5, "tk": 27, "di": 171, "ki": 90, "ho": 0, "cl": 7, "ga": 5, "ff": 6, "fa": 5, "cm": 5, "op": 21, "gp25": 18, "di25": 290, "gl25": 9, "tk25": 36, "rounds": [{"r": "R1", "di": 16, "gl": 1, "tk": 3, "ho": 0, "cl": 1, "cm": 0, "op": 1, "ga": 1}, {"r": "R2", "di": 16, "gl": 2, "tk": 4, "ho": 0, "cl": 2, "cm": 0, "op": 2, "ga": 1}, {"r": "R3", "di": 15, "gl": 1, "tk": 1, "ho": 0, "cl": 0, "cm": 0, "op": 3, "ga": 0}, {"r": "R5", "di": 12, "gl": 1, "tk": 0, "ho": 0, "cl": 0, "cm": 0, "op": 1, "ga": 1}, {"r": "R6", "di": 16, "gl": 0, "tk": 4, "ho": 0, "cl": 1, "cm": 2, "op": 0, "ga": 0}, {"r": "R7", "di": 14, "gl": 0, "tk": 2, "ho": 0, "cl": 1, "cm": 1, "op": 2, "ga": 0}, {"r": "R8", "di": 18, "gl": 0, "tk": 2, "ho": 0, "cl": 2, "cm": 0, "op": 1, "ga": 1}, {"r": "R9", "di": 18, "gl": 0, "tk": 1, "ho": 0, "cl": 0, "cm": 2, "op": 2, "ga": 0}, {"r": "R10", "di": 17, "gl": 1, "tk": 4, "ho": 0, "cl": 0, "cm": 0, "op": 3, "ga": 1}, {"r": "R11", "di": 14, "gl": 0, "tk": 1, "ho": 0, "cl": 0, "cm": 0, "op": 6, "ga": 0}, {"r": "R12", "di": 15, "gl": 0, "tk": 5, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 3, "name": "Jai Newcombe", "pos": "MF", "age": 24, "ht": 186, "draft": 0, "draftLbl": "2", "gp": 11, "gl": 4, "tk": 45, "di": 287, "ki": 132, "ho": 0, "cl": 74, "ga": 6, "ff": 24, "fa": 18, "cm": 0, "op": 8, "gp25": 26, "di25": 596, "gl25": 11, "tk25": 127, "rounds": [{"r": "R1", "di": 27, "gl": 1, "tk": 3, "ho": 0, "cl": 4, "cm": 0, "op": 0, "ga": 0}, {"r": "R2", "di": 22, "gl": 1, "tk": 4, "ho": 0, "cl": 6, "cm": 0, "op": 0, "ga": 0}, {"r": "R3", "di": 25, "gl": 1, "tk": 5, "ho": 0, "cl": 9, "cm": 0, "op": 0, "ga": 1}, {"r": "R5", "di": 26, "gl": 0, "tk": 4, "ho": 0, "cl": 6, "cm": 0, "op": 1, "ga": 1}, {"r": "R6", "di": 31, "gl": 0, "tk": 4, "ho": 0, "cl": 14, "cm": 0, "op": 0, "ga": 0}, {"r": "R7", "di": 23, "gl": 1, "tk": 2, "ho": 0, "cl": 4, "cm": 0, "op": 3, "ga": 1}, {"r": "R8", "di": 30, "gl": 0, "tk": 5, "ho": 0, "cl": 12, "cm": 0, "op": 0, "ga": 2}, {"r": "R9", "di": 25, "gl": 0, "tk": 5, "ho": 0, "cl": 8, "cm": 0, "op": 0, "ga": 0}, {"r": "R10", "di": 20, "gl": 0, "tk": 4, "ho": 0, "cl": 8, "cm": 0, "op": 1, "ga": 1}, {"r": "R11", "di": 33, "gl": 0, "tk": 3, "ho": 0, "cl": 3, "cm": 0, "op": 3, "ga": 0}, {"r": "R12", "di": 25, "gl": 0, "tk": 6, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 7, "name": "Ned Reeves", "pos": "RU", "age": 27, "ht": 208, "draft": 0, "draftLbl": "SSP", "gp": 10, "gl": 4, "tk": 24, "di": 77, "ki": 38, "ho": 248, "cl": 25, "ga": 5, "ff": 9, "fa": 12, "cm": 2, "op": 18, "gp25": 1, "di25": 6, "gl25": 0, "tk25": 3, "rounds": [{"r": "R2", "di": 12, "gl": 2, "tk": 1, "ho": 17, "cl": 4, "cm": 0, "op": 2, "ga": 2}, {"r": "R3", "di": 14, "gl": 1, "tk": 3, "ho": 21, "cl": 1, "cm": 0, "op": 2, "ga": 1}, {"r": "R5", "di": 11, "gl": 1, "tk": 1, "ho": 28, "cl": 3, "cm": 0, "op": 1, "ga": 1}, {"r": "R6", "di": 9, "gl": 0, "tk": 1, "ho": 40, "cl": 1, "cm": 0, "op": 1, "ga": 1}, {"r": "R7", "di": 8, "gl": 0, "tk": 5, "ho": 24, "cl": 5, "cm": 0, "op": 0, "ga": 0}, {"r": "R8", "di": 9, "gl": 0, "tk": 2, "ho": 24, "cl": 2, "cm": 0, "op": 4, "ga": 0}, {"r": "R9", "di": 10, "gl": 0, "tk": 5, "ho": 24, "cl": 5, "cm": 2, "op": 2, "ga": 0}, {"r": "R10", "di": 11, "gl": 0, "tk": 2, "ho": 19, "cl": 2, "cm": 0, "op": 4, "ga": 0}, {"r": "R11", "di": 13, "gl": 1, "tk": 3, "ho": 28, "cl": 2, "cm": 0, "op": 2, "ga": 0}, {"r": "R12", "di": 5, "gl": 0, "tk": 4, "ho": 23, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 30, "name": "Sam Butler", "pos": "MF", "age": 23, "ht": 184, "draft": 0, "draftLbl": "23", "gp": 7, "gl": 4, "tk": 26, "di": 83, "ki": 56, "ho": 0, "cl": 6, "ga": 2, "ff": 2, "fa": 3, "cm": 1, "op": 3, "gp25": 6, "di25": 71, "gl25": 3, "tk25": 31, "rounds": [{"r": "R1", "di": 7, "gl": 0, "tk": 4, "ho": 0, "cl": 3, "cm": 0, "op": 1, "ga": 0}, {"r": "R2", "di": 9, "gl": 0, "tk": 0, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}, {"r": "R3", "di": 14, "gl": 1, "tk": 2, "ho": 0, "cl": 1, "cm": 1, "op": 0, "ga": 1}, {"r": "R5", "di": 18, "gl": 1, "tk": 4, "ho": 0, "cl": 1, "cm": 0, "op": 0, "ga": 1}, {"r": "R6", "di": 12, "gl": 0, "tk": 6, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}, {"r": "R7", "di": 9, "gl": 2, "tk": 5, "ho": 0, "cl": 1, "cm": 0, "op": 1, "ga": 0}]}, {"jn": 16, "name": "Massimo D'Ambrosio", "pos": "MF", "age": 22, "ht": 178, "draft": 0, "draftLbl": "3", "gp": 11, "gl": 4, "tk": 27, "di": 215, "ki": 140, "ho": 0, "cl": 14, "ga": 2, "ff": 3, "fa": 6, "cm": 5, "op": 6, "gp25": 26, "di25": 472, "gl25": 5, "tk25": 48, "rounds": [{"r": "R1", "di": 14, "gl": 0, "tk": 2, "ho": 0, "cl": 2, "cm": 0, "op": 2, "ga": 0}, {"r": "R2", "di": 12, "gl": 1, "tk": 1, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}, {"r": "R3", "di": 20, "gl": 1, "tk": 3, "ho": 0, "cl": 3, "cm": 0, "op": 0, "ga": 1}, {"r": "R5", "di": 20, "gl": 0, "tk": 6, "ho": 0, "cl": 2, "cm": 0, "op": 1, "ga": 0}, {"r": "R6", "di": 18, "gl": 0, "tk": 3, "ho": 0, "cl": 2, "cm": 0, "op": 1, "ga": 0}, {"r": "R7", "di": 14, "gl": 1, "tk": 1, "ho": 0, "cl": 0, "cm": 3, "op": 0, "ga": 1}, {"r": "R8", "di": 16, "gl": 0, "tk": 1, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}, {"r": "R9", "di": 20, "gl": 1, "tk": 3, "ho": 0, "cl": 2, "cm": 0, "op": 2, "ga": 0}, {"r": "R10", "di": 15, "gl": 1, "tk": 1, "ho": 0, "cl": 1, "cm": 1, "op": 0, "ga": 0}, {"r": "R11", "di": 18, "gl": 0, "tk": 4, "ho": 0, "cl": 2, "cm": 1, "op": 0, "ga": 0}, {"r": "R12", "di": 28, "gl": 0, "tk": 2, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 15, "name": "Blake Hardwick", "pos": "DF", "age": 29, "ht": 181, "draft": 0, "draftLbl": "44", "gp": 11, "gl": 4, "tk": 25, "di": 192, "ki": 127, "ho": 0, "cl": 6, "ga": 0, "ff": 10, "fa": 8, "cm": 4, "op": 31, "gp25": 26, "di25": 383, "gl25": 11, "tk25": 61, "rounds": [{"r": "R1", "di": 18, "gl": 0, "tk": 2, "ho": 0, "cl": 1, "cm": 1, "op": 2, "ga": 0}, {"r": "R2", "di": 21, "gl": 0, "tk": 0, "ho": 0, "cl": 1, "cm": 1, "op": 1, "ga": 0}, {"r": "R3", "di": 19, "gl": 0, "tk": 2, "ho": 0, "cl": 0, "cm": 0, "op": 2, "ga": 0}, {"r": "R5", "di": 19, "gl": 0, "tk": 4, "ho": 0, "cl": 2, "cm": 0, "op": 2, "ga": 0}, {"r": "R6", "di": 22, "gl": 0, "tk": 2, "ho": 0, "cl": 0, "cm": 0, "op": 6, "ga": 0}, {"r": "R7", "di": 14, "gl": 0, "tk": 2, "ho": 0, "cl": 0, "cm": 1, "op": 3, "ga": 0}, {"r": "R8", "di": 17, "gl": 0, "tk": 1, "ho": 0, "cl": 1, "cm": 0, "op": 6, "ga": 0}, {"r": "R9", "di": 16, "gl": 0, "tk": 4, "ho": 0, "cl": 1, "cm": 0, "op": 4, "ga": 0}, {"r": "R10", "di": 14, "gl": 0, "tk": 1, "ho": 0, "cl": 0, "cm": 0, "op": 4, "ga": 0}, {"r": "R11", "di": 15, "gl": 4, "tk": 8, "ho": 0, "cl": 0, "cm": 1, "op": 1, "ga": 0}, {"r": "R12", "di": 17, "gl": 4, "tk": 0, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 13, "name": "Calsher Dear", "pos": "FW", "age": 20, "ht": 195, "draft": 0, "draftLbl": "56", "gp": 4, "gl": 3, "tk": 12, "di": 36, "ki": 22, "ho": 0, "cl": 0, "ga": 2, "ff": 4, "fa": 2, "cm": 1, "op": 6, "gp25": 9, "di25": 66, "gl25": 10, "tk25": 16, "rounds": [{"r": "R7", "di": 10, "gl": 1, "tk": 2, "ho": 0, "cl": 0, "cm": 0, "op": 1, "ga": 1}, {"r": "R8", "di": 9, "gl": 1, "tk": 4, "ho": 0, "cl": 0, "cm": 0, "op": 3, "ga": 0}, {"r": "R9", "di": 10, "gl": 1, "tk": 2, "ho": 0, "cl": 0, "cm": 0, "op": 1, "ga": 0}, {"r": "R11", "di": 7, "gl": 0, "tk": 4, "ho": 0, "cl": 0, "cm": 1, "op": 1, "ga": 1}]}, {"jn": 11, "name": "Conor Nash", "pos": "MF", "age": 27, "ht": 197, "draft": 0, "draftLbl": "Cat B", "gp": 10, "gl": 2, "tk": 53, "di": 191, "ki": 80, "ho": 0, "cl": 55, "ga": 4, "ff": 12, "fa": 9, "cm": 0, "op": 15, "gp25": 22, "di25": 404, "gl25": 5, "tk25": 124, "rounds": [{"r": "R1", "di": 23, "gl": 1, "tk": 6, "ho": 0, "cl": 6, "cm": 0, "op": 2, "ga": 0}, {"r": "R2", "di": 23, "gl": 1, "tk": 4, "ho": 0, "cl": 7, "cm": 0, "op": 3, "ga": 1}, {"r": "R3", "di": 26, "gl": 1, "tk": 6, "ho": 0, "cl": 6, "cm": 0, "op": 1, "ga": 1}, {"r": "R5", "di": 21, "gl": 0, "tk": 8, "ho": 0, "cl": 3, "cm": 0, "op": 2, "ga": 0}, {"r": "R6", "di": 17, "gl": 0, "tk": 5, "ho": 0, "cl": 5, "cm": 0, "op": 1, "ga": 0}, {"r": "R7", "di": 21, "gl": 2, "tk": 6, "ho": 0, "cl": 6, "cm": 0, "op": 3, "ga": 2}, {"r": "R8", "di": 19, "gl": 0, "tk": 4, "ho": 0, "cl": 4, "cm": 0, "op": 0, "ga": 0}, {"r": "R9", "di": 18, "gl": 0, "tk": 7, "ho": 0, "cl": 6, "cm": 0, "op": 0, "ga": 0}, {"r": "R10", "di": 17, "gl": 0, "tk": 6, "ho": 0, "cl": 6, "cm": 0, "op": 1, "ga": 0}, {"r": "R11", "di": 15, "gl": 0, "tk": 3, "ho": 0, "cl": 6, "cm": 0, "op": 2, "ga": 0}]}, {"jn": 17, "name": "Lloyd Meek", "pos": "RU", "age": 28, "ht": 203, "draft": 0, "draftLbl": "69", "gp": 11, "gl": 2, "tk": 34, "di": 117, "ki": 46, "ho": 235, "cl": 30, "ga": 1, "ff": 14, "fa": 18, "cm": 6, "op": 17, "gp25": 25, "di25": 338, "gl25": 10, "tk25": 104, "rounds": [{"r": "R1", "di": 11, "gl": 0, "tk": 3, "ho": 33, "cl": 2, "cm": 2, "op": 1, "ga": 0}, {"r": "R2", "di": 13, "gl": 0, "tk": 2, "ho": 26, "cl": 5, "cm": 0, "op": 3, "ga": 0}, {"r": "R3", "di": 14, "gl": 0, "tk": 4, "ho": 25, "cl": 2, "cm": 1, "op": 2, "ga": 0}, {"r": "R5", "di": 10, "gl": 0, "tk": 4, "ho": 16, "cl": 1, "cm": 0, "op": 1, "ga": 0}, {"r": "R6", "di": 12, "gl": 0, "tk": 4, "ho": 24, "cl": 4, "cm": 2, "op": 3, "ga": 0}, {"r": "R7", "di": 9, "gl": 0, "tk": 3, "ho": 25, "cl": 3, "cm": 0, "op": 0, "ga": 0}, {"r": "R8", "di": 11, "gl": 0, "tk": 6, "ho": 18, "cl": 6, "cm": 0, "op": 0, "ga": 0}, {"r": "R9", "di": 10, "gl": 0, "tk": 4, "ho": 17, "cl": 4, "cm": 0, "op": 0, "ga": 1}, {"r": "R10", "di": 9, "gl": 0, "tk": 3, "ho": 22, "cl": 3, "cm": 0, "op": 6, "ga": 0}, {"r": "R11", "di": 8, "gl": 2, "tk": 2, "ho": 14, "cl": 0, "cm": 1, "op": 1, "ga": 0}, {"r": "R12", "di": 10, "gl": 0, "tk": 4, "ho": 15, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 20, "name": "Finn Maginness", "pos": "FW", "age": 25, "ht": 187, "draft": 0, "draftLbl": "29", "gp": 4, "gl": 2, "tk": 7, "di": 59, "ki": 17, "ho": 0, "cl": 3, "ga": 1, "ff": 3, "fa": 3, "cm": 1, "op": 3, "gp25": 13, "di25": 173, "gl25": 4, "tk25": 23, "rounds": [{"r": "R1", "di": 10, "gl": 1, "tk": 0, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 1}, {"r": "R8", "di": 18, "gl": 1, "tk": 1, "ho": 0, "cl": 1, "cm": 1, "op": 1, "ga": 0}, {"r": "R9", "di": 13, "gl": 0, "tk": 2, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}, {"r": "R11", "di": 14, "gl": 0, "tk": 4, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 37, "name": "Tom Barrass", "pos": "DF", "age": 30, "ht": 196, "draft": 0, "draftLbl": "43", "gp": 9, "gl": 1, "tk": 9, "di": 88, "ki": 57, "ho": 0, "cl": 0, "ga": 0, "ff": 6, "fa": 9, "cm": 11, "op": 56, "gp25": 25, "di25": 242, "gl25": 0, "tk25": 28, "rounds": [{"r": "R1", "di": 11, "gl": 0, "tk": 0, "ho": 0, "cl": 0, "cm": 2, "op": 8, "ga": 0}, {"r": "R2", "di": 8, "gl": 0, "tk": 0, "ho": 0, "cl": 0, "cm": 0, "op": 3, "ga": 0}, {"r": "R3", "di": 18, "gl": 0, "tk": 0, "ho": 0, "cl": 0, "cm": 1, "op": 12, "ga": 0}, {"r": "R5", "di": 19, "gl": 1, "tk": 3, "ho": 0, "cl": 0, "cm": 0, "op": 5, "ga": 0}, {"r": "R6", "di": 25, "gl": 0, "tk": 1, "ho": 0, "cl": 0, "cm": 3, "op": 6, "ga": 0}, {"r": "R7", "di": 14, "gl": 0, "tk": 0, "ho": 0, "cl": 0, "cm": 1, "op": 3, "ga": 0}, {"r": "R8", "di": 15, "gl": 0, "tk": 0, "ho": 0, "cl": 0, "cm": 1, "op": 9, "ga": 0}, {"r": "R9", "di": 10, "gl": 0, "tk": 1, "ho": 0, "cl": 0, "cm": 3, "op": 8, "ga": 0}, {"r": "R10", "di": 5, "gl": 0, "tk": 0, "ho": 0, "cl": 0, "cm": 0, "op": 2, "ga": 0}]}, {"jn": 4, "name": "Jarman Impey", "pos": "DF", "age": 30, "ht": 178, "draft": 0, "draftLbl": "21", "gp": 11, "gl": 1, "tk": 20, "di": 259, "ki": 167, "ho": 0, "cl": 7, "ga": 4, "ff": 2, "fa": 7, "cm": 3, "op": 12, "gp25": 24, "di25": 463, "gl25": 5, "tk25": 62, "rounds": [{"r": "R1", "di": 22, "gl": 0, "tk": 1, "ho": 0, "cl": 0, "cm": 0, "op": 1, "ga": 0}, {"r": "R2", "di": 23, "gl": 1, "tk": 4, "ho": 0, "cl": 0, "cm": 0, "op": 1, "ga": 1}, {"r": "R3", "di": 23, "gl": 0, "tk": 2, "ho": 0, "cl": 2, "cm": 1, "op": 1, "ga": 0}, {"r": "R5", "di": 28, "gl": 0, "tk": 1, "ho": 0, "cl": 2, "cm": 1, "op": 0, "ga": 1}, {"r": "R6", "di": 25, "gl": 0, "tk": 0, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}, {"r": "R7", "di": 22, "gl": 0, "tk": 1, "ho": 0, "cl": 1, "cm": 0, "op": 1, "ga": 0}, {"r": "R8", "di": 25, "gl": 0, "tk": 1, "ho": 0, "cl": 1, "cm": 0, "op": 2, "ga": 1}, {"r": "R9", "di": 22, "gl": 0, "tk": 2, "ho": 0, "cl": 0, "cm": 0, "op": 2, "ga": 0}, {"r": "R10", "di": 22, "gl": 0, "tk": 1, "ho": 0, "cl": 1, "cm": 0, "op": 1, "ga": 0}, {"r": "R11", "di": 23, "gl": 0, "tk": 8, "ho": 0, "cl": 0, "cm": 1, "op": 3, "ga": 1}, {"r": "R12", "di": 24, "gl": 0, "tk": 0, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 28, "name": "Cam Mackenzie", "pos": "MF", "age": 22, "ht": 188, "draft": 0, "draftLbl": "7", "gp": 9, "gl": 1, "tk": 36, "di": 187, "ki": 95, "ho": 0, "cl": 27, "ga": 4, "ff": 8, "fa": 8, "cm": 0, "op": 5, "gp25": 12, "di25": 198, "gl25": 0, "tk25": 50, "rounds": [{"r": "R2", "di": 21, "gl": 0, "tk": 5, "ho": 0, "cl": 5, "cm": 0, "op": 1, "ga": 0}, {"r": "R3", "di": 24, "gl": 1, "tk": 4, "ho": 0, "cl": 5, "cm": 0, "op": 1, "ga": 1}, {"r": "R6", "di": 22, "gl": 1, "tk": 3, "ho": 0, "cl": 3, "cm": 0, "op": 0, "ga": 1}, {"r": "R7", "di": 17, "gl": 1, "tk": 2, "ho": 0, "cl": 2, "cm": 0, "op": 1, "ga": 1}, {"r": "R8", "di": 21, "gl": 0, "tk": 3, "ho": 0, "cl": 3, "cm": 0, "op": 0, "ga": 0}, {"r": "R9", "di": 19, "gl": 0, "tk": 3, "ho": 0, "cl": 3, "cm": 0, "op": 0, "ga": 0}, {"r": "R10", "di": 18, "gl": 0, "tk": 4, "ho": 0, "cl": 2, "cm": 0, "op": 2, "ga": 1}, {"r": "R11", "di": 16, "gl": 0, "tk": 6, "ho": 0, "cl": 4, "cm": 0, "op": 0, "ga": 0}, {"r": "R12", "di": 29, "gl": 0, "tk": 6, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 1, "name": "Harry Morrison", "pos": "MF", "age": 27, "ht": 180, "draft": 0, "draftLbl": "74", "gp": 3, "gl": 1, "tk": 9, "di": 51, "ki": 28, "ho": 0, "cl": 2, "ga": 0, "ff": 2, "fa": 4, "cm": 0, "op": 1, "gp25": 20, "di25": 348, "gl25": 5, "tk25": 61, "rounds": [{"r": "R1", "di": 18, "gl": 1, "tk": 3, "ho": 0, "cl": 0, "cm": 0, "op": 1, "ga": 0}, {"r": "R8", "di": 18, "gl": 0, "tk": 3, "ho": 0, "cl": 1, "cm": 0, "op": 0, "ga": 0}, {"r": "R11", "di": 15, "gl": 0, "tk": 3, "ho": 0, "cl": 1, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 10, "name": "Karl Amon", "pos": "DF", "age": 30, "ht": 181, "draft": 0, "draftLbl": "68", "gp": 10, "gl": 0, "tk": 19, "di": 239, "ki": 167, "ho": 0, "cl": 5, "ga": 6, "ff": 2, "fa": 2, "cm": 0, "op": 8, "gp25": 25, "di25": 600, "gl25": 4, "tk25": 53, "rounds": [{"r": "R1", "di": 23, "gl": 0, "tk": 1, "ho": 0, "cl": 1, "cm": 0, "op": 1, "ga": 2}, {"r": "R2", "di": 23, "gl": 0, "tk": 1, "ho": 0, "cl": 0, "cm": 0, "op": 2, "ga": 2}, {"r": "R3", "di": 24, "gl": 0, "tk": 2, "ho": 0, "cl": 1, "cm": 0, "op": 2, "ga": 1}, {"r": "R6", "di": 24, "gl": 0, "tk": 0, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}, {"r": "R7", "di": 17, "gl": 0, "tk": 1, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}, {"r": "R8", "di": 31, "gl": 0, "tk": 3, "ho": 0, "cl": 0, "cm": 0, "op": 2, "ga": 0}, {"r": "R9", "di": 30, "gl": 0, "tk": 3, "ho": 0, "cl": 1, "cm": 0, "op": 0, "ga": 0}, {"r": "R10", "di": 20, "gl": 0, "tk": 2, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 1}, {"r": "R11", "di": 24, "gl": 0, "tk": 2, "ho": 0, "cl": 2, "cm": 0, "op": 1, "ga": 0}, {"r": "R12", "di": 24, "gl": 0, "tk": 1, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 24, "name": "Josh Battle", "pos": "DF", "age": 27, "ht": 193, "draft": 0, "draftLbl": "39", "gp": 11, "gl": 0, "tk": 14, "di": 233, "ki": 156, "ho": 0, "cl": 3, "ga": 0, "ff": 9, "fa": 6, "cm": 13, "op": 46, "gp25": 26, "di25": 480, "gl25": 0, "tk25": 49, "rounds": [{"r": "R1", "di": 16, "gl": 0, "tk": 2, "ho": 0, "cl": 0, "cm": 1, "op": 3, "ga": 0}, {"r": "R2", "di": 18, "gl": 0, "tk": 3, "ho": 0, "cl": 0, "cm": 0, "op": 2, "ga": 0}, {"r": "R3", "di": 22, "gl": 0, "tk": 1, "ho": 0, "cl": 0, "cm": 0, "op": 4, "ga": 0}, {"r": "R5", "di": 24, "gl": 0, "tk": 2, "ho": 0, "cl": 0, "cm": 1, "op": 4, "ga": 0}, {"r": "R6", "di": 24, "gl": 0, "tk": 1, "ho": 0, "cl": 0, "cm": 4, "op": 1, "ga": 0}, {"r": "R7", "di": 19, "gl": 0, "tk": 1, "ho": 0, "cl": 0, "cm": 2, "op": 6, "ga": 0}, {"r": "R8", "di": 22, "gl": 0, "tk": 1, "ho": 0, "cl": 0, "cm": 2, "op": 5, "ga": 0}, {"r": "R9", "di": 22, "gl": 0, "tk": 2, "ho": 0, "cl": 1, "cm": 1, "op": 5, "ga": 0}, {"r": "R10", "di": 20, "gl": 0, "tk": 1, "ho": 0, "cl": 0, "cm": 1, "op": 11, "ga": 0}, {"r": "R11", "di": 26, "gl": 0, "tk": 2, "ho": 0, "cl": 2, "cm": 1, "op": 5, "ga": 0}, {"r": "R12", "di": 17, "gl": 0, "tk": 2, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 34, "name": "Jack Dalton", "pos": "MF", "age": 19, "ht": 177, "draft": 0, "draftLbl": "34", "gp": 2, "gl": 0, "tk": 7, "di": 20, "ki": 8, "ho": 0, "cl": 1, "ga": 0, "ff": 0, "fa": 1, "cm": 0, "op": 1, "gp25": 0, "di25": 0, "gl25": 0, "tk25": 0, "rounds": [{"r": "R5", "di": 7, "gl": 0, "tk": 1, "ho": 0, "cl": 1, "cm": 0, "op": 1, "ga": 0}, {"r": "R8", "di": 13, "gl": 0, "tk": 6, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 44, "name": "Henry Hustwaite", "pos": "MF", "age": 21, "ht": 195, "draft": 0, "draftLbl": "37", "gp": 1, "gl": 0, "tk": 3, "di": 19, "ki": 7, "ho": 0, "cl": 6, "ga": 0, "ff": 0, "fa": 0, "cm": 0, "op": 0, "gp25": 4, "di25": 55, "gl25": 0, "tk25": 14, "rounds": [{"r": "R11", "di": 14, "gl": 0, "tk": 2, "ho": 0, "cl": 6, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 14, "name": "Jack Scrimshaw", "pos": "DF", "age": 27, "ht": 193, "draft": 0, "draftLbl": "7", "gp": 6, "gl": 0, "tk": 9, "di": 104, "ki": 52, "ho": 0, "cl": 2, "ga": 1, "ff": 2, "fa": 9, "cm": 1, "op": 14, "gp25": 16, "di25": 219, "gl25": 0, "tk25": 38, "rounds": [{"r": "R1", "di": 17, "gl": 0, "tk": 1, "ho": 0, "cl": 0, "cm": 0, "op": 1, "ga": 0}, {"r": "R2", "di": 16, "gl": 0, "tk": 3, "ho": 0, "cl": 0, "cm": 1, "op": 1, "ga": 1}, {"r": "R3", "di": 21, "gl": 0, "tk": 2, "ho": 0, "cl": 0, "cm": 0, "op": 3, "ga": 0}, {"r": "R5", "di": 17, "gl": 0, "tk": 1, "ho": 0, "cl": 1, "cm": 0, "op": 4, "ga": 0}, {"r": "R8", "di": 17, "gl": 0, "tk": 0, "ho": 0, "cl": 0, "cm": 0, "op": 3, "ga": 0}, {"r": "R9", "di": 16, "gl": 0, "tk": 2, "ho": 0, "cl": 1, "cm": 0, "op": 2, "ga": 0}]}, {"jn": 6, "name": "James Sicily", "pos": "DF", "age": 31, "ht": 186, "draft": 0, "draftLbl": "56", "gp": 10, "gl": 0, "tk": 19, "di": 233, "ki": 149, "ho": 0, "cl": 4, "ga": 4, "ff": 11, "fa": 7, "cm": 10, "op": 24, "gp25": 23, "di25": 449, "gl25": 6, "tk25": 36, "rounds": [{"r": "R1", "di": 22, "gl": 0, "tk": 2, "ho": 0, "cl": 1, "cm": 1, "op": 7, "ga": 1}, {"r": "R2", "di": 26, "gl": 0, "tk": 4, "ho": 0, "cl": 0, "cm": 0, "op": 1, "ga": 1}, {"r": "R3", "di": 28, "gl": 0, "tk": 2, "ho": 0, "cl": 1, "cm": 2, "op": 5, "ga": 0}, {"r": "R5", "di": 26, "gl": 0, "tk": 2, "ho": 0, "cl": 0, "cm": 2, "op": 5, "ga": 0}, {"r": "R7", "di": 24, "gl": 0, "tk": 2, "ho": 0, "cl": 1, "cm": 0, "op": 1, "ga": 0}, {"r": "R9", "di": 18, "gl": 0, "tk": 1, "ho": 0, "cl": 0, "cm": 2, "op": 0, "ga": 1}, {"r": "R10", "di": 20, "gl": 0, "tk": 1, "ho": 0, "cl": 0, "cm": 2, "op": 3, "ga": 0}, {"r": "R11", "di": 16, "gl": 0, "tk": 2, "ho": 0, "cl": 1, "cm": 1, "op": 2, "ga": 1}, {"r": "R12", "di": 33, "gl": 0, "tk": 3, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 25, "name": "Josh Ward", "pos": "MF", "age": 22, "ht": 181, "draft": 0, "draftLbl": "7", "gp": 11, "gl": 0, "tk": 36, "di": 236, "ki": 116, "ho": 0, "cl": 25, "ga": 10, "ff": 8, "fa": 5, "cm": 1, "op": 7, "gp25": 25, "di25": 514, "gl25": 3, "tk25": 89, "rounds": [{"r": "R1", "di": 21, "gl": 0, "tk": 4, "ho": 0, "cl": 1, "cm": 0, "op": 1, "ga": 0}, {"r": "R2", "di": 26, "gl": 0, "tk": 5, "ho": 0, "cl": 5, "cm": 0, "op": 0, "ga": 2}, {"r": "R3", "di": 23, "gl": 0, "tk": 3, "ho": 0, "cl": 2, "cm": 0, "op": 0, "ga": 1}, {"r": "R5", "di": 22, "gl": 0, "tk": 6, "ho": 0, "cl": 3, "cm": 0, "op": 2, "ga": 0}, {"r": "R6", "di": 18, "gl": 0, "tk": 1, "ho": 0, "cl": 1, "cm": 0, "op": 0, "ga": 0}, {"r": "R7", "di": 20, "gl": 0, "tk": 4, "ho": 0, "cl": 4, "cm": 0, "op": 0, "ga": 0}, {"r": "R8", "di": 22, "gl": 0, "tk": 3, "ho": 0, "cl": 3, "cm": 0, "op": 2, "ga": 2}, {"r": "R9", "di": 23, "gl": 0, "tk": 2, "ho": 0, "cl": 2, "cm": 0, "op": 0, "ga": 2}, {"r": "R10", "di": 21, "gl": 0, "tk": 4, "ho": 0, "cl": 3, "cm": 0, "op": 1, "ga": 2}, {"r": "R11", "di": 18, "gl": 0, "tk": 2, "ho": 0, "cl": 1, "cm": 1, "op": 1, "ga": 1}, {"r": "R12", "di": 22, "gl": 0, "tk": 2, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 12, "name": "Will Day", "pos": "MF", "age": 24, "ht": 191, "draft": 13, "draftLbl": "13", "gp": 1, "gl": 0, "tk": 3, "di": 18, "ki": 9, "ho": 0, "cl": 0, "ga": 0, "ff": 0, "fa": 0, "cm": 0, "op": 0, "gp25": 6, "di25": 126, "gl25": 6, "tk25": 31, "rounds": [{"r": "R12", "di": 18, "gl": 0, "tk": 3, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 39, "name": "Flynn Perez", "pos": "DF", "age": 24, "ht": 187, "draft": 9997, "draftLbl": "SSP", "gp": 4, "gl": 0, "tk": 16, "di": 44, "ki": 22, "ho": 0, "cl": 0, "ga": 0, "ff": 0, "fa": 0, "cm": 0, "op": 0, "gp25": 0, "di25": 0, "gl25": 0, "tk25": 0, "rounds": [{"r": "R5", "di": 13, "gl": 0, "tk": 5, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}, {"r": "R6", "di": 13, "gl": 0, "tk": 5, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}, {"r": "R7", "di": 9, "gl": 0, "tk": 3, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}, {"r": "R12", "di": 9, "gl": 0, "tk": 3, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 26, "name": "Bodie Ryan", "pos": "DF", "age": 21, "ht": 187, "draft": 46, "draftLbl": "46", "gp": 2, "gl": 0, "tk": 3, "di": 22, "ki": 16, "ho": 0, "cl": 0, "ga": 0, "ff": 0, "fa": 0, "cm": 0, "op": 0, "gp25": 0, "di25": 0, "gl25": 0, "tk25": 0, "rounds": [{"r": "R10", "di": 7, "gl": 0, "tk": 0, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 1}, {"r": "R11", "di": 11, "gl": 0, "tk": 1, "ho": 0, "cl": 1, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 27, "name": "Will McCabe", "pos": "DF", "age": 20, "ht": 197, "draft": 19, "draftLbl": "19", "gp": 1, "gl": 0, "tk": 0, "di": 6, "ki": 4, "ho": 0, "cl": 0, "ga": 0, "ff": 0, "fa": 0, "cm": 0, "op": 0, "gp25": 0, "di25": 0, "gl25": 0, "tk25": 0, "rounds": [{"r": "R7", "di": 6, "gl": 0, "tk": 0, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}, {"jn": 22, "name": "Cameron Nairn", "pos": "MF", "age": 18, "ht": 185, "draft": 20, "draftLbl": "20", "gp": 2, "gl": 0, "tk": 2, "di": 28, "ki": 16, "ho": 0, "cl": 0, "ga": 0, "ff": 0, "fa": 0, "cm": 0, "op": 2, "gp25": 0, "di25": 0, "gl25": 0, "tk25": 0, "rounds": [{"r": "R11", "di": 11, "gl": 0, "tk": 2, "ho": 0, "cl": 0, "cm": 0, "op": 2, "ga": 0}, {"r": "R12", "di": 17, "gl": 0, "tk": 0, "ho": 0, "cl": 0, "cm": 0, "op": 0, "ga": 0}]}]};
 
-let DATA=null, curPos='', curSort='gl', curSortDir=-1, curView='cards', tSortKey='jn', tSortDir=1;
+/* ── NEWS TAB (client-side Reddit + YouTube) ── */
+let newsLoaded = false;
 
-/* ── SVG JUMPER ── */
-function jumperSVG(jn) {
-  const n = jn > 0 ? String(jn) : '?';
-  const uid = 'jc' + (jn > 0 ? jn : 'x' + Math.floor(Math.random()*9999));
-  const fs = n.length >= 3 ? 17 : n.length === 2 ? 22 : 29;
-  // Sleeveless AFL guernsey — back view, pronounced armhole curves, no sleeves
-  const P = "M33,6 L22,6 L13,24 Q7,35 13,46 L13,93 Q13,98 20,98 L70,98 Q77,98 77,93 L77,46 Q83,35 77,24 L68,6 L57,6 Q45,1 33,6Z";
-  const GOLD = "#F0A818";
-  const BROWN = "#2A1008";
-  // Stripes lower half only (y=52+), clipped to jumper shape
-  const stripes = [9,28,47,66].map(x =>
-    `<rect x="${x}" y="52" width="12" height="58" fill="${BROWN}" clip-path="url(#${uid})"/>`
-  ).join('');
-  return `<svg viewBox="0 0 90 101" xmlns="http://www.w3.org/2000/svg" aria-label="Jumper number ${n}">
-    <defs><clipPath id="${uid}"><path d="${P}"/></clipPath></defs>
-    <path d="${P}" fill="${GOLD}"/>
-    ${stripes}
-    <text x="45" y="18" text-anchor="middle" font-size="6.5" font-weight="700" fill="${BROWN}" font-family="-apple-system,sans-serif" letter-spacing="1.8" opacity="0.8">1902</text>
-    <text x="45" y="36" text-anchor="middle" dominant-baseline="middle" font-size="${fs}" font-weight="900" fill="${BROWN}" font-family="Georgia,serif">${n}</text>
-    <path d="${P}" fill="none" stroke="rgba(150,90,0,0.25)" stroke-width="0.75"/>
-  </svg>`;
-}
+async function loadNews() {
+  if (newsLoaded) return;
+  const feed = document.getElementById('news-feed');
+  const upd  = document.getElementById('news-updated');
+  if (!feed) return;
+  feed.innerHTML = '<div style="text-align:center;padding:30px;color:var(--gold);opacity:0.5;font-size:0.85rem">Loading news…</div>';
 
-/* ── COMPUTE ── */
-function compute(raw) {
-  const maxGP = Math.max(...raw.map(p => p.gp));
-  return raw.map(p => {
-    const da26    = p.gp > 0 ? p.di / p.gp : 0;
-    const isDebut = p.gp25 === 0;
-    const isInj   = !isDebut && p.gp25 < 3;
-    const da25    = p.gp25 > 0 ? p.di25 / p.gp25 : null;
-    const glpg25  = p.gp25 > 0 ? p.gl25 / p.gp25 : null;
-    const tkpg25  = p.gp25 > 0 ? p.tk25 / p.gp25 : null;
-    let dda=null, dgl=null, dtk=null, trend=null;
+  const items = [];
+  const seen  = new Set();
+  const cutoff = Date.now() - 14 * 24 * 60 * 60 * 1000;
 
-    if (!isDebut && !isInj && da25 !== null && p.gp > 0) {
-      dda = da26 - da25;
-      dgl = (p.gl / p.gp) - glpg25;
-      dtk = (p.tk / p.gp) - tkpg25;
-      const cap = v => Math.max(-100, Math.min(100, v));
-      const ext = p.op > 0 || p.ho > 0 || p.cl > 0 || p.ga > 0;
+  const add = (item) => {
+    const key = item.url;
+    if (!key || seen.has(key)) return;
+    seen.add(key);
+    items.push(item);
+  };
 
-      // YoY stats (have 2025 baselines)
-      const daPct = cap((dda / Math.max(da25, 1)) * 100);
-      const glPct = cap(glpg25 > 0.1 ? (dgl / glpg25) * 100 : (p.gl/p.gp > 0.05 ? 50 : 0));
-      const tkPct = cap((dtk / Math.max(tkpg25, 0.5)) * 100);
-      const gpPct = cap((p.gp / maxGP - Math.min(p.gp25 / 22, 1.0)) * 100);
-
-      // Rate-based stats (no 2025 baseline; 0 = neutral when unloaded)
-      const clPct  = ext ? cap((p.cl / p.gp - 3.5) * 25)  : 0;  // 3.5 cl/g neutral
-      const cmPct  = ext ? cap((p.cm / p.gp - 0.5) * 100) : 0;  // 0.5 cm/g neutral
-      const hoPct  = ext ? cap((p.ho / p.gp - 18)  * 4)   : 0;  // 18 ho/g  neutral
-      const gaPct  = ext ? cap((p.ga / p.gp - 0.5) * 100) : 0;  // 0.5 ga/g neutral
-      const opPct  = ext ? cap((p.op / p.gp - 3)   * 25)  : 0;  // 3 op/g   neutral
-      const hb2    = p.di - p.ki;
-      const khbPct = hb2 > 0 ? cap((p.ki / hb2 - 1.5) * 50) : 0; // ratio 1.5 neutral
-
-      // Position-weighted blend — mirrors stats shown on each card
-      const pos = p.pos;
-      if (pos === 'FW')      // DA · Goals · GA · CM · Tackles · CL · GP
-        trend = daPct*0.20 + glPct*0.25 + gaPct*0.15 + cmPct*0.10 + tkPct*0.10 + clPct*0.10 + gpPct*0.10;
-      else if (pos === 'MF') // DA · CL · Tackles · Goals · Disposals · K:HB · GP
-        trend = daPct*0.25 + clPct*0.20 + tkPct*0.20 + glPct*0.10 + khbPct*0.10 + gpPct*0.15;
-      else if (pos === 'DF') // DA · Tackles · OP · CM · CL · GP
-        trend = daPct*0.25 + tkPct*0.20 + opPct*0.20 + cmPct*0.10 + clPct*0.10 + gpPct*0.15;
-      else if (pos === 'RU') // DA · HO · CL · Goals · CM · Tackles · GP
-        trend = daPct*0.15 + hoPct*0.25 + clPct*0.15 + glPct*0.15 + cmPct*0.10 + tkPct*0.10 + gpPct*0.10;
-      else
-        trend = (daPct + glPct + tkPct + gpPct) / 4;
+  // ── Reddit r/hawkiesafl ──────────────────────────────────────────────────
+  try {
+    const r = await fetch('https://www.reddit.com/r/hawkiesafl/new.json?limit=30',
+      {headers:{'Accept':'application/json'}});
+    const d = await r.json();
+    for (const post of (d.data?.children||[])) {
+      const p = post.data;
+      if (p.created_utc*1000 < cutoff) continue;
+      if ((p.url||'').includes('reddit.com/r/')) continue;
+      add({type:'article', source:'r/hawkiesafl', title:p.title||'',
+           url:p.url||'', description:'',
+           date:new Date(p.created_utc*1000),
+           image:p.thumbnail?.startsWith('http')?p.thumbnail:null, audio:null});
     }
-    return {...p, da26, da25, glpg25, tkpg25, dda, dgl, dtk, trend, isDebut, isInj, hb: p.di-p.ki};
-  });
-}
+  } catch(e) { console.log('r/hawkiesafl failed:', e); }
 
-function load() {
-  fetch('data.json')
-    .then(r=>r.ok?r.json():Promise.reject())
-    .then(d=>{DATA={...d,players:compute(d.players)};init();loadFixturePanel();initNextGame();loadPlayerPhotos();})
-    .catch(()=>{DATA={...EMBEDDED,players:compute(EMBEDDED.players)};init();loadFixturePanel();initNextGame();loadPlayerPhotos();});
-  loadNews();
-}
+  // ── Reddit r/AFL (Hawthorn filter) ───────────────────────────────────────
+  try {
+    const r = await fetch('https://www.reddit.com/r/AFL/search.json?q=hawthorn&sort=new&restrict_sr=1&limit=25',
+      {headers:{'Accept':'application/json'}});
+    const d = await r.json();
+    for (const post of (d.data?.children||[])) {
+      const p = post.data;
+      if (p.created_utc*1000 < cutoff) continue;
+      if ((p.url||'').includes('reddit.com/r/')) continue;
+      add({type:'article', source:'r/AFL', title:p.title||'',
+           url:p.url||'', description:'',
+           date:new Date(p.created_utc*1000),
+           image:p.thumbnail?.startsWith('http')?p.thumbnail:null, audio:null});
+    }
+  } catch(e) { console.log('r/AFL failed:', e); }
 
-function init() {
-  const d=DATA;
-  document.getElementById('subtitle').textContent=`Round ${d.round} · Updated ${d.updated}`;
-  document.getElementById('record-pill').textContent=`${d.record} · ${d.position}`;
-  const byGL=[...d.players].sort((a,b)=>b.gl-a.gl);
-  const byDI=[...d.players].sort((a,b)=>b.di-a.di);
-  const byTK=[...d.players].sort((a,b)=>b.tk-a.tk);
-  const byDA=[...d.players].filter(p=>p.gp>=5).sort((a,b)=>b.da26-a.da26);
-  const byTR=[...d.players].filter(p=>p.trend!==null).sort((a,b)=>b.trend-a.trend);
+  // ── Hawthorn FC YouTube channel ──────────────────────────────────────────
+  try {
+    const ytUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=UCweshjuhmLYGxHuH2xIPXpg';
+    const r = await fetch(ytUrl);
+    const xml = await r.text();
+    const entries = [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)];
+    for (const [, entry] of entries) {
+      const title = (entry.match(/<title>([^<]+)<\/title>/)||[])[1]||'';
+      const link  = (entry.match(/href="(https:\/\/www\.youtube\.com\/watch[^"]+)"/)||[])[1]||'';
+      const pub   = (entry.match(/<published>([^<]+)<\/published>/)||[])[1]||'';
+      const thumb = (entry.match(/url="(https:\/\/i[^"]+)"/)||[])[1]||null;
+      if (!link) continue;
+      const dt = pub ? new Date(pub) : new Date();
+      if (dt.getTime() < cutoff) continue;
+      add({type:'video', source:'Hawthorn FC', title, url:link,
+           description:'', date:dt, image:thumb, audio:null});
+    }
+  } catch(e) { console.log('YouTube failed:', e); }
 
-  // Full name, abbreviating first name only for very long names
-  const pName=n=>{const p=n.split(' ');return n.length<=15?n:p[0][0]+'. '+p.slice(1).join(' ');};
+  // Sort newest first
+  items.sort((a,b) => b.date - a.date);
 
-  document.getElementById('c-goals').textContent=byGL[0]?.gl??'—';
-  document.getElementById('c-goals-name').textContent=byGL[0]?pName(byGL[0].name):'';
-  document.getElementById('c-disp').textContent=byDI[0]?.di??'—';
-  document.getElementById('c-disp-name').textContent=byDI[0]?pName(byDI[0].name):'';
-  document.getElementById('c-tacks').textContent=byTK[0]?.tk??'—';
-  document.getElementById('c-tacks-name').textContent=byTK[0]?pName(byTK[0].name):'';
-  document.getElementById('c-da').textContent=byDA[0]?.da26.toFixed(1)??'—';
-  document.getElementById('c-da-name').textContent=byDA[0]?pName(byDA[0].name):'';
-  document.getElementById('c-wins').textContent=parseInt((d.record||'0W').split('W')[0]);
-  const rp=(d.record||'').match(/(\d+)W[–-](\d+)L(?:[–-](\d+)D)?/);
-  const pos=d.position&&d.position!=='TBC'?` · ${d.position}`:'';
-  document.getElementById('c-wins-sub').textContent=rp?`${rp[1]}W–${rp[2]}L${rp[3]?'–'+rp[3]+'D':''}${pos}`:'Hawthorn FC';
-  if(byTR.length){
-    document.getElementById('c-trend-val').textContent='+'+byTR[0].trend.toFixed(0)+'%';
-    document.getElementById('c-trend-name').textContent=pName(byTR[0].name);
+  if (upd) upd.textContent = 'Updated ' + new Date().toLocaleTimeString('en-AU',
+    {hour:'2-digit',minute:'2-digit',timeZone:'Australia/Melbourne'}) + ' AEST';
+
+  if (!items.length) {
+    feed.innerHTML = `<div style="text-align:center;padding:40px 20px;color:var(--gold);opacity:0.55;font-size:0.85rem;line-height:1.7">
+      📰 No Hawthorn news found<br>
+      <span style="font-size:0.72rem">Check back after the next game</span>
+    </div>`;
+    return;
   }
-  document.getElementById('last-updated').innerHTML=`Stats to Round ${d.round} · Updated ${d.updated} · Source: <a href="https://afltables.com" target="_blank">AFL Tables</a>`;
-  renderAll();
-}
 
-function filtered() {
-  const q=document.getElementById('search').value.toLowerCase();
-  return DATA.players.filter(p=>(!curPos||p.pos===curPos)&&(!q||p.name.toLowerCase().includes(q)));
-}
-function sortedBy(arr,key,dir) {
-  return [...arr].sort((a,b)=>{
-    const av=a[key],bv=b[key];
-    if(av===null&&bv===null)return 0;
-    if(av===null)return 1;if(bv===null)return -1;
-    if(typeof av==='string')return dir*av.localeCompare(bv);
-    return dir*(av-bv);
-  });
-}
-function renderAll(){
-  if(!DATA)return;
-  if(curView==='cards')renderCards();
-  else if(curView==='table')renderTable();
-  else if(curView==='news')renderNews();
-}
+  feed.innerHTML = items.map((item, idx) => {
+    const pill  = item.type==='video'?'▶ Video': item.type==='podcast'?'🎙 Podcast':'📰 Article';
+    const cls   = item.type==='video'?'news-video': item.type==='podcast'?'news-podcast':'news-article';
+    const dStr  = item.date instanceof Date
+      ? item.date.toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric',timeZone:'Australia/Melbourne'})
+      : '';
 
-function trendInfo(p){
-  if(p.isDebut)return['tr-nu','Debut',''];
-  if(p.isInj)return['tr-nu',"Inj '25",''];
-  if(p.trend===null)return['tr-nu','—',''];
-  const cls=p.trend>8?'tr-up':p.trend<-8?'tr-dn':'tr-nu';
-  const arrow=p.trend>8?'↑ ':p.trend<-8?'↓ ':'↔ ';
-  return[cls,arrow+Math.abs(p.trend).toFixed(0)+'%',p.trend>8?'Improving on 2025':p.trend<-8?'Down on 2025':'Similar to 2025'];
-}
-function dSign(v,d){return v===null?'':((v>=0?'+':'')+v.toFixed(d));}
-function hasExtra(p){return p.ho>0||p.cl>0||p.ga>0;}
-function pendingSpan(){return '<span class="pending">Run scraper</span>';}
-
-function renderCards(){
-  const list=sortedBy(filtered(),curSort,curSortDir);
-  const el=document.getElementById('player-list');
-  if(!list.length){el.innerHTML='<div class="empty">No players match</div>';return;}
-  el.innerHTML=list.map(p=>{
-    const [tCls,tLabel]=trendInfo(p);
-    const ext = p.op>0||p.ho>0||p.cl>0||p.ga>0;
-    const ev  = v => ext ? (v ?? 0) : '—';
-    const da  = p.da26.toFixed(1);
-    const khb = p.hb>0 ? (p.ki/p.hb).toFixed(1) : '—';
-    const hi  = (v,t) => (typeof v==='number'&&v>=t) ? 'hi' : '';
-
-    // Players who haven't played yet — show minimal card
-    if (p.gp === 0) {
-      return `<div class="player-card">
-        <div class="card-inner">
-          <div class="card-jumper-col">
-            ${playerPhotoHTML(p)}
-            <div class="card-name">${p.name}</div>
-            <div class="card-pos-badge pos-${p.pos}">${p.pos}</div>
+    // YouTube inline player
+    if (item.type === 'video' && item.url) {
+      const vidId = (item.url.match(/[?&]v=([^&]+)/)||[])[1] || (item.url.match(/youtu\.be\/([^?]+)/)||[])[1];
+      const thumb = item.image || (vidId ? `https://img.youtube.com/vi/${vidId}/hqdefault.jpg` : null);
+      if (vidId) {
+        return `<div class="news-card ${cls}">
+          <div class="news-card-header">
+            <span class="news-type-pill">${pill}</span>
+            <span class="news-source">${item.source}</span>
+            <span class="news-date">${dStr}</span>
           </div>
-          <div class="card-stats-col" style="justify-content:center;align-items:center;display:flex">
-            <div style="text-align:center;color:var(--muted);font-size:0.8rem;padding:12px">No games played yet</div>
+          <div class="news-title" style="margin-bottom:8px">${item.title}</div>
+          <div class="yt-thumb-wrap" id="yt-${idx}" onclick="playYT(${idx},'${vidId}')">
+            ${thumb?`<img src="${thumb}" class="news-img" style="margin:0;cursor:pointer" alt="">`:'' }
+            <div class="yt-play-btn">▶</div>
           </div>
+        </div>`;
+      }
+    }
+
+    // Podcast with audio player
+    if (item.type === 'podcast' && item.audio) {
+      return `<div class="news-card ${cls}">
+        <div class="news-card-header">
+          <span class="news-type-pill">${pill}</span>
+          <span class="news-source">${item.source}</span>
+          <span class="news-date">${dStr}</span>
         </div>
-        <div class="card-bottom">
-          <span class="trend-badge tr-nu">—</span>
-          <span class="trend-detail"></span>
-          <a class="hawk-btn" href="${p.pu}#latest" target="_blank">🦅 Highlights</a>
-        </div>
+        <div class="news-title" style="margin-bottom:6px">${item.title}</div>
+        ${item.description?`<div class="news-desc">${item.description}</div>`:''}
+        <audio class="news-audio" controls preload="none"><source src="${item.audio}" type="audio/mpeg"></audio>
       </div>`;
     }
-    let detailHtml='';
-    if(!p.isDebut&&!p.isInj&&p.dda!==null){
-      const parts=[];
-      if(Math.abs(p.dda)>0.3) parts.push(`<span class="${p.dda>=0?'delta-up':'delta-dn'}">${dSign(p.dda,1)} DA</span>`);
-      const sec = (p.pos==='FW'||p.pos==='RU') ? p.dgl : p.dtk;
-      const secLbl = (p.pos==='FW'||p.pos==='RU') ? 'Gls/g' : 'Tcks/g';
-      if(sec!==null&&Math.abs(sec)>0.08) parts.push(`<span class="${sec>=0?'delta-up':'delta-dn'}">${dSign(sec,1)} ${secLbl}</span>`);
-      detailHtml=parts.slice(0,2).join(' · ');
-    }
 
-    // Position-specific rows
-    let row1='', row2='';
-    if(p.pos==='FW'){
-      row1=`<div class="stat-box"><div class="sv ${hi(p.gl,15)}">${p.gl}</div><div class="sl">Goals</div></div>
-            <div class="stat-box"><div class="sv ${hi(p.da26,14)}">${da}</div><div class="sl">DA</div></div>
-            <div class="stat-box"><div class="sv ${hi(p.tk,12)}">${p.tk}</div><div class="sl">Tackles</div></div>
-            <div class="stat-box"><div class="sv">${p.gp}</div><div class="sl">Games</div></div>`;
-      row2=`<div class="stat-box-sm"><div class="sv2 ${hi(p.ga,8)}">${ev(p.ga)}</div><div class="sl2">Gls Ast</div></div>
-            <div class="stat-box-sm"><div class="sv2 ${hi(p.cm,12)}">${ev(p.cm)}</div><div class="sl2">C.Marks</div></div>
-            <div class="stat-box-sm"><div class="sv2 ${hi(p.cl,30)}">${ev(p.cl)}</div><div class="sl2">Clear</div></div>`;
-    } else if(p.pos==='MF'){
-      row1=`<div class="stat-box"><div class="sv ${hi(p.da26,20)}">${da}</div><div class="sl">DA</div></div>
-            <div class="stat-box"><div class="sv ${hi(p.cl,40)}">${ev(p.cl)}</div><div class="sl">Clear</div></div>
-            <div class="stat-box"><div class="sv ${hi(p.tk,30)}">${p.tk}</div><div class="sl">Tackles</div></div>
-            <div class="stat-box"><div class="sv">${p.gp}</div><div class="sl">Games</div></div>`;
-      row2=`<div class="stat-box-sm"><div class="sv2 ${hi(p.gl,5)}">${p.gl}</div><div class="sl2">Goals</div></div>
-            <div class="stat-box-sm"><div class="sv2 ${hi(p.di,180)}">${p.di}</div><div class="sl2">Disposals</div></div>
-            <div class="stat-box-sm"><div class="sv2">${khb}</div><div class="sl2">K:HB</div></div>`;
-    } else if(p.pos==='DF'){
-      row1=`<div class="stat-box"><div class="sv ${hi(p.da26,16)}">${da}</div><div class="sl">DA</div></div>
-            <div class="stat-box"><div class="sv ${hi(p.tk,20)}">${p.tk}</div><div class="sl">Tackles</div></div>
-            <div class="stat-box"><div class="sv ${hi(p.op,30)}">${ev(p.op)}</div><div class="sl">1%</div></div>
-            <div class="stat-box"><div class="sv">${p.gp}</div><div class="sl">Games</div></div>`;
-      row2=`<div class="stat-box-sm"><div class="sv2 ${hi(p.cm,8)}">${ev(p.cm)}</div><div class="sl2">C.Marks</div></div>
-            <div class="stat-box-sm"><div class="sv2 ${hi(p.cl,20)}">${ev(p.cl)}</div><div class="sl2">Clear</div></div>
-            <div class="stat-box-sm"><div class="sv2 ${hi(p.gl,3)}">${p.gl}</div><div class="sl2">Goals</div></div>`;
-    } else {
-      row1=`<div class="stat-box"><div class="sv ${hi(p.da26,10)}">${da}</div><div class="sl">DA</div></div>
-            <div class="stat-box"><div class="sv ${hi(p.ho,150)}">${ev(p.ho)}</div><div class="sl">Hit-Outs</div></div>
-            <div class="stat-box"><div class="sv ${hi(p.tk,25)}">${p.tk}</div><div class="sl">Tackles</div></div>
-            <div class="stat-box"><div class="sv">${p.gp}</div><div class="sl">Games</div></div>`;
-      row2=`<div class="stat-box-sm"><div class="sv2 ${hi(p.cl,25)}">${ev(p.cl)}</div><div class="sl2">Clear</div></div>
-            <div class="stat-box-sm"><div class="sv2 ${hi(p.gl,5)}">${p.gl}</div><div class="sl2">Goals</div></div>
-            <div class="stat-box-sm"><div class="sv2 ${hi(p.cm,8)}">${ev(p.cm)}</div><div class="sl2">C.Marks</div></div>`;
-    }
-
-    const spark = sparklineHTML(p.rounds, p.pos === 'FW' ? 'gl' : p.pos === 'RU' && p.ho > 0 ? 'ho' : 'di');
-    const form  = last3Form(p);
-    const sparkStrip = spark ? `
-      <div class="spark-strip">
-        <span class="spark-label">Last ${p.rounds.length}</span>
-        ${spark}
-        ${form ? `<span class="form-badge ${form.cls}">${form.icon} ${form.label}</span>` : ''}
-      </div>` : '';
-
-    return `<div class="player-card">
-      <div class="card-inner">
-        <div class="card-jumper-col">
-          ${playerPhotoHTML(p)}
-          <div class="card-name">${p.name}</div>
-          <div class="card-pos-badge pos-${p.pos}">${p.pos}</div>
-        </div>
-        <div class="card-stats-col">
-          <div class="stats-row">${row1}</div>
-          <div class="stats-row-sm">${row2}</div>
-          ${sparkStrip}
-        </div>
+    // Standard article
+    const img = item.image?`<img class="news-img" src="${item.image}" loading="lazy" onerror="this.style.display='none'" alt="">`:'';
+    return `<div class="news-card ${cls}">
+      <div class="news-card-header">
+        <span class="news-type-pill">${pill}</span>
+        <span class="news-source">${item.source}</span>
+        <span class="news-date">${dStr}</span>
       </div>
-      <div class="card-bottom">
-        <span class="trend-badge ${tCls}">${tLabel}</span>
-        <span class="trend-detail">${detailHtml}</span>
-        <a class="hawk-btn" href="${p.pu}#latest" target="_blank">🦅 Highlights</a>
-      </div>
+      ${img}
+      <div class="news-title"><a href="${item.url}" target="_blank" rel="noopener">${item.title}</a></div>
     </div>`;
   }).join('');
+
+  newsLoaded = true;
 }
 
-function renderTable(){
-  const tbody=document.getElementById('table-body');
-  if(!tbody)return;
-  try{
-    const arr=sortedBy(filtered(),tSortKey,tSortDir);
-    document.querySelectorAll('[id^="ta-"]').forEach(el=>el.textContent='');
-    const ar=document.getElementById('ta-'+tSortKey);
-    if(ar)ar.textContent=tSortDir>0?' ↑':' ↓';
-    if(!arr||!arr.length){tbody.innerHTML='<tr><td colspan="25" class="empty">No players</td></tr>';return;}
-    const noExtra=arr.every(p=>!hasExtra(p));
-    const ep=noExtra?pendingSpan():'';
-    const fmtD=(v,d)=>v==null||isNaN(v)?'<span class="t-nu">—</span>':`<span class="${v>=0?'t-up':'t-dn'}">${dSign(v,d)}</span>`;
-    tbody.innerHTML=arr.map(p=>{
-      const da26str=isNaN(p.da26)?'0.0':(p.da26||0).toFixed(1);
-      const da25D=p.da25!=null&&!isNaN(p.da25)?p.da25.toFixed(1):'—';
-      let trD='<span class="t-nu">—</span>';
-      if(!p.isDebut&&!p.isInj&&p.trend!=null&&!isNaN(p.trend)){
-        const c=p.trend>8?'t-up':p.trend<-8?'t-dn':'t-nu';
-        trD=`<span class="${c}">${p.trend>0?'↑':p.trend<0?'↓':'↔'} ${Math.abs(p.trend).toFixed(0)}%</span>`;
-      } else if(p.isDebut)trD='<span class="t-nu">Debut</span>';
-      else if(p.isInj)trD='<span class="t-nu">Inj</span>';
-      return `<tr>
-        <td class="lft t-name">${p.jn||'—'}</td>
-        <td class="lft t-name">${p.name}</td>
-        <td>${p.pos}</td>
-        <td>${p.age||'—'}</td>
-        <td>${p.ht||'—'}</td>
-        <td>${p.draftLbl||'—'}</td>
-        <td class="grp">${p.gp}</td>
-        <td class="${p.gl>=15?'t-hi':''}">${p.gl}</td>
-        <td class="${p.tk>=30?'t-hi':''}">${p.tk}</td>
-        <td class="${p.di>=200?'t-hi':''}">${p.di}</td>
-        <td>${da26str}</td>
-        <td>${p.ki||0}</td>
-        <td>${p.hb||0}</td>
-        <td class="grp">${p.ho>0?p.ho:ep}</td>
-        <td>${p.cl>0?p.cl:ep}</td>
-        <td>${p.ga>0?p.ga:ep}</td>
-        <td>${p.ff>0?p.ff:ep}</td>
-        <td>${p.fa>0?p.fa:ep}</td>
-        <td>${p.cm>0?p.cm:ep}</td>
-        <td>${p.op>0?p.op:ep}</td>
-        <td class="grp">${p.isDebut?'—':p.gp25||0}</td>
-        <td>${p.isDebut?'—':da25D}</td>
-        <td>${p.isDebut||p.isInj?'<span class="t-nu">—</span>':fmtD(p.dda,1)}</td>
-        <td>${p.isDebut||p.isInj?'<span class="t-nu">—</span>':fmtD(p.dtk,1)}</td>
-        <td class="grp">${trD}</td>
-      </tr>`;
-    }).join('');
-  }catch(e){
-    tbody.innerHTML=`<tr><td colspan="25" class="empty">Table error: ${e.message}</td></tr>`;
-  }
-}
+function renderNews() { loadNews(); }
 
-function setPos(el){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');curPos=el.dataset.pos;renderAll();}
-function setView(v,el){
-  document.querySelectorAll('.vtab').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');
-  curView=v;
-  document.getElementById('cards-view').style.display=v==='cards'?'':'none';
-  document.getElementById('table-view').style.display=v==='table'?'':'none';
-  document.getElementById('club-view').style.display=v==='club'?'':'none';
-  document.getElementById('news-view').style.display=v==='news'?'':'none';
-  document.getElementById('sort-bar').style.display=v==='cards'?'':'none';
-  document.getElementById('controls').style.display=(v==='club'||v==='news')?'none':'';
-  if(v==='news')renderNews();
-  else renderAll();
+function playYT(idx, vidId) {
+  const wrap = document.getElementById('yt-'+idx);
+  if (!wrap) return;
+  wrap.innerHTML = `<div class="yt-frame-wrap">
+    <iframe src="https://www.youtube.com/embed/${vidId}?autoplay=1&playsinline=1&rel=0"
+      frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  </div>`;
 }
-function setSort(el){const k=el.dataset.key;if(curSort===k)curSortDir*=-1;else{curSort=k;curSortDir=-1;}document.querySelectorAll('.sort-btn').forEach(t=>t.classList.remove('active'));el.classList.add('active');renderAll();}
-function tSort(k){if(tSortKey===k)tSortDir*=-1;else{tSortKey=k;tSortDir=-1;}renderAll();}
 
 /* ── FIXTURE PANEL (hero right side) ── */
 function renderFixturePanel(games) {
@@ -1215,53 +981,6 @@ async function showGFPanel(card) {
 }
 function closeGFPanel() {
   document.getElementById('gf-panel').style.display = 'none';
-}
-
-/* ── NEWS TAB ── */
-let NEWS_DATA = null;
-
-function loadNews() {
-  fetch('news.json?v=' + Date.now())
-    .then(r => r.ok ? r.json() : Promise.reject())
-    .then(d => { NEWS_DATA = d; if(curView==='news') renderNews(); })
-    .catch(() => { NEWS_DATA = null; if(curView==='news') renderNews(); });
-}
-
-function renderNews() {
-  const feed = document.getElementById('news-feed');
-  const upd  = document.getElementById('news-updated');
-  if (!feed) return;
-
-  if (NEWS_DATA && NEWS_DATA.updated) {
-    const d = new Date(NEWS_DATA.updated);
-    upd.textContent = 'Updated ' + d.toLocaleDateString('en-AU', {day:'numeric',month:'short',hour:'2-digit',minute:'2-digit',timeZone:'Australia/Melbourne'}) + ' AEST';
-  }
-
-  if (!NEWS_DATA || !NEWS_DATA.items || !NEWS_DATA.items.length) {
-    feed.innerHTML = `<div style="text-align:center;padding:40px 20px;font-size:0.85rem;color:var(--gold);opacity:0.6;line-height:1.7">
-      📰 No news yet<br>
-      <span style="font-size:0.75rem">Run the <strong>Daily News Update</strong> workflow<br>on GitHub to populate this tab</span>
-    </div>`;
-    return;
-  }
-
-  feed.innerHTML = NEWS_DATA.items.map(item => {
-    const typePill = item.type==='podcast' ? '🎙 Podcast' : item.type==='video' ? '▶ Video' : '📰 Article';
-    const typeCls  = item.type==='podcast' ? 'news-podcast' : item.type==='video' ? 'news-video' : 'news-article';
-    const img   = item.image ? `<img class="news-img" src="${item.image}" loading="lazy" onerror="this.style.display='none'" alt="">` : '';
-    const audio = item.audio ? `<audio class="news-audio" controls preload="none"><source src="${item.audio}" type="audio/mpeg"></audio>` : '';
-    const desc  = item.description ? `<div class="news-desc">${item.description}</div>` : '';
-    return `<div class="news-card ${typeCls}">
-      <div class="news-card-header">
-        <span class="news-type-pill">${typePill}</span>
-        <span class="news-source">${item.source}</span>
-        <span class="news-date">${item.dateDisplay||''}</span>
-      </div>
-      ${img}
-      <div class="news-title"><a href="${item.url}" target="_blank" rel="noopener">${item.title}</a></div>
-      ${desc}${audio}
-    </div>`;
-  }).join('');
 }
 
 load();
