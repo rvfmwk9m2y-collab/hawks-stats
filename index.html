@@ -76,6 +76,17 @@ input[type=text]:focus { border-color: var(--gold-mid); }
 /* PLAYER CARDS */
 .player-list { padding: 0 14px 20px; display: flex; flex-direction: column; gap: 12px; }
 .player-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; box-shadow: 0 2px 8px rgba(61,26,6,0.06); }
+.card-header { display:flex; align-items:center; gap:10px; padding:12px 12px 8px; }
+.card-title { flex:1; min-width:0; }
+.player-name { font-size:0.92rem; font-weight:700; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.player-meta { font-size:0.62rem; color:var(--muted); margin-top:1px; }
+.gp-badge { font-size:0.65rem; font-weight:700; padding:3px 8px; border-radius:10px; background:rgba(61,26,6,0.08); color:var(--brown); white-space:nowrap; }
+.stat-row { display:flex; gap:0; border-top:1px solid var(--border); }
+.stat-g { flex:1; text-align:center; padding:7px 4px; border-right:1px solid var(--border); }
+.stat-g:last-child { border-right:none; }
+.stat-g span { display:block; font-size:0.55rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
+.stat-g b { display:block; font-size:1rem; font-weight:700; color:var(--text); }
+.trend-strip { padding:5px 12px; font-size:0.7rem; font-weight:600; text-align:center; }
 .card-inner { display: flex; align-items: stretch; }
 
 /* JUMPER COLUMN */
