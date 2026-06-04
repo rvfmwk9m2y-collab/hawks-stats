@@ -612,38 +612,36 @@ async function loadNews() {
   }
 
   feed.innerHTML = items.map((item, idx) => {
-    const pill  = item.type==='video'?'▶ Video': item.type==='podcast'?'🎙 Podcast':'📰 Article';
-    const cls   = item.type==='video'?'news-video': item.type==='podcast'?'news-podcast':'news-article';
-    const dStr  = item.dateDisplay || (item.date instanceof Date
-      ? item.date.toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric',timeZone:'Australia/Melbourne'})
-      : item.date ? new Date(item.date).toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric',timeZone:'Australia/Melbourne'}) : '');
+    const dStr  = item.dateDisplay || (item.date ? new Date(item.date).toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric',timeZone:'Australia/Melbourne'}) : '');
 
-    // YouTube inline player
-    if (item.type === 'video' && item.url) {
-      const vidId = (item.url.match(/[?&]v=([^&]+)/)||[])[1] || (item.url.match(/youtu\.be\/([^?]+)/)||[])[1];
-      const thumb = item.image || (vidId ? `https://img.youtube.com/vi/${vidId}/hqdefault.jpg` : null);
-      if (vidId) {
-        return `<div class="news-card ${cls}">
-          <div class="news-card-header">
-            <span class="news-type-pill">${pill}</span>
-            <span class="news-source">${item.source}</span>
-            <span class="news-date">${dStr}</span>
-          </div>
-          <div class="news-title" style="margin-bottom:8px">${item.title}</div>
-          <div class="yt-thumb-wrap" id="yt-${idx}" onclick="playYT(${idx},'${vidId}')">
-            ${thumb?`<img src="${thumb}" class="news-img" style="margin:0;cursor:pointer" alt="">`:'' }
-            <div class="yt-play-btn">▶</div>
-          </div>
-        </div>`;
-      }
+    // ── YouTube inline player (any item linking to YouTube) ──────────────────
+    const vidId = item.url ? (
+      (item.url.match(/[?&]v=([^&]+)/)||[])[1] ||
+      (item.url.match(/youtu\.be\/([^?\/]+)/)||[])[1]
+    ) : null;
+
+    if (vidId) {
+      const thumb = item.image || `https://img.youtube.com/vi/${vidId}/hqdefault.jpg`;
+      return `<div class="news-card news-video">
+        <div class="news-card-header">
+          <span class="news-type-pill">▶ Video</span>
+          <span class="news-source">${item.source||''}</span>
+          <span class="news-date">${dStr}</span>
+        </div>
+        <div class="news-title" style="margin-bottom:8px">${item.title}</div>
+        <div class="yt-thumb-wrap" id="yt-${idx}" onclick="playYT(${idx},'${vidId}')">
+          <img src="${thumb}" class="news-img" style="margin:0;cursor:pointer" alt="" onerror="this.style.display='none'">
+          <div class="yt-play-btn">▶</div>
+        </div>
+      </div>`;
     }
 
-    // Podcast with audio player
-    if (item.type === 'podcast' && item.audio) {
-      return `<div class="news-card ${cls}">
+    // ── Podcast ──────────────────────────────────────────────────────────────
+    if (item.audio) {
+      return `<div class="news-card news-podcast">
         <div class="news-card-header">
-          <span class="news-type-pill">${pill}</span>
-          <span class="news-source">${item.source}</span>
+          <span class="news-type-pill">🎙 Podcast</span>
+          <span class="news-source">${item.source||''}</span>
           <span class="news-date">${dStr}</span>
         </div>
         <div class="news-title" style="margin-bottom:6px">${item.title}</div>
@@ -652,12 +650,12 @@ async function loadNews() {
       </div>`;
     }
 
-    // Standard article
-    const img = item.image?`<img class="news-img" src="${item.image}" loading="lazy" onerror="this.style.display='none'" alt="">`:'';
-    return `<div class="news-card ${cls}">
+    // ── Standard article ─────────────────────────────────────────────────────
+    const img = item.image ? `<img class="news-img" src="${item.image}" loading="lazy" onerror="this.style.display='none'" alt="">` : '';
+    return `<div class="news-card news-article">
       <div class="news-card-header">
-        <span class="news-type-pill">${pill}</span>
-        <span class="news-source">${item.source}</span>
+        <span class="news-type-pill">📰 Article</span>
+        <span class="news-source">${item.source||''}</span>
         <span class="news-date">${dStr}</span>
       </div>
       ${img}
