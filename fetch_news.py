@@ -20,7 +20,13 @@ HAWK_KEYWORDS = [
     'conor nash', 'dylan moore', 'lloyd meek', 'ned reeves',
 ]
 
-CUTOFF_DAYS = 7
+CUTOFF_DAYS = 14  # widened to 14 days to catch more content
+
+# CORS proxies — tried in order if direct fetch fails
+PROXIES = [
+    'https://api.allorigins.win/raw?url=',
+    'https://corsproxy.io/?url=',
+]
 
 FEEDS = [
     # ── News Articles ──────────────────────────────────────────────────────
@@ -116,16 +122,22 @@ def get_image_url(entry):
 
 def fetch_feed(cfg):
     print(f"  [{cfg['source']}] {cfg['url'][:70]}")
-    try:
-        resp = requests.get(cfg['url'], headers=HEADERS, timeout=15)
-        resp.raise_for_status()
-        parsed = feedparser.parse(resp.text)
-    except Exception as e:
-        print(f"    ⚠ Fetch failed: {e}")
-        return []
+    urls_to_try = [cfg['url']] + [p + requests.utils.quote(cfg['url'], safe='') for p in PROXIES]
+    
+    parsed = None
+    for url in urls_to_try:
+        try:
+            resp = requests.get(url, headers=HEADERS, timeout=20)
+            resp.raise_for_status()
+            parsed = feedparser.parse(resp.text)
+            if parsed.entries:
+                break
+        except Exception as e:
+            print(f"    ⚠ {url[:50]}… failed: {e}")
+            continue
 
-    if not parsed.entries:
-        print(f"    ⚠ No entries found")
+    if not parsed or not parsed.entries:
+        print(f"    ⚠ No entries from any source")
         return []
 
     cutoff = datetime.now(timezone.utc) - timedelta(days=CUTOFF_DAYS)
