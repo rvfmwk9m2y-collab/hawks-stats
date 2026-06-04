@@ -39,6 +39,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif
 
 /* TOPBAR */
 .topbar { background: var(--brown); padding: 12px 16px; padding-top: calc(12px + env(safe-area-inset-top)); display: flex; align-items: center; gap: 12px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+.club-logo { width: 36px; height: 36px; border-radius: 50%; background: var(--gold); color: var(--brown); font-size: 1.1rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .hawk-logo { width: 42px; height: 42px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900; color: var(--brown); font-family: Georgia,serif; flex-shrink: 0; }
 .topbar-text h1 { font-size: 1rem; font-weight: 700; color: var(--gold); }
 .topbar-text p { font-size: 0.72rem; color: rgba(242,193,78,0.65); margin-top: 1px; }
@@ -256,18 +257,22 @@ tr:hover td { background: var(--gold-pale); }
 .gf-thumb { width:110px; height:80px; object-fit:cover; border-radius:6px; float:right; margin:0 0 8px 10px; display:block; }
 .gf-extract { font-size:0.78rem; color:rgba(242,193,78,0.8); line-height:1.55; }
 .gf-hl-btn { display:block; margin-top:12px; text-align:center; background:#3D1A06; color:var(--gold); font-size:0.75rem; font-weight:600; padding:8px; border-radius:6px; text-decoration:none; border:1px solid rgba(242,193,78,0.2); }
+
+.yt-thumb-wrap { position:relative; cursor:pointer; border-radius:6px; overflow:hidden; margin-top:6px; }
+.yt-thumb-wrap .news-img { margin:0; width:100%; display:block; }
+.yt-play-btn { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.3); font-size:2.5rem; color:#fff; pointer-events:none; }
+.yt-frame-wrap { position:relative; padding-bottom:56.25%; height:0; border-radius:6px; overflow:hidden; margin-top:6px; }
+.yt-frame-wrap iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:none; }
 </style>
 </head>
 <body>
 
 <!-- ── APP HEADER ── -->
 <div class="topbar">
-  <div style="display:flex;align-items:center;gap:10px">
-    <div class="club-logo">H</div>
-    <div>
-      <div class="app-title">Hawks Stats 2026</div>
-      <div class="app-sub" id="subtitle">Loading…</div>
-    </div>
+  <div class="club-logo">H</div>
+  <div class="topbar-text">
+    <h1>Hawks Stats 2026</h1>
+    <p id="subtitle">Loading…</p>
   </div>
   <div class="record-pill" id="record-pill">—</div>
 </div>
@@ -1145,6 +1150,7 @@ function renderCards(){
           <div class="stats-row-sm">${row2}</div>
         </div>
       </div>
+      <div class="spark-strip">${sparklineHTML(p.rounds, p.pos==='FW'?'gl':p.pos==='RU'?(p.ho>0?'ho':'di'):'di')}${(()=>{const f3=last3Form(p);return f3?`<span class="form-badge ${f3.cls}">${f3.icon} ${f3.label}</span>`:'';})()} </div>
       <div class="card-bottom">
         <span class="trend-badge ${tCls}">${tLabel}</span>
         <span class="trend-detail">${detailHtml}</span>
