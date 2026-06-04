@@ -1,4 +1,60 @@
 {
-  "updated": "2026-05-29T00:00:00Z",
-  "items": []
+  "updated": "2026-06-04T06:38:57Z",
+  "items": [
+    {
+      "type": "article",
+      "source": "Zero Hanger",
+      "title": "The players your team has been linked to in 2026 – AFL trade news",
+      "url": "https://www.zerohanger.com/the-players-your-team-has-been-linked-to-in-2026-afl-trade-news-177899/",
+      "description": "Here are the names your club has been tied to this year👇",
+      "date": "2026-06-04T04:45:34Z",
+      "dateDisplay": "4 Jun 2026",
+      "image": "https://www.zerohanger.com/wp-content/uploads/2026/06/swap.png",
+      "audio": null
+    },
+    {
+      "type": "article",
+      "source": "AFL.com.au",
+      "title": "AFL congratulates Jacob Mollison on 400 games",
+      "url": "https://www.afl.com.au/news/1533156/afl-congratulates-jacob-mollison-on-400-games",
+      "description": "Jacob Mollison will officiate his 400th AFL match during the Round 13 Collingwood vs Melbourne game on Monday",
+      "date": "2026-06-04T03:28:00Z",
+      "dateDisplay": "4 Jun 2026",
+      "image": "https://resources.afl.com.au/photo-resources/2026/06/04/046110dd-3a35-4b30-8c7f-b417e7301d79/ORSyHa25DB4429.jpg?width=1000",
+      "audio": null
+    },
+    {
+      "type": "podcast",
+      "source": "Real Footy",
+      "title": "‘I’ve written off Brisbane’",
+      "url": "https://omny.fm/shows/real-footy/i-ve-written-off-brisbane",
+      "description": "Is the Lions season on the skids? One of our panellists certainly thinks so ahead of a huge Q Clash against the Suns. Elsewhere, there are rematches aplenty in round 13 as a number of teams face-off against each other for the second time this season. Among the games Andrew Wu and…",
+      "date": "2026-06-03T19:00:00Z",
+      "dateDisplay": "3 Jun 2026",
+      "image": "https://www.omnycontent.com/d/playlist/88b564ea-a9a6-4751-910a-a5d800019396/61adb2e0-e341-4859-9832-ab8300272ff0/8ad21e4c-66ef-4a60-8991-ab8300272ff5/image.jpg?t=1772154323&size=Large",
+      "audio": "https://pdst.fm/e/traffic.omny.fm/d/clips/88b564ea-a9a6-4751-910a-a5d800019396/61adb2e0-e341-4859-9832-ab8300272ff0/c9a737f7-1d55-4d0f-a14c-b45e006cd84e/audio.mp3?utm_source=Podcast&in_playlist=8ad21e4c-66ef-4a60-8991-ab8300272ff5"
+    },
+    {
+      "type": "podcast",
+      "source": "Talking Hawks",
+      "title": "Six Points: St Kilda Saints, Round 12, 2026",
+      "url": "https://podcasters.spotify.com/pod/show/talking-hawks/episodes/Six-Points-St-Kilda-Saints--Round-12--2026-e3k4h8e",
+      "description": "In this episode of Talking Hawks Six Points, Tim and Liam recap Hawthorn's emphatic 52 point victory against the Saints at Marvel Stadium, that saw our co-captain bounce back to form, Will Day's successful return to football and the Wizard casting spells aplenty. Follow on Facebo…",
+      "date": "2026-05-31T06:42:26Z",
+      "dateDisplay": "31 May 2026",
+      "image": null,
+      "audio": "https://anchor.fm/s/b2d1916c/podcast/play/120783566/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-4-31%2F425212452-44100-2-9a9a451bcc784.m4a"
+    },
+    {
+      "type": "podcast",
+      "source": "AFL Daily",
+      "title": "Nothing scary about the Saints, Essendon can't move forward without Hird",
+      "url": "https://omny.fm/shows/afl-daily/nothing-scary-about-the-saints-essendon-cant-move-forward-without-hird",
+      "description": "Damian Barrett and Joe Pignataro bring you the latest footy news on AFL Daily. Hawthorn toyed with the Saints last night at Marvel Stadium, and a box ticked with the return of their best player - Will Day. Carlton has announced his coaching selection committee headed up by Graham…",
+      "date": "2026-05-28T21:30:10Z",
+      "dateDisplay": "28 May 2026",
+      "image": "https://www.omnycontent.com/d/playlist/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/487a8045-ed6a-43af-816d-ad5700723925/image.jpg?t=1780270056&size=Large",
+      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/236f9c64-ba4c-4cb9-a544-b4580161b3dd/audio.mp3?utm_source=Podcast&in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
+    }
+  ]
 }
