@@ -909,6 +909,15 @@ async function loadPlayerPhotos() {
   } catch(e) { /* photos unavailable, fallback to SVG */ }
 }
 
+function jumperSVG(jn) {
+  return `<svg viewBox="0 0 60 70" xmlns="http://www.w3.org/2000/svg" width="44" height="52">
+    <path d="M15,10 L5,25 L15,28 L15,60 L45,60 L45,28 L55,25 L45,10 C40,7 35,5 30,5 C25,5 20,7 15,10Z" fill="#3D1A06" stroke="#F2C14E" stroke-width="1.5"/>
+    <path d="M15,10 C18,15 18,22 15,28" fill="#F2C14E" stroke="none"/>
+    <path d="M45,10 C42,15 42,22 45,28" fill="#F2C14E" stroke="none"/>
+    <text x="30" y="42" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#F2C14E">${jn||''}</text>
+  </svg>`;
+}
+
 function playerPhotoHTML(p) {
   const url = photoMap[p.name];
   if (url) {
@@ -1076,8 +1085,10 @@ function renderCards(){
   list.innerHTML=arr.map(p=>{
     const da26s=p.gp>0?p.da26.toFixed(1):'—';
     const [trCls,trLbl,trTip]=trendInfo(p);
-    const spark=sparklineHTML(p);
+    const sparkStat=p.pos==='FW'?'gl':p.pos==='RU'?(p.ho>0?'ho':'di'):'di';
+    const spark=sparklineHTML(p.rounds,sparkStat);
     const f3=last3Form(p);
+    const f3HTML=f3?`<span class="form-badge ${f3.cls}">${f3.icon} ${f3.label}</span>`:'';
     let stats='';
     if(p.pos==='FW')      stats=`<div class="stat-g"><span>Gls</span><b>${p.gl}</b></div><div class="stat-g"><span>Gls/g</span><b>${p.gp?( p.gl/p.gp).toFixed(1):'—'}</b></div><div class="stat-g"><span>DA/g</span><b>${da26s}</b></div><div class="stat-g"><span>Tcks</span><b>${p.tk}</b></div>`;
     else if(p.pos==='MF') stats=`<div class="stat-g"><span>Disp</span><b>${p.di}</b></div><div class="stat-g"><span>DA/g</span><b>${da26s}</b></div><div class="stat-g"><span>Tcks</span><b>${p.tk}</b></div><div class="stat-g"><span>Gls</span><b>${p.gl}</b></div>`;
@@ -1095,7 +1106,7 @@ function renderCards(){
         <div class="gp-badge">${p.gp} GP</div>
       </div>
       <div class="stat-row">${stats}</div>
-      <div class="spark-strip">${spark}<span class="spark-label">Last 3</span>${f3}</div>
+      <div class="spark-strip">${spark}<span class="spark-label">Last 3</span>${f3HTML}</div>
       <div class="trend-strip ${trCls}" title="${trTip}">${trLbl}</div>
     </div>`;
   }).join('');
