@@ -141,7 +141,8 @@ tr:hover td { background: var(--gold-pale); }
   gap: 10px;
   padding: 12px 14px 0;
 }
-.fix-panel { overflow-y: auto; max-height: 220px; scrollbar-width: none; }
+.fix-panel { overflow-y: scroll; max-height: 220px; scrollbar-width: none; -webkit-overflow-scrolling: touch; touch-action: pan-y; }
+.ng-card.fix-panel { overflow-y: scroll; } /* override ng-card's overflow:hidden */
 .fix-panel::-webkit-scrollbar { display: none; }
 .fix-row-h { display:flex; align-items:center; gap:6px; padding:5px 0; border-bottom:1px solid var(--border); font-size:0.72rem; }
 .fix-row-h:last-child { border-bottom:none; }
