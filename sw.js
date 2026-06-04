@@ -2,7 +2,7 @@
    CACHE_VERSION is updated automatically by scraper.py on every run.
    Changing it forces iOS to clear the old cache and reload fresh. */
 
-const CACHE_VERSION = 'hawks-20260604';
+const CACHE_VERSION = 'hawks-20260604b';
 const CACHE_NAME    = CACHE_VERSION;
 
 // Files to cache for offline use
@@ -34,7 +34,7 @@ self.addEventListener('activate', e => {
 //   everything else → cache-first (fonts, icons, external APIs)
 self.addEventListener('fetch', e => {
   const url = e.request.url;
-  const isData = url.includes('data.json') || url.includes('index.html');
+  const isData = url.includes('data.json') || url.includes('news.json') || url.includes('index.html');
 
   if (isData) {
     e.respondWith(
