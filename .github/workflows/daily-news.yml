@@ -1,0 +1,35 @@
+name: Daily News Update
+
+on:
+  schedule:
+    - cron: '0 21 * * *'   # 9pm UTC = 7am AEST daily
+  workflow_dispatch:         # allow manual trigger
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install feedparser requests --break-system-packages
+
+      - name: Run news fetcher
+        run: python fetch_news.py
+
+      - name: Commit news.json
+        run: |
+          git config user.name  "Hawks Bot"
+          git config user.email "hawks-bot@github-actions"
+          git add news.json
+          git diff --cached --quiet || git commit -m "📰 News update $(date +'%Y-%m-%d %H:%M')"
+          git push
