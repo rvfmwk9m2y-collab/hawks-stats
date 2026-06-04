@@ -549,7 +549,51 @@ def fetch_squiggle_next_game():
     return None
 
 
-def build_data(match_totals, round_data, profiles, record, position, next_game, video_map=None, fallback_vid=None):
+def fetch_squiggle_fixture():
+    """
+    Fetch all 2026 Hawthorn games from Squiggle for the fixture widget.
+    Returns list of game dicts or [] on failure.
+    """
+    try:
+        req = Request(
+            f"{SQUIGGLE_URL}?q=games;year=2026;team=10",
+            headers=SQUIGGLE_HEADERS
+        )
+        with urlopen(req, timeout=10) as r:
+            data = json.loads(r.read())
+        games = data.get('games', [])
+        if not games:
+            print("  ⚠ No Hawthorn 2026 games found in Squiggle")
+            return []
+        # Keep only the fields the app needs
+        fixture = []
+        for g in games:
+            is_home  = 'hawthorn' in (g.get('hteam') or '').lower()
+            opponent = g.get('ateam') if is_home else g.get('hteam')
+            hs = g.get('hscore')
+            os = g.get('ascore')
+            if not is_home:
+                hs, os = g.get('ascore'), g.get('hscore')
+            fixture.append({
+                'round':    g.get('round'),
+                'opponent': opponent,
+                'venue':    (g.get('venue') or '').replace('M.C.G.', 'MCG'),
+                'home':     is_home,
+                'localtime': g.get('localtime', ''),
+                'complete': g.get('complete', 0),
+                'hawksSc':  hs,
+                'oppSc':    os,
+            })
+        fixture.sort(key=lambda g: g.get('localtime') or '')
+        print(f"  ✓ Fixture: {len(fixture)} games fetched")
+        return fixture
+    except Exception as e:
+        print(f"  ⚠ Squiggle fixture failed: {e}")
+    return []
+
+
+
+def build_data(match_totals, round_data, profiles, record, position, next_game, fixture, video_map=None, fallback_vid=None):
     """Combine all scraped data into the final JSON structure."""
 
     # Load existing data.json as fallback for 2025 stats and other preserved fields
@@ -629,6 +673,7 @@ def build_data(match_totals, round_data, profiles, record, position, next_game, 
         "position":    position,
         "fallbackVid": fallback_vid,
         "nextGame":    next_game,
+        "fixture":     fixture,
         "players":     players,
     }
 
@@ -651,6 +696,7 @@ def main():
     print(f"\n📊 Fetching live standings & fixture from Squiggle…")
     record, position = fetch_squiggle_standings()
     next_game = fetch_squiggle_next_game()
+    fixture   = fetch_squiggle_fixture()
     if not record:
         record, position = FALLBACK_RECORD, FALLBACK_POSITION
         print(f"  Using fallback: {record} · {position}")
@@ -681,7 +727,7 @@ def main():
         print(f"  ✓ Scraped {scraped_total_gp} game-apps (existing: {existing_total_gp})")
     # ─────────────────────────────────────────────────────────────────────────
 
-    data = build_data(match_totals, round_data, profiles, record, position, next_game, video_map, fallback_vid)
+    data = build_data(match_totals, round_data, profiles, record, position, next_game, fixture, video_map, fallback_vid)
 
     with open("data.json", "w") as f:
         json.dump(data, f, indent=2)
