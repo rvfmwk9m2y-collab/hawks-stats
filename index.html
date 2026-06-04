@@ -539,9 +539,39 @@ async function loadNews() {
     items.push(item);
   };
 
-  // ── Reddit r/hawkiesafl ──────────────────────────────────────────────────
+async function loadNews() {
+  if (newsLoaded) return;
+  const feed = document.getElementById('news-feed');
+  const upd  = document.getElementById('news-updated');
+  if (!feed) return;
+  feed.innerHTML = '<div style="text-align:center;padding:30px;color:var(--gold);opacity:0.5;font-size:0.85rem">Loading news…</div>';
+
+  const items = [];
+  const seen  = new Set();
+  const cutoff = Date.now() - 14 * 24 * 60 * 60 * 1000;
+
+  const add = (item) => {
+    const key = item.url || item.audio;
+    if (!key || seen.has(key)) return;
+    seen.add(key);
+    items.push(item);
+  };
+
+  // ── Primary: load from news.json (populated by daily GitHub Actions workflow) ──
   try {
-    const r = await fetch('https://www.reddit.com/r/hawkiesafl/new.json?limit=30',
+    const r = await fetch('news.json?v=' + Date.now());
+    if (r.ok) {
+      const d = await r.json();
+      for (const item of (d.items || [])) {
+        if (item.date && new Date(item.date).getTime() < cutoff) continue;
+        add(item);
+      }
+    }
+  } catch(e) { console.log('news.json failed:', e); }
+
+  // ── Supplement: Reddit r/hawkiesafl ─────────────────────────────────────────
+  try {
+    const r = await fetch('https://www.reddit.com/r/hawkiesafl/new.json?limit=20',
       {headers:{'Accept':'application/json'}});
     const d = await r.json();
     for (const post of (d.data?.children||[])) {
@@ -550,31 +580,15 @@ async function loadNews() {
       if ((p.url||'').includes('reddit.com/r/')) continue;
       add({type:'article', source:'r/hawkiesafl', title:p.title||'',
            url:p.url||'', description:'',
-           date:new Date(p.created_utc*1000),
+           date:new Date(p.created_utc*1000).toISOString(),
+           dateDisplay: new Date(p.created_utc*1000).toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric',timeZone:'Australia/Melbourne'}),
            image:p.thumbnail?.startsWith('http')?p.thumbnail:null, audio:null});
     }
   } catch(e) { console.log('r/hawkiesafl failed:', e); }
 
-  // ── Reddit r/AFL (Hawthorn filter) ───────────────────────────────────────
+  // ── Hawthorn FC YouTube channel ──────────────────────────────────────────────
   try {
-    const r = await fetch('https://www.reddit.com/r/AFL/search.json?q=hawthorn&sort=new&restrict_sr=1&limit=25',
-      {headers:{'Accept':'application/json'}});
-    const d = await r.json();
-    for (const post of (d.data?.children||[])) {
-      const p = post.data;
-      if (p.created_utc*1000 < cutoff) continue;
-      if ((p.url||'').includes('reddit.com/r/')) continue;
-      add({type:'article', source:'r/AFL', title:p.title||'',
-           url:p.url||'', description:'',
-           date:new Date(p.created_utc*1000),
-           image:p.thumbnail?.startsWith('http')?p.thumbnail:null, audio:null});
-    }
-  } catch(e) { console.log('r/AFL failed:', e); }
-
-  // ── Hawthorn FC YouTube channel ──────────────────────────────────────────
-  try {
-    const ytUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=UCweshjuhmLYGxHuH2xIPXpg';
-    const r = await fetch(ytUrl);
+    const r = await fetch('https://www.youtube.com/feeds/videos.xml?channel_id=UCweshjuhmLYGxHuH2xIPXpg');
     const xml = await r.text();
     const entries = [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)];
     for (const [, entry] of entries) {
@@ -586,12 +600,18 @@ async function loadNews() {
       const dt = pub ? new Date(pub) : new Date();
       if (dt.getTime() < cutoff) continue;
       add({type:'video', source:'Hawthorn FC', title, url:link,
-           description:'', date:dt, image:thumb, audio:null});
+           description:'', date:dt.toISOString(),
+           dateDisplay: dt.toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric',timeZone:'Australia/Melbourne'}),
+           image:thumb, audio:null});
     }
   } catch(e) { console.log('YouTube failed:', e); }
 
   // Sort newest first
-  items.sort((a,b) => b.date - a.date);
+  items.sort((a,b) => {
+    const da = a.date instanceof Date ? a.date : new Date(a.date||0);
+    const db = b.date instanceof Date ? b.date : new Date(b.date||0);
+    return db - da;
+  });
 
   if (upd) upd.textContent = 'Updated ' + new Date().toLocaleTimeString('en-AU',
     {hour:'2-digit',minute:'2-digit',timeZone:'Australia/Melbourne'}) + ' AEST';
@@ -607,9 +627,9 @@ async function loadNews() {
   feed.innerHTML = items.map((item, idx) => {
     const pill  = item.type==='video'?'▶ Video': item.type==='podcast'?'🎙 Podcast':'📰 Article';
     const cls   = item.type==='video'?'news-video': item.type==='podcast'?'news-podcast':'news-article';
-    const dStr  = item.date instanceof Date
+    const dStr  = item.dateDisplay || (item.date instanceof Date
       ? item.date.toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric',timeZone:'Australia/Melbourne'})
-      : '';
+      : item.date ? new Date(item.date).toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric',timeZone:'Australia/Melbourne'}) : '');
 
     // YouTube inline player
     if (item.type === 'video' && item.url) {
@@ -1078,36 +1098,76 @@ function renderAll(){
 }
 
 function renderCards(){
-  const arr=sortedBy(filtered(),curSort,curSortDir);
-  const list=document.getElementById('player-list');
-  if(!list)return;
-  if(!arr.length){list.innerHTML='<div class="empty">No players match</div>';return;}
-  list.innerHTML=arr.map(p=>{
-    const da26s=p.gp>0?p.da26.toFixed(1):'—';
-    const [trCls,trLbl,trTip]=trendInfo(p);
-    const sparkStat=p.pos==='FW'?'gl':p.pos==='RU'?(p.ho>0?'ho':'di'):'di';
-    const spark=sparklineHTML(p.rounds,sparkStat);
-    const f3=last3Form(p);
-    const f3HTML=f3?`<span class="form-badge ${f3.cls}">${f3.icon} ${f3.label}</span>`:'';
-    let stats='';
-    if(p.pos==='FW')      stats=`<div class="stat-g"><span>Gls</span><b>${p.gl}</b></div><div class="stat-g"><span>Gls/g</span><b>${p.gp?( p.gl/p.gp).toFixed(1):'—'}</b></div><div class="stat-g"><span>DA/g</span><b>${da26s}</b></div><div class="stat-g"><span>Tcks</span><b>${p.tk}</b></div>`;
-    else if(p.pos==='MF') stats=`<div class="stat-g"><span>Disp</span><b>${p.di}</b></div><div class="stat-g"><span>DA/g</span><b>${da26s}</b></div><div class="stat-g"><span>Tcks</span><b>${p.tk}</b></div><div class="stat-g"><span>Gls</span><b>${p.gl}</b></div>`;
-    else if(p.pos==='DF') stats=`<div class="stat-g"><span>Disp</span><b>${p.di}</b></div><div class="stat-g"><span>DA/g</span><b>${da26s}</b></div><div class="stat-g"><span>Tcks</span><b>${p.tk}</b></div><div class="stat-g"><span>1%s</span><b>${p.op||0}</b></div>`;
-    else if(p.pos==='RU') stats=`<div class="stat-g"><span>HO</span><b>${p.ho}</b></div><div class="stat-g"><span>Disp</span><b>${p.di}</b></div><div class="stat-g"><span>DA/g</span><b>${da26s}</b></div><div class="stat-g"><span>Tcks</span><b>${p.tk}</b></div>`;
-    else stats=`<div class="stat-g"><span>Disp</span><b>${p.di}</b></div><div class="stat-g"><span>Gls</span><b>${p.gl}</b></div><div class="stat-g"><span>Tcks</span><b>${p.tk}</b></div><div class="stat-g"><span>GP</span><b>${p.gp}</b></div>`;
-    const photo=playerPhotoHTML(p);
+  const list=sortedBy(filtered(),curSort,curSortDir);
+  const el=document.getElementById('player-list');
+  if(!list.length){el.innerHTML='<div class="empty">No players match</div>';return;}
+  el.innerHTML=list.map(p=>{
+    const [tCls,tLabel]=trendInfo(p);
+    const ext = p.op>0||p.ho>0||p.cl>0||p.ga>0;
+    const ev  = v => ext ? v : '—';
+    const da  = p.da26.toFixed(1);
+    const khb = p.hb>0 ? (p.ki/p.hb).toFixed(1) : '—';
+    const hi  = (v,t) => (typeof v==='number'&&v>=t) ? 'hi' : '';
+    let detailHtml='';
+    if(!p.isDebut&&!p.isInj&&p.dda!==null){
+      const parts=[];
+      if(Math.abs(p.dda)>0.3) parts.push(`<span class="${p.dda>=0?'delta-up':'delta-dn'}">${dSign(p.dda,1)} DA</span>`);
+      const sec = (p.pos==='FW'||p.pos==='RU') ? p.dgl : p.dtk;
+      const secLbl = (p.pos==='FW'||p.pos==='RU') ? 'Gls/g' : 'Tcks/g';
+      if(sec!==null&&Math.abs(sec)>0.08) parts.push(`<span class="${sec>=0?'delta-up':'delta-dn'}">${dSign(sec,1)} ${secLbl}</span>`);
+      detailHtml=parts.slice(0,2).join(' · ');
+    }
+    let row1='', row2='';
+    if(p.pos==='FW'){
+      row1=`<div class="stat-box"><div class="sv ${hi(p.gl,15)}">${p.gl}</div><div class="sl">Goals</div></div>
+            <div class="stat-box"><div class="sv ${hi(p.da26,14)}">${da}</div><div class="sl">DA</div></div>
+            <div class="stat-box"><div class="sv ${hi(p.tk,12)}">${p.tk}</div><div class="sl">Tackles</div></div>
+            <div class="stat-box"><div class="sv">${p.gp}</div><div class="sl">Games</div></div>`;
+      row2=`<div class="stat-box-sm"><div class="sv2 ${hi(p.ga,8)}">${ev(p.ga)}</div><div class="sl2">Gls Ast</div></div>
+            <div class="stat-box-sm"><div class="sv2 ${hi(p.cm,12)}">${ev(p.cm)}</div><div class="sl2">C.Marks</div></div>
+            <div class="stat-box-sm"><div class="sv2 ${hi(p.cl,30)}">${ev(p.cl)}</div><div class="sl2">Clear</div></div>`;
+    } else if(p.pos==='MF'){
+      row1=`<div class="stat-box"><div class="sv ${hi(p.da26,20)}">${da}</div><div class="sl">DA</div></div>
+            <div class="stat-box"><div class="sv ${hi(p.cl,40)}">${ev(p.cl)}</div><div class="sl">Clear</div></div>
+            <div class="stat-box"><div class="sv ${hi(p.tk,30)}">${p.tk}</div><div class="sl">Tackles</div></div>
+            <div class="stat-box"><div class="sv">${p.gp}</div><div class="sl">Games</div></div>`;
+      row2=`<div class="stat-box-sm"><div class="sv2 ${hi(p.gl,5)}">${p.gl}</div><div class="sl2">Goals</div></div>
+            <div class="stat-box-sm"><div class="sv2 ${hi(p.di,180)}">${p.di}</div><div class="sl2">Disposals</div></div>
+            <div class="stat-box-sm"><div class="sv2">${khb}</div><div class="sl2">K:HB</div></div>`;
+    } else if(p.pos==='DF'){
+      row1=`<div class="stat-box"><div class="sv ${hi(p.da26,16)}">${da}</div><div class="sl">DA</div></div>
+            <div class="stat-box"><div class="sv ${hi(p.tk,20)}">${p.tk}</div><div class="sl">Tackles</div></div>
+            <div class="stat-box"><div class="sv ${hi(p.op,30)}">${ev(p.op)}</div><div class="sl">1%</div></div>
+            <div class="stat-box"><div class="sv">${p.gp}</div><div class="sl">Games</div></div>`;
+      row2=`<div class="stat-box-sm"><div class="sv2 ${hi(p.cm,8)}">${ev(p.cm)}</div><div class="sl2">C.Marks</div></div>
+            <div class="stat-box-sm"><div class="sv2 ${hi(p.cl,20)}">${ev(p.cl)}</div><div class="sl2">Clear</div></div>
+            <div class="stat-box-sm"><div class="sv2 ${hi(p.gl,3)}">${p.gl}</div><div class="sl2">Goals</div></div>`;
+    } else {
+      row1=`<div class="stat-box"><div class="sv ${hi(p.da26,10)}">${da}</div><div class="sl">DA</div></div>
+            <div class="stat-box"><div class="sv ${hi(p.ho,150)}">${ev(p.ho)}</div><div class="sl">Hit-Outs</div></div>
+            <div class="stat-box"><div class="sv ${hi(p.tk,25)}">${p.tk}</div><div class="sl">Tackles</div></div>
+            <div class="stat-box"><div class="sv">${p.gp}</div><div class="sl">Games</div></div>`;
+      row2=`<div class="stat-box-sm"><div class="sv2 ${hi(p.cl,25)}">${ev(p.cl)}</div><div class="sl2">Clear</div></div>
+            <div class="stat-box-sm"><div class="sv2 ${hi(p.gl,5)}">${p.gl}</div><div class="sl2">Goals</div></div>
+            <div class="stat-box-sm"><div class="sv2 ${hi(p.cm,8)}">${ev(p.cm)}</div><div class="sl2">C.Marks</div></div>`;
+    }
     return `<div class="player-card">
-      <div class="card-header">
-        ${photo}
-        <div class="card-title">
-          <div class="player-name">${p.name}</div>
-          <div class="player-meta">#${p.jn||'—'} · ${p.pos} · ${p.age}y · ${p.ht}cm</div>
+      <div class="card-inner">
+        <div class="card-jumper-col">
+          <div class="jumper-svg-wrap">${jumperSVG(p.jn)}</div>
+          <div class="card-name">${p.name}</div>
+          <div class="card-pos-badge pos-${p.pos}">${p.pos}</div>
         </div>
-        <div class="gp-badge">${p.gp} GP</div>
+        <div class="card-stats-col">
+          <div class="stats-row">${row1}</div>
+          <div class="stats-row-sm">${row2}</div>
+        </div>
       </div>
-      <div class="stat-row">${stats}</div>
-      <div class="spark-strip">${spark}<span class="spark-label">Last 3</span>${f3HTML}</div>
-      <div class="trend-strip ${trCls}" title="${trTip}">${trLbl}</div>
+      <div class="card-bottom">
+        <span class="trend-badge ${tCls}">${tLabel}</span>
+        <span class="trend-detail">${detailHtml}</span>
+        <a class="hawk-btn" href="${p.pu||'#'}#latest" target="_blank">🦅 Highlights</a>
+      </div>
     </div>`;
   }).join('');
 }
