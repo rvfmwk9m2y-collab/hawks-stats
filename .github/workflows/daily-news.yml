@@ -24,7 +24,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install feedparser requests --break-system-packages
+        run: pip install requests --break-system-packages
 
       - name: Run news fetcher
         run: python fetch_news.py
