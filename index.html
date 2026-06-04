@@ -644,10 +644,9 @@ function compute(raw) {
 function load() {
   fetch('data.json')
     .then(r=>r.ok?r.json():Promise.reject())
-    .then(d=>{DATA={...d,players:compute(d.players)};init();initNextGame();loadPlayerPhotos();})
-    .catch(()=>{DATA={...EMBEDDED,players:compute(EMBEDDED.players)};init();initNextGame();loadPlayerPhotos();});
+    .then(d=>{DATA={...d,players:compute(d.players)};init();loadFixturePanel();initNextGame();loadPlayerPhotos();})
+    .catch(()=>{DATA={...EMBEDDED,players:compute(EMBEDDED.players)};init();loadFixturePanel();initNextGame();loadPlayerPhotos();});
   loadNews();
-  loadFixturePanel();
 }
 
 function init() {
@@ -908,10 +907,9 @@ function renderFixturePanel(games) {
       byeAdded = true;
     }
     const rnd  = g.round === 0 ? 'OR' : `R${g.round}`;
-    const home = (g.hteam||'').includes('Hawthorn');
-    const opp  = (home ? g.ateam : g.hteam) || '—';
-    const hs   = home ? g.hscore : g.ascore;
-    const os   = home ? g.ascore : g.hscore;
+    const opp  = g.opponent || '—';
+    const hs   = g.hawksSc;
+    const os   = g.oppSc;
     const done = g.complete === 100;
     const won  = done && hs > os, lost = done && hs < os, drew = done && hs === os;
     const badge = done ? `<span class="fix-badge-h ${won?'bw':lost?'bl':'bd'}">${won?'W':lost?'L':'D'}</span>` : '';
@@ -927,18 +925,10 @@ function renderFixturePanel(games) {
   panel.innerHTML = `<div class="ng-badge" style="margin-bottom:6px">2026 Fixture</div><div>${rows.join('')}</div>`;
 }
 
-let fixtureRetries = 0;
-async function loadFixturePanel() {
-  try {
-    const r = await fetch('https://api.squiggle.com.au/?q=games;year=2026;team=10&source=HawksStatsApp');
-    if (!r.ok) throw new Error('bad response');
-    const d = await r.json();
-    const games = d.games || [];
-    if (games.length) { renderFixturePanel(games); fixtureRetries = 0; return; }
-  } catch(e) {}
-  if (fixtureRetries < 3) {
-    fixtureRetries++;
-    setTimeout(loadFixturePanel, fixtureRetries * 15000);
+function loadFixturePanel() {
+  // Fixture data comes from data.json (populated by scraper) — no external API call needed
+  if (DATA && DATA.fixture && DATA.fixture.length) {
+    renderFixturePanel(DATA.fixture);
   }
 }
 
@@ -1106,7 +1096,6 @@ async function initNextGame() {
     return;
   }
   const games = await fetchSquiggleGames();
-  if (games) renderFixturePanel(games);
   if (!games) {
     // API failed — retry in 2 minutes, show fallback in meantime
     clearTimeout(ngTimer);
