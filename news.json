@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-04T07:48:12Z",
+  "updated": "2026-06-05T00:05:40Z",
   "items": [
     {
       "type": "video",
@@ -198,17 +198,6 @@
       "dateDisplay": "24 May 2026",
       "image": null,
       "audio": "https://anchor.fm/s/b2d1916c/podcast/play/120481818/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-4-24%2F424808627-44100-2-3c10347262589.m4a"
-    },
-    {
-      "type": "podcast",
-      "source": "AFL Daily",
-      "title": "Hardwick a Hawks favourite, Adelaide's \"big problem\", Saints going through the grades",
-      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/2b35e7af-b38d-48b5-a9e8-b45101605739/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
-      "description": "Damian Barrett and Joel Peterson bring you the latest footy news on AFL Daily. Hawthorn came from behind to continue their unbeaten run in Tassie. Blake Hardwick's 4 goals helped to overcome the Adelaide Crows. Who wants to win it more? That's the question heading into Dreamtime …",
-      "date": "2026-05-21T21:26:04Z",
-      "dateDisplay": "21 May 2026",
-      "image": null,
-      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/2b35e7af-b38d-48b5-a9e8-b45101605739/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
     }
   ]
 }
