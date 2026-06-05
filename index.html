@@ -600,15 +600,16 @@ function renderNewsItems() {
     // Any YouTube URL → inline player
     const vidId = item.url ? ((item.url.match(/[?&]v=([^&]+)/)||[])[1] || (item.url.match(/youtu\.be\/([^?\/]+)/)||[])[1]) : null;
     if (vidId) {
-      const thumb = item.image || ('https://img.youtube.com/vi/' + vidId + '/hqdefault.jpg');
       return '<div class="news-card news-video">'
         + '<div class="news-card-header"><span class="news-type-pill">&#9654; Video</span>'
         + '<span class="news-source">' + (item.source||'') + '</span>'
         + '<span class="news-date">' + dStr + '</span></div>'
         + '<div class="news-title" style="margin-bottom:8px">' + item.title + '</div>'
-        + '<div class="yt-thumb-wrap" id="yt-' + idx + '" data-vid="' + vidId + '" onclick="playYT(this)">'
-        + '<img src="' + thumb + '" class="news-img" style="margin:0;cursor:pointer" alt="">'
-        + '<div class="yt-play-btn">&#9654;</div></div></div>';
+        + '<div class="yt-frame-wrap">'
+        + '<iframe src="https://www.youtube.com/embed/' + vidId + '?playsinline=1&rel=0&modestbranding=1"'
+        + ' frameborder="0" allow="autoplay; fullscreen; picture-in-picture; web-share"'
+        + ' allowfullscreen loading="lazy"></iframe>'
+        + '</div></div>';
     }
     // Podcast
     if (item.audio) {
