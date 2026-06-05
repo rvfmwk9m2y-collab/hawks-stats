@@ -586,6 +586,24 @@ async function loadNews() {
   renderNewsItems();
 }
 
+// YouTube video ID extractor — handles all URL formats
+function ytId(url) {
+  if (!url) return null;
+  // watch?v=ID  or  &v=ID
+  let m = url.match(/[?&]v=([a-zA-Z0-9_-]{11})/);
+  if (m) return m[1];
+  // youtu.be/ID
+  m = url.match(/youtu\.be\/([a-zA-Z0-9_-]{11})/);
+  if (m) return m[1];
+  // /shorts/ID
+  m = url.match(/\/shorts\/([a-zA-Z0-9_-]{11})/);
+  if (m) return m[1];
+  // /embed/ID
+  m = url.match(/\/embed\/([a-zA-Z0-9_-]{11})/);
+  if (m) return m[1];
+  return null;
+}
+
 function renderNewsItems() {
   const feed = document.getElementById('news-feed');
   const upd  = document.getElementById('news-updated');
@@ -597,34 +615,39 @@ function renderNewsItems() {
   if (upd) upd.textContent = 'Updated ' + new Date().toLocaleTimeString('en-AU', {hour:'2-digit',minute:'2-digit',timeZone:'Australia/Melbourne'}) + ' AEST';
   feed.innerHTML = newsItems.map((item, idx) => {
     const dStr = item.dateDisplay || (item.date ? new Date(item.date).toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric',timeZone:'Australia/Melbourne'}) : '');
-    // Any YouTube URL → inline player
-    const vidId = item.url ? ((item.url.match(/[?&]v=([^&]+)/)||[])[1] || (item.url.match(/youtu\.be\/([^?\/]+)/)||[])[1]) : null;
-    if (vidId) {
+    const vid = ytId(item.url);
+
+    // ── YouTube video (ANY item whose URL has a YouTube video ID) ───────────
+    if (vid) {
       return '<div class="news-card news-video">'
         + '<div class="news-card-header"><span class="news-type-pill">&#9654; Video</span>'
         + '<span class="news-source">' + (item.source||'') + '</span>'
         + '<span class="news-date">' + dStr + '</span></div>'
         + '<div class="news-title" style="margin-bottom:8px">' + item.title + '</div>'
-        + '<div class="yt-frame-wrap">'
-        + '<iframe src="https://www.youtube.com/embed/' + vidId + '?playsinline=1&rel=0&modestbranding=1"'
-        + ' frameborder="0" allow="autoplay; fullscreen; picture-in-picture; web-share"'
-        + ' allowfullscreen loading="lazy"></iframe>'
-        + '</div></div>';
+        + '<div class="yt-frame-wrap"><iframe src="https://www.youtube.com/embed/' + vid + '?playsinline=1&rel=0&modestbranding=1"'
+        + ' frameborder="0" allow="autoplay; fullscreen; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>'
+        + '</div>';
     }
-    // Podcast
+
+    // ── Podcast ──────────────────────────────────────────────────────────────
     if (item.audio) {
-      return '<div class="news-card news-podcast">' +
-        '<div class="news-card-header"><span class="news-type-pill">🎙 Podcast</span><span class="news-source">' + (item.source||'') + '</span><span class="news-date">' + dStr + '</span></div>' +
-        '<div class="news-title" style="margin-bottom:6px">' + item.title + '</div>' +
-        (item.description ? '<div class="news-desc">' + item.description + '</div>' : '') +
-        '<audio class="news-audio" controls preload="none"><source src="' + item.audio + '" type="audio/mpeg"></audio></div>';
+      return '<div class="news-card news-podcast">'
+        + '<div class="news-card-header"><span class="news-type-pill">&#127908; Podcast</span>'
+        + '<span class="news-source">' + (item.source||'') + '</span>'
+        + '<span class="news-date">' + dStr + '</span></div>'
+        + '<div class="news-title" style="margin-bottom:6px">' + item.title + '</div>'
+        + (item.description ? '<div class="news-desc">' + item.description + '</div>' : '')
+        + '<audio class="news-audio" controls preload="none"><source src="' + item.audio + '" type="audio/mpeg"></audio></div>';
     }
-    // Article
-    const img = item.image ? '<img class="news-img" src="' + item.image + '" loading="lazy" onerror="this.style.display=\"none\"" alt="">' : '';
-    return '<div class="news-card news-article">' +
-      '<div class="news-card-header"><span class="news-type-pill">📰 Article</span><span class="news-source">' + (item.source||'') + '</span><span class="news-date">' + dStr + '</span></div>' +
-      img +
-      '<div class="news-title"><a href="' + item.url + '" target="_blank" rel="noopener">' + item.title + '</a></div></div>';
+
+    // ── Article ───────────────────────────────────────────────────────────────
+    const img = item.image ? '<img class="news-img" src="' + item.image + '" loading="lazy" alt="">' : '';
+    return '<div class="news-card news-article">'
+      + '<div class="news-card-header"><span class="news-type-pill">&#128240; Article</span>'
+      + '<span class="news-source">' + (item.source||'') + '</span>'
+      + '<span class="news-date">' + dStr + '</span></div>'
+      + img
+      + '<div class="news-title"><a href="' + item.url + '" target="_blank" rel="noopener">' + item.title + '</a></div></div>';
   }).join('');
 }
 
