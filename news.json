@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-07T08:39:13Z",
+  "updated": "2026-06-08T12:52:00Z",
   "items": [
     {
       "type": "video",
@@ -187,17 +187,6 @@
       "dateDisplay": "26 May 2026",
       "image": "https://i2.ytimg.com/vi/QeF9Ns_r5cI/hqdefault.jpg",
       "audio": null
-    },
-    {
-      "type": "podcast",
-      "source": "Talking Hawks",
-      "title": "Six Points: Adelaide Crows, Round 11, 2026",
-      "url": "https://anchor.fm/s/b2d1916c/podcast/play/120481818/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-4-24%2F424808627-44100-2-3c10347262589.m4a",
-      "description": "In this episode of Talking Hawks Six Points, Tim and Liam recap Hawthorn s 9 point victory against the Crows at our Launceston Fortress, UTAS Stadium, that saw the Hawks back on the winners list and regain some much needed momentum heading into the middle part of the 2026 season.…",
-      "date": "2026-05-24T20:47:05Z",
-      "dateDisplay": "24 May 2026",
-      "image": null,
-      "audio": "https://anchor.fm/s/b2d1916c/podcast/play/120481818/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-4-24%2F424808627-44100-2-3c10347262589.m4a"
     }
   ]
 }
