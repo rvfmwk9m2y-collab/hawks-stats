@@ -1,15 +1,15 @@
 {
-  "updated": "2026-06-04",
-  "round": 12,
-  "record": "8W\u20133L\u20131D",
+  "updated": "2026-06-08",
+  "round": 14,
+  "record": "8W\u20134L\u20131D",
   "position": "3rd",
-  "fallbackVid": "gVlwGxcx2u0",
+  "fallbackVid": "2_dfGiTGrkQ",
   "nextGame": {
-    "round": 13,
-    "opponent": "Western Bulldogs",
-    "venue": "M.C.G.",
-    "home": true,
-    "kickoff": "2026-06-05T09:40:00Z"
+    "round": 15,
+    "opponent": "Gold Coast",
+    "venue": "Carrara",
+    "home": false,
+    "kickoff": "2026-06-19T09:40:00Z"
   },
   "fixture": [
     {
@@ -138,9 +138,9 @@
       "venue": "MCG",
       "home": true,
       "localtime": "2026-06-05 19:40:00",
-      "complete": 0,
-      "hawksSc": 0,
-      "oppSc": 0
+      "complete": 100,
+      "hawksSc": 71,
+      "oppSc": 77
     },
     {
       "round": 15,
@@ -799,7 +799,7 @@
       "fa": 4,
       "cm": 1,
       "op": 10,
-      "vid": null,
+      "vid": "2_dfGiTGrkQ",
       "rounds": [
         {
           "r": "R1",
