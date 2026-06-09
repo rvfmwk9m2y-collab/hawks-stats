@@ -1,6 +1,28 @@
 {
-  "updated": "2026-06-08T12:52:00Z",
+  "updated": "2026-06-09T08:51:00Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "What a save! lol 😮‍💨",
+      "url": "https://www.youtube.com/shorts/hn-L9u0nF58",
+      "description": "",
+      "date": "2026-06-09T00:28:51Z",
+      "dateDisplay": "9 Jun 2026",
+      "image": "https://i1.ytimg.com/vi/hn-L9u0nF58/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "podcast",
+      "source": "Talking Hawks",
+      "title": "Six Points: Western Bulldogs, Round 13, 2026",
+      "url": "https://anchor.fm/s/b2d1916c/podcast/play/121198225/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-5-8%2F425766271-44100-2-e0ca29d0dbab2.m4a",
+      "description": "Matt and Lauren recap Hawthorn Football Club s 6 point loss to the Western Bulldogs in the latest episode of the Talking Hawks Six Points.The Friday night tussle between two top 8 teams was a tale of two halves with the Hawks inaccuracy ultimately proving costly ahead of the team…",
+      "date": "2026-06-08T22:44:42Z",
+      "dateDisplay": "8 Jun 2026",
+      "image": null,
+      "audio": "https://anchor.fm/s/b2d1916c/podcast/play/121198225/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-5-8%2F425766271-44100-2-e0ca29d0dbab2.m4a"
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -175,17 +197,6 @@
       "date": "2026-05-26T23:00:48Z",
       "dateDisplay": "26 May 2026",
       "image": "https://i4.ytimg.com/vi/Kb9m7D0Mc2o/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Here is part 2",
-      "url": "https://www.youtube.com/shorts/QeF9Ns_r5cI",
-      "description": "",
-      "date": "2026-05-26T06:00:18Z",
-      "dateDisplay": "26 May 2026",
-      "image": "https://i2.ytimg.com/vi/QeF9Ns_r5cI/hqdefault.jpg",
       "audio": null
     }
   ]
