@@ -1,6 +1,17 @@
 {
-  "updated": "2026-06-09T08:51:00Z",
+  "updated": "2026-06-10T11:09:29Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Sam Mitchell Breaks Down Hawthorn's Season So Far",
+      "url": "https://www.youtube.com/watch?v=FTePkKkBPQw",
+      "description": "",
+      "date": "2026-06-10T08:59:50Z",
+      "dateDisplay": "10 Jun 2026",
+      "image": "https://i3.ytimg.com/vi/FTePkKkBPQw/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -186,17 +197,6 @@
       "date": "2026-05-27T22:30:24Z",
       "dateDisplay": "27 May 2026",
       "image": "https://i3.ytimg.com/vi/2MoqELgRku8/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Pranking AFL players with the 3 second challenge 😭",
-      "url": "https://www.youtube.com/shorts/Kb9m7D0Mc2o",
-      "description": "",
-      "date": "2026-05-26T23:00:48Z",
-      "dateDisplay": "26 May 2026",
-      "image": "https://i4.ytimg.com/vi/Kb9m7D0Mc2o/hqdefault.jpg",
       "audio": null
     }
   ]
