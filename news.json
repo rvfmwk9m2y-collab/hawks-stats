@@ -1,6 +1,17 @@
 {
-  "updated": "2026-06-10T11:09:29Z",
+  "updated": "2026-06-11T12:28:22Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Was not expecting that haha 😭",
+      "url": "https://www.youtube.com/shorts/4zSwqFafw4c",
+      "description": "",
+      "date": "2026-06-10T23:39:43Z",
+      "dateDisplay": "10 Jun 2026",
+      "image": "https://i1.ytimg.com/vi/4zSwqFafw4c/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -187,17 +198,6 @@
       "dateDisplay": "28 May 2026",
       "image": null,
       "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/236f9c64-ba4c-4cb9-a544-b4580161b3dd/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Anything before 5:30pm should be considered lunch 😅",
-      "url": "https://www.youtube.com/shorts/2MoqELgRku8",
-      "description": "",
-      "date": "2026-05-27T22:30:24Z",
-      "dateDisplay": "27 May 2026",
-      "image": "https://i3.ytimg.com/vi/2MoqELgRku8/hqdefault.jpg",
-      "audio": null
     }
   ]
 }
