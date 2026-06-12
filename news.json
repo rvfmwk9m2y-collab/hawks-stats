@@ -1,6 +1,17 @@
 {
-  "updated": "2026-06-11T12:28:22Z",
+  "updated": "2026-06-12T11:29:51Z",
   "items": [
+    {
+      "type": "podcast",
+      "source": "Hawk Talk Podcast",
+      "title": "Mid-Season Mailbag (2026)",
+      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a2b45a7440b9d7bbf94e900/media.mp3",
+      "description": "The Hawk Talk Podcast has officially returned, and the mid-season mailbag is bursting at the seams. It’s time to tackle a host of your burning questions as Hawthorn heads into the bye! Don't forget to follow us on our social channels, including X - @HawkTalkPod Hosted on Acast. S…",
+      "date": "2026-06-11T23:36:59Z",
+      "dateDisplay": "11 Jun 2026",
+      "image": null,
+      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a2b45a7440b9d7bbf94e900/media.mp3"
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -154,50 +165,6 @@
       "dateDisplay": "29 May 2026",
       "image": "https://i4.ytimg.com/vi/w48GXShRlDY/hqdefault.jpg",
       "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Sam Mitchell on Hawthorn BIG Win Over St Kilda",
-      "url": "https://www.youtube.com/watch?v=tg_I5SofD20",
-      "description": "",
-      "date": "2026-05-29T05:44:30Z",
-      "dateDisplay": "29 May 2026",
-      "image": "https://i1.ytimg.com/vi/tg_I5SofD20/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "In the Rooms with Roaming Brian v St Kilda",
-      "url": "https://www.youtube.com/watch?v=kRZXJf-pOsM",
-      "description": "",
-      "date": "2026-05-29T02:47:39Z",
-      "dateDisplay": "29 May 2026",
-      "image": "https://i4.ytimg.com/vi/kRZXJf-pOsM/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Didn't know he has a soccer background 🤯🤯🤯",
-      "url": "https://www.youtube.com/shorts/Xt9bp6PBtns",
-      "description": "",
-      "date": "2026-05-29T02:34:59Z",
-      "dateDisplay": "29 May 2026",
-      "image": "https://i1.ytimg.com/vi/Xt9bp6PBtns/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "podcast",
-      "source": "AFL Daily",
-      "title": "Nothing scary about the Saints, Essendon can't move forward without Hird",
-      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/236f9c64-ba4c-4cb9-a544-b4580161b3dd/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
-      "description": "Damian Barrett and Joe Pignataro bring you the latest footy news on AFL Daily. Hawthorn toyed with the Saints last night at Marvel Stadium, and a box ticked with the return of their best player - Will Day. Carlton has announced his coaching selection committee headed up by Graham…",
-      "date": "2026-05-28T21:30:10Z",
-      "dateDisplay": "28 May 2026",
-      "image": null,
-      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/236f9c64-ba4c-4cb9-a544-b4580161b3dd/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
     }
   ]
 }
