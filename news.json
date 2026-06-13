@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-12T11:29:51Z",
+  "updated": "2026-06-13T08:39:28Z",
   "items": [
     {
       "type": "podcast",
@@ -142,28 +142,6 @@
       "date": "2026-05-30T23:00:34Z",
       "dateDisplay": "30 May 2026",
       "image": "https://i1.ytimg.com/vi/4wTtd_bJbgk/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Wahey on a Thursday 💀",
-      "url": "https://www.youtube.com/shorts/m-VqhdmhzMw",
-      "description": "",
-      "date": "2026-05-30T05:30:36Z",
-      "dateDisplay": "30 May 2026",
-      "image": "https://i2.ytimg.com/vi/m-VqhdmhzMw/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "They were so confused 😭",
-      "url": "https://www.youtube.com/shorts/w48GXShRlDY",
-      "description": "",
-      "date": "2026-05-29T23:00:38Z",
-      "dateDisplay": "29 May 2026",
-      "image": "https://i4.ytimg.com/vi/w48GXShRlDY/hqdefault.jpg",
       "audio": null
     }
   ]
