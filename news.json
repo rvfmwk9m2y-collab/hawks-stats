@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-13T08:39:28Z",
+  "updated": "2026-06-14T08:56:53Z",
   "items": [
     {
       "type": "podcast",
@@ -109,39 +109,6 @@
       "date": "2026-05-31T23:10:21Z",
       "dateDisplay": "31 May 2026",
       "image": "https://i1.ytimg.com/vi/HpMe3N2WSr8/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Big off campus fans here",
-      "url": "https://www.youtube.com/shorts/iWNtyFYwllE",
-      "description": "",
-      "date": "2026-05-31T08:00:19Z",
-      "dateDisplay": "31 May 2026",
-      "image": "https://i2.ytimg.com/vi/iWNtyFYwllE/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "podcast",
-      "source": "Talking Hawks",
-      "title": "Six Points: St Kilda Saints, Round 12, 2026",
-      "url": "https://anchor.fm/s/b2d1916c/podcast/play/120783566/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-4-31%2F425212452-44100-2-9a9a451bcc784.m4a",
-      "description": "In this episode of Talking Hawks Six Points, Tim and Liam recap Hawthorn s emphatic 52 point victory against the Saints at Marvel Stadium, that saw our co-captain bounce back to form, Will Day s successful return to football and the Wizard casting spells aplenty. Follow on Facebo…",
-      "date": "2026-05-31T06:42:26Z",
-      "dateDisplay": "31 May 2026",
-      "image": null,
-      "audio": "https://anchor.fm/s/b2d1916c/podcast/play/120783566/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-4-31%2F425212452-44100-2-9a9a451bcc784.m4a"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "He actually fully took the ball of him 🪄",
-      "url": "https://www.youtube.com/shorts/4wTtd_bJbgk",
-      "description": "",
-      "date": "2026-05-30T23:00:34Z",
-      "dateDisplay": "30 May 2026",
-      "image": "https://i1.ytimg.com/vi/4wTtd_bJbgk/hqdefault.jpg",
       "audio": null
     }
   ]
