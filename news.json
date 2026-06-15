@@ -1,6 +1,17 @@
 {
-  "updated": "2026-06-14T08:56:53Z",
+  "updated": "2026-06-15T16:25:38Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Please always wave at them 😭",
+      "url": "https://www.youtube.com/shorts/7RsZ6h_z8UM",
+      "description": "",
+      "date": "2026-06-15T01:46:42Z",
+      "dateDisplay": "15 Jun 2026",
+      "image": "https://i4.ytimg.com/vi/7RsZ6h_z8UM/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "podcast",
       "source": "Hawk Talk Podcast",
@@ -98,17 +109,6 @@
       "date": "2026-06-01T23:08:18Z",
       "dateDisplay": "1 Jun 2026",
       "image": "https://i2.ytimg.com/vi/mRC46pciMWA/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Testing our players on something they use every day 😂",
-      "url": "https://www.youtube.com/shorts/HpMe3N2WSr8",
-      "description": "",
-      "date": "2026-05-31T23:10:21Z",
-      "dateDisplay": "31 May 2026",
-      "image": "https://i1.ytimg.com/vi/HpMe3N2WSr8/hqdefault.jpg",
       "audio": null
     }
   ]
