@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-15T16:25:38Z",
+  "updated": "2026-06-16T16:02:27Z",
   "items": [
     {
       "type": "video",
@@ -98,17 +98,6 @@
       "date": "2026-06-02T23:33:03Z",
       "dateDisplay": "2 Jun 2026",
       "image": "https://i2.ytimg.com/vi/UkVwgAOgcDA/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "It’s the little things ☺️",
-      "url": "https://www.youtube.com/shorts/mRC46pciMWA",
-      "description": "",
-      "date": "2026-06-01T23:08:18Z",
-      "dateDisplay": "1 Jun 2026",
-      "image": "https://i2.ytimg.com/vi/mRC46pciMWA/hqdefault.jpg",
       "audio": null
     }
   ]
