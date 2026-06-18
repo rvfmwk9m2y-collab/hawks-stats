@@ -1,6 +1,28 @@
 {
-  "updated": "2026-06-17T12:38:42Z",
+  "updated": "2026-06-18T11:56:10Z",
   "items": [
+    {
+      "type": "podcast",
+      "source": "Hawk Talk Podcast",
+      "title": "Round Fifteen, 2026 - Preview",
+      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a333b495926b9ca34cd8cd7/media.mp3",
+      "description": "The bye is done and dusted, and the Hawks are headed to the Gold Coast, hopefully to set up the second half of the season in style. We thought we’d hit record, and sneak in a short-and-sweet preview edition of the Hawk Talk Podcast! Talking points include tensions in the oppo cam…",
+      "date": "2026-06-18T00:30:38Z",
+      "dateDisplay": "18 Jun 2026",
+      "image": null,
+      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a333b495926b9ca34cd8cd7/media.mp3"
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Can’t believe they let it slide that long 😅",
+      "url": "https://www.youtube.com/shorts/Q6vmeiUuVlw",
+      "description": "",
+      "date": "2026-06-17T23:23:32Z",
+      "dateDisplay": "17 Jun 2026",
+      "image": "https://i2.ytimg.com/vi/Q6vmeiUuVlw/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -87,17 +109,6 @@
       "date": "2026-06-05T01:02:27Z",
       "dateDisplay": "5 Jun 2026",
       "image": "https://i3.ytimg.com/vi/2_dfGiTGrkQ/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "There’s no way…",
-      "url": "https://www.youtube.com/shorts/gVlwGxcx2u0",
-      "description": "",
-      "date": "2026-06-03T22:43:00Z",
-      "dateDisplay": "3 Jun 2026",
-      "image": "https://i4.ytimg.com/vi/gVlwGxcx2u0/hqdefault.jpg",
       "audio": null
     }
   ]
