@@ -1,6 +1,17 @@
 {
-  "updated": "2026-06-18T11:56:10Z",
+  "updated": "2026-06-19T12:33:53Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Maybe this whole time the refs just want a hug 🥺",
+      "url": "https://www.youtube.com/shorts/s28WqHUatQw",
+      "description": "",
+      "date": "2026-06-18T22:17:02Z",
+      "dateDisplay": "18 Jun 2026",
+      "image": "https://i4.ytimg.com/vi/s28WqHUatQw/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "podcast",
       "source": "Hawk Talk Podcast",
@@ -99,17 +110,6 @@
       "dateDisplay": "8 Jun 2026",
       "image": null,
       "audio": "https://anchor.fm/s/b2d1916c/podcast/play/121198225/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-5-8%2F425766271-44100-2-e0ca29d0dbab2.m4a"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Usual Jack Ginnivan areas 🔥 #worldcup",
-      "url": "https://www.youtube.com/shorts/2_dfGiTGrkQ",
-      "description": "",
-      "date": "2026-06-05T01:02:27Z",
-      "dateDisplay": "5 Jun 2026",
-      "image": "https://i3.ytimg.com/vi/2_dfGiTGrkQ/hqdefault.jpg",
-      "audio": null
     }
   ]
 }
