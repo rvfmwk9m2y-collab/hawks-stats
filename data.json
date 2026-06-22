@@ -1,15 +1,15 @@
 {
-  "updated": "2026-06-15",
-  "round": 14,
-  "record": "8W\u20134L\u20131D",
-  "position": "5th",
-  "fallbackVid": "7RsZ6h_z8UM",
+  "updated": "2026-06-22",
+  "round": 15,
+  "record": "9W\u20134L\u20131D",
+  "position": "3rd",
+  "fallbackVid": "xRCr8BMJroU",
   "nextGame": {
-    "round": 15,
-    "opponent": "Gold Coast",
-    "venue": "Carrara",
-    "home": false,
-    "kickoff": "2026-06-19T09:40:00Z"
+    "round": 16,
+    "opponent": "Greater Western Sydney",
+    "venue": "M.C.G.",
+    "home": true,
+    "kickoff": "2026-06-26T09:40:00Z"
   },
   "fixture": [
     {
@@ -148,9 +148,9 @@
       "venue": "Carrara",
       "home": false,
       "localtime": "2026-06-19 19:40:00",
-      "complete": 0,
-      "hawksSc": 0,
-      "oppSc": 0
+      "complete": 100,
+      "hawksSc": 113,
+      "oppSc": 97
     },
     {
       "round": 16,
