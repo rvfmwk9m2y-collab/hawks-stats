@@ -1,6 +1,28 @@
 {
-  "updated": "2026-06-22T22:43:52Z",
+  "updated": "2026-06-23T22:08:58Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Yallah imma go sideways round the bend 😭",
+      "url": "https://www.youtube.com/shorts/T4023-jOCDU",
+      "description": "",
+      "date": "2026-06-23T07:00:25Z",
+      "dateDisplay": "23 Jun 2026",
+      "image": "https://i1.ytimg.com/vi/T4023-jOCDU/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Junior Members Ask Hard-Hitting Questions to AFL Player",
+      "url": "https://www.youtube.com/watch?v=hz-sR8s3_V4",
+      "description": "",
+      "date": "2026-06-23T06:20:40Z",
+      "dateDisplay": "23 Jun 2026",
+      "image": "https://i1.ytimg.com/vi/hz-sR8s3_V4/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -121,28 +143,6 @@
       "dateDisplay": "10 Jun 2026",
       "image": "https://i3.ytimg.com/vi/FTePkKkBPQw/hqdefault.jpg",
       "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "What a save! lol 😮‍💨",
-      "url": "https://www.youtube.com/shorts/hn-L9u0nF58",
-      "description": "",
-      "date": "2026-06-09T00:28:51Z",
-      "dateDisplay": "9 Jun 2026",
-      "image": "https://i1.ytimg.com/vi/hn-L9u0nF58/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "podcast",
-      "source": "Talking Hawks",
-      "title": "Six Points: Western Bulldogs, Round 13, 2026",
-      "url": "https://anchor.fm/s/b2d1916c/podcast/play/121198225/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-5-8%2F425766271-44100-2-e0ca29d0dbab2.m4a",
-      "description": "Matt and Lauren recap Hawthorn Football Club s 6 point loss to the Western Bulldogs in the latest episode of the Talking Hawks Six Points.The Friday night tussle between two top 8 teams was a tale of two halves with the Hawks inaccuracy ultimately proving costly ahead of the team…",
-      "date": "2026-06-08T22:44:42Z",
-      "dateDisplay": "8 Jun 2026",
-      "image": null,
-      "audio": "https://anchor.fm/s/b2d1916c/podcast/play/121198225/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-5-8%2F425766271-44100-2-e0ca29d0dbab2.m4a"
     }
   ]
 }
