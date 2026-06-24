@@ -1,6 +1,39 @@
 {
-  "updated": "2026-06-23T22:08:58Z",
+  "updated": "2026-06-24T22:13:11Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "You leave that man alone 😭😭",
+      "url": "https://www.youtube.com/shorts/KsEmu8ld5ps",
+      "description": "",
+      "date": "2026-06-24T07:00:18Z",
+      "dateDisplay": "24 Jun 2026",
+      "image": "https://i4.ytimg.com/vi/KsEmu8ld5ps/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "podcast",
+      "source": "Hawk Talk Podcast",
+      "title": "Round Fifteen, 2026 - Recap",
+      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a3b7ef9bfa923903782d00a/media.mp3",
+      "description": "The Hawks said hooroo to the hoodoo, securing victory on the Gold Coast for the first time in a decade. The dynamic duo of Newcombe and Day dominated, and the Dylan Moore of old was back in full force. It was a really pleasing 16-point victory! We're back to recap the win in a ja…",
+      "date": "2026-06-24T06:57:18Z",
+      "dateDisplay": "24 Jun 2026",
+      "image": null,
+      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a3b7ef9bfa923903782d00a/media.mp3"
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "We should address the Elephant under the carpet 🐘",
+      "url": "https://www.youtube.com/shorts/JRSvAoCkm2Q",
+      "description": "",
+      "date": "2026-06-23T22:30:14Z",
+      "dateDisplay": "23 Jun 2026",
+      "image": "https://i3.ytimg.com/vi/JRSvAoCkm2Q/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -131,17 +164,6 @@
       "date": "2026-06-10T23:39:43Z",
       "dateDisplay": "10 Jun 2026",
       "image": "https://i1.ytimg.com/vi/4zSwqFafw4c/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Sam Mitchell Breaks Down Hawthorn's Season So Far",
-      "url": "https://www.youtube.com/watch?v=FTePkKkBPQw",
-      "description": "",
-      "date": "2026-06-10T08:59:50Z",
-      "dateDisplay": "10 Jun 2026",
-      "image": "https://i3.ytimg.com/vi/FTePkKkBPQw/hqdefault.jpg",
       "audio": null
     }
   ]
