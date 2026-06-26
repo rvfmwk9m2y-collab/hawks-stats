@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-25T22:17:59Z",
+  "updated": "2026-06-26T22:08:22Z",
   "items": [
     {
       "type": "video",
@@ -165,17 +165,6 @@
       "dateDisplay": "15 Jun 2026",
       "image": "https://i4.ytimg.com/vi/7RsZ6h_z8UM/hqdefault.jpg",
       "audio": null
-    },
-    {
-      "type": "podcast",
-      "source": "Hawk Talk Podcast",
-      "title": "Mid-Season Mailbag (2026)",
-      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a2b45a7440b9d7bbf94e900/media.mp3",
-      "description": "The Hawk Talk Podcast has officially returned, and the mid-season mailbag is bursting at the seams. It’s time to tackle a host of your burning questions as Hawthorn heads into the bye! Don't forget to follow us on our social channels, including X - @HawkTalkPod Hosted on Acast. S…",
-      "date": "2026-06-11T23:36:59Z",
-      "dateDisplay": "11 Jun 2026",
-      "image": null,
-      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a2b45a7440b9d7bbf94e900/media.mp3"
     }
   ]
 }
