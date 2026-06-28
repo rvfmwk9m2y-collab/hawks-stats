@@ -1,15 +1,15 @@
 {
-  "updated": "2026-06-22",
-  "round": 15,
-  "record": "9W\u20134L\u20131D",
+  "updated": "2026-06-28",
+  "round": 16,
+  "record": "10W\u20134L\u20131D",
   "position": "3rd",
-  "fallbackVid": "xRCr8BMJroU",
+  "fallbackVid": "I07JJOGH8ZM",
   "nextGame": {
-    "round": 16,
-    "opponent": "Greater Western Sydney",
-    "venue": "M.C.G.",
+    "round": 17,
+    "opponent": "Melbourne",
+    "venue": "York Park",
     "home": true,
-    "kickoff": "2026-06-26T09:40:00Z"
+    "kickoff": "2026-07-04T03:15:00Z"
   },
   "fixture": [
     {
@@ -158,9 +158,9 @@
       "venue": "MCG",
       "home": true,
       "localtime": "2026-06-26 19:40:00",
-      "complete": 0,
-      "hawksSc": 0,
-      "oppSc": 0
+      "complete": 100,
+      "hawksSc": 96,
+      "oppSc": 82
     },
     {
       "round": 17,
@@ -799,7 +799,7 @@
       "fa": 4,
       "cm": 1,
       "op": 10,
-      "vid": "2_dfGiTGrkQ",
+      "vid": null,
       "rounds": [
         {
           "r": "R1",
@@ -1238,7 +1238,7 @@
       "fa": 5,
       "cm": 5,
       "op": 21,
-      "vid": null,
+      "vid": "igFkzD5tb-s",
       "rounds": [
         {
           "r": "R1",
@@ -3728,7 +3728,7 @@
       "fa": 0,
       "cm": 0,
       "op": 0,
-      "vid": "HpMe3N2WSr8",
+      "vid": null,
       "rounds": [
         {
           "r": "R12",
