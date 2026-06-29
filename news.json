@@ -1,6 +1,28 @@
 {
-  "updated": "2026-06-28T21:59:19Z",
+  "updated": "2026-06-29T22:06:21Z",
   "items": [
+    {
+      "type": "podcast",
+      "source": "Talking Hawks",
+      "title": "Six Points: GWS Giants, Round 16, 2026",
+      "url": "https://anchor.fm/s/b2d1916c/podcast/play/122120909/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-5-29%2F427000313-44100-2-dcd429c190bc1.m4a",
+      "description": "Tim and Liam recap Hawthorn Football Club s 14 point victory over the GWS Giants in the latest episode of the Talking Hawks Six Points. The Friday night victory saw a few new faces grow in confidence, while a our midfield dominated proceedings which will hold the team in good ste…",
+      "date": "2026-06-29T01:03:42Z",
+      "dateDisplay": "29 Jun 2026",
+      "image": null,
+      "audio": "https://anchor.fm/s/b2d1916c/podcast/play/122120909/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-5-29%2F427000313-44100-2-dcd429c190bc1.m4a"
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Nick Wizard Watson arriving in style 😭",
+      "url": "https://www.youtube.com/shorts/X2ozqmCX2yU",
+      "description": "",
+      "date": "2026-06-29T00:52:50Z",
+      "dateDisplay": "29 Jun 2026",
+      "image": "https://i1.ytimg.com/vi/X2ozqmCX2yU/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -153,17 +175,6 @@
       "date": "2026-06-16T22:36:22Z",
       "dateDisplay": "16 Jun 2026",
       "image": "https://i3.ytimg.com/vi/BpMJf6WGUo4/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Please always wave at them 😭",
-      "url": "https://www.youtube.com/shorts/7RsZ6h_z8UM",
-      "description": "",
-      "date": "2026-06-15T01:46:42Z",
-      "dateDisplay": "15 Jun 2026",
-      "image": "https://i4.ytimg.com/vi/7RsZ6h_z8UM/hqdefault.jpg",
       "audio": null
     }
   ]
