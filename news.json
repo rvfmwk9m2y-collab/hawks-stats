@@ -1,6 +1,28 @@
 {
-  "updated": "2026-06-30T22:13:25Z",
+  "updated": "2026-07-01T22:15:18Z",
   "items": [
+    {
+      "type": "podcast",
+      "source": "Hawk Talk Podcast",
+      "title": "Round Sixteen, 2026 - Recap",
+      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a447afa6a72c54c8d365a3f/media.mp3",
+      "description": "Another week, another midfield masterclass, this time against the Giants at the MCG! The Hawks enjoyed some redemption with a 14-point win, thanks once again to Newcombe and Day, Ginni’s return to good form, and a dazzling second quarter cameo from the Wiz. In this episode, we re…",
+      "date": "2026-07-01T02:31:23Z",
+      "dateDisplay": "1 Jul 2026",
+      "image": null,
+      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a447afa6a72c54c8d365a3f/media.mp3"
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "They never knew what was about to come from this equation 🥹",
+      "url": "https://www.youtube.com/shorts/vkOgio_1wTs",
+      "description": "",
+      "date": "2026-06-30T23:21:45Z",
+      "dateDisplay": "30 Jun 2026",
+      "image": "https://i3.ytimg.com/vi/vkOgio_1wTs/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "podcast",
       "source": "AFL Daily",
@@ -186,17 +208,6 @@
       "date": "2026-06-17T23:23:32Z",
       "dateDisplay": "17 Jun 2026",
       "image": "https://i2.ytimg.com/vi/Q6vmeiUuVlw/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Before @dandoesfooty broke the website 😭🐀",
-      "url": "https://www.youtube.com/shorts/BpMJf6WGUo4",
-      "description": "",
-      "date": "2026-06-16T22:36:22Z",
-      "dateDisplay": "16 Jun 2026",
-      "image": "https://i3.ytimg.com/vi/BpMJf6WGUo4/hqdefault.jpg",
       "audio": null
     }
   ]
