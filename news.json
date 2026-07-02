@@ -1,6 +1,17 @@
 {
-  "updated": "2026-07-01T22:15:18Z",
+  "updated": "2026-07-02T22:03:09Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Drenched yet still delightful 🥹 Ya’ll can share my umbrella anytime",
+      "url": "https://www.youtube.com/shorts/gH6bmss0NSo",
+      "description": "",
+      "date": "2026-07-01T23:02:24Z",
+      "dateDisplay": "1 Jul 2026",
+      "image": "https://i4.ytimg.com/vi/gH6bmss0NSo/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "podcast",
       "source": "Hawk Talk Podcast",
@@ -186,28 +197,6 @@
       "date": "2026-06-18T22:17:02Z",
       "dateDisplay": "18 Jun 2026",
       "image": "https://i4.ytimg.com/vi/s28WqHUatQw/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "podcast",
-      "source": "Hawk Talk Podcast",
-      "title": "Round Fifteen, 2026 - Preview",
-      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a333b495926b9ca34cd8cd7/media.mp3",
-      "description": "The bye is done and dusted, and the Hawks are headed to the Gold Coast, hopefully to set up the second half of the season in style. We thought we’d hit record, and sneak in a short-and-sweet preview edition of the Hawk Talk Podcast! Talking points include tensions in the oppo cam…",
-      "date": "2026-06-18T00:30:38Z",
-      "dateDisplay": "18 Jun 2026",
-      "image": null,
-      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a333b495926b9ca34cd8cd7/media.mp3"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Can’t believe they let it slide that long 😅",
-      "url": "https://www.youtube.com/shorts/Q6vmeiUuVlw",
-      "description": "",
-      "date": "2026-06-17T23:23:32Z",
-      "dateDisplay": "17 Jun 2026",
-      "image": "https://i2.ytimg.com/vi/Q6vmeiUuVlw/hqdefault.jpg",
       "audio": null
     }
   ]
