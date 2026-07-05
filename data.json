@@ -1,15 +1,15 @@
 {
-  "updated": "2026-06-28",
-  "round": 16,
-  "record": "10W\u20134L\u20131D",
+  "updated": "2026-07-05",
+  "round": 17,
+  "record": "10W\u20135L\u20131D",
   "position": "3rd",
-  "fallbackVid": "I07JJOGH8ZM",
+  "fallbackVid": "E-x8_5HnPck",
   "nextGame": {
-    "round": 17,
-    "opponent": "Melbourne",
-    "venue": "York Park",
-    "home": true,
-    "kickoff": "2026-07-04T03:15:00Z"
+    "round": 18,
+    "opponent": "Carlton",
+    "venue": "M.C.G.",
+    "home": false,
+    "kickoff": "2026-07-11T09:35:00Z"
   },
   "fixture": [
     {
@@ -168,9 +168,9 @@
       "venue": "York Park",
       "home": true,
       "localtime": "2026-07-04 13:15:00",
-      "complete": 0,
-      "hawksSc": 0,
-      "oppSc": 0
+      "complete": 100,
+      "hawksSc": 90,
+      "oppSc": 125
     },
     {
       "round": 18,
@@ -393,7 +393,7 @@
       "fa": 9,
       "cm": 2,
       "op": 10,
-      "vid": null,
+      "vid": "X2ozqmCX2yU",
       "rounds": [
         {
           "r": "R1",
