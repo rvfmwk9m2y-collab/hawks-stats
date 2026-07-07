@@ -1,6 +1,17 @@
 {
-  "updated": "2026-07-06T22:09:58Z",
+  "updated": "2026-07-07T22:08:25Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Yoga instructor not happy with this one 🤷🏻",
+      "url": "https://www.youtube.com/shorts/eqYz1irryR4",
+      "description": "",
+      "date": "2026-07-06T23:07:24Z",
+      "dateDisplay": "6 Jul 2026",
+      "image": "https://i2.ytimg.com/vi/eqYz1irryR4/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -153,39 +164,6 @@
       "date": "2026-06-23T22:30:14Z",
       "dateDisplay": "23 Jun 2026",
       "image": "https://i3.ytimg.com/vi/JRSvAoCkm2Q/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Yallah imma go sideways round the bend 😭",
-      "url": "https://www.youtube.com/shorts/T4023-jOCDU",
-      "description": "",
-      "date": "2026-06-23T07:00:25Z",
-      "dateDisplay": "23 Jun 2026",
-      "image": "https://i1.ytimg.com/vi/T4023-jOCDU/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Junior Members Ask Hard-Hitting Questions to AFL Player",
-      "url": "https://www.youtube.com/watch?v=hz-sR8s3_V4",
-      "description": "",
-      "date": "2026-06-23T06:20:40Z",
-      "dateDisplay": "23 Jun 2026",
-      "image": "https://i1.ytimg.com/vi/hz-sR8s3_V4/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Maybe this whole time the refs just want a hug 🥺 1",
-      "url": "https://www.youtube.com/shorts/eajLEqCBALA",
-      "description": "",
-      "date": "2026-06-22T22:30:22Z",
-      "dateDisplay": "22 Jun 2026",
-      "image": "https://i2.ytimg.com/vi/eajLEqCBALA/hqdefault.jpg",
       "audio": null
     }
   ]
