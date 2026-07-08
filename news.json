@@ -1,6 +1,50 @@
 {
-  "updated": "2026-07-07T22:08:25Z",
+  "updated": "2026-07-08T22:01:43Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "During pilates too 💀🇳🇴",
+      "url": "https://www.youtube.com/shorts/3eHL5Iwrs-U",
+      "description": "",
+      "date": "2026-07-08T07:05:52Z",
+      "dateDisplay": "8 Jul 2026",
+      "image": "https://i4.ytimg.com/vi/3eHL5Iwrs-U/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "podcast",
+      "source": "Hawk Talk Podcast",
+      "title": "Round Seventeen, 2026 - Recap",
+      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a4da7b64d6f6e9e986e19d9/media.mp3",
+      "description": "The first half against Melbourne was a horror show, and then the second half brought some strange sense of redemption. Overall, it was a peculiar afternoon at UTAS, the Hawks ultimately falling to the Demons by 35 points. We're back to recap all the action and look ahead to the H…",
+      "date": "2026-07-08T01:32:23Z",
+      "dateDisplay": "8 Jul 2026",
+      "image": null,
+      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a4da7b64d6f6e9e986e19d9/media.mp3"
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Hate watching the USA is over!! 😭 #worldcup",
+      "url": "https://www.youtube.com/shorts/_e7NfBxrgS0",
+      "description": "",
+      "date": "2026-07-07T23:38:56Z",
+      "dateDisplay": "7 Jul 2026",
+      "image": "https://i4.ytimg.com/vi/_e7NfBxrgS0/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "podcast",
+      "source": "Talking Hawks",
+      "title": "Six Points: Melbourne Demons, Round 17, 2026",
+      "url": "https://anchor.fm/s/b2d1916c/podcast/play/122481794/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-6-7%2F427483776-44100-2-5331cfe7c6853.m4a",
+      "description": "Tim and Liam unpack a disastrous day in Launceston for the Hawks in Round 17, that saw the Hawks lose a crucial game to the Demons ahead of a crucial back end of the home and away season as the club looks to secure an all important top 4 finish in 2026.",
+      "date": "2026-07-07T00:15:59Z",
+      "dateDisplay": "7 Jul 2026",
+      "image": null,
+      "audio": "https://anchor.fm/s/b2d1916c/podcast/play/122481794/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-6-7%2F427483776-44100-2-5331cfe7c6853.m4a"
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -131,39 +175,6 @@
       "date": "2026-06-24T22:30:04Z",
       "dateDisplay": "24 Jun 2026",
       "image": "https://i2.ytimg.com/vi/igFkzD5tb-s/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "You leave that man alone 😭😭",
-      "url": "https://www.youtube.com/shorts/KsEmu8ld5ps",
-      "description": "",
-      "date": "2026-06-24T07:00:18Z",
-      "dateDisplay": "24 Jun 2026",
-      "image": "https://i4.ytimg.com/vi/KsEmu8ld5ps/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "podcast",
-      "source": "Hawk Talk Podcast",
-      "title": "Round Fifteen, 2026 - Recap",
-      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a3b7ef9bfa923903782d00a/media.mp3",
-      "description": "The Hawks said hooroo to the hoodoo, securing victory on the Gold Coast for the first time in a decade. The dynamic duo of Newcombe and Day dominated, and the Dylan Moore of old was back in full force. It was a really pleasing 16-point victory! We're back to recap the win in a ja…",
-      "date": "2026-06-24T06:57:18Z",
-      "dateDisplay": "24 Jun 2026",
-      "image": null,
-      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a3b7ef9bfa923903782d00a/media.mp3"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "We should address the Elephant under the carpet 🐘",
-      "url": "https://www.youtube.com/shorts/JRSvAoCkm2Q",
-      "description": "",
-      "date": "2026-06-23T22:30:14Z",
-      "dateDisplay": "23 Jun 2026",
-      "image": "https://i3.ytimg.com/vi/JRSvAoCkm2Q/hqdefault.jpg",
       "audio": null
     }
   ]
