@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-05",
-  "round": 17,
-  "record": "10W\u20135L\u20131D",
+  "updated": "2026-07-12",
+  "round": 18,
+  "record": "11W\u20135L\u20131D",
   "position": "3rd",
-  "fallbackVid": "E-x8_5HnPck",
+  "fallbackVid": "cqAMpPA0REY",
   "nextGame": {
-    "round": 18,
-    "opponent": "Carlton",
+    "round": 19,
+    "opponent": "Richmond",
     "venue": "M.C.G.",
     "home": false,
-    "kickoff": "2026-07-11T09:35:00Z"
+    "kickoff": "2026-07-19T03:10:00Z"
   },
   "fixture": [
     {
@@ -178,9 +178,9 @@
       "venue": "MCG",
       "home": false,
       "localtime": "2026-07-11 19:35:00",
-      "complete": 0,
-      "hawksSc": 0,
-      "oppSc": 0
+      "complete": 100,
+      "hawksSc": 103,
+      "oppSc": 39
     },
     {
       "round": 19,
