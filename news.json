@@ -1,6 +1,28 @@
 {
-  "updated": "2026-07-12T21:43:16Z",
+  "updated": "2026-07-13T21:51:54Z",
   "items": [
+    {
+      "type": "podcast",
+      "source": "AFL Daily",
+      "title": "Latest on Cameron and Butters, Hawks have Swans in their sights",
+      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/d8f7e08c-895b-4f6d-a8b4-b486006695f7/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
+      "description": "Josh Gabelich and Joel Peterson discuss all the latest footy news on AFL Daily. On today's episode: - Josh Gabelich provides an update on injured stars Jeremy Cameron and Zak Butters - The Hawks have unveiled seven debutants this year, balancing on-field success with player devel…",
+      "date": "2026-07-13T06:32:36Z",
+      "dateDisplay": "13 Jul 2026",
+      "image": null,
+      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/d8f7e08c-895b-4f6d-a8b4-b486006695f7/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Copping 750ml to the dome post your first win 😫",
+      "url": "https://www.youtube.com/shorts/NTf04nsHurI",
+      "description": "",
+      "date": "2026-07-13T04:06:44Z",
+      "dateDisplay": "13 Jul 2026",
+      "image": "https://i3.ytimg.com/vi/NTf04nsHurI/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -175,28 +197,6 @@
       "date": "2026-06-29T22:53:18Z",
       "dateDisplay": "29 Jun 2026",
       "image": "https://i1.ytimg.com/vi/HxTG-7KQB9U/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "podcast",
-      "source": "Talking Hawks",
-      "title": "Six Points: GWS Giants, Round 16, 2026",
-      "url": "https://anchor.fm/s/b2d1916c/podcast/play/122120909/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-5-29%2F427000313-44100-2-dcd429c190bc1.m4a",
-      "description": "Tim and Liam recap Hawthorn Football Club s 14 point victory over the GWS Giants in the latest episode of the Talking Hawks Six Points. The Friday night victory saw a few new faces grow in confidence, while a our midfield dominated proceedings which will hold the team in good ste…",
-      "date": "2026-06-29T01:03:42Z",
-      "dateDisplay": "29 Jun 2026",
-      "image": null,
-      "audio": "https://anchor.fm/s/b2d1916c/podcast/play/122120909/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-5-29%2F427000313-44100-2-dcd429c190bc1.m4a"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Nick Wizard Watson arriving in style 😭",
-      "url": "https://www.youtube.com/shorts/X2ozqmCX2yU",
-      "description": "",
-      "date": "2026-06-29T00:52:50Z",
-      "dateDisplay": "29 Jun 2026",
-      "image": "https://i1.ytimg.com/vi/X2ozqmCX2yU/hqdefault.jpg",
       "audio": null
     }
   ]
