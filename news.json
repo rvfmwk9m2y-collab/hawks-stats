@@ -1,6 +1,17 @@
 {
-  "updated": "2026-07-13T21:51:54Z",
+  "updated": "2026-07-14T21:54:09Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Harry and Morrison with the unseen effort Saturday night ✨",
+      "url": "https://www.youtube.com/shorts/Swo49COojHg",
+      "description": "",
+      "date": "2026-07-13T22:30:05Z",
+      "dateDisplay": "13 Jul 2026",
+      "image": "https://i4.ytimg.com/vi/Swo49COojHg/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "podcast",
       "source": "AFL Daily",
@@ -175,28 +186,6 @@
       "date": "2026-06-30T23:21:45Z",
       "dateDisplay": "30 Jun 2026",
       "image": "https://i3.ytimg.com/vi/vkOgio_1wTs/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "podcast",
-      "source": "AFL Daily",
-      "title": "Blues coaching candidates emerge, Brownlow Predictor check-in",
-      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/9321ac62-54ff-418d-bb13-b47900610c37/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
-      "description": "Nat Edwards and Josh Gabelich discuss all the latest footy news on AFL Daily. Talking points: Carlton have already started compiling a list of candidates to interview - we run through the contenders The Hawks will be without Nick Watson for the R17 match against the Dees AFL.com.…",
-      "date": "2026-06-30T06:13:32Z",
-      "dateDisplay": "30 Jun 2026",
-      "image": null,
-      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/9321ac62-54ff-418d-bb13-b47900610c37/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Practicing for the much anticipated Bowling World Cup 🎳",
-      "url": "https://www.youtube.com/shorts/HxTG-7KQB9U",
-      "description": "",
-      "date": "2026-06-29T22:53:18Z",
-      "dateDisplay": "29 Jun 2026",
-      "image": "https://i1.ytimg.com/vi/HxTG-7KQB9U/hqdefault.jpg",
       "audio": null
     }
   ]
