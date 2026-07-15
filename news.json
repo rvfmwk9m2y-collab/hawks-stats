@@ -1,6 +1,39 @@
 {
-  "updated": "2026-07-14T21:54:09Z",
+  "updated": "2026-07-15T21:54:51Z",
   "items": [
+    {
+      "type": "podcast",
+      "source": "Hawk Talk Podcast",
+      "title": "Round Eighteen, 2026 - Recap",
+      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a5794e36f12922686454250/media.mp3",
+      "description": "It was a wet and wild Saturday night at the MCG, and the Hawks brought the Blues splashing back down to earth with a 64-point win - one of the club’s best this season! We recap all the action in another jam-packed Hawk Talk Podcast. Don't forget to follow us on our social channel…",
+      "date": "2026-07-15T14:14:26Z",
+      "dateDisplay": "15 Jul 2026",
+      "image": null,
+      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a5794e36f12922686454250/media.mp3"
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Some things change… some don’t 🥺🤣 #notbad",
+      "url": "https://www.youtube.com/shorts/TIvn5VFqEjY",
+      "description": "",
+      "date": "2026-07-15T06:30:05Z",
+      "dateDisplay": "15 Jul 2026",
+      "image": "https://i1.ytimg.com/vi/TIvn5VFqEjY/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "no way this actually worked 🧠😭",
+      "url": "https://www.youtube.com/shorts/QdOwNdFY1F8",
+      "description": "",
+      "date": "2026-07-14T22:30:38Z",
+      "dateDisplay": "14 Jul 2026",
+      "image": "https://i2.ytimg.com/vi/QdOwNdFY1F8/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -164,28 +197,6 @@
       "date": "2026-07-01T23:02:24Z",
       "dateDisplay": "1 Jul 2026",
       "image": "https://i4.ytimg.com/vi/gH6bmss0NSo/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "podcast",
-      "source": "Hawk Talk Podcast",
-      "title": "Round Sixteen, 2026 - Recap",
-      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a447afa6a72c54c8d365a3f/media.mp3",
-      "description": "Another week, another midfield masterclass, this time against the Giants at the MCG! The Hawks enjoyed some redemption with a 14-point win, thanks once again to Newcombe and Day, Ginni’s return to good form, and a dazzling second quarter cameo from the Wiz. In this episode, we re…",
-      "date": "2026-07-01T02:31:23Z",
-      "dateDisplay": "1 Jul 2026",
-      "image": null,
-      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a447afa6a72c54c8d365a3f/media.mp3"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "They never knew what was about to come from this equation 🥹",
-      "url": "https://www.youtube.com/shorts/vkOgio_1wTs",
-      "description": "",
-      "date": "2026-06-30T23:21:45Z",
-      "dateDisplay": "30 Jun 2026",
-      "image": "https://i3.ytimg.com/vi/vkOgio_1wTs/hqdefault.jpg",
       "audio": null
     }
   ]
