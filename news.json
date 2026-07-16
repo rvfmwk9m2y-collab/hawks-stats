@@ -1,6 +1,28 @@
 {
-  "updated": "2026-07-15T21:54:51Z",
+  "updated": "2026-07-16T21:59:45Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Cmon guys, her knee hurts 😭",
+      "url": "https://www.youtube.com/shorts/VCzOLsPxHqk",
+      "description": "",
+      "date": "2026-07-16T06:30:23Z",
+      "dateDisplay": "16 Jul 2026",
+      "image": "https://i3.ytimg.com/vi/VCzOLsPxHqk/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "They’re just like us 🥰",
+      "url": "https://www.youtube.com/shorts/3zehnD8O6Z4",
+      "description": "",
+      "date": "2026-07-15T22:30:31Z",
+      "dateDisplay": "15 Jul 2026",
+      "image": "https://i4.ytimg.com/vi/3zehnD8O6Z4/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "podcast",
       "source": "Hawk Talk Podcast",
@@ -186,17 +208,6 @@
       "date": "2026-07-03T01:06:23Z",
       "dateDisplay": "3 Jul 2026",
       "image": "https://i2.ytimg.com/vi/E-x8_5HnPck/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Drenched yet still delightful 🥹 Ya’ll can share my umbrella anytime",
-      "url": "https://www.youtube.com/shorts/gH6bmss0NSo",
-      "description": "",
-      "date": "2026-07-01T23:02:24Z",
-      "dateDisplay": "1 Jul 2026",
-      "image": "https://i4.ytimg.com/vi/gH6bmss0NSo/hqdefault.jpg",
       "audio": null
     }
   ]
