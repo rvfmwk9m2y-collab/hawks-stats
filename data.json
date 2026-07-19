@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-12",
-  "round": 18,
-  "record": "11W\u20135L\u20131D",
+  "updated": "2026-07-19",
+  "round": 19,
+  "record": "12W\u20135L\u20131D",
   "position": "3rd",
-  "fallbackVid": "cqAMpPA0REY",
+  "fallbackVid": "laLdLCzpDqI",
   "nextGame": {
-    "round": 19,
-    "opponent": "Richmond",
+    "round": 20,
+    "opponent": "Essendon",
     "venue": "M.C.G.",
-    "home": false,
-    "kickoff": "2026-07-19T03:10:00Z"
+    "home": true,
+    "kickoff": "2026-07-25T06:15:00Z"
   },
   "fixture": [
     {
@@ -188,9 +188,9 @@
       "venue": "MCG",
       "home": false,
       "localtime": "2026-07-19 13:10:00",
-      "complete": 0,
-      "hawksSc": 0,
-      "oppSc": 0
+      "complete": 100,
+      "hawksSc": 122,
+      "oppSc": 52
     },
     {
       "round": 20,
@@ -393,7 +393,7 @@
       "fa": 9,
       "cm": 2,
       "op": 10,
-      "vid": "X2ozqmCX2yU",
+      "vid": null,
       "rounds": [
         {
           "r": "R1",
@@ -1238,7 +1238,7 @@
       "fa": 5,
       "cm": 5,
       "op": 21,
-      "vid": "igFkzD5tb-s",
+      "vid": null,
       "rounds": [
         {
           "r": "R1",
@@ -2913,7 +2913,7 @@
       "fa": 4,
       "cm": 0,
       "op": 1,
-      "vid": null,
+      "vid": "Swo49COojHg",
       "rounds": [
         {
           "r": "R1",
@@ -3728,7 +3728,7 @@
       "fa": 0,
       "cm": 0,
       "op": 0,
-      "vid": null,
+      "vid": "Swo49COojHg",
       "rounds": [
         {
           "r": "R12",
