@@ -1,6 +1,28 @@
 {
-  "updated": "2026-07-20T21:56:56Z",
+  "updated": "2026-07-21T22:00:25Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Please wish them goodnight 😠",
+      "url": "https://www.youtube.com/shorts/kk6m3DIWxuw",
+      "description": "",
+      "date": "2026-07-21T07:30:12Z",
+      "dateDisplay": "21 Jul 2026",
+      "image": "https://i4.ytimg.com/vi/kk6m3DIWxuw/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Living out the childhood dream 🥺🥰",
+      "url": "https://www.youtube.com/shorts/ieGjtErAZxc",
+      "description": "",
+      "date": "2026-07-20T22:00:29Z",
+      "dateDisplay": "20 Jul 2026",
+      "image": "https://i2.ytimg.com/vi/ieGjtErAZxc/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -167,28 +189,6 @@
       "audio": null
     },
     {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Ain’t no way all three lined up 🫪",
-      "url": "https://www.youtube.com/shorts/cqAMpPA0REY",
-      "description": "",
-      "date": "2026-07-11T23:09:49Z",
-      "dateDisplay": "11 Jul 2026",
-      "image": "https://i4.ytimg.com/vi/cqAMpPA0REY/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Kids come up with the best stuff 🤣🤣",
-      "url": "https://www.youtube.com/shorts/X8GzdUbJFkk",
-      "description": "",
-      "date": "2026-07-09T22:57:29Z",
-      "dateDisplay": "9 Jul 2026",
-      "image": "https://i1.ytimg.com/vi/X8GzdUbJFkk/hqdefault.jpg",
-      "audio": null
-    },
-    {
       "type": "podcast",
       "source": "Hawk Talk Podcast",
       "title": "Round Seventeen, 2026 - Recap",
@@ -198,17 +198,6 @@
       "dateDisplay": "8 Jul 2026",
       "image": null,
       "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a4da7b64d6f6e9e986e19d9/media.mp3"
-    },
-    {
-      "type": "podcast",
-      "source": "Talking Hawks",
-      "title": "Six Points: Melbourne Demons, Round 17, 2026",
-      "url": "https://anchor.fm/s/b2d1916c/podcast/play/122481794/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-6-7%2F427483776-44100-2-5331cfe7c6853.m4a",
-      "description": "Tim and Liam unpack a disastrous day in Launceston for the Hawks in Round 17, that saw the Hawks lose a crucial game to the Demons ahead of a crucial back end of the home and away season as the club looks to secure an all important top 4 finish in 2026.",
-      "date": "2026-07-07T00:15:59Z",
-      "dateDisplay": "7 Jul 2026",
-      "image": null,
-      "audio": "https://anchor.fm/s/b2d1916c/podcast/play/122481794/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-6-7%2F427483776-44100-2-5331cfe7c6853.m4a"
     }
   ]
 }
