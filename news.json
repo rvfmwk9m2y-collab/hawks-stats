@@ -1,6 +1,39 @@
 {
-  "updated": "2026-07-21T22:00:25Z",
+  "updated": "2026-07-22T22:00:58Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Mic'ing Up our Captain was a CRAZY move",
+      "url": "https://www.youtube.com/watch?v=O_V89H4WVBc",
+      "description": "",
+      "date": "2026-07-22T08:00:12Z",
+      "dateDisplay": "22 Jul 2026",
+      "image": "https://i4.ytimg.com/vi/O_V89H4WVBc/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "podcast",
+      "source": "Hawk Talk Podcast",
+      "title": "Round Nineteen, 2026 - Recap",
+      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a60230dfa136e7931e8ffeb/media.mp3",
+      "description": "The Hawks put the foot down in the first half, and cruised pretty comfortably in the second, posting a satisfying 70-point win over the Tigers. Main Event Mitch Lewis booted five, Wiz helped himself to five of his own, and we were treated to first goals galore in what was a lovel…",
+      "date": "2026-07-22T02:00:01Z",
+      "dateDisplay": "22 Jul 2026",
+      "image": null,
+      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a60230dfa136e7931e8ffeb/media.mp3"
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Someone dap our guy up 🥺",
+      "url": "https://www.youtube.com/shorts/c77a5GJjuAU",
+      "description": "",
+      "date": "2026-07-21T23:01:47Z",
+      "dateDisplay": "21 Jul 2026",
+      "image": "https://i4.ytimg.com/vi/c77a5GJjuAU/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -156,17 +189,6 @@
       "audio": null
     },
     {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Harry and Morrison with the unseen effort Saturday night ✨",
-      "url": "https://www.youtube.com/shorts/Swo49COojHg",
-      "description": "",
-      "date": "2026-07-13T22:30:05Z",
-      "dateDisplay": "13 Jul 2026",
-      "image": "https://i4.ytimg.com/vi/Swo49COojHg/hqdefault.jpg",
-      "audio": null
-    },
-    {
       "type": "podcast",
       "source": "AFL Daily",
       "title": "Latest on Cameron and Butters, Hawks have Swans in their sights",
@@ -176,28 +198,6 @@
       "dateDisplay": "13 Jul 2026",
       "image": null,
       "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/d8f7e08c-895b-4f6d-a8b4-b486006695f7/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Copping 750ml to the dome post your first win 😫",
-      "url": "https://www.youtube.com/shorts/NTf04nsHurI",
-      "description": "",
-      "date": "2026-07-13T04:06:44Z",
-      "dateDisplay": "13 Jul 2026",
-      "image": "https://i3.ytimg.com/vi/NTf04nsHurI/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "podcast",
-      "source": "Hawk Talk Podcast",
-      "title": "Round Seventeen, 2026 - Recap",
-      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a4da7b64d6f6e9e986e19d9/media.mp3",
-      "description": "The first half against Melbourne was a horror show, and then the second half brought some strange sense of redemption. Overall, it was a peculiar afternoon at UTAS, the Hawks ultimately falling to the Demons by 35 points. We're back to recap all the action and look ahead to the H…",
-      "date": "2026-07-08T01:32:23Z",
-      "dateDisplay": "8 Jul 2026",
-      "image": null,
-      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a4da7b64d6f6e9e986e19d9/media.mp3"
     }
   ]
 }
