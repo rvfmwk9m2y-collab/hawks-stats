@@ -1,6 +1,28 @@
 {
-  "updated": "2026-07-22T22:00:58Z",
+  "updated": "2026-07-23T22:00:36Z",
   "items": [
+    {
+      "type": "podcast",
+      "source": "AFL Daily",
+      "title": "Magpies inside the heads of the Crows, Lewis re-signs, the return of the King",
+      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/1df07a13-fec4-4fe6-bd9a-b490015f59cc/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
+      "description": "Damian Barrett and Joel Peterson bring you the latest footy news on AFL Daily. Collingwood turn a 27 point deficit into a 34 point win at the Adelaide Oval last night. Led by the little master in Nick Daicos. Max King makes his long-awaited return to AFL level, Mitch Lewis has re…",
+      "date": "2026-07-23T21:25:02Z",
+      "dateDisplay": "23 Jul 2026",
+      "image": null,
+      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/1df07a13-fec4-4fe6-bd9a-b490015f59cc/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Some of these I had forgotten about 👀",
+      "url": "https://www.youtube.com/shorts/UrkOcw0ZicE",
+      "description": "",
+      "date": "2026-07-22T22:55:55Z",
+      "dateDisplay": "22 Jul 2026",
+      "image": "https://i2.ytimg.com/vi/UrkOcw0ZicE/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -175,17 +197,6 @@
       "date": "2026-07-15T06:30:05Z",
       "dateDisplay": "15 Jul 2026",
       "image": "https://i1.ytimg.com/vi/TIvn5VFqEjY/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "no way this actually worked 🧠😭",
-      "url": "https://www.youtube.com/shorts/QdOwNdFY1F8",
-      "description": "",
-      "date": "2026-07-14T22:30:38Z",
-      "dateDisplay": "14 Jul 2026",
-      "image": "https://i2.ytimg.com/vi/QdOwNdFY1F8/hqdefault.jpg",
       "audio": null
     },
     {
