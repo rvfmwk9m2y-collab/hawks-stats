@@ -1,6 +1,17 @@
 {
-  "updated": "2026-07-23T22:00:36Z",
+  "updated": "2026-07-24T22:00:52Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "I have second hand embarrassment 🥴",
+      "url": "https://www.youtube.com/shorts/gRxwCqhNVyM",
+      "description": "",
+      "date": "2026-07-24T00:11:27Z",
+      "dateDisplay": "24 Jul 2026",
+      "image": "https://i4.ytimg.com/vi/gRxwCqhNVyM/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "podcast",
       "source": "AFL Daily",
@@ -187,17 +198,6 @@
       "dateDisplay": "15 Jul 2026",
       "image": null,
       "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a5794e36f12922686454250/media.mp3"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Some things change… some don’t 🥺🤣 #notbad",
-      "url": "https://www.youtube.com/shorts/TIvn5VFqEjY",
-      "description": "",
-      "date": "2026-07-15T06:30:05Z",
-      "dateDisplay": "15 Jul 2026",
-      "image": "https://i1.ytimg.com/vi/TIvn5VFqEjY/hqdefault.jpg",
-      "audio": null
     },
     {
       "type": "podcast",
