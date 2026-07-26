@@ -1,6 +1,17 @@
 {
-  "updated": "2026-07-25T21:50:24Z",
+  "updated": "2026-07-26T21:54:52Z",
   "items": [
+    {
+      "type": "podcast",
+      "source": "Hawk Talk Podcast",
+      "title": "Round Twenty, 2026 - Recap",
+      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a65fc18fa6cc1e03029020f/media.mp3",
+      "description": "Always a pleasure to witness the total obliteration of the Essendon Football Club, and that’s exactly what happened at the MCG! 93 points was the final margin, and it was a very fun day out at the footy for Hawkers. We had Jarman Impey do as he pleased with a BOG performance, Wat…",
+      "date": "2026-07-26T12:27:11Z",
+      "dateDisplay": "26 Jul 2026",
+      "image": null,
+      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a65fc18fa6cc1e03029020f/media.mp3"
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
