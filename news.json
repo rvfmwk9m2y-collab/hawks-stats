@@ -1,6 +1,28 @@
 {
-  "updated": "2026-07-26T21:54:52Z",
+  "updated": "2026-07-27T22:01:42Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "The boys learn about Jimothy the Raccoon 🦝🤣",
+      "url": "https://www.youtube.com/shorts/cTTHIIj37mM",
+      "description": "",
+      "date": "2026-07-26T22:41:35Z",
+      "dateDisplay": "26 Jul 2026",
+      "image": "https://i4.ytimg.com/vi/cTTHIIj37mM/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Some of these are crazy 🤣",
+      "url": "https://www.youtube.com/shorts/ZbPyVaq1JVY",
+      "description": "",
+      "date": "2026-07-26T22:40:25Z",
+      "dateDisplay": "26 Jul 2026",
+      "image": "https://i3.ytimg.com/vi/ZbPyVaq1JVY/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "podcast",
       "source": "Hawk Talk Podcast",
@@ -178,28 +200,6 @@
       "audio": null
     },
     {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Cmon guys, her knee hurts 😭",
-      "url": "https://www.youtube.com/shorts/VCzOLsPxHqk",
-      "description": "",
-      "date": "2026-07-16T06:30:23Z",
-      "dateDisplay": "16 Jul 2026",
-      "image": "https://i3.ytimg.com/vi/VCzOLsPxHqk/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "They’re just like us 🥰",
-      "url": "https://www.youtube.com/shorts/3zehnD8O6Z4",
-      "description": "",
-      "date": "2026-07-15T22:30:31Z",
-      "dateDisplay": "15 Jul 2026",
-      "image": "https://i4.ytimg.com/vi/3zehnD8O6Z4/hqdefault.jpg",
-      "audio": null
-    },
-    {
       "type": "podcast",
       "source": "Hawk Talk Podcast",
       "title": "Round Eighteen, 2026 - Recap",
@@ -209,17 +209,6 @@
       "dateDisplay": "15 Jul 2026",
       "image": null,
       "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a5794e36f12922686454250/media.mp3"
-    },
-    {
-      "type": "podcast",
-      "source": "AFL Daily",
-      "title": "Latest on Cameron and Butters, Hawks have Swans in their sights",
-      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/d8f7e08c-895b-4f6d-a8b4-b486006695f7/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
-      "description": "Josh Gabelich and Joel Peterson discuss all the latest footy news on AFL Daily. On today's episode: - Josh Gabelich provides an update on injured stars Jeremy Cameron and Zak Butters - The Hawks have unveiled seven debutants this year, balancing on-field success with player devel…",
-      "date": "2026-07-13T06:32:36Z",
-      "dateDisplay": "13 Jul 2026",
-      "image": null,
-      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/d8f7e08c-895b-4f6d-a8b4-b486006695f7/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
     }
   ]
 }
