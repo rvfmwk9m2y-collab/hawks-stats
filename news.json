@@ -1,6 +1,28 @@
 {
-  "updated": "2026-07-28T21:59:22Z",
+  "updated": "2026-07-29T21:55:51Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "We need everybody doing the Ollie 😂💛",
+      "url": "https://www.youtube.com/shorts/j20XxXKOR3k",
+      "description": "",
+      "date": "2026-07-29T07:30:03Z",
+      "dateDisplay": "29 Jul 2026",
+      "image": "https://i3.ytimg.com/vi/j20XxXKOR3k/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "How wholesome is this celebration 😍",
+      "url": "https://www.youtube.com/shorts/5P0QS81zJiw",
+      "description": "",
+      "date": "2026-07-28T22:30:21Z",
+      "dateDisplay": "28 Jul 2026",
+      "image": "https://i2.ytimg.com/vi/5P0QS81zJiw/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -176,39 +198,6 @@
       "dateDisplay": "19 Jul 2026",
       "image": "https://i4.ytimg.com/vi/SNTKgQ8yE8Q/hqdefault.jpg",
       "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Besties share hair accessories 👯 ♀️🥹",
-      "url": "https://www.youtube.com/shorts/laLdLCzpDqI",
-      "description": "",
-      "date": "2026-07-18T06:30:37Z",
-      "dateDisplay": "18 Jul 2026",
-      "image": "https://i1.ytimg.com/vi/laLdLCzpDqI/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "No kids were harmed in the making of this clip 😭🙏",
-      "url": "https://www.youtube.com/shorts/-Y7Ut23jHjk",
-      "description": "",
-      "date": "2026-07-17T22:30:26Z",
-      "dateDisplay": "17 Jul 2026",
-      "image": "https://i2.ytimg.com/vi/-Y7Ut23jHjk/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "podcast",
-      "source": "Hawk Talk Podcast",
-      "title": "Round Eighteen, 2026 - Recap",
-      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a5794e36f12922686454250/media.mp3",
-      "description": "It was a wet and wild Saturday night at the MCG, and the Hawks brought the Blues splashing back down to earth with a 64-point win - one of the club’s best this season! We recap all the action in another jam-packed Hawk Talk Podcast. Don't forget to follow us on our social channel…",
-      "date": "2026-07-15T14:14:26Z",
-      "dateDisplay": "15 Jul 2026",
-      "image": null,
-      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a5794e36f12922686454250/media.mp3"
     }
   ]
 }
