@@ -1,6 +1,28 @@
 {
-  "updated": "2026-07-29T21:55:51Z",
+  "updated": "2026-07-30T22:07:29Z",
   "items": [
+    {
+      "type": "podcast",
+      "source": "AFL Daily",
+      "title": "Cats commanding victory, the future of Clarko as Roos coach, Freo tonight by how far??",
+      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/86220a5c-9e3a-4c7a-97c3-b497015ce2c2/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
+      "description": "Damian Barrett and Joel Peterson bring you the latest footy news on AFL Daily. Geelong have put together a winning three week stretch to get their season back on track. Last night the most commanding victory over Collingwood. On the day Sam Mitchell reveals he will re-sign with t…",
+      "date": "2026-07-30T21:22:38Z",
+      "dateDisplay": "30 Jul 2026",
+      "image": null,
+      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/86220a5c-9e3a-4c7a-97c3-b497015ce2c2/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "How is he so good at this 😂",
+      "url": "https://www.youtube.com/shorts/Y-cZ4HXON7U",
+      "description": "",
+      "date": "2026-07-29T22:30:11Z",
+      "dateDisplay": "29 Jul 2026",
+      "image": "https://i2.ytimg.com/vi/Y-cZ4HXON7U/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -186,17 +208,6 @@
       "date": "2026-07-20T04:00:14Z",
       "dateDisplay": "20 Jul 2026",
       "image": "https://i2.ytimg.com/vi/eTMT1A-QDg0/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "I think he has blocked my number after this 😭",
-      "url": "https://www.youtube.com/shorts/SNTKgQ8yE8Q",
-      "description": "",
-      "date": "2026-07-19T22:58:54Z",
-      "dateDisplay": "19 Jul 2026",
-      "image": "https://i4.ytimg.com/vi/SNTKgQ8yE8Q/hqdefault.jpg",
       "audio": null
     }
   ]
