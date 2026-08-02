@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-26",
-  "round": 20,
-  "record": "13W\u20135L\u20131D",
+  "updated": "2026-08-02",
+  "round": 21,
+  "record": "14W\u20135L\u20131D",
   "position": "3rd",
-  "fallbackVid": "ZbPyVaq1JVY",
+  "fallbackVid": "Y-cZ4HXON7U",
   "nextGame": {
-    "round": 21,
-    "opponent": "North Melbourne",
-    "venue": "York Park",
-    "home": true,
-    "kickoff": "2026-08-01T03:35:00Z"
+    "round": 22,
+    "opponent": "Brisbane Lions",
+    "venue": "Gabba",
+    "home": false,
+    "kickoff": "2026-08-07T09:40:00Z"
   },
   "fixture": [
     {
@@ -208,9 +208,9 @@
       "venue": "York Park",
       "home": true,
       "localtime": "2026-08-01 13:35:00",
-      "complete": 0,
-      "hawksSc": 0,
-      "oppSc": 0
+      "complete": 100,
+      "hawksSc": 99,
+      "oppSc": 83
     },
     {
       "round": 22,
@@ -227,7 +227,7 @@
       "opponent": "Collingwood",
       "venue": "MCG",
       "home": true,
-      "localtime": "2026-08-10 12:00:00",
+      "localtime": "2026-08-15 19:40:00",
       "complete": 0,
       "hawksSc": 0,
       "oppSc": 0
@@ -237,7 +237,7 @@
       "opponent": "West Coast",
       "venue": "Perth Stadium",
       "home": false,
-      "localtime": "2026-08-17 12:00:00",
+      "localtime": "2026-08-23 17:20:00",
       "complete": 0,
       "hawksSc": 0,
       "oppSc": 0
