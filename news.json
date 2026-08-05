@@ -1,6 +1,50 @@
 {
-  "updated": "2026-08-04T22:07:24Z",
+  "updated": "2026-08-05T22:07:51Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "First time Schuey 😅",
+      "url": "https://www.youtube.com/shorts/uDnjAM4VpGo",
+      "description": "",
+      "date": "2026-08-05T07:30:05Z",
+      "dateDisplay": "5 Aug 2026",
+      "image": "https://i2.ytimg.com/vi/uDnjAM4VpGo/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "podcast",
+      "source": "AFL Daily",
+      "title": "Tassie lands a big fish, Fri night heavyweight clash",
+      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/2e29ffc4-f20d-41e5-a79e-b49d006933ff/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
+      "description": "Nat Edwards, Riley Beveridge and Damian Barrett discuss all the latest footy news on AFL Daily. On today's episode: A top 4 spot is on the line in Brisbane vs Hawthorn Tasmania have poached development guru Nigel Lappin from the Cats Damian Barrett reflects on great mate Danny Fr…",
+      "date": "2026-08-05T06:40:40Z",
+      "dateDisplay": "5 Aug 2026",
+      "image": null,
+      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/2e29ffc4-f20d-41e5-a79e-b49d006933ff/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
+    },
+    {
+      "type": "podcast",
+      "source": "Hawk Talk Podcast",
+      "title": "Round Twenty-One, 2026 - Recap",
+      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a72b1f8bd564c65f644a9cd/media.mp3",
+      "description": "It was an uncomfortable watch as the Hawks outlasted North Melbourne in Tassie, prevailing by 16-points. The win was driven by Jai Newcombe and Jarman Impey, and another five-goal haul from the Wiz proved pretty handy too. We’re back to recap that clash and look ahead to the matc…",
+      "date": "2026-08-05T03:49:55Z",
+      "dateDisplay": "5 Aug 2026",
+      "image": null,
+      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a72b1f8bd564c65f644a9cd/media.mp3"
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "We won’t be needed his services again 🫠",
+      "url": "https://www.youtube.com/shorts/psNoJmmSTwQ",
+      "description": "",
+      "date": "2026-08-04T22:30:11Z",
+      "dateDisplay": "4 Aug 2026",
+      "image": "https://i1.ytimg.com/vi/psNoJmmSTwQ/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -176,39 +220,6 @@
       "dateDisplay": "23 Jul 2026",
       "image": null,
       "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/1df07a13-fec4-4fe6-bd9a-b490015f59cc/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Some of these I had forgotten about 👀",
-      "url": "https://www.youtube.com/shorts/UrkOcw0ZicE",
-      "description": "",
-      "date": "2026-07-22T22:55:55Z",
-      "dateDisplay": "22 Jul 2026",
-      "image": "https://i2.ytimg.com/vi/UrkOcw0ZicE/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Mic'ing Up our Captain was a CRAZY move",
-      "url": "https://www.youtube.com/watch?v=O_V89H4WVBc",
-      "description": "",
-      "date": "2026-07-22T08:00:12Z",
-      "dateDisplay": "22 Jul 2026",
-      "image": "https://i4.ytimg.com/vi/O_V89H4WVBc/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "podcast",
-      "source": "Hawk Talk Podcast",
-      "title": "Round Nineteen, 2026 - Recap",
-      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a60230dfa136e7931e8ffeb/media.mp3",
-      "description": "The Hawks put the foot down in the first half, and cruised pretty comfortably in the second, posting a satisfying 70-point win over the Tigers. Main Event Mitch Lewis booted five, Wiz helped himself to five of his own, and we were treated to first goals galore in what was a lovel…",
-      "date": "2026-07-22T02:00:01Z",
-      "dateDisplay": "22 Jul 2026",
-      "image": null,
-      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a60230dfa136e7931e8ffeb/media.mp3"
     }
   ]
 }
