@@ -1,15 +1,15 @@
 {
-  "updated": "2026-08-02",
-  "round": 21,
-  "record": "14W\u20135L\u20131D",
+  "updated": "2026-08-09",
+  "round": 22,
+  "record": "14W\u20136L\u20131D",
   "position": "3rd",
-  "fallbackVid": "Y-cZ4HXON7U",
+  "fallbackVid": "LSNA3cIZr_Q",
   "nextGame": {
-    "round": 22,
-    "opponent": "Brisbane Lions",
-    "venue": "Gabba",
-    "home": false,
-    "kickoff": "2026-08-07T09:40:00Z"
+    "round": 23,
+    "opponent": "Collingwood",
+    "venue": "M.C.G.",
+    "home": true,
+    "kickoff": "2026-08-15T09:40:00Z"
   },
   "fixture": [
     {
@@ -218,9 +218,9 @@
       "venue": "Gabba",
       "home": false,
       "localtime": "2026-08-07 19:40:00",
-      "complete": 0,
-      "hawksSc": 0,
-      "oppSc": 0
+      "complete": 100,
+      "hawksSc": 58,
+      "oppSc": 125
     },
     {
       "round": 23,
@@ -2507,7 +2507,7 @@
       "fa": 9,
       "cm": 11,
       "op": 56,
-      "vid": "gRxwCqhNVyM",
+      "vid": null,
       "rounds": [
         {
           "r": "R1",
@@ -3728,7 +3728,7 @@
       "fa": 0,
       "cm": 0,
       "op": 0,
-      "vid": null,
+      "vid": "LLv3CjKh9Qw",
       "rounds": [
         {
           "r": "R12",
