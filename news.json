@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-09T21:26:10Z",
+  "updated": "2026-08-10T21:36:20Z",
   "items": [
     {
       "type": "podcast",
@@ -197,28 +197,6 @@
       "date": "2026-07-27T22:30:25Z",
       "dateDisplay": "27 Jul 2026",
       "image": "https://i3.ytimg.com/vi/JG6Lg70UnFM/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "The boys learn about Jimothy the Raccoon 🦝🤣",
-      "url": "https://www.youtube.com/shorts/cTTHIIj37mM",
-      "description": "",
-      "date": "2026-07-26T22:41:35Z",
-      "dateDisplay": "26 Jul 2026",
-      "image": "https://i4.ytimg.com/vi/cTTHIIj37mM/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Some of these are crazy 🤣",
-      "url": "https://www.youtube.com/shorts/ZbPyVaq1JVY",
-      "description": "",
-      "date": "2026-07-26T22:40:25Z",
-      "dateDisplay": "26 Jul 2026",
-      "image": "https://i3.ytimg.com/vi/ZbPyVaq1JVY/hqdefault.jpg",
       "audio": null
     }
   ]
