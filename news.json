@@ -1,6 +1,17 @@
 {
-  "updated": "2026-08-10T21:36:20Z",
+  "updated": "2026-08-11T21:40:23Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Australia’s dodgiest tradies REVEALED 😭😭",
+      "url": "https://www.youtube.com/shorts/SjJPQv62H-E",
+      "description": "",
+      "date": "2026-08-10T22:51:18Z",
+      "dateDisplay": "10 Aug 2026",
+      "image": "https://i4.ytimg.com/vi/SjJPQv62H-E/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "podcast",
       "source": "AFL Daily",
@@ -175,28 +186,6 @@
       "date": "2026-07-28T22:30:21Z",
       "dateDisplay": "28 Jul 2026",
       "image": "https://i2.ytimg.com/vi/5P0QS81zJiw/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Tuner scene from cars is absolute cinema 🍿",
-      "url": "https://www.youtube.com/shorts/p22z4KVcM98",
-      "description": "",
-      "date": "2026-07-28T07:30:06Z",
-      "dateDisplay": "28 Jul 2026",
-      "image": "https://i1.ytimg.com/vi/p22z4KVcM98/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Another well deserved treat for Jack 🤣",
-      "url": "https://www.youtube.com/shorts/JG6Lg70UnFM",
-      "description": "",
-      "date": "2026-07-27T22:30:25Z",
-      "dateDisplay": "27 Jul 2026",
-      "image": "https://i3.ytimg.com/vi/JG6Lg70UnFM/hqdefault.jpg",
       "audio": null
     }
   ]
