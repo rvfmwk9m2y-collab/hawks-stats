@@ -1,6 +1,28 @@
 {
-  "updated": "2026-08-11T21:40:23Z",
+  "updated": "2026-08-12T21:39:42Z",
   "items": [
+    {
+      "type": "podcast",
+      "source": "Hawk Talk Podcast",
+      "title": "Round Twenty-Two, 2026 - Recap",
+      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a7c76617d85cbdf9684ffe2/media.mp3",
+      "description": "The Hawks were handed a brutal lesson in Brissie, and now a top four spot is no sure thing. In this edition of the Hawk Talk Podcast, we discuss what was a disappointing evening for the team, and also look ahead to another season-defining blockbuster under lights at the MCG. Don'…",
+      "date": "2026-08-12T13:38:58Z",
+      "dateDisplay": "12 Aug 2026",
+      "image": null,
+      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a7c76617d85cbdf9684ffe2/media.mp3"
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "3 Professional Footballers Vs 100 Kids",
+      "url": "https://www.youtube.com/watch?v=C57oGW6JxqE",
+      "description": "",
+      "date": "2026-08-12T07:59:07Z",
+      "dateDisplay": "12 Aug 2026",
+      "image": "https://i4.ytimg.com/vi/C57oGW6JxqE/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -164,28 +186,6 @@
       "date": "2026-07-29T22:30:11Z",
       "dateDisplay": "29 Jul 2026",
       "image": "https://i2.ytimg.com/vi/Y-cZ4HXON7U/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "We need everybody doing the Ollie 😂💛",
-      "url": "https://www.youtube.com/shorts/j20XxXKOR3k",
-      "description": "",
-      "date": "2026-07-29T07:30:03Z",
-      "dateDisplay": "29 Jul 2026",
-      "image": "https://i3.ytimg.com/vi/j20XxXKOR3k/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "How wholesome is this celebration 😍",
-      "url": "https://www.youtube.com/shorts/5P0QS81zJiw",
-      "description": "",
-      "date": "2026-07-28T22:30:21Z",
-      "dateDisplay": "28 Jul 2026",
-      "image": "https://i2.ytimg.com/vi/5P0QS81zJiw/hqdefault.jpg",
       "audio": null
     }
   ]
