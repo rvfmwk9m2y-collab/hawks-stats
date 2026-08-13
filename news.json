@@ -1,6 +1,28 @@
 {
-  "updated": "2026-08-12T21:39:42Z",
+  "updated": "2026-08-13T21:39:22Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Mitchell before Blockbuster Game against the Pies",
+      "url": "https://www.youtube.com/watch?v=FhATuRPBcYY",
+      "description": "",
+      "date": "2026-08-13T01:18:29Z",
+      "dateDisplay": "13 Aug 2026",
+      "image": "https://i3.ytimg.com/vi/FhATuRPBcYY/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Sometimes it’s okay to meet your heroes 💛",
+      "url": "https://www.youtube.com/shorts/5Gs4hB2fR4k",
+      "description": "",
+      "date": "2026-08-12T22:12:40Z",
+      "dateDisplay": "12 Aug 2026",
+      "image": "https://i2.ytimg.com/vi/5Gs4hB2fR4k/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "podcast",
       "source": "Hawk Talk Podcast",
@@ -164,28 +186,6 @@
       "date": "2026-08-02T23:18:52Z",
       "dateDisplay": "2 Aug 2026",
       "image": "https://i2.ytimg.com/vi/EwgkjSS72vI/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "podcast",
-      "source": "AFL Daily",
-      "title": "Cats commanding victory, the future of Clarko as Roos coach, Freo tonight by how far??",
-      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/86220a5c-9e3a-4c7a-97c3-b497015ce2c2/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
-      "description": "Damian Barrett and Joel Peterson bring you the latest footy news on AFL Daily. Geelong have put together a winning three week stretch to get their season back on track. Last night the most commanding victory over Collingwood. On the day Sam Mitchell reveals he will re-sign with t…",
-      "date": "2026-07-30T21:22:38Z",
-      "dateDisplay": "30 Jul 2026",
-      "image": null,
-      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/86220a5c-9e3a-4c7a-97c3-b497015ce2c2/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "How is he so good at this 😂",
-      "url": "https://www.youtube.com/shorts/Y-cZ4HXON7U",
-      "description": "",
-      "date": "2026-07-29T22:30:11Z",
-      "dateDisplay": "29 Jul 2026",
-      "image": "https://i2.ytimg.com/vi/Y-cZ4HXON7U/hqdefault.jpg",
       "audio": null
     }
   ]
