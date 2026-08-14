@@ -1,6 +1,28 @@
 {
-  "updated": "2026-08-13T21:39:22Z",
+  "updated": "2026-08-14T21:19:59Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "The Side of James Sicily You Don't See on TV",
+      "url": "https://www.youtube.com/watch?v=vuDECxCGdlI",
+      "description": "",
+      "date": "2026-08-14T04:44:47Z",
+      "dateDisplay": "14 Aug 2026",
+      "image": "https://i3.ytimg.com/vi/vuDECxCGdlI/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Sorry @ainemcdonagh",
+      "url": "https://www.youtube.com/shorts/WiyINpIksDQ",
+      "description": "",
+      "date": "2026-08-13T22:58:17Z",
+      "dateDisplay": "13 Aug 2026",
+      "image": "https://i4.ytimg.com/vi/WiyINpIksDQ/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
