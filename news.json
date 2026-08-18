@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-17T21:20:21Z",
+  "updated": "2026-08-18T21:18:23Z",
   "items": [
     {
       "type": "video",
@@ -153,39 +153,6 @@
       "date": "2026-08-04T22:30:11Z",
       "dateDisplay": "4 Aug 2026",
       "image": "https://i1.ytimg.com/vi/psNoJmmSTwQ/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "20 seconds is all it took 💨💨",
-      "url": "https://www.youtube.com/shorts/XwrY9uWTIZw",
-      "description": "",
-      "date": "2026-08-04T07:30:36Z",
-      "dateDisplay": "4 Aug 2026",
-      "image": "https://i1.ytimg.com/vi/XwrY9uWTIZw/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Racing Go Karts in the AFL’s Most Expensive Facility",
-      "url": "https://www.youtube.com/watch?v=AmOCOI1nhlg",
-      "description": "",
-      "date": "2026-08-04T05:07:19Z",
-      "dateDisplay": "4 Aug 2026",
-      "image": "https://i2.ytimg.com/vi/AmOCOI1nhlg/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Oh cool it’s everybody’s first day on earth",
-      "url": "https://www.youtube.com/shorts/LLv3CjKh9Qw",
-      "description": "",
-      "date": "2026-08-03T22:30:08Z",
-      "dateDisplay": "3 Aug 2026",
-      "image": "https://i1.ytimg.com/vi/LLv3CjKh9Qw/hqdefault.jpg",
       "audio": null
     }
   ]
