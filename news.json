@@ -1,6 +1,17 @@
 {
-  "updated": "2026-08-18T21:18:23Z",
+  "updated": "2026-08-19T21:20:07Z",
   "items": [
+    {
+      "type": "podcast",
+      "source": "Hawk Talk Podcast",
+      "title": "Round Twenty-Three, 2026 - Recap",
+      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a85309b39e73ea8f314deea/media.mp3",
+      "description": "Saturday night delivered a strange case of deja vu - another draw between the Hawks and Pies, and Dylan Moore with the deciding kick. The result was just enough to keep Hawthorn clinging onto a top four spot, with the end of the home and away season looming. So many talking point…",
+      "date": "2026-08-19T04:31:55Z",
+      "dateDisplay": "19 Aug 2026",
+      "image": null,
+      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a85309b39e73ea8f314deea/media.mp3"
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -109,50 +120,6 @@
       "date": "2026-08-05T23:04:54Z",
       "dateDisplay": "5 Aug 2026",
       "image": "https://i1.ytimg.com/vi/LSNA3cIZr_Q/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "First time Schuey 😅",
-      "url": "https://www.youtube.com/shorts/uDnjAM4VpGo",
-      "description": "",
-      "date": "2026-08-05T07:30:05Z",
-      "dateDisplay": "5 Aug 2026",
-      "image": "https://i2.ytimg.com/vi/uDnjAM4VpGo/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "podcast",
-      "source": "AFL Daily",
-      "title": "Tassie lands a big fish, Fri night heavyweight clash",
-      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/2e29ffc4-f20d-41e5-a79e-b49d006933ff/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
-      "description": "Nat Edwards, Riley Beveridge and Damian Barrett discuss all the latest footy news on AFL Daily. On today's episode: A top 4 spot is on the line in Brisbane vs Hawthorn Tasmania have poached development guru Nigel Lappin from the Cats Damian Barrett reflects on great mate Danny Fr…",
-      "date": "2026-08-05T06:40:40Z",
-      "dateDisplay": "5 Aug 2026",
-      "image": null,
-      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/2e29ffc4-f20d-41e5-a79e-b49d006933ff/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
-    },
-    {
-      "type": "podcast",
-      "source": "Hawk Talk Podcast",
-      "title": "Round Twenty-One, 2026 - Recap",
-      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a72b1f8bd564c65f644a9cd/media.mp3",
-      "description": "It was an uncomfortable watch as the Hawks outlasted North Melbourne in Tassie, prevailing by 16-points. The win was driven by Jai Newcombe and Jarman Impey, and another five-goal haul from the Wiz proved pretty handy too. We’re back to recap that clash and look ahead to the matc…",
-      "date": "2026-08-05T03:49:55Z",
-      "dateDisplay": "5 Aug 2026",
-      "image": null,
-      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a72b1f8bd564c65f644a9cd/media.mp3"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "We won’t be needed his services again 🫠",
-      "url": "https://www.youtube.com/shorts/psNoJmmSTwQ",
-      "description": "",
-      "date": "2026-08-04T22:30:11Z",
-      "dateDisplay": "4 Aug 2026",
-      "image": "https://i1.ytimg.com/vi/psNoJmmSTwQ/hqdefault.jpg",
       "audio": null
     }
   ]
