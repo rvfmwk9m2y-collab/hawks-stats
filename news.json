@@ -1,6 +1,17 @@
 {
-  "updated": "2026-08-19T21:20:07Z",
+  "updated": "2026-08-20T21:22:24Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "How Jack Gunston Rewrote His Final Chapter | 300th Game Podcast Special",
+      "url": "https://www.youtube.com/watch?v=JEa6Yn_dHUs",
+      "description": "",
+      "date": "2026-08-20T06:32:33Z",
+      "dateDisplay": "20 Aug 2026",
+      "image": "https://i3.ytimg.com/vi/JEa6Yn_dHUs/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "podcast",
       "source": "Hawk Talk Podcast",
@@ -99,28 +110,6 @@
       "dateDisplay": "6 Aug 2026",
       "image": null,
       "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/b22e8f3c-7095-4db0-a949-b49e01622ff6/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
-    },
-    {
-      "type": "podcast",
-      "source": "AFL Daily",
-      "title": "Hungry Hawks out to disrupt Brisbane, no MCG fears for Freo",
-      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/e8a07ba4-1b06-4afb-bf2c-b49d0063f59d/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
-      "description": "Michael Whiting, Nathan Schmook and Bharat Sundaresan bring you the latest footy news on AFL Daily. Brisbane face off against the hungry Hawks on Friday night in a must-win encounter for their top four aspirations. Fremantle head to the MCG this weekend with no fears at the groun…",
-      "date": "2026-08-06T01:55:00Z",
-      "dateDisplay": "6 Aug 2026",
-      "image": null,
-      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/e8a07ba4-1b06-4afb-bf2c-b49d0063f59d/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Find me a wall, I’ll run through it It’s 2026, and it’s OUR WAY 😤",
-      "url": "https://www.youtube.com/shorts/LSNA3cIZr_Q",
-      "description": "",
-      "date": "2026-08-05T23:04:54Z",
-      "dateDisplay": "5 Aug 2026",
-      "image": "https://i1.ytimg.com/vi/LSNA3cIZr_Q/hqdefault.jpg",
-      "audio": null
     }
   ]
 }
