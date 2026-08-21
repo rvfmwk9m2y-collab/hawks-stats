@@ -1,6 +1,17 @@
 {
-  "updated": "2026-08-20T21:22:24Z",
+  "updated": "2026-08-21T21:18:43Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Never change @jgunston19 💛",
+      "url": "https://www.youtube.com/shorts/QNtDI-8MbOQ",
+      "description": "",
+      "date": "2026-08-20T23:52:59Z",
+      "dateDisplay": "20 Aug 2026",
+      "image": "https://i2.ytimg.com/vi/QNtDI-8MbOQ/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -99,17 +110,6 @@
       "dateDisplay": "10 Aug 2026",
       "image": "https://i4.ytimg.com/vi/SjJPQv62H-E/hqdefault.jpg",
       "audio": null
-    },
-    {
-      "type": "podcast",
-      "source": "AFL Daily",
-      "title": "Roos bounce the Dogs off Thursday night, Lions v Hawks must-win encounter tonight",
-      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/b22e8f3c-7095-4db0-a949-b49e01622ff6/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
-      "description": "Damian Barrett and Joel Peterson bring you the latest footy news on AFL Daily. North Melbourne produced its biggest win since 2019 last night when they fought off the Dogs by 23 points at Marvel Stadium led by LDU, George Wardlaw and Paul Curtis. Brisbane have a must-win match to…",
-      "date": "2026-08-06T21:32:35Z",
-      "dateDisplay": "6 Aug 2026",
-      "image": null,
-      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/b22e8f3c-7095-4db0-a949-b49e01622ff6/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
     }
   ]
 }
