@@ -1,15 +1,15 @@
 {
-  "updated": "2026-08-16",
-  "round": 23,
-  "record": "14W\u20136L\u20132D",
+  "updated": "2026-08-23",
+  "round": 25,
+  "record": "15W\u20136L\u20132D",
   "position": "4th",
-  "fallbackVid": "vuDECxCGdlI",
+  "fallbackVid": "QNtDI-8MbOQ",
   "nextGame": {
-    "round": 24,
-    "opponent": "West Coast",
-    "venue": "Perth Stadium",
+    "round": 26,
+    "opponent": "Fremantle",
+    "venue": "M.C.G.",
     "home": false,
-    "kickoff": "2026-08-23T07:20:00Z"
+    "kickoff": "2026-09-05T09:20:00Z"
   },
   "fixture": [
     {
@@ -238,6 +238,16 @@
       "venue": "Perth Stadium",
       "home": false,
       "localtime": "2026-08-23 17:20:00",
+      "complete": 100,
+      "hawksSc": 107,
+      "oppSc": 45
+    },
+    {
+      "round": 26,
+      "opponent": "Fremantle",
+      "venue": "MCG",
+      "home": false,
+      "localtime": "2026-09-05 19:20:00",
       "complete": 0,
       "hawksSc": 0,
       "oppSc": 0
@@ -265,7 +275,7 @@
       "fa": 5,
       "cm": 6,
       "op": 6,
-      "vid": null,
+      "vid": "JEa6Yn_dHUs",
       "rounds": [
         {
           "r": "R1",
