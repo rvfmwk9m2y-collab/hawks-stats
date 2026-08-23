@@ -1,6 +1,17 @@
 {
-  "updated": "2026-08-22T21:16:34Z",
+  "updated": "2026-08-23T21:16:33Z",
   "items": [
+    {
+      "type": "podcast",
+      "source": "AFL Daily",
+      "title": "Melbourne the weekend's biggest loser, a Spike in the Bombers coaching process",
+      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/9ad3bbe1-b2e7-453a-95db-b4af00d30dec/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
+      "description": "Joe Pignataro and Damian Barrett discuss all the latest footy news on AFL Daily. We have got our confirmed final 10 for the 2026 AFL finals. Hawthorn will head back to Perth in a fortnight to face the Dockers, Brisbane are going to Sydney. Melbourne the biggest losers from the we…",
+      "date": "2026-08-23T12:52:04Z",
+      "dateDisplay": "23 Aug 2026",
+      "image": null,
+      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/9ad3bbe1-b2e7-453a-95db-b4af00d30dec/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
