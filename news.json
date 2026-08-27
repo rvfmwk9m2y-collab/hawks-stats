@@ -1,6 +1,50 @@
 {
-  "updated": "2026-08-25T21:21:54Z",
+  "updated": "2026-08-27T00:23:37Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "If you are personally attacked I am sorry 😭",
+      "url": "https://www.youtube.com/shorts/0zFMzJIlXZU",
+      "description": "",
+      "date": "2026-08-26T22:30:20Z",
+      "dateDisplay": "26 Aug 2026",
+      "image": "https://i1.ytimg.com/vi/0zFMzJIlXZU/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Didn’t want to pay for wifi 😭✈️",
+      "url": "https://www.youtube.com/shorts/4p1PDnOqcA0",
+      "description": "",
+      "date": "2026-08-26T08:00:28Z",
+      "dateDisplay": "26 Aug 2026",
+      "image": "https://i1.ytimg.com/vi/4p1PDnOqcA0/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "podcast",
+      "source": "Hawk Talk Podcast",
+      "title": "Round Twenty-Four, 2026 - Recap",
+      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a8e61af83ae7b3466f0f88d/media.mp3",
+      "description": "Jack Gunston celebrated his 300th game in style, booting five as the Hawks posted a 62-point victory over the Eagles. The result saw Hawthorn sew up fourth spot on the ladder, and now another big test out west awaits: a Qualifying Final against the Dockers. Meanwhile, in South Au…",
+      "date": "2026-08-26T03:51:26Z",
+      "dateDisplay": "26 Aug 2026",
+      "image": null,
+      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a8e61af83ae7b3466f0f88d/media.mp3"
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Why did they even download these 😭",
+      "url": "https://www.youtube.com/shorts/EQJLg6JwaIE",
+      "description": "",
+      "date": "2026-08-25T23:15:56Z",
+      "dateDisplay": "25 Aug 2026",
+      "image": "https://i2.ytimg.com/vi/EQJLg6JwaIE/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "podcast",
       "source": "AFL Daily",
@@ -76,39 +120,6 @@
       "date": "2026-08-13T01:18:29Z",
       "dateDisplay": "13 Aug 2026",
       "image": "https://i3.ytimg.com/vi/FhATuRPBcYY/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Sometimes it’s okay to meet your heroes 💛",
-      "url": "https://www.youtube.com/shorts/5Gs4hB2fR4k",
-      "description": "",
-      "date": "2026-08-12T22:12:40Z",
-      "dateDisplay": "12 Aug 2026",
-      "image": "https://i2.ytimg.com/vi/5Gs4hB2fR4k/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "podcast",
-      "source": "Hawk Talk Podcast",
-      "title": "Round Twenty-Two, 2026 - Recap",
-      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a7c76617d85cbdf9684ffe2/media.mp3",
-      "description": "The Hawks were handed a brutal lesson in Brissie, and now a top four spot is no sure thing. In this edition of the Hawk Talk Podcast, we discuss what was a disappointing evening for the team, and also look ahead to another season-defining blockbuster under lights at the MCG. Don'…",
-      "date": "2026-08-12T13:38:58Z",
-      "dateDisplay": "12 Aug 2026",
-      "image": null,
-      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a7c76617d85cbdf9684ffe2/media.mp3"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "3 Professional Footballers Vs 100 Kids",
-      "url": "https://www.youtube.com/watch?v=C57oGW6JxqE",
-      "description": "",
-      "date": "2026-08-12T07:59:07Z",
-      "dateDisplay": "12 Aug 2026",
-      "image": "https://i4.ytimg.com/vi/C57oGW6JxqE/hqdefault.jpg",
       "audio": null
     }
   ]
