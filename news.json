@@ -1,28 +1,6 @@
 {
-  "updated": "2026-08-27T00:23:37Z",
+  "updated": "2026-08-28T05:03:27Z",
   "items": [
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "If you are personally attacked I am sorry 😭",
-      "url": "https://www.youtube.com/shorts/0zFMzJIlXZU",
-      "description": "",
-      "date": "2026-08-26T22:30:20Z",
-      "dateDisplay": "26 Aug 2026",
-      "image": "https://i1.ytimg.com/vi/0zFMzJIlXZU/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Didn’t want to pay for wifi 😭✈️",
-      "url": "https://www.youtube.com/shorts/4p1PDnOqcA0",
-      "description": "",
-      "date": "2026-08-26T08:00:28Z",
-      "dateDisplay": "26 Aug 2026",
-      "image": "https://i1.ytimg.com/vi/4p1PDnOqcA0/hqdefault.jpg",
-      "audio": null
-    },
     {
       "type": "podcast",
       "source": "Hawk Talk Podcast",
@@ -33,17 +11,6 @@
       "dateDisplay": "26 Aug 2026",
       "image": null,
       "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a8e61af83ae7b3466f0f88d/media.mp3"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Why did they even download these 😭",
-      "url": "https://www.youtube.com/shorts/EQJLg6JwaIE",
-      "description": "",
-      "date": "2026-08-25T23:15:56Z",
-      "dateDisplay": "25 Aug 2026",
-      "image": "https://i2.ytimg.com/vi/EQJLg6JwaIE/hqdefault.jpg",
-      "audio": null
     },
     {
       "type": "podcast",
@@ -57,28 +24,6 @@
       "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/9ad3bbe1-b2e7-453a-95db-b4af00d30dec/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
     },
     {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Never change @jgunston19 💛",
-      "url": "https://www.youtube.com/shorts/QNtDI-8MbOQ",
-      "description": "",
-      "date": "2026-08-20T23:52:59Z",
-      "dateDisplay": "20 Aug 2026",
-      "image": "https://i2.ytimg.com/vi/QNtDI-8MbOQ/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "How Jack Gunston Rewrote His Final Chapter | 300th Game Podcast Special",
-      "url": "https://www.youtube.com/watch?v=JEa6Yn_dHUs",
-      "description": "",
-      "date": "2026-08-20T06:32:33Z",
-      "dateDisplay": "20 Aug 2026",
-      "image": "https://i3.ytimg.com/vi/JEa6Yn_dHUs/hqdefault.jpg",
-      "audio": null
-    },
-    {
       "type": "podcast",
       "source": "Hawk Talk Podcast",
       "title": "Round Twenty-Three, 2026 - Recap",
@@ -88,39 +33,6 @@
       "dateDisplay": "19 Aug 2026",
       "image": null,
       "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a85309b39e73ea8f314deea/media.mp3"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "The Side of James Sicily You Don't See on TV",
-      "url": "https://www.youtube.com/watch?v=vuDECxCGdlI",
-      "description": "",
-      "date": "2026-08-14T04:44:47Z",
-      "dateDisplay": "14 Aug 2026",
-      "image": "https://i3.ytimg.com/vi/vuDECxCGdlI/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Sorry @ainemcdonagh",
-      "url": "https://www.youtube.com/shorts/WiyINpIksDQ",
-      "description": "",
-      "date": "2026-08-13T22:58:17Z",
-      "dateDisplay": "13 Aug 2026",
-      "image": "https://i4.ytimg.com/vi/WiyINpIksDQ/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Mitchell before Blockbuster Game against the Pies",
-      "url": "https://www.youtube.com/watch?v=FhATuRPBcYY",
-      "description": "",
-      "date": "2026-08-13T01:18:29Z",
-      "dateDisplay": "13 Aug 2026",
-      "image": "https://i3.ytimg.com/vi/FhATuRPBcYY/hqdefault.jpg",
-      "audio": null
     }
   ]
 }
