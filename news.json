@@ -1,6 +1,28 @@
 {
-  "updated": "2026-09-02T22:56:48Z",
+  "updated": "2026-09-03T22:56:15Z",
   "items": [
+    {
+      "type": "podcast",
+      "source": "AFL Daily",
+      "title": "Wizard puts Hawks into Prelim Final heaven, next coach of North?",
+      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/324beaa0-bcdd-4af0-800c-b4ba015db8a2/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
+      "description": "Joe Pignataro and Damian Barrett discuss all the latest footy news on AFL Daily. Hawthorn threw the finals series into chaos last night dominating over Fremantle by 32 points. Headlined by the backline of the Hawks, helped out by the Wizard in the forward line. Geelong have recal…",
+      "date": "2026-09-03T21:17:51Z",
+      "dateDisplay": "3 Sep 2026",
+      "image": null,
+      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/324beaa0-bcdd-4af0-800c-b4ba015db8a2/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "So we are basically all the same 😅",
+      "url": "https://www.youtube.com/shorts/4gjMQ-1InBk",
+      "description": "",
+      "date": "2026-09-02T23:09:47Z",
+      "dateDisplay": "2 Sep 2026",
+      "image": "https://i1.ytimg.com/vi/4gjMQ-1InBk/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "podcast",
       "source": "AFL Daily",
@@ -186,17 +208,6 @@
       "date": "2026-08-20T23:52:59Z",
       "dateDisplay": "20 Aug 2026",
       "image": "https://i2.ytimg.com/vi/QNtDI-8MbOQ/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "How Jack Gunston Rewrote His Final Chapter | 300th Game Podcast Special",
-      "url": "https://www.youtube.com/watch?v=JEa6Yn_dHUs",
-      "description": "",
-      "date": "2026-08-20T06:32:33Z",
-      "dateDisplay": "20 Aug 2026",
-      "image": "https://i3.ytimg.com/vi/JEa6Yn_dHUs/hqdefault.jpg",
       "audio": null
     }
   ]
