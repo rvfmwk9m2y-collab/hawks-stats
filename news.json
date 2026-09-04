@@ -1,6 +1,39 @@
 {
-  "updated": "2026-09-03T22:56:15Z",
+  "updated": "2026-09-04T22:44:45Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Roaming Brian in the Rooms | Qualifying Final v Fremantle",
+      "url": "https://www.youtube.com/watch?v=dIu1LZPCV0A",
+      "description": "",
+      "date": "2026-09-04T06:00:38Z",
+      "dateDisplay": "4 Sep 2026",
+      "image": "https://i1.ytimg.com/vi/dIu1LZPCV0A/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Sam Mitchell Post Game against Fremantle",
+      "url": "https://www.youtube.com/watch?v=vPdBfYZExPo",
+      "description": "",
+      "date": "2026-09-04T04:27:59Z",
+      "dateDisplay": "4 Sep 2026",
+      "image": "https://i3.ytimg.com/vi/vPdBfYZExPo/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Where the wizard goes, the fans will follow 💛🤎",
+      "url": "https://www.youtube.com/shorts/-sd-0VkTU8U",
+      "description": "",
+      "date": "2026-09-04T03:23:04Z",
+      "dateDisplay": "4 Sep 2026",
+      "image": "https://i2.ytimg.com/vi/-sd-0VkTU8U/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "podcast",
       "source": "AFL Daily",
@@ -178,17 +211,6 @@
       "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a8e61af83ae7b3466f0f88d/media.mp3"
     },
     {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Why did they even download these 😭",
-      "url": "https://www.youtube.com/shorts/EQJLg6JwaIE",
-      "description": "",
-      "date": "2026-08-25T23:15:56Z",
-      "dateDisplay": "25 Aug 2026",
-      "image": "https://i2.ytimg.com/vi/EQJLg6JwaIE/hqdefault.jpg",
-      "audio": null
-    },
-    {
       "type": "podcast",
       "source": "AFL Daily",
       "title": "Melbourne the weekend's biggest loser, a Spike in the Bombers coaching process",
@@ -198,17 +220,6 @@
       "dateDisplay": "23 Aug 2026",
       "image": null,
       "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/9ad3bbe1-b2e7-453a-95db-b4af00d30dec/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Never change @jgunston19 💛",
-      "url": "https://www.youtube.com/shorts/QNtDI-8MbOQ",
-      "description": "",
-      "date": "2026-08-20T23:52:59Z",
-      "dateDisplay": "20 Aug 2026",
-      "image": "https://i2.ytimg.com/vi/QNtDI-8MbOQ/hqdefault.jpg",
-      "audio": null
     }
   ]
 }
