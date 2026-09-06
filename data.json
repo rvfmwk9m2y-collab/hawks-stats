@@ -1,15 +1,15 @@
 {
-  "updated": "2026-08-31",
-  "round": 25,
+  "updated": "2026-09-06",
+  "round": 27,
   "record": "15W\u20136L\u20132D",
   "position": "4th",
-  "fallbackVid": "GQ2tzSVNyFI",
+  "fallbackVid": "YSGdy0DtKug",
   "nextGame": {
-    "round": 26,
-    "opponent": "Fremantle",
-    "venue": "Perth Stadium",
-    "home": false,
-    "kickoff": "2026-09-03T08:10:00Z"
+    "round": 28,
+    "opponent": null,
+    "venue": "M.C.G.",
+    "home": true,
+    "kickoff": "2026-09-19T09:20:00Z"
   },
   "fixture": [
     {
@@ -248,6 +248,16 @@
       "venue": "Perth Stadium",
       "home": false,
       "localtime": "2026-09-03 18:10:00",
+      "complete": 100,
+      "hawksSc": 72,
+      "oppSc": 40
+    },
+    {
+      "round": 28,
+      "opponent": null,
+      "venue": "MCG",
+      "home": true,
+      "localtime": "2026-09-19 19:20:00",
       "complete": 0,
       "hawksSc": 0,
       "oppSc": 0
@@ -275,7 +285,7 @@
       "fa": 5,
       "cm": 6,
       "op": 6,
-      "vid": "JEa6Yn_dHUs",
+      "vid": "drjY34sWg74",
       "rounds": [
         {
           "r": "R1",
@@ -2923,7 +2933,7 @@
       "fa": 4,
       "cm": 0,
       "op": 1,
-      "vid": null,
+      "vid": "YSGdy0DtKug",
       "rounds": [
         {
           "r": "R1",
@@ -3460,7 +3470,7 @@
       "fa": 7,
       "cm": 10,
       "op": 24,
-      "vid": "vuDECxCGdlI",
+      "vid": null,
       "rounds": [
         {
           "r": "R1",
@@ -3738,7 +3748,7 @@
       "fa": 0,
       "cm": 0,
       "op": 0,
-      "vid": null,
+      "vid": "YSGdy0DtKug",
       "rounds": [
         {
           "r": "R12",
