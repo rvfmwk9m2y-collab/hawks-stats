@@ -1,6 +1,28 @@
 {
-  "updated": "2026-09-09T22:52:55Z",
+  "updated": "2026-09-10T22:54:34Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Anything under the 2000s is insane omg",
+      "url": "https://www.youtube.com/shorts/teHeqGIhpbA",
+      "description": "",
+      "date": "2026-09-10T06:00:03Z",
+      "dateDisplay": "10 Sep 2026",
+      "image": "https://i1.ytimg.com/vi/teHeqGIhpbA/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Do pen licenses still exist 🤓",
+      "url": "https://www.youtube.com/shorts/BPjpgIw2BoY",
+      "description": "",
+      "date": "2026-09-10T00:05:35Z",
+      "dateDisplay": "10 Sep 2026",
+      "image": "https://i3.ytimg.com/vi/BPjpgIw2BoY/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "podcast",
       "source": "Hawk Talk Podcast",
@@ -186,28 +208,6 @@
       "date": "2026-08-28T22:30:16Z",
       "dateDisplay": "28 Aug 2026",
       "image": "https://i3.ytimg.com/vi/fPPI-tI70IM/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Who remembers the old Melways 😅",
-      "url": "https://www.youtube.com/shorts/wEYBU3ZxCho",
-      "description": "",
-      "date": "2026-08-28T07:30:23Z",
-      "dateDisplay": "28 Aug 2026",
-      "image": "https://i4.ytimg.com/vi/wEYBU3ZxCho/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Nokia 3310 spec 😭😭",
-      "url": "https://www.youtube.com/shorts/u1qHCwhaXwI",
-      "description": "",
-      "date": "2026-08-27T22:30:18Z",
-      "dateDisplay": "27 Aug 2026",
-      "image": "https://i2.ytimg.com/vi/u1qHCwhaXwI/hqdefault.jpg",
       "audio": null
     }
   ]
