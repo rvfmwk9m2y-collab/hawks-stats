@@ -1,6 +1,28 @@
 {
-  "updated": "2026-09-13T22:48:12Z",
+  "updated": "2026-09-14T23:39:50Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "The commitment from Mikayla 🥹",
+      "url": "https://www.youtube.com/shorts/PIwO-yIqKVA",
+      "description": "",
+      "date": "2026-09-14T22:49:38Z",
+      "dateDisplay": "14 Sep 2026",
+      "image": "https://i1.ytimg.com/vi/PIwO-yIqKVA/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "The Wizard recreates his iconic round 24 mark!",
+      "url": "https://www.youtube.com/shorts/dUAFKtjFyiI",
+      "description": "",
+      "date": "2026-09-14T00:05:14Z",
+      "dateDisplay": "14 Sep 2026",
+      "image": "https://i1.ytimg.com/vi/dUAFKtjFyiI/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -153,17 +175,6 @@
       "date": "2026-09-01T23:50:30Z",
       "dateDisplay": "1 Sep 2026",
       "image": "https://i3.ytimg.com/vi/fTe9u6ZPo1o/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Hard hitting journalism out at training today 😅",
-      "url": "https://www.youtube.com/shorts/yi5n56Stmsk",
-      "description": "",
-      "date": "2026-08-31T22:30:37Z",
-      "dateDisplay": "31 Aug 2026",
-      "image": "https://i2.ytimg.com/vi/yi5n56Stmsk/hqdefault.jpg",
       "audio": null
     }
   ]
