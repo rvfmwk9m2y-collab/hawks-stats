@@ -1,6 +1,39 @@
 {
-  "updated": "2026-09-15T23:22:18Z",
+  "updated": "2026-09-16T23:29:15Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "I thought EVERYBODY looked at the Menu! 😅",
+      "url": "https://www.youtube.com/shorts/MThhiwj5LB0",
+      "description": "",
+      "date": "2026-09-16T22:11:28Z",
+      "dateDisplay": "16 Sep 2026",
+      "image": "https://i2.ytimg.com/vi/MThhiwj5LB0/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "podcast",
+      "source": "Hawk Talk Podcast",
+      "title": "Preliminary Final Preview (2026)",
+      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6aa9edc279ba7f1eccf84689/media.mp3",
+      "description": "Plenty tackled in this Prelim Final Preview edition of the Hawk Talk Podcast! We celebrate Box Hill's big win over Essendon, the side booking their spot in the VFL Grand Final. Plus, our AFLW Hawks produced their first win at our Dingley HQ, the KCC. And of course the countdown i…",
+      "date": "2026-09-16T01:20:32Z",
+      "dateDisplay": "16 Sep 2026",
+      "image": null,
+      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6aa9edc279ba7f1eccf84689/media.mp3"
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Training but it’s AVCHD 🎥",
+      "url": "https://www.youtube.com/shorts/Rvl_2KFmkEw",
+      "description": "",
+      "date": "2026-09-15T23:23:02Z",
+      "dateDisplay": "15 Sep 2026",
+      "image": "https://i3.ytimg.com/vi/Rvl_2KFmkEw/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -132,50 +165,6 @@
       "dateDisplay": "3 Sep 2026",
       "image": null,
       "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/324beaa0-bcdd-4af0-800c-b4ba015db8a2/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "So we are basically all the same 😅",
-      "url": "https://www.youtube.com/shorts/4gjMQ-1InBk",
-      "description": "",
-      "date": "2026-09-02T23:09:47Z",
-      "dateDisplay": "2 Sep 2026",
-      "image": "https://i1.ytimg.com/vi/4gjMQ-1InBk/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "podcast",
-      "source": "AFL Daily",
-      "title": "Wharfie Time set for tonight, Brisbane not taking Sydney lightly, Adelaide's must-win final",
-      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/e7cfce4e-ecf4-4ea7-8e89-b4b900695475/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
-      "description": "Michael Whiting, Emily Patterson and Nathan Schmook discuss all the latest footy news on AFL Daily. The Dockers have been waiting for this night for over a month, Wharfie Time is set to ignite the Optus Stadium crowd against the Hawks with a Preliminary Final spot on the line. Br…",
-      "date": "2026-09-02T21:25:00Z",
-      "dateDisplay": "2 Sep 2026",
-      "image": null,
-      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/e7cfce4e-ecf4-4ea7-8e89-b4b900695475/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
-    },
-    {
-      "type": "podcast",
-      "source": "Hawk Talk Podcast",
-      "title": "Qualifying Final Preview (2026)",
-      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a979b371d1d1a8a9d74a4c7/media.mp3",
-      "description": "The first ever Wildcard Round is in the books, and now we’re getting to the good stuff. Finals footy is officialy here, and it’s time to preview the big Thursday night blockbuster between the Hawks and the Dockers - two teams duking it out for an express pass to the prelims! In t…",
-      "date": "2026-09-02T03:47:01Z",
-      "dateDisplay": "2 Sep 2026",
-      "image": null,
-      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6a979b371d1d1a8a9d74a4c7/media.mp3"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Whitney Houston would be proud 😅",
-      "url": "https://www.youtube.com/shorts/fTe9u6ZPo1o",
-      "description": "",
-      "date": "2026-09-01T23:50:30Z",
-      "dateDisplay": "1 Sep 2026",
-      "image": "https://i3.ytimg.com/vi/fTe9u6ZPo1o/hqdefault.jpg",
-      "audio": null
     }
   ]
 }
