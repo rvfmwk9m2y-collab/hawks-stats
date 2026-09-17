@@ -1,6 +1,28 @@
 {
-  "updated": "2026-09-16T23:29:15Z",
+  "updated": "2026-09-17T23:20:19Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Dylan Moore Finally Answers YOUR Questions",
+      "url": "https://www.youtube.com/watch?v=G9wwEohmdm8",
+      "description": "",
+      "date": "2026-09-17T21:48:16Z",
+      "dateDisplay": "17 Sep 2026",
+      "image": "https://i4.ytimg.com/vi/G9wwEohmdm8/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "podcast",
+      "source": "AFL Daily",
+      "title": "Buckle up for the best weekend in footy, Geelong's GIANT coup",
+      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/8f0152b5-7854-46c1-b1ee-b4c8009d76e5/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
+      "description": "Joel Peterson and Damian Barrett discuss all the latest footy news on AFL Daily. All roads lead to the SCG tonight as the Swans and Dockers battle it out for a spot in the Grand Final. Tomorrow it'll be the Hawks and Brisbane from the MCG. Toby Greene has made up his mind on wher…",
+      "date": "2026-09-17T21:25:00Z",
+      "dateDisplay": "17 Sep 2026",
+      "image": null,
+      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/8f0152b5-7854-46c1-b1ee-b4c8009d76e5/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -154,17 +176,6 @@
       "dateDisplay": "4 Sep 2026",
       "image": "https://i2.ytimg.com/vi/-sd-0VkTU8U/hqdefault.jpg",
       "audio": null
-    },
-    {
-      "type": "podcast",
-      "source": "AFL Daily",
-      "title": "Wizard puts Hawks into Prelim Final heaven, next coach of North?",
-      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/324beaa0-bcdd-4af0-800c-b4ba015db8a2/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
-      "description": "Joe Pignataro and Damian Barrett discuss all the latest footy news on AFL Daily. Hawthorn threw the finals series into chaos last night dominating over Fremantle by 32 points. Headlined by the backline of the Hawks, helped out by the Wizard in the forward line. Geelong have recal…",
-      "date": "2026-09-03T21:17:51Z",
-      "dateDisplay": "3 Sep 2026",
-      "image": null,
-      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/324beaa0-bcdd-4af0-800c-b4ba015db8a2/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
     }
   ]
 }
