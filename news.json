@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-17T23:20:19Z",
+  "updated": "2026-09-18T22:58:11Z",
   "items": [
     {
       "type": "video",
@@ -142,39 +142,6 @@
       "date": "2026-09-06T22:28:42Z",
       "dateDisplay": "6 Sep 2026",
       "image": "https://i2.ytimg.com/vi/YSGdy0DtKug/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Roaming Brian in the Rooms | Qualifying Final v Fremantle",
-      "url": "https://www.youtube.com/watch?v=dIu1LZPCV0A",
-      "description": "",
-      "date": "2026-09-04T06:00:38Z",
-      "dateDisplay": "4 Sep 2026",
-      "image": "https://i1.ytimg.com/vi/dIu1LZPCV0A/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Sam Mitchell Post Game against Fremantle",
-      "url": "https://www.youtube.com/watch?v=vPdBfYZExPo",
-      "description": "",
-      "date": "2026-09-04T04:27:59Z",
-      "dateDisplay": "4 Sep 2026",
-      "image": "https://i3.ytimg.com/vi/vPdBfYZExPo/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Where the wizard goes, the fans will follow 💛🤎",
-      "url": "https://www.youtube.com/shorts/-sd-0VkTU8U",
-      "description": "",
-      "date": "2026-09-04T03:23:04Z",
-      "dateDisplay": "4 Sep 2026",
-      "image": "https://i2.ytimg.com/vi/-sd-0VkTU8U/hqdefault.jpg",
       "audio": null
     }
   ]
