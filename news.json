@@ -1,6 +1,17 @@
 {
-  "updated": "2026-09-19T22:37:26Z",
+  "updated": "2026-09-20T22:54:16Z",
   "items": [
+    {
+      "type": "podcast",
+      "source": "AFL Daily",
+      "title": "The greatest Prelim ever played, Neale's nervous wait, Nick's Brownlow night",
+      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/55a976ae-dc41-46d7-9516-b4cb0099da51/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
+      "description": "Joe Pignataro and Damian Barrett discuss all the latest footy news on AFL Daily. Hawthorn and Brisbane battled out a preliminary final epic on Saturday Twilight with the Lions finding a way through to their fourth straight Grand Final. Fremantle had to come from 28 points down wi…",
+      "date": "2026-09-20T09:21:44Z",
+      "dateDisplay": "20 Sep 2026",
+      "image": null,
+      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/55a976ae-dc41-46d7-9516-b4cb0099da51/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -131,17 +142,6 @@
       "date": "2026-09-08T06:00:21Z",
       "dateDisplay": "8 Sep 2026",
       "image": "https://i2.ytimg.com/vi/IvTZnzAq7Qw/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Harry and Morrison face off for Father’s Day 😳",
-      "url": "https://www.youtube.com/shorts/YSGdy0DtKug",
-      "description": "",
-      "date": "2026-09-06T22:28:42Z",
-      "dateDisplay": "6 Sep 2026",
-      "image": "https://i2.ytimg.com/vi/YSGdy0DtKug/hqdefault.jpg",
       "audio": null
     }
   ]
