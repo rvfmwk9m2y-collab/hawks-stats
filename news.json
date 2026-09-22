@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-21T23:47:02Z",
+  "updated": "2026-09-22T23:26:15Z",
   "items": [
     {
       "type": "podcast",
@@ -132,28 +132,6 @@
       "dateDisplay": "9 Sep 2026",
       "image": null,
       "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6aa0df0f3dd40cf71e783a35/media.mp3"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Nah you can’t be doing that",
-      "url": "https://www.youtube.com/shorts/2TYJKyLM6N8",
-      "description": "",
-      "date": "2026-09-08T22:35:01Z",
-      "dateDisplay": "8 Sep 2026",
-      "image": "https://i3.ytimg.com/vi/2TYJKyLM6N8/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "What do AFL Players do on Media Day?",
-      "url": "https://www.youtube.com/watch?v=IvTZnzAq7Qw",
-      "description": "",
-      "date": "2026-09-08T06:00:21Z",
-      "dateDisplay": "8 Sep 2026",
-      "image": "https://i2.ytimg.com/vi/IvTZnzAq7Qw/hqdefault.jpg",
-      "audio": null
     }
   ]
 }
