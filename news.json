@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-23T23:24:22Z",
+  "updated": "2026-09-24T23:43:16Z",
   "items": [
     {
       "type": "podcast",
@@ -109,28 +109,6 @@
       "date": "2026-09-14T00:05:14Z",
       "dateDisplay": "14 Sep 2026",
       "image": "https://i1.ytimg.com/vi/dUAFKtjFyiI/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Anything under the 2000s is insane omg",
-      "url": "https://www.youtube.com/shorts/teHeqGIhpbA",
-      "description": "",
-      "date": "2026-09-10T06:00:03Z",
-      "dateDisplay": "10 Sep 2026",
-      "image": "https://i1.ytimg.com/vi/teHeqGIhpbA/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Do pen licenses still exist 🤓",
-      "url": "https://www.youtube.com/shorts/BPjpgIw2BoY",
-      "description": "",
-      "date": "2026-09-10T00:05:35Z",
-      "dateDisplay": "10 Sep 2026",
-      "image": "https://i3.ytimg.com/vi/BPjpgIw2BoY/hqdefault.jpg",
       "audio": null
     }
   ]
