@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-27T23:33:35Z",
+  "updated": "2026-09-29T00:47:19Z",
   "items": [
     {
       "type": "podcast",
@@ -87,28 +87,6 @@
       "date": "2026-09-15T23:23:02Z",
       "dateDisplay": "15 Sep 2026",
       "image": "https://i3.ytimg.com/vi/Rvl_2KFmkEw/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "The commitment from Mikayla 🥹",
-      "url": "https://www.youtube.com/shorts/PIwO-yIqKVA",
-      "description": "",
-      "date": "2026-09-14T22:49:38Z",
-      "dateDisplay": "14 Sep 2026",
-      "image": "https://i1.ytimg.com/vi/PIwO-yIqKVA/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "The Wizard recreates his iconic round 24 mark!",
-      "url": "https://www.youtube.com/shorts/dUAFKtjFyiI",
-      "description": "",
-      "date": "2026-09-14T00:05:14Z",
-      "dateDisplay": "14 Sep 2026",
-      "image": "https://i1.ytimg.com/vi/dUAFKtjFyiI/hqdefault.jpg",
       "audio": null
     }
   ]
