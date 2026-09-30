@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-29T00:47:19Z",
+  "updated": "2026-09-30T00:02:04Z",
   "items": [
     {
       "type": "podcast",
@@ -77,17 +77,6 @@
       "dateDisplay": "16 Sep 2026",
       "image": null,
       "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6aa9edc279ba7f1eccf84689/media.mp3"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Training but it’s AVCHD 🎥",
-      "url": "https://www.youtube.com/shorts/Rvl_2KFmkEw",
-      "description": "",
-      "date": "2026-09-15T23:23:02Z",
-      "dateDisplay": "15 Sep 2026",
-      "image": "https://i3.ytimg.com/vi/Rvl_2KFmkEw/hqdefault.jpg",
-      "audio": null
     }
   ]
 }
