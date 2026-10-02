@@ -1,6 +1,17 @@
 {
-  "updated": "2026-10-01T00:19:12Z",
+  "updated": "2026-10-02T00:27:35Z",
   "items": [
+    {
+      "type": "podcast",
+      "source": "AFL Daily",
+      "title": "A truly sorry Isaac Heeney, King Fages bows out, Groundhog day for Hawthorn & Essendon",
+      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/737b4c87-2316-4f51-bbaf-b4d60157e434/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
+      "description": "Damian Barrett and Joe Pignataro bring you the latest footy news on AFL Daily. Isaac Heeney has claimed his third straight Bob Skilton Medal last night. A remorseful Heeney wasn't in the room to claim his award. Chris Fagan goes out on top having won the past three premierships, …",
+      "date": "2026-10-01T20:54:23Z",
+      "dateDisplay": "1 Oct 2026",
+      "image": null,
+      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/737b4c87-2316-4f51-bbaf-b4d60157e434/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
+    },
     {
       "type": "podcast",
       "source": "Hawk Talk Podcast",
@@ -44,28 +55,6 @@
       "dateDisplay": "20 Sep 2026",
       "image": null,
       "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/55a976ae-dc41-46d7-9516-b4cb0099da51/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Dylan Moore Finally Answers YOUR Questions",
-      "url": "https://www.youtube.com/watch?v=G9wwEohmdm8",
-      "description": "",
-      "date": "2026-09-17T21:48:16Z",
-      "dateDisplay": "17 Sep 2026",
-      "image": "https://i4.ytimg.com/vi/G9wwEohmdm8/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "podcast",
-      "source": "AFL Daily",
-      "title": "Buckle up for the best weekend in footy, Geelong's GIANT coup",
-      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/8f0152b5-7854-46c1-b1ee-b4c8009d76e5/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
-      "description": "Joel Peterson and Damian Barrett discuss all the latest footy news on AFL Daily. All roads lead to the SCG tonight as the Swans and Dockers battle it out for a spot in the Grand Final. Tomorrow it'll be the Hawks and Brisbane from the MCG. Toby Greene has made up his mind on wher…",
-      "date": "2026-09-17T21:25:00Z",
-      "dateDisplay": "17 Sep 2026",
-      "image": null,
-      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/8f0152b5-7854-46c1-b1ee-b4c8009d76e5/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
     }
   ]
 }
