@@ -1,6 +1,17 @@
 {
-  "updated": "2026-10-07T00:19:17Z",
+  "updated": "2026-10-08T00:40:26Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Joey From Dan Does Footy Gatecrashes Our Best and Fairest",
+      "url": "https://www.youtube.com/watch?v=_-Fl-IvYOM0",
+      "description": "",
+      "date": "2026-10-07T03:48:10Z",
+      "dateDisplay": "7 Oct 2026",
+      "image": "https://i4.ytimg.com/vi/_-Fl-IvYOM0/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "podcast",
       "source": "AFL Daily",
@@ -33,17 +44,6 @@
       "dateDisplay": "30 Sep 2026",
       "image": null,
       "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6abcb1b529a486156a4bda13/media.mp3"
-    },
-    {
-      "type": "podcast",
-      "source": "Hawk Talk Podcast",
-      "title": "Preliminary Final Recap (2026)",
-      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6ab38fda68ec5641e26e6327/media.mp3",
-      "description": "What a wild few days of dizzying, euphoric highs, and horrible, heart-breaking lows. It was a jam-packed weekend, and this edition of the Hawk Talk Podcast covers the lot, including an exhilarating AFL Preliminary Final, Box Hill s stunning VFL premiership triumph, and our AFLW H…",
-      "date": "2026-09-23T08:42:25Z",
-      "dateDisplay": "23 Sep 2026",
-      "image": null,
-      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6ab38fda68ec5641e26e6327/media.mp3"
     }
   ]
 }
