@@ -1,6 +1,17 @@
 {
-  "updated": "2026-10-08T00:40:26Z",
+  "updated": "2026-10-09T00:56:04Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Zach Merrett's First Day as a Hawk",
+      "url": "https://www.youtube.com/watch?v=E0xLp-AzxhM",
+      "description": "",
+      "date": "2026-10-08T02:29:59Z",
+      "dateDisplay": "8 Oct 2026",
+      "image": "https://i2.ytimg.com/vi/E0xLp-AzxhM/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
