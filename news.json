@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-14T00:04:36Z",
+  "updated": "2026-10-14T23:36:26Z",
   "items": [
     {
       "type": "podcast",
@@ -22,17 +22,6 @@
       "dateDisplay": "1 Oct 2026",
       "image": null,
       "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/737b4c87-2316-4f51-bbaf-b4d60157e434/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
-    },
-    {
-      "type": "podcast",
-      "source": "Hawk Talk Podcast",
-      "title": "2026 Season Recap",
-      "url": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6abcb1b529a486156a4bda13/media.mp3",
-      "description": "Well Hawkers, here we are at the end of another season, and the end of an era for the Hawk Talk Podcast. But there’s time just enough to take a look back at the wild ride that was 2026, tackle some of your burning questions, and take a look at what lies ahead for the Hawthorn Foo…",
-      "date": "2026-09-30T06:56:56Z",
-      "dateDisplay": "30 Sep 2026",
-      "image": null,
-      "audio": "https://sphinx.acast.com/p/open/s/61f4d262b5ab510012ce59c5/e/6abcb1b529a486156a4bda13/media.mp3"
     }
   ]
 }
