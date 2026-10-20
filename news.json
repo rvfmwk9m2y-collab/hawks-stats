@@ -1,6 +1,17 @@
 {
-  "updated": "2026-10-20T00:04:13Z",
+  "updated": "2026-10-20T23:35:19Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Parents look away!! 🫪",
+      "url": "https://www.youtube.com/shorts/yEZ9WfETRyM",
+      "description": "",
+      "date": "2026-10-20T21:22:16Z",
+      "dateDisplay": "20 Oct 2026",
+      "image": "https://i2.ytimg.com/vi/yEZ9WfETRyM/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -88,17 +99,6 @@
       "dateDisplay": "7 Oct 2026",
       "image": "https://i4.ytimg.com/vi/_-Fl-IvYOM0/hqdefault.jpg",
       "audio": null
-    },
-    {
-      "type": "podcast",
-      "source": "AFL Daily",
-      "title": "Norfie-Time under Jaymie Graham, Hawks refuse to stand still, Miers the perfect fit for West Coast",
-      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/8788a85d-da29-4bd0-90e9-b4db008974e8/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
-      "description": "Nathan Schmook and Damian Barrett bring you the latest footy news on AFL Daily. The Kangaroos earmarked Jaymie Graham from the outset as the man they wanted to replace Alastair Clarkson and yesterday they made that official. Hawthorn has had a big 48 hours at the trade table, sec…",
-      "date": "2026-10-06T20:25:00Z",
-      "dateDisplay": "6 Oct 2026",
-      "image": null,
-      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/8788a85d-da29-4bd0-90e9-b4db008974e8/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
     }
   ]
 }
