@@ -1,6 +1,17 @@
 {
-  "updated": "2026-10-20T23:35:19Z",
+  "updated": "2026-10-21T23:52:24Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "What you Didn't See From our Trip to Cairns",
+      "url": "https://www.youtube.com/watch?v=_kb_JOR4uIQ",
+      "description": "",
+      "date": "2026-10-21T05:30:25Z",
+      "dateDisplay": "21 Oct 2026",
+      "image": "https://i4.ytimg.com/vi/_kb_JOR4uIQ/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
@@ -87,17 +98,6 @@
       "date": "2026-10-08T02:29:59Z",
       "dateDisplay": "8 Oct 2026",
       "image": "https://i2.ytimg.com/vi/E0xLp-AzxhM/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Joey From Dan Does Footy Gatecrashes Our Best and Fairest",
-      "url": "https://www.youtube.com/watch?v=_-Fl-IvYOM0",
-      "description": "",
-      "date": "2026-10-07T03:48:10Z",
-      "dateDisplay": "7 Oct 2026",
-      "image": "https://i4.ytimg.com/vi/_-Fl-IvYOM0/hqdefault.jpg",
       "audio": null
     }
   ]
