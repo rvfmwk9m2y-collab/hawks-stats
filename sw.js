@@ -2,7 +2,7 @@
    CACHE_VERSION is updated automatically by scraper.py on every run.
    Changing it forces iOS to clear the old cache and reload fresh. */
 
-const CACHE_VERSION = 'hawks-20261018';
+const CACHE_VERSION = 'hawks-20261025';
 const CACHE_NAME    = CACHE_VERSION;
 
 // Files to cache for offline use
