@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-24T22:49:37Z",
+  "updated": "2026-10-25T22:59:25Z",
   "items": [
     {
       "type": "video",
@@ -76,17 +76,6 @@
       "date": "2026-10-12T05:00:05Z",
       "dateDisplay": "12 Oct 2026",
       "image": "https://i3.ytimg.com/vi/v65GIP3MgFY/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "A message from Ben King to you Hawks fans 💪",
-      "url": "https://www.youtube.com/shorts/uki7v503iIg",
-      "description": "",
-      "date": "2026-10-11T22:54:19Z",
-      "dateDisplay": "11 Oct 2026",
-      "image": "https://i2.ytimg.com/vi/uki7v503iIg/hqdefault.jpg",
       "audio": null
     }
   ]
