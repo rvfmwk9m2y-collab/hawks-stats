@@ -1,27 +1,16 @@
 {
-  "updated": "2026-11-13T01:37:40Z",
+  "updated": "2026-11-14T01:12:18Z",
   "items": [
     {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Wait these are really good 😅",
-      "url": "https://www.youtube.com/shorts/JX-4Z_6P3Cs",
-      "description": "",
-      "date": "2026-11-10T21:00:46Z",
-      "dateDisplay": "10 Nov 2026",
-      "image": "https://i3.ytimg.com/vi/JX-4Z_6P3Cs/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "Which side are you on 🎄",
-      "url": "https://www.youtube.com/shorts/_vpqKYYZkRs",
-      "description": "",
-      "date": "2026-11-03T20:59:42Z",
-      "dateDisplay": "3 Nov 2026",
-      "image": "https://i4.ytimg.com/vi/_vpqKYYZkRs/hqdefault.jpg",
-      "audio": null
+      "type": "podcast",
+      "source": "AFL Daily",
+      "title": "How do the Hawks respond from their heartbreaking Prelim Final loss?",
+      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/df314a20-c389-4774-978a-b4fe002ba02e/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
+      "description": "Nat Edwards and Damian Barrett bring you the latest footy news on AFL Daily. Hawthorn did everything right except for reach the Grand Final after losing the Prelim to Brisbane in heartbreaking fashion. How do they respond over summer, with the inclusions of Ben King and Zach Merr…",
+      "date": "2026-11-13T20:25:00Z",
+      "dateDisplay": "13 Nov 2026",
+      "image": null,
+      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/df314a20-c389-4774-978a-b4fe002ba02e/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
     }
   ]
 }
