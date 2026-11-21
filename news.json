@@ -1,6 +1,39 @@
 {
-  "updated": "2026-11-20T01:59:10Z",
+  "updated": "2026-11-21T01:56:28Z",
   "items": [
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Welcome to Hawthorn - Keenan Boi",
+      "url": "https://www.youtube.com/watch?v=rBW1WoMUhLk",
+      "description": "",
+      "date": "2026-11-20T11:24:52Z",
+      "dateDisplay": "20 Nov 2026",
+      "image": "https://i3.ytimg.com/vi/rBW1WoMUhLk/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Cooper Hodge is Brown & Gold",
+      "url": "https://www.youtube.com/watch?v=QH-DIGDDOeo",
+      "description": "",
+      "date": "2026-11-20T10:50:45Z",
+      "dateDisplay": "20 Nov 2026",
+      "image": "https://i2.ytimg.com/vi/QH-DIGDDOeo/hqdefault.jpg",
+      "audio": null
+    },
+    {
+      "type": "video",
+      "source": "Hawthorn FC",
+      "title": "Welcome to Hawthorn - Benji Van Rooyen",
+      "url": "https://www.youtube.com/watch?v=799jeE9A4PM",
+      "description": "",
+      "date": "2026-11-20T10:23:43Z",
+      "dateDisplay": "20 Nov 2026",
+      "image": "https://i4.ytimg.com/vi/799jeE9A4PM/hqdefault.jpg",
+      "audio": null
+    },
     {
       "type": "video",
       "source": "Hawthorn FC",
