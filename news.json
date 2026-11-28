@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-27T03:26:41Z",
+  "updated": "2026-11-28T03:01:42Z",
   "items": [
     {
       "type": "video",
@@ -26,7 +26,7 @@
     {
       "type": "video",
       "source": "Hawthorn FC",
-      "title": "A New Look Hawthorn Back at Training",
+      "title": "Inside Hawthorn's First Day of Pre Season",
       "url": "https://www.youtube.com/watch?v=LJkWC6xWuco",
       "description": "",
       "date": "2026-11-24T06:33:34Z",
@@ -88,28 +88,6 @@
       "dateDisplay": "20 Nov 2026",
       "image": "https://i4.ytimg.com/vi/799jeE9A4PM/hqdefault.jpg",
       "audio": null
-    },
-    {
-      "type": "video",
-      "source": "Hawthorn FC",
-      "title": "So many options but some went the most basic 😭",
-      "url": "https://www.youtube.com/shorts/1_QDq3m3TWs",
-      "description": "",
-      "date": "2026-11-14T01:01:10Z",
-      "dateDisplay": "14 Nov 2026",
-      "image": "https://i2.ytimg.com/vi/1_QDq3m3TWs/hqdefault.jpg",
-      "audio": null
-    },
-    {
-      "type": "podcast",
-      "source": "AFL Daily",
-      "title": "How do the Hawks respond from their heartbreaking Prelim Final loss?",
-      "url": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/df314a20-c389-4774-978a-b4fe002ba02e/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925",
-      "description": "Nat Edwards and Damian Barrett bring you the latest footy news on AFL Daily. Hawthorn did everything right except for reach the Grand Final after losing the Prelim to Brisbane in heartbreaking fashion. How do they respond over summer, with the inclusions of Ben King and Zach Merr…",
-      "date": "2026-11-13T20:25:00Z",
-      "dateDisplay": "13 Nov 2026",
-      "image": null,
-      "audio": "https://traffic.omny.fm/d/clips/8ae80818-a88e-475b-9776-ad05005c36ff/8c30cfe4-8785-4fb1-8b38-ad570072390d/df314a20-c389-4774-978a-b4fe002ba02e/audio.mp3?utm_source=Podcast&amp;in_playlist=487a8045-ed6a-43af-816d-ad5700723925"
     }
   ]
 }
